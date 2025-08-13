@@ -8,7 +8,27 @@
       "image": "/images/projects/01.jpeg",
       "tags": ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Stripe"],
       "link": "https://example.com/ecommerce",
-      "featured": true
+      "featured": true,
+      "overview": "Headless E‑Commerce mit skalierbarer Architektur, optimiert für Performance und Conversion.",
+      "techStack": ["Next.js 15", "React 19", "TypeScript", "Prisma", "PostgreSQL", "Stripe", "Vercel"],
+      "features": [
+        "Echtzeit-Inventar & Reservierungen",
+        "Dynamisches Pricing & Promotions",
+        "Checkout mit Stripe & Webhooks",
+        "ISR + Edge Caching",
+        "Admin-Dashboard mit Rollen"
+      ],
+      "challenges": [
+        "Konsistenz bei parallelen Warenkorb-Updates",
+        "Schnelle Bild- und Datenlieferung bei hoher Last"
+      ],
+      "metrics": [
+        { "label": "Core Web Vitals", "value": ">95" },
+        { "label": "Conversion", "value": "+18%" }
+      ],
+      "meta": { "role": "Full‑Stack", "duration": "4 Monate", "year": "2025", "teamSize": "3" },
+      "gallery": ["/images/projects/01.jpeg", "/images/project2.jpg"],
+      "links": { "live": "https://example.com/ecommerce", "repo": "#", "docs": "#" }
     },
     {
       "title": "KI-Gestützte Datenanalyse",
@@ -16,7 +36,11 @@
       "image": "/images/projects/02.jpeg",
       "tags": ["Python", "TensorFlow", "React", "D3.js", "FastAPI"],
       "link": "https://example.com/data-analytics",
-      "featured": true
+      "featured": true,
+      "overview": "Self‑Service Analytics mit ML‑Pipelines und interaktiven Visualisierungen.",
+      "techStack": ["React", "D3.js", "FastAPI", "TensorFlow", "PostgreSQL"],
+      "features": ["Notebook-ähnliche Analysen", "Drill‑Down Dashboards", "Modell-Training im Browser"],
+      "metrics": [{ "label": "Dataset", "value": ">200 Mio. Zeilen" }]
     },
     {
       "title": "Smart City Dashboard",
@@ -24,7 +48,10 @@
       "image": "/images/projects/03.jpeg",
       "tags": ["React", "Node.js", "MongoDB", "WebSocket", "Docker"],
       "link": "https://example.com/smart-city",
-      "featured": true
+      "featured": true,
+      "overview": "Stadtweite Telemetrie mit Live‑Karten, Alarmierung und Wartungsplanung.",
+      "techStack": ["React", "Node.js", "WebSocket", "MongoDB", "Docker"],
+      "features": ["Live-Karten & Heatmaps", "Benachrichtigungen", "Rollen & Rechte"]
     },
     {
       "title": "Mobile Banking App",
@@ -32,7 +59,21 @@
       "image": "/images/projects/04.jpeg",
       "tags": ["React Native", "Firebase", "TypeScript", "Redux", "Biometrics"],
       "link": "https://example.com/banking-app",
-      "featured": false
+      "featured": false,
+      "overview": "Mobile Banking mit Offline‑Fähigkeit und biometrischer Sicherheit.",
+      "techStack": ["React Native", "Firebase", "TypeScript"],
+      "features": ["Face/Touch-ID", "Push-Notifications"]
+    },
+
+    {
+      "title": "some other project",
+      "description": "Eine sichere und benutzerfreundliche Banking-App mit biometrischer Authentifizierung und Echtzeitbenachrichtigungen.",
+      "image": "/images/projects/04.jpeg",
+      "tags": ["React Native", "Firebase", "TypeScript", "Redux", "Biometrics"],
+      "link": "https://example.com/banking-app",
+  "featured": false,
+  "techStack": ["Next.js", "Tailwind"],
+  "features": ["Feature A", "Feature B", "Feature C"]
     }
   ]
 }

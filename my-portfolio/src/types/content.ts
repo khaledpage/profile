@@ -5,6 +5,23 @@ export interface Project {
   tags: string[];
   link: string;
   featured?: boolean;
+  overview?: string;
+  techStack?: string[];
+  features?: string[];
+  challenges?: string[];
+  metrics?: { label: string; value: string }[];
+  meta?: {
+    role?: string;
+    duration?: string;
+    year?: string;
+    teamSize?: string;
+  };
+  gallery?: string[];
+  links?: {
+    live?: string;
+    repo?: string;
+    docs?: string;
+  };
 }
 
 export interface FormField {
