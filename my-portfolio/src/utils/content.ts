@@ -1,46 +1,38 @@
 import fs from 'fs';
 import path from 'path';
-import matter from 'gray-matter';
-import MarkdownIt from 'markdown-it';
-import { SiteContent } from '@/types/content';
-
-const md = new MarkdownIt({
-  html: true,
-  linkify: true,
-  typographer: true,
-});
+import { SiteContent, HeroContent, ProjectsContent, ContactContent } from '@/types/content';
 
 const contentDirectory = path.join(process.cwd(), 'src/content');
 
 export async function getContentData(filename: string) {
-  const fullPath = path.join(contentDirectory, `${filename}.md`);
+  const fullPath = path.join(contentDirectory, `${filename}.json`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
-  const { data, content } = matter(fileContents);
+  
+  return JSON.parse(fileContents);
+}
 
-  let parsedContent;
-  try {
-    // Versuche den Content als JSON zu parsen, falls es sich um strukturierte Daten handelt
-    parsedContent = JSON.parse(content.trim());
-  } catch {
-    // Wenn es kein JSON ist, parse es als Markdown
-    parsedContent = md.render(content);
-  }
+export async function getHeroContent(): Promise<HeroContent> {
+  return getContentData('hero');
+}
 
-  return {
-    ...data,
-    content: parsedContent,
-  };
+export async function getProjectsContent(): Promise<ProjectsContent> {
+  return getContentData('projects');
+}
+
+export async function getContactContent(): Promise<ContactContent> {
+  return getContentData('contact');
 }
 
 export async function getAllContent(): Promise<SiteContent> {
-  const files = fs.readdirSync(contentDirectory);
-  const content = {} as SiteContent;
+  const [hero, projects, contact] = await Promise.all([
+    getHeroContent(),
+    getProjectsContent(),
+    getContactContent(),
+  ]);
 
-  for (const file of files) {
-    const name = file.replace(/\.md$/, '') as keyof SiteContent;
-    const data = await getContentData(name);
-    content[name] = data as SiteContent[keyof SiteContent];
-  }
-
-  return content;
+  return {
+    hero,
+    projects,
+    contact,
+  };
 }

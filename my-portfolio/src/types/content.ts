@@ -32,19 +32,17 @@ export interface HeroContent {
 export interface ProjectsContent {
   title: string;
   subtitle: string;
-  content: Project[];
+  projects: Project[];
 }
 
 export interface ContactContent {
   title: string;
   subtitle: string;
   description: string;
-  content: {
-    formFields: FormField[];
-    submitButton: {
-      text: string;
-      color: string;
-    };
+  formFields: FormField[];
+  submitButton: {
+    text: string;
+    color: string;
   };
 }
 

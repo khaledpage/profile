@@ -23,6 +23,17 @@ export default async function Home() {
           secondaryButton={hero.secondaryButton}
         />
         
+        {/* Additional Hero Content */}
+        <section className="py-20 bg-white">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-4xl mx-auto text-center">
+              <p className="text-lg text-gray-700 leading-relaxed">
+                {hero.content}
+              </p>
+            </div>
+          </div>
+        </section>
+        
         <section id="projects" className="py-20 bg-gray-50">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">
@@ -30,7 +41,7 @@ export default async function Home() {
             </h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {projects.content.map((project: Project) => (
+              {projects.projects.map((project: Project) => (
                 <ProjectCard key={project.title} {...project} />
               ))}
             </div>
@@ -48,7 +59,7 @@ export default async function Home() {
             
             <div className="max-w-lg mx-auto">
               <form className="space-y-6">
-                {contact.content.formFields.map((field: FormField) => (
+                {contact.formFields.map((field: FormField) => (
                   <div key={field.id}>
                     <label htmlFor={field.id} className="block text-sm font-medium text-gray-700">
                       {field.label}
@@ -77,7 +88,7 @@ export default async function Home() {
                   type="submit"
                   className="w-full bg-purple-600 text-white py-3 px-4 rounded-md hover:bg-purple-700 transition-colors duration-300"
                 >
-                  {contact.content.submitButton.text}
+                  {contact.submitButton.text}
                 </button>
               </form>
             </div>

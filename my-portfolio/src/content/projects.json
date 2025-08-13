@@ -1,0 +1,30 @@
+{
+  "title": "Meine Projekte",
+  "subtitle": "Eine Auswahl meiner besten Arbeiten",
+  "projects": [
+    {
+      "title": "E-Commerce Revolution",
+      "description": "Ein moderner Online-Shop mit Next.js 13, der Echtzeitinventarverwaltung, dynamisches Pricing und KI-gestützte Produktempfehlungen bietet.",
+      "image": "https://source.unsplash.com/800x600/?ecommerce",
+      "tags": ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Stripe"],
+      "link": "https://example.com/ecommerce",
+      "featured": true
+    },
+    {
+      "title": "KI-Gestützte Datenanalyse",
+      "description": "Eine Plattform zur Visualisierung und Analyse großer Datenmengen mit maschinellem Lernen und interaktiven Dashboards.",
+      "image": "https://source.unsplash.com/800x600/?data-visualization",
+      "tags": ["Python", "TensorFlow", "React", "D3.js", "FastAPI"],
+      "link": "https://example.com/data-analytics",
+      "featured": true
+    },
+    {
+      "title": "Smart City Dashboard",
+      "description": "Ein Echtzeit-Monitoring-System für städtische Infrastruktur, das IoT-Sensordaten verarbeitet und visualisiert.",
+      "image": "https://source.unsplash.com/800x600/?smart-city",
+      "tags": ["React", "Node.js", "MongoDB", "WebSocket", "Docker"],
+      "link": "https://example.com/smart-city",
+      "featured": true
+    }
+  ]
+}
