@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Bars3Icon, XMarkIcon, CodeBracketIcon } from '@heroicons/react/24/outline';
 
@@ -24,18 +24,36 @@ export default function Header() {
     { href: '#contact', label: 'Contact' },
   ];
 
+  // Deterministic particle values to prevent hydration mismatch
+  const particles = useMemo(() => {
+    const count = 20;
+    const arr = Array.from({ length: count }, (_, i) => {
+      // simple LCG for repeatable pseudo-randoms
+      let seed = i * 9301 + 49297;
+      const rand = () => {
+        seed = (seed * 233280 + 93249) % 233280;
+        return seed / 233280;
+      };
+      const left = rand() * 100; // percent
+      const delay = 5 + rand() * 15; // 5-20s
+      const duration = 15 + rand() * 10; // 15-25s
+      return { left: `${left}%`, delay: `${delay}s`, duration: `${duration}s` };
+    });
+    return arr;
+  }, []);
+
   return (
     <>
       {/* Particles Background */}
-      <div className="particles fixed inset-0 z-0">
-        {[...Array(20)].map((_, i) => (
+  <div className="particles fixed inset-0 z-0" aria-hidden>
+    {particles.map((p, i) => (
           <div
             key={i}
             className="particle"
             style={{
-              left: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 20}s`,
-              animationDuration: `${15 + Math.random() * 10}s`,
+      left: p.left,
+      animationDelay: p.delay,
+      animationDuration: p.duration,
             }}
           />
         ))}

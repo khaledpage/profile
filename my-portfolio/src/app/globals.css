@@ -140,3 +140,10 @@ body {
   100% { transform: rotate(360deg) scale(1); }
 }
 
+/* Content surface to improve readability over busy backgrounds */
+.content-surface {
+  background: linear-gradient(180deg, rgba(10,12,18,0.35), rgba(10,12,18,0.35));
+  backdrop-filter: blur(2px);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+

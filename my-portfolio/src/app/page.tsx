@@ -14,7 +14,7 @@ export default async function Home() {
     return (
       <div className="min-h-dvh text-foreground">
         <Header />
-        <main>
+  <main className="content-surface">
           <Hero
             title={hero.title}
             subtitle={hero.subtitle}
