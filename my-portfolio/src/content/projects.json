@@ -5,7 +5,7 @@
     {
       "title": "E-Commerce Revolution",
       "description": "Ein moderner Online-Shop mit Next.js 13, der Echtzeitinventarverwaltung, dynamisches Pricing und KI-gestützte Produktempfehlungen bietet.",
-      "image": "https://source.unsplash.com/800x600/?ecommerce",
+      "image": "/images/projects/01.jpeg",
       "tags": ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Stripe"],
       "link": "https://example.com/ecommerce",
       "featured": true
@@ -13,7 +13,7 @@
     {
       "title": "KI-Gestützte Datenanalyse",
       "description": "Eine Plattform zur Visualisierung und Analyse großer Datenmengen mit maschinellem Lernen und interaktiven Dashboards.",
-      "image": "https://source.unsplash.com/800x600/?data-visualization",
+      "image": "/images/projects/02.jpeg",
       "tags": ["Python", "TensorFlow", "React", "D3.js", "FastAPI"],
       "link": "https://example.com/data-analytics",
       "featured": true
@@ -21,10 +21,18 @@
     {
       "title": "Smart City Dashboard",
       "description": "Ein Echtzeit-Monitoring-System für städtische Infrastruktur, das IoT-Sensordaten verarbeitet und visualisiert.",
-      "image": "https://source.unsplash.com/800x600/?smart-city",
+      "image": "/images/projects/03.jpeg",
       "tags": ["React", "Node.js", "MongoDB", "WebSocket", "Docker"],
       "link": "https://example.com/smart-city",
       "featured": true
+    },
+    {
+      "title": "Mobile Banking App",
+      "description": "Eine sichere und benutzerfreundliche Banking-App mit biometrischer Authentifizierung und Echtzeitbenachrichtigungen.",
+      "image": "/images/projects/04.jpeg",
+      "tags": ["React Native", "Firebase", "TypeScript", "Redux", "Biometrics"],
+      "link": "https://example.com/banking-app",
+      "featured": false
     }
   ]
 }
