@@ -24,23 +24,28 @@ export default function Hero({
   secondaryButton,
 }: HeroProps) {
   return (
-    <section className="min-h-screen flex items-center justify-center bg-gradient-to-b from-white to-gray-100">
+    <section className="relative min-h-[90vh] flex items-center justify-center">
+      {/* spotlight gradient */}
+      <div className="absolute inset-0 -z-10">
+        <div className="pointer-events-none absolute -top-40 left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(99,102,241,0.25),transparent)] blur-3xl" />
+      </div>
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-4xl sm:text-6xl font-bold text-gray-900 mb-4"
+            className="text-4xl sm:text-6xl font-bold mb-4"
           >
-            {title}
+            <span className="gradient-text">{title}</span>
           </motion.h1>
           
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-2xl sm:text-3xl text-gray-600 mb-6"
+            className="text-2xl sm:text-3xl text-gray-300 mb-6"
           >
             {subtitle}
           </motion.h2>
@@ -49,7 +54,7 @@ export default function Hero({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto"
+            className="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto"
           >
             {description}
           </motion.p>
@@ -62,13 +67,13 @@ export default function Hero({
           >
             <a
               href={primaryButton.link}
-              className="bg-purple-600 text-white px-8 py-3 rounded-full hover:bg-purple-700 transition-colors duration-300"
+              className="relative px-8 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-full hover:from-indigo-500 hover:to-purple-500 transition-all interactive-border"
             >
               {primaryButton.text}
             </a>
             <a
               href={secondaryButton.link}
-              className="border-2 border-purple-600 text-purple-600 px-8 py-3 rounded-full hover:bg-purple-600 hover:text-white transition-colors duration-300"
+              className="px-8 py-3 rounded-full border border-white/15 text-white hover:bg-white/10 transition-colors"
             >
               {secondaryButton.text}
             </a>
