@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from 'react';
+import type { SiteConfig } from '@/types/content';
 
 type Palette = {
   name: string;
@@ -18,9 +19,10 @@ type Props = {
   colorProfile: string;
   colorRotation?: { enabled?: boolean; intervalSec?: number; candidates?: string[] };
   animation?: { fadeOutDurationSec?: number; fadeInAfterSec?: number; fadeDurationSec?: number; fadeMin?: number; fadeMax?: number };
+  interactiveEffects?: SiteConfig['interactiveEffects'];
 };
 
-export default function ThemeController({ palettes, colorProfile, colorRotation, animation }: Props) {
+export default function ThemeController({ palettes, colorProfile, colorRotation, animation, interactiveEffects }: Props) {
   useEffect(() => {
     const root = document.documentElement;
     const applyPalette = (key: string) => {
@@ -50,7 +52,7 @@ export default function ThemeController({ palettes, colorProfile, colorRotation,
       }, (colorRotation.intervalSec ?? 120) * 1000);
     }
 
-    // Control fading out and back in
+  // Control fading out and back in
     if (animation) {
       const min = animation.fadeMin ?? 0.2;
       const max = animation.fadeMax ?? 0.6;
@@ -88,6 +90,60 @@ export default function ThemeController({ palettes, colorProfile, colorRotation,
   if (fadeTimer) clearTimeout(fadeTimer);
     };
   }, [palettes, colorProfile, colorRotation, animation]);
+
+  // Subtle random ripple effect on pointer move
+  useEffect(() => {
+    const cfg = interactiveEffects;
+    if (cfg?.enabled === false) return;
+
+    let target = document.querySelector('.ripples-layer') as HTMLElement | null;
+    if (!target) {
+      const div = document.createElement('div');
+      div.className = 'ripples-layer';
+      document.body.appendChild(div);
+      target = div;
+    }
+
+    let lastTs = 0;
+    let countWindow = 0;
+    let windowStart = Date.now();
+
+    const onMove = (e: PointerEvent) => {
+      if (e.pointerType && e.pointerType !== 'mouse') return;
+      const triggerChance = cfg?.triggerChance ?? 0.08;
+      const minInterval = (cfg?.minIntervalSec ?? 8) * 1000;
+      const maxPerMinute = cfg?.maxPerMinute ?? 6;
+      const now = Date.now();
+      if (now - windowStart > 60000) { windowStart = now; countWindow = 0; }
+      if (countWindow >= maxPerMinute) return;
+      if (now - lastTs < minInterval) return;
+      if (Math.random() > triggerChance) return;
+
+      lastTs = now;
+      countWindow++;
+
+      const size = cfg?.ripple?.sizePx ?? 180;
+      const duration = cfg?.ripple?.durationMs ?? 1200;
+
+      const dot = document.createElement('div');
+      dot.className = 'ripple-dot';
+      dot.style.left = `${e.clientX}px`;
+      dot.style.top = `${e.clientY}px`;
+      dot.style.width = `${size}px`;
+      dot.style.height = `${size}px`;
+      dot.style.setProperty('--ripple-duration', `${duration}ms`);
+      if (cfg?.ripple?.color) {
+        dot.style.background = `radial-gradient(circle at 50% 50%, ${cfg.ripple.color}, transparent 70%)`;
+      }
+      target!.appendChild(dot);
+      setTimeout(() => {
+        if (dot.parentElement === target) target!.removeChild(dot);
+      }, duration + 50);
+    };
+
+    window.addEventListener('pointermove', onMove, { passive: true });
+    return () => window.removeEventListener('pointermove', onMove);
+  }, [interactiveEffects]);
 
   return null;
 }

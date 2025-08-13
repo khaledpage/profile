@@ -171,3 +171,19 @@ body {
 }
 .btn-secondary:hover { background: rgba(255,255,255,0.06); }
 
+/* Interaction ripples */
+.ripples-layer { position: fixed; inset: 0; pointer-events: none; z-index: 5; }
+.ripple-dot {
+  position: absolute;
+  border-radius: 9999px;
+  background: radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--accent-1), transparent 30%), transparent 70%);
+  filter: blur(0.5px);
+  opacity: 0.0;
+  transform: translate(-50%, -50%) scale(0.6);
+  animation: rippleScale var(--ripple-duration, 1200ms) ease-out forwards;
+}
+@keyframes rippleScale {
+  10% { opacity: 0.25; }
+  100% { opacity: 0; transform: translate(-50%, -50%) scale(1.4); }
+}
+

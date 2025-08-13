@@ -151,4 +151,16 @@
       }
     }
   }
+  ,
+  "interactiveEffects": {
+    "enabled": true,
+    "triggerChance": 0.08,
+    "minIntervalSec": 8,
+    "maxPerMinute": 6,
+    "ripple": {
+      "sizePx": 180,
+      "durationMs": 1200,
+      "color": ""
+    }
+  }
 }

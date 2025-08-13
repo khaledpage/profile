@@ -108,4 +108,15 @@ export interface SiteConfig {
       common: { back: string; seeAlso: string };
     }>;
   };
+  interactiveEffects?: {
+    enabled?: boolean;
+    triggerChance?: number; // 0..1 probability per eligible pointermove
+    minIntervalSec?: number; // min seconds between effects
+    maxPerMinute?: number; // cap
+    ripple?: {
+      sizePx?: number; // base size
+      durationMs?: number; // animation duration
+      color?: string; // fallback color; default uses accent vars
+    };
+  };
 }

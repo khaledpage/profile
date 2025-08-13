@@ -71,7 +71,13 @@ export default async function RootLayout({
           {/* subtle grid background */}
           <div className="fixed inset-0 bg-grid pointer-events-none" aria-hidden />
           <div className={`fixed inset-0 ${anim?.enabled === false ? '' : 'animated-gradient'} -z-10`} style={gradientStyle} aria-hidden />
-          <ThemeController palettes={config?.palettes ?? {}} colorProfile={config?.colorProfile ?? ''} colorRotation={config?.colorRotation} animation={config?.animation} />
+          <ThemeController
+            palettes={config?.palettes ?? {}}
+            colorProfile={config?.colorProfile ?? ''}
+            colorRotation={config?.colorRotation}
+            animation={config?.animation}
+            interactiveEffects={config?.interactiveEffects}
+          />
           {children}
         </div>
       </body>
