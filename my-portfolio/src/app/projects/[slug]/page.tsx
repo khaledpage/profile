@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { getAllContent } from '@/utils/content';
+import { getAllContent, getSiteConfig } from '@/utils/content';
 import type { Project } from '@/types/content';
 import Link from 'next/link';
 
@@ -25,6 +25,8 @@ function findProject(projects: Project[], slug: string): Project | null {
 export default async function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const { projects } = await getAllContent();
+  const cfg = await getSiteConfig().catch(() => null);
+  const tCommon = cfg?.i18n?.languages?.[cfg?.i18n?.defaultLocale ?? 'de']?.common ?? { back: 'Zurück', seeAlso: 'Siehe auch' };
   const project = findProject(projects.projects, slug) || {
     title: 'Unbekanntes Projekt',
     description: 'Dieses Projekt konnte nicht gefunden werden. Hier sind Beispielinhalte.',
@@ -44,7 +46,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   return (
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 relative">
       {/* Floating Back Button */}
-      <Link href="/" className="fixed left-4 bottom-4 z-40 btn-secondary">← Zurück</Link>
+  <Link href="/" className="fixed left-4 bottom-4 z-40 btn-secondary">← {tCommon.back}</Link>
       {/* Header Section */}
       <div className="grid lg:grid-cols-12 gap-10 items-start">
         <div className="lg:col-span-7">
@@ -166,7 +168,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
       {/* See also */}
       <section className="mt-16">
-        <h2 className="text-xl font-semibold mb-4">Siehe auch</h2>
+  <h2 className="text-xl font-semibold mb-4">{tCommon.seeAlso}</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {projects.projects
             .filter((p) => slugify(p.title) !== slug)

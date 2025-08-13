@@ -1,5 +1,5 @@
 {
-  "colorProfile": "indigoPurpleDark",
+  "colorProfile": "tealCyanDark",
   "palettes": {
     "indigoPurpleDark": {
       "name": "Indigo Purple Dark",
@@ -24,9 +24,31 @@
   },
   "animation": {
     "rotateDurationSec": 60,
-    "fadeDurationSec": 60,
-    "fadeMin": 0.2,
+    "fadeDurationSec": 5,
+    "fadeOutDurationSec": 10,
+    "fadeInAfterSec": 50,
+    "fadeMin": 0.0,
     "fadeMax": 0.6,
     "enabled": true
+  },
+  "colorRotation": {
+    "enabled": false,
+    "intervalSec": 120,
+    "candidates": ["indigoPurpleDark", "tealCyanDark"]
+  },
+  "i18n": {
+    "defaultLocale": "de",
+    "languages": {
+      "de": {
+        "nav": { "about": "Über mich", "projects": "Projekte", "skills": "Skills", "contact": "Kontakt" },
+        "cta": { "talk": "Los geht’s" },
+        "common": { "back": "Zurück", "seeAlso": "Siehe auch" }
+      },
+      "en": {
+        "nav": { "about": "About", "projects": "Projects", "skills": "Skills", "contact": "Contact" },
+        "cta": { "talk": "Let’s talk" },
+        "common": { "back": "Back", "seeAlso": "See also" }
+      }
+    }
   }
 }

@@ -83,7 +83,9 @@ export interface ColorPalette {
 
 export interface AnimationConfig {
   rotateDurationSec?: number; // duration of rotation cycle
-  fadeDurationSec?: number;   // duration of opacity fade in/out cycle
+  fadeDurationSec?: number;   // legacy: symmetric fade duration
+  fadeOutDurationSec?: number; // duration to fade out
+  fadeInAfterSec?: number;     // wait time before fading back in
   fadeMin?: number;           // min opacity 0..1
   fadeMax?: number;           // max opacity 0..1
   enabled?: boolean;
@@ -93,4 +95,17 @@ export interface SiteConfig {
   colorProfile: string; // key of palettes
   palettes: Record<string, ColorPalette>;
   animation?: AnimationConfig;
+  colorRotation?: {
+    enabled?: boolean;
+    intervalSec?: number;
+    candidates?: string[]; // keys of palettes
+  };
+  i18n?: {
+    defaultLocale: string;
+    languages: Record<string, {
+      nav: { about: string; projects: string; skills: string; contact: string };
+      cta: { talk: string };
+      common: { back: string; seeAlso: string };
+    }>;
+  };
 }

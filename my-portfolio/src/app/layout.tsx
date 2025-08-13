@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { getSiteConfig } from '@/utils/content';
+import ThemeController from '@/components/ThemeController';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -70,6 +71,7 @@ export default async function RootLayout({
           {/* subtle grid background */}
           <div className="fixed inset-0 bg-grid pointer-events-none" aria-hidden />
           <div className={`fixed inset-0 ${anim?.enabled === false ? '' : 'animated-gradient'} -z-10`} style={gradientStyle} aria-hidden />
+          <ThemeController palettes={config?.palettes ?? {}} colorProfile={config?.colorProfile ?? ''} colorRotation={config?.colorRotation} animation={config?.animation} />
           {children}
         </div>
       </body>
