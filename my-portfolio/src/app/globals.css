@@ -129,3 +129,14 @@ body {
   overflow: hidden;
 }
 
+/* Animated gradient background */
+.animated-gradient {
+  background: conic-gradient(from 180deg at 50% 50%, rgba(79,70,229,0.35), rgba(124,58,237,0.35), rgba(79,70,229,0.35));
+  animation: gradientShift 40s linear infinite;
+}
+@keyframes gradientShift {
+  0% { transform: rotate(0deg) scale(1); }
+  50% { transform: rotate(180deg) scale(1.05); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+

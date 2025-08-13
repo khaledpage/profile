@@ -43,6 +43,7 @@ export default function RootLayout({
         <div className="relative min-h-dvh">
           {/* subtle grid background */}
           <div className="fixed inset-0 bg-grid pointer-events-none" aria-hidden />
+          <div className="fixed inset-0 animated-gradient opacity-50 -z-10" aria-hidden />
           {children}
         </div>
       </body>

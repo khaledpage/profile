@@ -24,10 +24,11 @@ export default function Hero({
   secondaryButton,
 }: HeroProps) {
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center">
+  <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
       {/* spotlight gradient */}
       <div className="absolute inset-0 -z-10">
-        <div className="pointer-events-none absolute -top-40 left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(99,102,241,0.25),transparent)] blur-3xl" />
+    <div className="pointer-events-none absolute -top-40 left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(99,102,241,0.25),transparent)] blur-3xl" />
+    <div className="animated-gradient absolute -inset-40 opacity-50" />
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -63,7 +64,7 @@ export default function Hero({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="flex justify-center gap-4"
+            className="flex justify-center items-center gap-4"
           >
             <a
               href={primaryButton.link}

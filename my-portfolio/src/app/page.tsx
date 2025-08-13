@@ -2,7 +2,7 @@ import Header from '@/components/layout/Header';
 import Hero from '@/components/sections/Hero';
 import ProjectCard from '@/components/ui/ProjectCard';
 import { getAllContent } from '@/utils/content';
-import { Project, FormField } from '@/types/content';
+import { Project } from '@/types/content';
 
 export const revalidate = 0; // Deaktiviert das Caching für Entwicklungszwecke
 
@@ -108,48 +108,26 @@ export default async function Home() {
             </div>
           </section>
 
-          {/* Contact */}
+          {/* Contact (static info) */}
           <section id="contact" className="py-24">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="max-w-3xl mx-auto">
-                <h2 className="text-3xl md:text-4xl font-bold text-center mb-3">
-                  {contact.title}
-                </h2>
-                <p className="text-center text-gray-400 mb-12 max-w-2xl mx-auto">
-                  {contact.description}
-                </p>
-                <form className="glass rounded-2xl p-6 md:p-8 space-y-6">
-                  {contact.formFields.map((field: FormField) => (
-                    <div key={field.id}>
-                      <label htmlFor={field.id} className="block text-sm text-gray-300 mb-1">
-                        {field.label}
-                      </label>
-                      {field.type === 'textarea' ? (
-                        <textarea
-                          id={field.id}
-                          rows={5}
-                          placeholder={field.placeholder}
-                          className="w-full rounded-lg bg-card border border-white/10 p-3 outline-none focus:ring-2 focus:ring-purple-500"
-                          required={field.required}
-                        />
-                      ) : (
-                        <input
-                          type={field.type}
-                          id={field.id}
-                          placeholder={field.placeholder}
-                          className="w-full rounded-lg bg-card border border-white/10 p-3 outline-none focus:ring-2 focus:ring-purple-500"
-                          required={field.required}
-                        />
-                      )}
-                    </div>
-                  ))}
-                  <button
-                    type="submit"
-                    className="w-full relative px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-medium rounded-xl hover:from-indigo-500 hover:to-purple-500 transition-all interactive-border"
-                  >
-                    {contact.submitButton.text}
-                  </button>
-                </form>
+              <div className="max-w-3xl mx-auto text-center">
+                <h2 className="text-3xl md:text-4xl font-bold mb-3">{contact.title}</h2>
+                <p className="text-gray-400 mb-8 max-w-2xl mx-auto">{contact.description}</p>
+                <div className="grid gap-4 sm:grid-cols-3">
+                  <div className="glass rounded-xl p-5">
+                    <div className="text-sm text-gray-400">E-Mail</div>
+                    <div className="font-medium">contact@example.com</div>
+                  </div>
+                  <div className="glass rounded-xl p-5">
+                    <div className="text-sm text-gray-400">Telefon</div>
+                    <div className="font-medium">+49 123 456789</div>
+                  </div>
+                  <div className="glass rounded-xl p-5">
+                    <div className="text-sm text-gray-400">Standort</div>
+                    <div className="font-medium">Remote / Deutschland</div>
+                  </div>
+                </div>
               </div>
             </div>
           </section>
