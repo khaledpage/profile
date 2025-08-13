@@ -1,5 +1,5 @@
 {
-  "colorProfile": "tealCyanDark",
+  "colorProfile": "indigoPurpleDark",
   "palettes": {
     "indigoPurpleDark": {
       "name": "Indigo Purple Dark",
@@ -20,11 +20,111 @@
       "cardContrast": "#0e2125",
       "accent1": "#06b6d4",
       "accent2": "#0ea5e9"
+    },
+    "amberOrangeDark": {
+      "name": "Amber Orange Dark",
+      "background": "#0a0b10",
+      "foreground": "#fff7ed",
+      "muted": "#bfae90",
+      "card": "#0f1117",
+      "cardContrast": "#151922",
+      "accent1": "#f59e0b",
+      "accent2": "#fb923c"
+    },
+    "sunsetPinkOrange": {
+      "name": "Sunset Pink Orange",
+      "background": "#0b0a10",
+      "foreground": "#ffeaf2",
+      "muted": "#b0919b",
+      "card": "#111018",
+      "cardContrast": "#161522",
+      "accent1": "#ec4899",
+      "accent2": "#f97316"
+    },
+    "emeraldGreenDark": {
+      "name": "Emerald Green Dark",
+      "background": "#08110f",
+      "foreground": "#e9fff8",
+      "muted": "#91b8aa",
+      "card": "#0d1614",
+      "cardContrast": "#101b18",
+      "accent1": "#10b981",
+      "accent2": "#34d399"
+    },
+    "oceanBlueDark": {
+      "name": "Ocean Blue Dark",
+      "background": "#081018",
+      "foreground": "#e8f3ff",
+      "muted": "#90a7c0",
+      "card": "#0f1520",
+      "cardContrast": "#131a26",
+      "accent1": "#3b82f6",
+      "accent2": "#06b6d4"
+    },
+    "roseMauveDark": {
+      "name": "Rose Mauve Dark",
+      "background": "#100a0d",
+      "foreground": "#ffe8ee",
+      "muted": "#b08e9a",
+      "card": "#170f13",
+      "cardContrast": "#1c1318",
+      "accent1": "#f43f5e",
+      "accent2": "#f472b6"
+    },
+    "goldNavyDark": {
+      "name": "Gold Navy Dark",
+      "background": "#080d16",
+      "foreground": "#fff7e6",
+      "muted": "#c7b995",
+      "card": "#0c1220",
+      "cardContrast": "#11172a",
+      "accent1": "#f59e0b",
+      "accent2": "#eab308"
+    },
+    "cyberNeonDark": {
+      "name": "Cyber Neon Dark",
+      "background": "#070a0c",
+      "foreground": "#eafffb",
+      "muted": "#92bfb6",
+      "card": "#0b1013",
+      "cardContrast": "#0f161a",
+      "accent1": "#22d3ee",
+      "accent2": "#a3e635"
+    },
+    "graphiteCyanDark": {
+      "name": "Graphite Cyan Dark",
+      "background": "#0a0d11",
+      "foreground": "#e8f7fb",
+      "muted": "#91a6b0",
+      "card": "#0f141a",
+      "cardContrast": "#131a22",
+      "accent1": "#06b6d4",
+      "accent2": "#0ea5e9"
+    },
+    "plumGrapeDark": {
+      "name": "Plum Grape Dark",
+      "background": "#100914",
+      "foreground": "#f5e8ff",
+      "muted": "#b29ac7",
+      "card": "#160e1c",
+      "cardContrast": "#1b1422",
+      "accent1": "#a855f7",
+      "accent2": "#d946ef"
+    },
+    "lavaRedDark": {
+      "name": "Lava Red Dark",
+      "background": "#120909",
+      "foreground": "#ffeaea",
+      "muted": "#c09292",
+      "card": "#1a0e0e",
+      "cardContrast": "#201314",
+      "accent1": "#ef4444",
+      "accent2": "#f97316"
     }
   },
   "animation": {
     "rotateDurationSec": 60,
-    "fadeDurationSec": 5,
+    "fadeDurationSec": 50,
     "fadeOutDurationSec": 10,
     "fadeInAfterSec": 50,
     "fadeMin": 0.0,
@@ -32,9 +132,9 @@
     "enabled": true
   },
   "colorRotation": {
-    "enabled": false,
+    "enabled": true,
     "intervalSec": 120,
-    "candidates": ["indigoPurpleDark", "tealCyanDark"]
+    "candidates": ["indigoPurpleDark", "tealCyanDark", "amberOrangeDark", "sunsetPinkOrange", "emeraldGreenDark", "oceanBlueDark", "roseMauveDark", "goldNavyDark", "cyberNeonDark", "graphiteCyanDark", "plumGrapeDark", "lavaRedDark"]
   },
   "i18n": {
     "defaultLocale": "de",
