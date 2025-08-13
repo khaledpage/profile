@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { getAllContent } from '@/utils/content';
 import type { Project } from '@/types/content';
+import Link from 'next/link';
 
 export async function generateStaticParams() {
   try {
@@ -41,7 +42,9 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   const cols = project.features && project.features.length > 6 ? 'md:grid-cols-3' : 'md:grid-cols-2';
 
   return (
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 relative">
+      {/* Floating Back Button */}
+      <Link href="/" className="fixed left-4 bottom-4 z-40 btn-secondary">← Zurück</Link>
       {/* Header Section */}
       <div className="grid lg:grid-cols-12 gap-10 items-start">
         <div className="lg:col-span-7">
@@ -68,17 +71,17 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           )}
 
           {/* External links */}
-          <div className="flex gap-3">
+      <div className="flex gap-3">
             {project.links?.live && (
-              <a href={project.links.live} target="_blank" rel="noreferrer" className="relative inline-flex px-4 py-2 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 text-white interactive-border">
+        <a href={project.links.live} target="_blank" rel="noreferrer" className="btn-primary interactive-border">
                 Live ansehen
               </a>
             )}
             {project.links?.repo && (
-              <a href={project.links.repo} target="_blank" rel="noreferrer" className="px-4 py-2 rounded-xl border border-white/15 text-white hover:bg-white/10">Repository</a>
+        <a href={project.links.repo} target="_blank" rel="noreferrer" className="btn-secondary">Repository</a>
             )}
             {!project.links?.live && !project.links?.repo && (
-              <a href={project.link} target="_blank" rel="noreferrer" className="px-4 py-2 rounded-xl border border-white/15 text-white hover:bg-white/10">Projektlink</a>
+        <a href={project.link} target="_blank" rel="noreferrer" className="btn-secondary">Projektlink</a>
             )}
           </div>
         </div>
@@ -143,7 +146,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         </section>
       )}
 
-      {/* Meta Info */}
+  {/* Meta Info */}
       {project.meta && (
         <section className="mt-12 grid sm:grid-cols-2 md:grid-cols-4 gap-4">
           {project.meta.role && (
@@ -160,6 +163,25 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           )}
         </section>
       )}
+
+      {/* See also */}
+      <section className="mt-16">
+        <h2 className="text-xl font-semibold mb-4">Siehe auch</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {projects.projects
+            .filter((p) => slugify(p.title) !== slug)
+            .slice(0, 3)
+            .map((p) => (
+              <Link key={p.title} href={`/projects/${slugify(p.title)}`} className="glass rounded-xl p-4 hover:translate-y-[-2px] transition">
+                <div className="relative h-28 w-full rounded-lg overflow-hidden mb-3">
+                  <Image src={p.image} alt={p.title} fill className="object-cover" />
+                </div>
+                <div className="font-medium">{p.title}</div>
+                <div className="text-sm text-gray-400 line-clamp-2">{p.description}</div>
+              </Link>
+            ))}
+        </div>
+      </section>
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { getSiteConfig } from '@/utils/content';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,18 +33,43 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const config = await getSiteConfig().catch(() => null);
+  const palette = config?.palettes?.[config?.colorProfile ?? ''] ?? null;
+  const anim = config?.animation;
+  const bodyStyle: React.CSSProperties | undefined = palette
+    ? (Object.assign({}, {
+        ['--background']: palette.background,
+        ['--foreground']: palette.foreground,
+        ['--muted']: palette.muted,
+        ['--card']: palette.card,
+        ['--card-contrast']: palette.cardContrast,
+        ['--accent-1']: palette.accent1,
+        ['--accent-2']: palette.accent2,
+      }) as React.CSSProperties)
+    : undefined;
+
+  const gradientStyle: React.CSSProperties | undefined = anim
+    ? (Object.assign({}, {
+        opacity: anim.fadeMax ?? 0.5,
+        ['--anim-rotate']: `${anim.rotateDurationSec ?? 60}s`,
+        ['--anim-fade']: `${anim.fadeDurationSec ?? 60}s`,
+        ['--anim-min']: String(anim.fadeMin ?? 0.2),
+        ['--anim-max']: String(anim.fadeMax ?? 0.6),
+      }) as React.CSSProperties)
+    : { opacity: 0.5 };
+
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>        
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`} style={bodyStyle}>        
         <div className="relative min-h-dvh">
           {/* subtle grid background */}
           <div className="fixed inset-0 bg-grid pointer-events-none" aria-hidden />
-          <div className="fixed inset-0 animated-gradient opacity-50 -z-10" aria-hidden />
+          <div className={`fixed inset-0 ${anim?.enabled === false ? '' : 'animated-gradient'} -z-10`} style={gradientStyle} aria-hidden />
           {children}
         </div>
       </body>

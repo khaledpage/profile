@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import { SiteContent, HeroContent, ProjectsContent, ContactContent } from '@/types/content';
+import { SiteContent, HeroContent, ProjectsContent, ContactContent, SiteConfig } from '@/types/content';
 
 const contentDirectory = path.join(process.cwd(), 'src/content');
 
@@ -35,4 +35,8 @@ export async function getAllContent(): Promise<SiteContent> {
     projects,
     contact,
   };
+}
+
+export async function getSiteConfig(): Promise<SiteConfig> {
+  return getContentData('config');
 }

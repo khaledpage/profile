@@ -68,13 +68,13 @@ export default function Hero({
           >
             <a
               href={primaryButton.link}
-              className="relative px-8 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-full hover:from-indigo-500 hover:to-purple-500 transition-all interactive-border"
+              className="btn-primary interactive-border"
             >
               {primaryButton.text}
             </a>
             <a
               href={secondaryButton.link}
-              className="px-8 py-3 rounded-full border border-white/15 text-white hover:bg-white/10 transition-colors"
+              className="btn-secondary"
             >
               {secondaryButton.text}
             </a>

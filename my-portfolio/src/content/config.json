@@ -1,0 +1,32 @@
+{
+  "colorProfile": "indigoPurpleDark",
+  "palettes": {
+    "indigoPurpleDark": {
+      "name": "Indigo Purple Dark",
+      "background": "#0a0b10",
+      "foreground": "#e7e7ea",
+      "muted": "#9aa0aa",
+      "card": "#0f1117",
+      "cardContrast": "#11131a",
+      "accent1": "#7c3aed",
+      "accent2": "#4f46e5"
+    },
+    "tealCyanDark": {
+      "name": "Teal Cyan Dark",
+      "background": "#071316",
+      "foreground": "#e6fbff",
+      "muted": "#8fb6bd",
+      "card": "#0b1a1d",
+      "cardContrast": "#0e2125",
+      "accent1": "#06b6d4",
+      "accent2": "#0ea5e9"
+    }
+  },
+  "animation": {
+    "rotateDurationSec": 60,
+    "fadeDurationSec": 60,
+    "fadeMin": 0.2,
+    "fadeMax": 0.6,
+    "enabled": true
+  }
+}

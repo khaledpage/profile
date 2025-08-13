@@ -68,3 +68,29 @@ export interface SiteContent {
   projects: ProjectsContent;
   contact: ContactContent;
 }
+
+// Configuration types
+export interface ColorPalette {
+  name: string;
+  background: string;
+  foreground: string;
+  muted: string;
+  card: string;
+  cardContrast: string;
+  accent1: string;
+  accent2: string;
+}
+
+export interface AnimationConfig {
+  rotateDurationSec?: number; // duration of rotation cycle
+  fadeDurationSec?: number;   // duration of opacity fade in/out cycle
+  fadeMin?: number;           // min opacity 0..1
+  fadeMax?: number;           // max opacity 0..1
+  enabled?: boolean;
+}
+
+export interface SiteConfig {
+  colorProfile: string; // key of palettes
+  palettes: Record<string, ColorPalette>;
+  animation?: AnimationConfig;
+}
