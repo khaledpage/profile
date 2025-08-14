@@ -1,0 +1,34 @@
+# Requirement
+
+| ID       | Category                  | Requirement                                         | Priority | Acceptance Criteria                                                                                           |
+| -------- | ------------------------- | --------------------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------- |
+| F-01     | UI / Hero                 | “View Projects” button is centered                  | High     | Button is centered across XS–XL breakpoints; no overlap; clear focus and hover states                         |
+| F-02     | Project List              | Project cards link internally to `/projects/[slug]` | High     | Click opens detail page; correct slug is used; no full-page reload                                            |
+| F-03     | Project Page (Data)       | Load details from `src/content/projects.json`       | High     | Overview, tech stack/tags, features, challenges, metrics, meta, gallery, and links are displayed if available |
+| F-04     | Project Page (Fallbacks)  | Missing fields handled gracefully                   | High     | Sections without data are hidden; page layout remains consistent                                              |
+| F-05     | Project Page (Back)       | Floating back button at bottom-left                 | Medium   | Fixed position; keyboard focusable; navigates correctly                                                       |
+| F-06     | Project Page (See Also)   | “See Also” section shows related projects           | Medium   | At least 3 suggestions (if available); no duplicates with current project                                     |
+| F-07     | Contact                   | No form; static placeholder contact info            | Low      | Email/phone/location displayed as cards; no input fields                                                      |
+| F-08     | i18n                      | Translations configurable via `config.json`         | Medium   | `i18n.defaultLocale` applies; strings sourced from `i18n.languages`; fallbacks for missing keys               |
+| THEME-01 | Color Profiles            | Multiple palettes defined in `config.json/palettes` | High     | Active profile set via `colorProfile`; CSS variables updated accordingly                                      |
+| THEME-02 | Color Rotation            | Palette rotation or random selection at intervals   | Medium   | `colorRotation.enabled`, `intervalSec`, and `candidates` respected; changes occur without DOM reload          |
+| ANIM-01  | Background Gradient       | Slow rotation, opacity \~0.5                        | High     | Visible, performant, no readability issues with `content-surface`                                             |
+| ANIM-02  | Fade Control              | Configurable fade-out and re-fade-in                | Medium   | `fadeOutDurationSec` and `fadeInAfterSec` applied; smooth visible transitions                                 |
+| ANIM-03  | Interactive Effects       | Subtle, random mouse ripple effects                 | Low      | `interactiveEffects.enabled`; respects `triggerChance`, `minIntervalSec`, and `maxPerMinute`; not distracting |
+| A11Y-01  | Readability / Contrast    | Dark theme with high legibility                     | High     | Text meets WCAG AA contrast; `content-surface` used under text blocks                                         |
+| SKILL-01 | Skills Showcase (Content) | Load groups/items from `src/content/skills.json`    | High     | Renders groups with titles, direction, speed; items display basic info (name, level, years)                   |
+| SKILL-02 | Skills Scrolling          | Slow marquee per group; own direction               | High     | Each group scrolls left or right per config; seamless loop; smooth at 60fps                                   |
+| SKILL-03 | Hover Pause               | Pause on hover                                      | Medium   | Scrolling stops when pointer hovers the group; resumes on leave                                               |
+| SKILL-04 | Click Expand              | Expand item to show details                         | Medium   | Clicking a skill enlarges it and shows description, tags, and link if provided                                |
+| SKILL-05 | Accessibility             | Keyboard and SR friendly                            | Medium   | Skill items focusable as buttons; role/labels make sense; no keyboard trap                                    |
+| A11Y-02  | Semantics / Accessibility | Keyboard- and screen reader-friendly                | Medium   | Semantic HTML; logical focus order; `aria-hidden` applied to decorative elements                              |
+| SEO-01   | Metadata                  | Correct title, description, and Open Graph tags     | Medium   | Proper social previews; unique title per page                                                                 |
+| PERF-01  | Image / Load Performance  | Optimized media and rendering path                  | Medium   | Use `Next/Image` where possible; lazy loading; minimal CLS; smooth 60fps animations                           |
+| REL-01   | Hydration Safety          | No SSR/CSR divergence                               | High     | Avoid `Math.random` / `Date.now` in SSR; deterministic particle values                                        |
+| DEV-01   | Configuration Docs        | Documentation for `config.json`                     | High     | `CONFIGURATION.md` explains all fields; README covers setup and customization                                 |
+| DEV-02   | Optional Fields Docs      | Document optional `project` fields                  | High     | README lists required/optional fields; describes behavior for missing values                                  |
+| OPS-01   | Build / Run               | Standard scripts function correctly                 | Medium   | `npm run dev/build/start` work; Node version compatible; port conflicts handled                               |
+| OPS-02   | Lint / Types              | Clean type and lint checks                          | Medium   | `npm run lint/typecheck` runs without errors                                                                  |
+| SEC-01   | External Links            | Secure link attributes                              | Low      | `rel="noopener noreferrer"` applied to `target="_blank"`                                                      |
+| QA-01    | Cross-Browser             | Works in modern browsers                            | Low      | Chrome, Firefox, Safari (macOS) without functional or display issues                                          |
+

@@ -2,6 +2,7 @@ import Header from '@/components/layout/Header';
 import Hero from '@/components/sections/Hero';
 import ProjectCard from '@/components/ui/ProjectCard';
 import { getAllContent } from '@/utils/content';
+import SkillsShowcase from '@/components/sections/SkillsShowcase';
 import { Project } from '@/types/content';
 
 export const revalidate = 0; // Deaktiviert das Caching für Entwicklungszwecke
@@ -61,34 +62,7 @@ export default async function Home() {
             </div>
           </section>
 
-          {/* Skills */}
-          <section id="skills" className="py-24">
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-              <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-                Skills & Tooling
-              </h2>
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-                {[
-                  'Next.js',
-                  'React',
-                  'TypeScript',
-                  'Node.js',
-                  'Tailwind',
-                  'Framer Motion',
-                  'Prisma',
-                  'PostgreSQL',
-                  'Docker',
-                  'AWS',
-                  'Vercel',
-                  'CI/CD',
-                ].map((skill) => (
-                  <div key={skill} className="glass rounded-xl p-4 text-center lift">
-                    <span className="text-sm text-gray-300">{skill}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
+          <SkillsShowcase skills={content.skills} />
 
           {/* Projects */}
           <section id="projects" className="py-24">

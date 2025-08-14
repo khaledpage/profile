@@ -1,0 +1,39 @@
+{
+  "title": "Skills & Tooling",
+  "groups": [
+    {
+      "key": "frontend",
+      "title": "Frontend",
+      "direction": "left",
+      "speedSec": 40,
+      "items": [
+        { "name": "React", "level": "Expert", "years": 6, "tags": ["Hooks", "Context", "SSR"], "description": "Building complex SPAs and SSR apps with React 18/19.", "link": "https://react.dev" },
+        { "name": "Next.js", "level": "Expert", "years": 5, "tags": ["App Router", "ISR", "Edge"], "description": "App Router, data fetching, image optimization, edge runtimes.", "link": "https://nextjs.org" },
+        { "name": "TypeScript", "level": "Advanced", "years": 6, "tags": ["Generics", "Utility Types"], "description": "Type‑safe APIs and complex types for large codebases." },
+        { "name": "Tailwind CSS", "level": "Advanced", "years": 4, "tags": ["v4", "Design System"], "description": "Utility‑first styling with custom design tokens." }
+      ]
+    },
+    {
+      "key": "backend",
+      "title": "Backend",
+      "direction": "right",
+      "speedSec": 45,
+      "items": [
+        { "name": "Node.js", "level": "Advanced", "years": 6, "tags": ["API", "Workers"], "description": "REST/GraphQL services, background jobs." },
+        { "name": "Prisma", "level": "Advanced", "years": 4, "tags": ["ORM", "Migrations"], "description": "Type‑safe database access and schema migrations." },
+        { "name": "PostgreSQL", "level": "Advanced", "years": 5, "tags": ["SQL", "Indexes"], "description": "Modeling, performance, and reliability." }
+      ]
+    },
+    {
+      "key": "devops",
+      "title": "DevOps & Cloud",
+      "direction": "left",
+      "speedSec": 50,
+      "items": [
+        { "name": "Docker", "level": "Advanced", "years": 5, "tags": ["Compose"], "description": "Containerization for reproducible environments." },
+        { "name": "AWS", "level": "Intermediate", "years": 3, "tags": ["S3", "Lambda"], "description": "Managed services for scale and reliability." },
+        { "name": "CI/CD", "level": "Advanced", "years": 5, "tags": ["GitHub Actions"], "description": "Automated testing and delivery pipelines." }
+      ]
+    }
+  ]
+}

@@ -67,6 +67,7 @@ export interface SiteContent {
   hero: HeroContent;
   projects: ProjectsContent;
   contact: ContactContent;
+  skills?: SkillsContent;
 }
 
 // Configuration types
@@ -119,4 +120,27 @@ export interface SiteConfig {
       color?: string; // fallback color; default uses accent vars
     };
   };
+}
+
+// Skills content types
+export interface SkillItem {
+  name: string;
+  level?: string; // e.g., Beginner/Intermediate/Advanced/Expert or custom
+  years?: number;
+  description?: string;
+  tags?: string[];
+  link?: string;
+}
+
+export interface SkillGroup {
+  key: string;
+  title: string;
+  direction?: 'left' | 'right';
+  speedSec?: number; // scroll duration
+  items: SkillItem[];
+}
+
+export interface SkillsContent {
+  title?: string;
+  groups: SkillGroup[];
 }

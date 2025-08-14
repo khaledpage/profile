@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import { SiteContent, HeroContent, ProjectsContent, ContactContent, SiteConfig } from '@/types/content';
+import { SiteContent, HeroContent, ProjectsContent, ContactContent, SiteConfig, SkillsContent } from '@/types/content';
 
 const contentDirectory = path.join(process.cwd(), 'src/content');
 
@@ -24,19 +24,25 @@ export async function getContactContent(): Promise<ContactContent> {
 }
 
 export async function getAllContent(): Promise<SiteContent> {
-  const [hero, projects, contact] = await Promise.all([
+  const [hero, projects, contact, skills] = await Promise.all([
     getHeroContent(),
     getProjectsContent(),
     getContactContent(),
+    getSkillsContent().catch(() => null as unknown as SkillsContent),
   ]);
 
   return {
     hero,
     projects,
     contact,
+    skills: skills ?? undefined,
   };
 }
 
 export async function getSiteConfig(): Promise<SiteConfig> {
   return getContentData('config');
+}
+
+export async function getSkillsContent(): Promise<SkillsContent> {
+  return getContentData('skills');
 }
