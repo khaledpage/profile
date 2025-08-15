@@ -28,8 +28,8 @@ html, body {
 }
 
 body {
-  background: radial-gradient(1200px 1200px at 10% -10%, rgba(79,70,229,0.15), transparent 60%),
-              radial-gradient(1000px 1000px at 110% 10%, rgba(124,58,237,0.12), transparent 60%),
+  background: radial-gradient(1200px 1200px at 10% -10%, color-mix(in srgb, var(--accent-1), transparent 85%), transparent 60%),
+              radial-gradient(1000px 1000px at 110% 10%, color-mix(in srgb, var(--accent-2), transparent 88%), transparent 60%),
               var(--background);
   color: var(--foreground);
 }
@@ -43,24 +43,70 @@ body {
 }
 
 .glass {
-  background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
-  border: 1px solid rgba(255,255,255,0.08);
-  box-shadow: 0 8px 30px rgba(0,0,0,0.25);
-  backdrop-filter: blur(12px);
-}
-.glass-dark {
-  background: linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,0.05));
-  border: 1px solid rgba(255,255,255,0.1);
-  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--foreground), transparent 92%), color-mix(in srgb, var(--foreground), transparent 97%));
+  border: 1px solid color-mix(in srgb, var(--foreground), transparent 92%);
+  box-shadow: 0 8px 30px color-mix(in srgb, var(--background), black 75%);
   backdrop-filter: blur(12px);
 }
 
+.glass {
+  background: linear-gradient(180deg, color-mix(in srgb, var(--foreground), transparent 92%), color-mix(in srgb, var(--foreground), transparent 97%));
+  border: 1px solid color-mix(in srgb, var(--foreground), transparent 92%);
+  box-shadow: 0 8px 30px color-mix(in srgb, var(--background), black 75%);
+  backdrop-filter: blur(12px);
+}
 .glass-dark {
-  background: linear-gradient(180deg, rgba(17,25,40,0.55), rgba(17,25,40,0.35));
-  border: 1px solid rgba(255,255,255,0.08);
-  box-shadow: 0 8px 30px rgba(0,0,0,0.35);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--card), transparent 45%), color-mix(in srgb, var(--card), transparent 65%));
+  border: 1px solid color-mix(in srgb, var(--foreground), transparent 92%);
+  box-shadow: 0 8px 30px color-mix(in srgb, var(--background), black 65%);
   backdrop-filter: blur(16px);
 }
+
+/* Theme-aware utility classes */
+.text-foreground { color: var(--foreground); }
+.text-muted { color: var(--muted); }
+.text-accent-1 { color: var(--accent-1); }
+.text-accent-2 { color: var(--accent-2); }
+.bg-card { background-color: var(--card); }
+.bg-card-contrast { background-color: var(--card-contrast); }
+.border-foreground { border-color: var(--foreground); }
+.border-muted { border-color: var(--muted); }
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background: radial-gradient(1200px 1200px at 10% -10%, color-mix(in srgb, var(--accent-1), transparent 85%), transparent 60%),
+              radial-gradient(1000px 1000px at 110% 10%, color-mix(in srgb, var(--accent-2), transparent 88%), transparent 60%),
+              var(--background);
+  color: var(--foreground);
+}
+
+/* Utilities */
+.gradient-text {
+  background: linear-gradient(90deg, var(--accent-2), var(--accent-1));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.glass-dark {
+  background: linear-gradient(180deg, color-mix(in srgb, var(--card), transparent 45%), color-mix(in srgb, var(--card), transparent 65%));
+  border: 1px solid color-mix(in srgb, var(--foreground), transparent 92%);
+  box-shadow: 0 8px 30px color-mix(in srgb, var(--background), black 65%);
+  backdrop-filter: blur(16px);
+}
+
+/* Theme-aware utility classes */
+.text-foreground { color: var(--foreground); }
+.text-muted { color: var(--muted); }
+.text-accent-1 { color: var(--accent-1); }
+.text-accent-2 { color: var(--accent-2); }
+.bg-card { background-color: var(--card); }
+.bg-card-contrast { background-color: var(--card-contrast); }
+.border-foreground { border-color: var(--foreground); }
+.border-muted { border-color: var(--muted); }
 
 .interactive-border {
   position: relative;
@@ -71,7 +117,7 @@ body {
   inset: -1px;
   border-radius: 9999px;
   padding: 1px;
-  background: linear-gradient(90deg, rgba(79,70,229,0.9), rgba(124,58,237,0.9));
+  background: linear-gradient(90deg, color-mix(in srgb, var(--accent-2), transparent 10%), color-mix(in srgb, var(--accent-1), transparent 10%));
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
@@ -80,8 +126,8 @@ body {
 }
 
 @keyframes pulseGlow {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(124,58,237,0.45); }
-  50% { box-shadow: 0 0 0 10px rgba(124,58,237,0); }
+  0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent-1), transparent 55%); }
+  50% { box-shadow: 0 0 0 10px color-mix(in srgb, var(--accent-1), transparent 100%); }
 }
 .pulse-glow { animation: pulseGlow 2.5s ease-in-out infinite; }
 
@@ -93,7 +139,7 @@ body {
   width: 6px;
   height: 6px;
   border-radius: 9999px;
-  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9), rgba(124,58,237,0.6));
+  background: radial-gradient(circle at 30% 30%, color-mix(in srgb, var(--foreground), transparent 10%), color-mix(in srgb, var(--accent-1), transparent 40%));
   filter: blur(0.2px);
   animation-name: floatY, swayX;
   animation-timing-function: linear;
@@ -112,8 +158,8 @@ body {
 
 /* Subtle grid background helper */
 .bg-grid {
-  background-image: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-image: linear-gradient(color-mix(in srgb, var(--foreground), transparent 96%) 1px, transparent 1px),
+                    linear-gradient(90deg, color-mix(in srgb, var(--foreground), transparent 96%) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
@@ -152,9 +198,9 @@ body {
 
 /* Content surface to improve readability over busy backgrounds */
 .content-surface {
-  background: linear-gradient(180deg, rgba(10,12,18,0.35), rgba(10,12,18,0.35));
+  background: linear-gradient(180deg, color-mix(in srgb, var(--background), transparent 65%), color-mix(in srgb, var(--background), transparent 65%));
   backdrop-filter: blur(2px);
-  border: 1px solid rgba(255,255,255,0.06);
+  border: 1px solid color-mix(in srgb, var(--foreground), transparent 94%);
 }
 
 /* Buttons using accent variables */
@@ -162,7 +208,7 @@ body {
   position: relative;
   padding: 0.75rem 1.5rem;
   border-radius: 0.75rem;
-  color: white;
+  color: var(--card-contrast);
   background: linear-gradient(90deg, var(--accent-2), var(--accent-1));
   transition: transform 150ms ease, filter 200ms ease;
 }
@@ -172,10 +218,10 @@ body {
   padding: 0.75rem 1.5rem;
   border-radius: 9999px;
   color: var(--foreground);
-  border: 1px solid rgba(255,255,255,0.15);
+  border: 1px solid color-mix(in srgb, var(--foreground), transparent 85%);
   background: transparent;
 }
-.btn-secondary:hover { background: rgba(255,255,255,0.06); }
+.btn-secondary:hover { background: color-mix(in srgb, var(--foreground), transparent 94%); }
 
 /* Interaction ripples */
 .ripples-layer { position: fixed; inset: 0; pointer-events: none; z-index: 5; }

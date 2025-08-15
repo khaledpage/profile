@@ -88,7 +88,8 @@ export default function Hero({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-2xl sm:text-3xl text-gray-300 mb-6"
+            className="text-2xl sm:text-3xl mb-6"
+            style={{ color: 'var(--muted)' }}
           >
             {content.subtitle}
           </motion.h2>
@@ -97,7 +98,8 @@ export default function Hero({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-lg sm:text-xl text-gray-400 mb-8 max-w-3xl mx-auto leading-relaxed"
+            className="text-lg sm:text-xl mb-8 max-w-3xl mx-auto leading-relaxed"
+            style={{ color: 'var(--muted)' }}
           >
             {content.description}
           </motion.p>

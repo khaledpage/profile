@@ -51,12 +51,15 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
       <div className="grid lg:grid-cols-12 gap-10 items-start">
         <div className="lg:col-span-7">
           <h1 className="text-3xl md:text-4xl font-bold mb-3">{project.title}</h1>
-          <p className="text-gray-300 mb-6">{project.description}</p>
+          <p className="mb-6" style={{ color: 'var(--muted)' }}>{project.description}</p>
 
           {/* Meta Chips */}
           <div className="flex flex-wrap gap-2 mb-6">
             {tech?.map((t) => (
-              <span key={t} className="px-2 py-0.5 text-[12px] rounded-full bg-white/10 text-white">{t}</span>
+              <span key={t} className="px-2 py-0.5 text-[12px] rounded-full" style={{
+                backgroundColor: 'color-mix(in srgb, var(--card), transparent 40%)',
+                color: 'var(--foreground)',
+              }}>{t}</span>
             ))}
           </div>
 
@@ -65,7 +68,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8">
               {project.metrics.map((m, idx) => (
                 <div key={idx} className="glass rounded-xl p-4 text-center">
-                  <div className="text-xs text-gray-400">{m.label}</div>
+                  <div className="text-xs" style={{ color: 'var(--muted)' }}>{m.label}</div>
                   <div className="text-lg font-semibold">{m.value}</div>
                 </div>
               ))}

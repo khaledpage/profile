@@ -34,7 +34,7 @@ export default async function Home() {
                   <h2 className="text-3xl md:text-4xl font-bold mb-4">
                     Über mich
                   </h2>
-                  <p className="text-lg text-gray-300 leading-relaxed">
+                  <p className="text-lg leading-relaxed" style={{color: 'var(--muted)'}}>
                     {hero.content}
                   </p>
                 </div>
@@ -42,20 +42,20 @@ export default async function Home() {
                   <div className="glass rounded-2xl p-6 lift">
                     <dl className="grid grid-cols-2 gap-6">
                       <div>
-                        <dt className="text-sm text-gray-400">Erfahrung</dt>
-                        <dd className="text-2xl font-semibold">5+ Jahre</dd>
+                        <dt className="text-sm" style={{color: 'var(--muted)'}}>Erfahrung</dt>
+                        <dd className="text-2xl font-semibold" style={{color: 'var(--foreground)'}}>5+ Jahre</dd>
                       </div>
                       <div>
-                        <dt className="text-sm text-gray-400">Tech Focus</dt>
-                        <dd className="text-2xl font-semibold">Next.js, TS</dd>
+                        <dt className="text-sm" style={{color: 'var(--muted)'}}>Tech Focus</dt>
+                        <dd className="text-2xl font-semibold" style={{color: 'var(--foreground)'}}>Next.js, TS</dd>
                       </div>
                       <div>
-                        <dt className="text-sm text-gray-400">Projekte</dt>
-                        <dd className="text-2xl font-semibold">40+</dd>
+                        <dt className="text-sm" style={{color: 'var(--muted)'}}>Projekte</dt>
+                        <dd className="text-2xl font-semibold" style={{color: 'var(--foreground)'}}>40+</dd>
                       </div>
                       <div>
-                        <dt className="text-sm text-gray-400">Standort</dt>
-                        <dd className="text-2xl font-semibold">Remote</dd>
+                        <dt className="text-sm" style={{color: 'var(--muted)'}}>Standort</dt>
+                        <dd className="text-2xl font-semibold" style={{color: 'var(--foreground)'}}>Remote</dd>
                       </div>
                     </dl>
                   </div>
@@ -72,7 +72,7 @@ export default async function Home() {
               <div className="flex items-end justify-between mb-10">
                 <div>
                   <h2 className="text-3xl md:text-4xl font-bold">{projects.title}</h2>
-                  <p className="text-gray-400">{projects.subtitle}</p>
+                  <p style={{ color: 'var(--muted)' }}>{projects.subtitle}</p>
                 </div>
                 <a href="#contact" className="hidden md:inline-block text-sm gradient-text">Projekt anfragen →</a>
               </div>
@@ -89,18 +89,18 @@ export default async function Home() {
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
               <div className="max-w-3xl mx-auto text-center">
                 <h2 className="text-3xl md:text-4xl font-bold mb-3">{contact.title}</h2>
-                <p className="text-gray-400 mb-8 max-w-2xl mx-auto">{contact.description}</p>
+                <p className="mb-8 max-w-2xl mx-auto" style={{ color: 'var(--muted)' }}>{contact.description}</p>
                 <div className="grid gap-4 sm:grid-cols-3">
                   <div className="glass rounded-xl p-5">
-                    <div className="text-sm text-gray-400">E-Mail</div>
+                    <div className="text-sm" style={{ color: 'var(--muted)' }}>E-Mail</div>
                     <div className="font-medium">contact@example.com</div>
                   </div>
                   <div className="glass rounded-xl p-5">
-                    <div className="text-sm text-gray-400">Telefon</div>
+                    <div className="text-sm" style={{ color: 'var(--muted)' }}>Telefon</div>
                     <div className="font-medium">+49 123 456789</div>
                   </div>
                   <div className="glass rounded-xl p-5">
-                    <div className="text-sm text-gray-400">Standort</div>
+                    <div className="text-sm" style={{ color: 'var(--muted)' }}>Standort</div>
                     <div className="font-medium">Remote / Deutschland</div>
                   </div>
                 </div>
@@ -109,7 +109,7 @@ export default async function Home() {
           </section>
         </main>
 
-        <footer className="py-10 text-center text-sm text-gray-500">
+        <footer className="py-10 text-center text-sm" style={{ color: 'var(--muted)' }}>
           © {new Date().getFullYear()} Khaled Alabsi. Built with Next.js.
         </footer>
       </div>
@@ -120,7 +120,7 @@ export default async function Home() {
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-2xl font-bold text-red-600 mb-4">Error Loading Content</h1>
-          <p className="text-gray-600">Please make sure all content files are properly formatted.</p>
+          <p style={{ color: 'var(--muted)' }}>Please make sure all content files are properly formatted.</p>
         </div>
       </div>
     );

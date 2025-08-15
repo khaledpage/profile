@@ -85,7 +85,18 @@ export default function Header({ config }: Props) {
               whileTap={{ scale: 0.95 }}
             >
               <div className="relative">
-                <CodeBracketIcon className="h-8 w-8 text-indigo-400 group-hover:text-indigo-300 transition-colors" />
+                <CodeBracketIcon 
+                  className="h-8 w-8 transition-colors" 
+                  style={{ 
+                    color: 'var(--accent-1)', 
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.color = 'var(--accent-2)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.color = 'var(--accent-1)';
+                  }}
+                />
                 <div className="absolute inset-0 bg-indigo-400/20 blur-xl rounded-full group-hover:bg-indigo-300/30 transition-all" />
               </div>
               <span className="font-bold text-xl gradient-text hidden sm:block">
@@ -99,7 +110,16 @@ export default function Header({ config }: Props) {
                 <motion.a
                   key={item.href}
                   href={item.href}
-                  className="relative text-gray-300 hover:text-white font-medium transition-colors group"
+                  className="relative font-medium transition-colors group"
+                  style={{ 
+                    color: 'var(--muted)',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.color = 'var(--foreground)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.color = 'var(--muted)';
+                  }}
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
@@ -114,7 +134,17 @@ export default function Header({ config }: Props) {
             {/* CTA Button */}
             <motion.a
               href="#contact"
-              className="hidden md:block relative px-6 py-2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-medium rounded-full hover:from-indigo-500 hover:to-purple-500 transition-all interactive-border pulse-glow"
+              className="hidden md:block relative px-6 py-2 font-medium rounded-full transition-all interactive-border pulse-glow"
+              style={{
+                background: `linear-gradient(to right, var(--accent-1), var(--accent-2))`,
+                color: 'var(--card-contrast)',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = `linear-gradient(to right, color-mix(in srgb, var(--accent-1), white 20%), color-mix(in srgb, var(--accent-2), white 20%))`;
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = `linear-gradient(to right, var(--accent-1), var(--accent-2))`;
+              }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               initial={{ opacity: 0, x: 20 }}
@@ -139,7 +169,7 @@ export default function Header({ config }: Props) {
                     exit={{ rotate: 180, opacity: 0 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <XMarkIcon className="h-6 w-6 text-white" />
+                    <XMarkIcon className="h-6 w-6" style={{ color: 'var(--foreground)' }} />
                   </motion.div>
                 ) : (
                   <motion.div
@@ -149,7 +179,7 @@ export default function Header({ config }: Props) {
                     exit={{ rotate: -180, opacity: 0 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <Bars3Icon className="h-6 w-6 text-white" />
+                    <Bars3Icon className="h-6 w-6" style={{ color: 'var(--foreground)' }} />
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -164,7 +194,10 @@ export default function Header({ config }: Props) {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="md:hidden glass-dark border-t border-white/10"
+              className="md:hidden glass-dark"
+              style={{
+                borderTop: `1px solid color-mix(in srgb, var(--foreground), transparent 90%)`,
+              }}
             >
               <div className="container mx-auto px-4 py-6">
                 <div className="flex flex-col space-y-4">
@@ -172,7 +205,18 @@ export default function Header({ config }: Props) {
                     <motion.a
                       key={item.href}
                       href={item.href}
-                      className="text-gray-300 hover:text-white font-medium py-2 px-4 rounded-lg hover:bg-white/5 transition-all"
+                      className="font-medium py-2 px-4 rounded-lg transition-all"
+                      style={{ 
+                        color: 'var(--muted)',
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.color = 'var(--foreground)';
+                        e.currentTarget.style.backgroundColor = 'color-mix(in srgb, var(--card), transparent 50%)';
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.color = 'var(--muted)';
+                        e.currentTarget.style.backgroundColor = 'transparent';
+                      }}
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.1 }}
@@ -183,7 +227,11 @@ export default function Header({ config }: Props) {
                   ))}
                   <motion.a
                     href="#contact"
-                    className="mt-4 px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-medium rounded-full text-center"
+                    className="mt-4 px-6 py-3 font-medium rounded-full text-center"
+                    style={{
+                      background: `linear-gradient(to right, var(--accent-1), var(--accent-2))`,
+                      color: 'var(--card-contrast)',
+                    }}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4 }}

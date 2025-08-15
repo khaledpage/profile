@@ -24,7 +24,11 @@ const ProjectCard = ({ title, description, image, tags, link }: ProjectCardProps
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-70" />
           <div className="absolute top-3 left-3 flex flex-wrap gap-2">
           {tags.slice(0, 3).map((tag) => (
-            <span key={tag} className="px-2 py-0.5 text-[11px] rounded-full bg-white/15 text-white backdrop-blur">
+            <span key={tag} className="px-2 py-0.5 text-[11px] rounded-full backdrop-blur" 
+              style={{
+                backgroundColor: 'color-mix(in srgb, var(--accent-1), transparent 70%)',
+                color: 'var(--card-contrast)',
+              }}>
               {tag}
             </span>
           ))}
@@ -32,14 +36,16 @@ const ProjectCard = ({ title, description, image, tags, link }: ProjectCardProps
         </div>
 
         <div className="p-6">
-          <h3 className="text-lg font-semibold mb-1">{title}</h3>
-          <p className="text-sm text-gray-300 mb-4 line-clamp-3">{description}</p>
+          <h3 className="text-lg font-semibold mb-1" style={{color: 'var(--foreground)'}}>{title}</h3>
+          <p className="text-sm mb-4 line-clamp-3" style={{color: 'var(--muted)'}}>{description}</p>
           <span className="inline-flex items-center text-sm gradient-text">Mehr erfahren →</span>
         </div>
       </Link>
 
       <div className="px-6 pb-6 -mt-2">
-        <a href={link} target="_blank" rel="noopener noreferrer" className="text-xs text-gray-400 hover:text-white">Externer Link</a>
+        <a href={link} target="_blank" rel="noopener noreferrer" 
+           className="text-xs hover:text-accent-1 transition-colors"
+           style={{color: 'var(--muted)'}}>Externer Link</a>
       </div>
     </motion.div>
   );

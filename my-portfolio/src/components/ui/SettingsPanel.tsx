@@ -146,7 +146,16 @@ export default function SettingsPanel({ config }: Props) {
               <h2 className="text-xl font-semibold">Settings</h2>
               <button
                 onClick={() => setIsOpen(false)}
-                className="p-1 rounded-lg hover:bg-white/10 transition-colors"
+                className="p-1 rounded-lg transition-colors"
+                style={{
+                  backgroundColor: 'transparent',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = 'color-mix(in srgb, var(--card), transparent 40%)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = 'transparent';
+                }}
                 aria-label="Close settings"
               >
                 <XMarkIcon className="h-5 w-5" />
@@ -161,7 +170,7 @@ export default function SettingsPanel({ config }: Props) {
                 <div className="space-y-4">
                   {Object.entries(allPaletteGroups).map(([groupKey, group]) => (
                     <div key={groupKey}>
-                      <h4 className="text-xs font-medium text-gray-400 mb-2 uppercase tracking-wide">
+                      <h4 className="text-xs font-medium mb-2 uppercase tracking-wide" style={{ color: 'var(--muted)' }}>
                         {group.name}
                       </h4>
                       <div className="grid grid-cols-3 gap-2">
@@ -225,16 +234,29 @@ export default function SettingsPanel({ config }: Props) {
                     <button
                       key={key}
                       onClick={() => handleLanguageChange(key)}
-                      className={`p-3 rounded-lg text-left transition-all text-sm ${
-                        (preferences.language || config.i18n?.defaultLocale) === key
-                          ? 'ring-2 ring-accent-1 bg-white/10'
-                          : 'bg-white/5 hover:bg-white/10'
-                      }`}
+                      className="p-3 rounded-lg text-left transition-all text-sm"
+                      style={{
+                        backgroundColor: (preferences.language || config.i18n?.defaultLocale) === key
+                          ? 'color-mix(in srgb, var(--card), transparent 40%)'
+                          : 'color-mix(in srgb, var(--card), transparent 70%)',
+                        borderWidth: (preferences.language || config.i18n?.defaultLocale) === key ? '2px' : '0px',
+                        borderColor: (preferences.language || config.i18n?.defaultLocale) === key ? 'var(--accent-1)' : 'transparent',
+                      }}
+                      onMouseEnter={(e) => {
+                        if ((preferences.language || config.i18n?.defaultLocale) !== key) {
+                          e.currentTarget.style.backgroundColor = 'color-mix(in srgb, var(--card), transparent 40%)';
+                        }
+                      }}
+                      onMouseLeave={(e) => {
+                        if ((preferences.language || config.i18n?.defaultLocale) !== key) {
+                          e.currentTarget.style.backgroundColor = 'color-mix(in srgb, var(--card), transparent 70%)';
+                        }
+                      }}
                     >
                       <div className="font-medium">
                         {key === 'de' ? '🇩🇪 Deutsch' : key === 'en' ? '🇺🇸 English' : key.toUpperCase()}
                       </div>
-                      <div className="text-xs text-gray-400 mt-1">
+                      <div className="text-xs mt-1" style={{ color: 'var(--muted)' }}>
                         {lang.nav.about} • {lang.nav.projects}
                       </div>
                     </button>
