@@ -45,7 +45,7 @@ Alle Inhalte liegen in `src/content/`. Eine detaillierte Beschreibung der Konfig
 - **colorRotation**: Automatischer Palettenwechsel (enabled, intervalSec, candidates)
 - **i18n**: Basis‑Übersetzungen (nav/cta/common) mit defaultLocale und languages
 - **interactiveEffects**: Dezente Maus‑Ripples (enabled, triggerChance, minIntervalSec, maxPerMinute, ripple.sizePx, ripple.durationMs, ripple.color)
-- **settings**: Client‑seitige Einstellungen (enabled, showIcon, allowThemeChange, allowAnimationToggle, cookieConsent)
+- **settings**: Client‑seitige Einstellungen (enabled, showIcon, allowThemeChange, allowAnimationToggle, allowLanguageChange, cookieConsent)
 - **skillsDisplay**: Skills-Layout Konfiguration (design, availableDesigns, allowDesignChange)
 
 Hinweis: `config.json` ist reines JSON (keine Kommentare).
@@ -118,6 +118,15 @@ Das umfassende Einstellungssystem ermöglicht folgende Anpassungen:
 ### Layout & Design
 
 - **Skills-Layout Wahl**: 5 verschiedene Darstellungsformen
+- **Sprachauswahl**: Dynamischer Wechsel zwischen Deutsch und Englisch
+- **Animationssteuerung**: Background-Animationen ein-/ausschaltbar
+
+### Sprachsystem
+
+- **Echtzeit-Wechsel**: Sofortiger Sprachwechsel ohne Seitenreload
+- **Mehrsprachiger Content**: Navigation, Hero-Bereich und UI-Texte
+- **API-basiert**: Dynamisches Laden von sprachspezifischen Inhalten
+- **Fallback-Mechanismus**: Graceful degradation bei fehlenden Übersetzungen
 - **Animation Controls**: Hintergrundanimationen ein-/ausschalten
 - **Real-time Updates**: Alle Änderungen sofort sichtbar
 

@@ -1,0 +1,30 @@
+{
+  "de": {
+    "title": "Willkommen in meinem Portfolio",
+    "subtitle": "Kreative Webentwicklung & Digitale Lösungen",
+    "description": "Als leidenschaftlicher Full-Stack-Entwickler erschaffe ich innovative digitale Erlebnisse, die Menschen begeistern und Unternehmen voranbringen.",
+    "primaryButton": {
+      "text": "Projekte ansehen",
+      "link": "#projects"
+    },
+    "secondaryButton": {
+      "text": "Kontakt aufnehmen",
+      "link": "#contact"
+    },
+    "content": "Mit über 5 Jahren Erfahrung in der Webentwicklung kombiniere ich technische Expertise mit kreativem Design, um außergewöhnliche digitale Lösungen zu schaffen. Spezialisiert auf moderne Webtechnologien wie React, Next.js und Node.js, entwickle ich skalierbare und benutzerfreundliche Anwendungen."
+  },
+  "en": {
+    "title": "Welcome to my Portfolio",
+    "subtitle": "Creative Web Development & Digital Solutions",
+    "description": "As a passionate Full-Stack Developer, I create innovative digital experiences that inspire people and advance businesses.",
+    "primaryButton": {
+      "text": "View Projects",
+      "link": "#projects"
+    },
+    "secondaryButton": {
+      "text": "Get in Touch",
+      "link": "#contact"
+    },
+    "content": "With over 5 years of experience in web development, I combine technical expertise with creative design to create exceptional digital solutions. Specialized in modern web technologies like React, Next.js and Node.js, I develop scalable and user-friendly applications."
+  }
+}

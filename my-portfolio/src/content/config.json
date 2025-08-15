@@ -247,6 +247,7 @@
     "showIcon": true,
     "allowThemeChange": true,
     "allowAnimationToggle": true,
+    "allowLanguageChange": true,
     "cookieConsent": true
   },
   "skillsDisplay": {

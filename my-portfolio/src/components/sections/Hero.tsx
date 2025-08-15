@@ -1,6 +1,9 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import { useLanguage } from '@/utils/i18n';
+import type { SiteConfig } from '@/types/content';
 
 interface HeroProps {
   title: string;
@@ -14,6 +17,7 @@ interface HeroProps {
     text: string;
     link: string;
   };
+  config?: SiteConfig;
 }
 
 export default function Hero({
@@ -22,7 +26,45 @@ export default function Hero({
   description,
   primaryButton,
   secondaryButton,
+  config
 }: HeroProps) {
+  const { currentLanguage } = useLanguage(config);
+  const [content, setContent] = useState({
+    title,
+    subtitle,
+    description,
+    primaryButton,
+    secondaryButton,
+  });
+
+  useEffect(() => {
+    // Load language-specific content
+    const loadContent = async () => {
+      try {
+        const response = await fetch('/api/hero-content?lang=' + currentLanguage);
+        if (response.ok) {
+          const langContent = await response.json();
+          setContent(langContent);
+        }
+      } catch {
+        // Fallback to default content if API fails
+        console.warn('Failed to load language content, using defaults');
+      }
+    };
+
+    if (currentLanguage !== 'de') {
+      loadContent();
+    } else {
+      // Reset to default German content
+      setContent({
+        title,
+        subtitle,
+        description,
+        primaryButton,
+        secondaryButton,
+      });
+    }
+  }, [currentLanguage, title, subtitle, description, primaryButton, secondaryButton]);
   return (
   <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
       {/* spotlight gradient */}
@@ -33,13 +75,13 @@ export default function Hero({
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <motion.h1
+                    <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             className="text-4xl sm:text-6xl font-bold mb-4"
           >
-            <span className="gradient-text">{title}</span>
+            <span className="gradient-text">{content.title}</span>
           </motion.h1>
           
           <motion.h2
@@ -48,35 +90,35 @@ export default function Hero({
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-2xl sm:text-3xl text-gray-300 mb-6"
           >
-            {subtitle}
+            {content.subtitle}
           </motion.h2>
-          
+
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto"
+            className="text-lg sm:text-xl text-gray-400 mb-8 max-w-3xl mx-auto leading-relaxed"
           >
-            {description}
+            {content.description}
           </motion.p>
-          
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="flex justify-center items-center gap-4"
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center"
           >
             <a
-              href={primaryButton.link}
-              className="btn-primary interactive-border"
+              href={content.primaryButton.link}
+              className="btn-primary inline-flex items-center justify-center"
             >
-              {primaryButton.text}
+              {content.primaryButton.text}
             </a>
             <a
-              href={secondaryButton.link}
-              className="btn-secondary"
+              href={content.secondaryButton.link}
+              className="btn-secondary inline-flex items-center justify-center"
             >
-              {secondaryButton.text}
+              {content.secondaryButton.text}
             </a>
           </motion.div>
         </div>

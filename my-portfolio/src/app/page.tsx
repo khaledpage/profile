@@ -15,7 +15,7 @@ export default async function Home() {
 
     return (
       <div className="min-h-dvh text-foreground">
-        <Header />
+        <Header config={config} />
   <main className="content-surface">
           <Hero
             title={hero.title}
@@ -23,6 +23,7 @@ export default async function Home() {
             description={hero.description}
             primaryButton={hero.primaryButton}
             secondaryButton={hero.secondaryButton}
+            config={config}
           />
 
           {/* About */}

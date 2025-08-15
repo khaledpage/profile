@@ -125,6 +125,7 @@ export interface SiteConfig {
     showIcon?: boolean;
     allowThemeChange?: boolean;
     allowAnimationToggle?: boolean;
+    allowLanguageChange?: boolean;
     cookieConsent?: boolean;
   };
   skillsDisplay?: {

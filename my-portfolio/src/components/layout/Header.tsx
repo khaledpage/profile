@@ -3,10 +3,17 @@
 import { useMemo, useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Bars3Icon, XMarkIcon, CodeBracketIcon } from '@heroicons/react/24/outline';
+import { useLanguage } from '@/utils/i18n';
+import type { SiteConfig } from '@/types/content';
 
-export default function Header() {
+type Props = {
+  config?: SiteConfig;
+};
+
+export default function Header({ config }: Props) {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { translations } = useLanguage(config);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,10 +25,10 @@ export default function Header() {
   }, []);
 
   const navItems = [
-    { href: '#about', label: 'About' },
-    { href: '#projects', label: 'Projects' },
-    { href: '#skills', label: 'Skills' },
-    { href: '#contact', label: 'Contact' },
+    { href: '#about', label: translations?.nav.about || 'About' },
+    { href: '#projects', label: translations?.nav.projects || 'Projects' },
+    { href: '#skills', label: translations?.nav.skills || 'Skills' },
+    { href: '#contact', label: translations?.nav.contact || 'Contact' },
   ];
 
   // Deterministic particle values to prevent hydration mismatch

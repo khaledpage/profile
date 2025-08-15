@@ -13,6 +13,7 @@ type UserPreferences = {
   animationsEnabled?: boolean;
   skillsDesign?: string;
   cookieConsent?: boolean;
+  language?: string;
 };
 
 export default function SettingsPanel({ config }: Props) {
@@ -91,6 +92,12 @@ export default function SettingsPanel({ config }: Props) {
     // Update local state immediately for UI responsiveness
     setPreferences(prev => ({ ...prev, animationsEnabled: enabled }));
     savePreferences({ animationsEnabled: enabled });
+  };
+
+  const handleLanguageChange = (language: string) => {
+    // Update local state immediately for UI responsiveness
+    setPreferences(prev => ({ ...prev, language: language }));
+    savePreferences({ language: language });
   };
 
   if (!shouldShow) return null;
@@ -178,6 +185,33 @@ export default function SettingsPanel({ config }: Props) {
                   />
                   <span className="text-sm">Enable background animations</span>
                 </label>
+              </div>
+            )}
+
+            {/* Language Selection */}
+            {settingsConfig?.allowLanguageChange && config.i18n?.languages && Object.keys(config.i18n.languages).length > 1 && (
+              <div className="mb-6">
+                <h3 className="text-sm font-medium mb-3">Language</h3>
+                <div className="grid grid-cols-2 gap-3">
+                  {Object.entries(config.i18n.languages).map(([key, lang]) => (
+                    <button
+                      key={key}
+                      onClick={() => handleLanguageChange(key)}
+                      className={`p-3 rounded-lg text-left transition-all text-sm ${
+                        (preferences.language || config.i18n?.defaultLocale) === key
+                          ? 'ring-2 ring-accent-1 bg-white/10'
+                          : 'bg-white/5 hover:bg-white/10'
+                      }`}
+                    >
+                      <div className="font-medium">
+                        {key === 'de' ? '🇩🇪 Deutsch' : key === 'en' ? '🇺🇸 English' : key.toUpperCase()}
+                      </div>
+                      <div className="text-xs text-gray-400 mt-1">
+                        {lang.nav.about} • {lang.nav.projects}
+                      </div>
+                    </button>
+                  ))}
+                </div>
               </div>
             )}
 

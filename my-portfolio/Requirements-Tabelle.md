@@ -35,6 +35,9 @@
 | SKILL-08 | Real-time Design Switch   | Skills design changes immediately                  | High     | Selecting new design in settings applies instantly without page refresh                                       |
 | SKILL-09 | Design Persistence        | Selected skills design persists across sessions   | Medium   | Chosen layout remembered with user consent; restores on page load                                             |
 | SKILL-10 | Design Descriptions       | Clear descriptions for each layout option         | Low      | Each design option shows helpful description of its visual style and interaction                              |
+| SET-10   | Language Switching        | Dynamic language change via settings panel        | High     | Language selector shows available languages; changes apply immediately; navigation and hero content update   |
+| SET-11   | Language Persistence      | Selected language saved and restored              | High     | Language preference saved in localStorage (with consent); restored on page reload; synced across tabs        |
+| SET-12   | Multilingual Content      | Support for German and English content           | Medium   | Hero content, navigation labels change based on selected language; API provides localized content           |
 | A11Y-02  | Semantics / Accessibility | Keyboard- and screen reader-friendly                | Medium   | Semantic HTML; logical focus order; `aria-hidden` applied to decorative elements                              |
 | SEO-01   | Metadata                  | Correct title, description, and Open Graph tags     | Medium   | Proper social previews; unique title per page                                                                 |
 | PERF-01  | Image / Load Performance  | Optimized media and rendering path                  | Medium   | Use `Next/Image` where possible; lazy loading; minimal CLS; smooth 60fps animations                           |
