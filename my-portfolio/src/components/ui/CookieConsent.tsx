@@ -26,12 +26,14 @@ export default function CookieConsent() {
     });
     setIsVisible(false);
     window.dispatchEvent(new CustomEvent('cookieConsentGiven'));
+    window.dispatchEvent(new CustomEvent('cookieConsentChanged'));
   };
 
   const handleAcceptSelected = () => {
     setCookieConsent(preferences);
     setIsVisible(false);
     window.dispatchEvent(new CustomEvent('cookieConsentGiven'));
+    window.dispatchEvent(new CustomEvent('cookieConsentChanged'));
   };
 
   const handleRejectAll = () => {
@@ -43,6 +45,7 @@ export default function CookieConsent() {
     });
     setIsVisible(false);
     window.dispatchEvent(new CustomEvent('cookieConsentGiven'));
+    window.dispatchEvent(new CustomEvent('cookieConsentChanged'));
   };
 
   if (!isVisible) return null;

@@ -63,6 +63,22 @@ export default function SettingsPanel({ config }: Props) {
     } else if (consent === null && settingsConfig?.cookieConsent) {
       setShowCookieConsent(true);
     }
+
+    // Listen for cookie consent changes
+    const handleConsentChange = () => {
+      const newConsent = localStorage.getItem('cookie-consent');
+      if (newConsent === 'accepted') {
+        setHasConsent(true);
+        setShowCookieConsent(false);
+      } else if (newConsent === 'declined') {
+        setHasConsent(false);
+      }
+    };
+
+    window.addEventListener('cookieConsentChanged', handleConsentChange);
+    return () => {
+      window.removeEventListener('cookieConsentChanged', handleConsentChange);
+    };
   }, [settingsConfig?.cookieConsent]);
 
   const acceptCookies = () => {
@@ -151,7 +167,14 @@ export default function SettingsPanel({ config }: Props) {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-xl font-semibold">Settings</h2>
+              <div>
+                <h2 className="text-xl font-semibold">Settings</h2>
+                {!hasConsent && settingsConfig?.cookieConsent && (
+                  <p className="text-sm text-orange-400 mt-1">
+                    ⚠️ Settings cannot be saved without cookie consent
+                  </p>
+                )}
+              </div>
               <button
                 onClick={() => setIsOpen(false)}
                 className="p-1 rounded-lg transition-colors"

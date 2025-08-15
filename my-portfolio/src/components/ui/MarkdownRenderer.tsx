@@ -10,22 +10,42 @@ import 'katex/dist/katex.min.css';
 interface MarkdownRendererProps {
   content: string;
   className?: string;
+  articleSlug?: string; // For resolving relative image paths
 }
 
-export default function MarkdownRenderer({ content, className = '' }: MarkdownRendererProps) {
+export default function MarkdownRenderer({ content, className = '', articleSlug }: MarkdownRendererProps) {
   const [htmlContent, setHtmlContent] = useState('');
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     async function processMarkdown() {
       try {
-        const result = await remark()
+        // Process relative image paths if articleSlug is provided
+        let processedContent = content;
+        if (articleSlug) {
+          // Replace relative image paths with API paths
+          processedContent = content.replace(
+            /!\[([^\]]*)\]\(\.\/assets\/([^)]+)\)/g,
+            `![$1](/api/articles/${articleSlug}/assets/$2)`
+          ).replace(
+            /!\[([^\]]*)\]\(assets\/([^)]+)\)/g,
+            `![$1](/api/articles/${articleSlug}/assets/$2)`
+          );
+        }
+
+        // First process with remark (markdown to HTML with math)
+        const remarkResult = await remark()
           .use(remarkMath)
           .use(remarkHtml, { sanitize: false })
-          .use(rehypeKatex)
-          .process(content);
+          .process(processedContent);
 
-        setHtmlContent(result.toString());
+        // Then process with rehype to handle KaTeX
+        const { rehype } = await import('rehype');
+        const rehypeResult = await rehype()
+          .use(rehypeKatex)
+          .process(remarkResult.toString());
+
+        setHtmlContent(rehypeResult.toString());
       } catch (error) {
         console.error('Error processing markdown:', error);
         setHtmlContent('<p>Error rendering content</p>');
@@ -35,7 +55,7 @@ export default function MarkdownRenderer({ content, className = '' }: MarkdownRe
     }
 
     processMarkdown();
-  }, [content]);
+  }, [content, articleSlug]);
 
   if (isLoading) {
     return (

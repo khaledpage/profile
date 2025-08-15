@@ -52,6 +52,15 @@ export async function getArticleBySlug(slug: string): Promise<Article | null> {
     const metadataContent = fs.readFileSync(metadataFile, 'utf8');
     const metadata: ArticleMetadata = JSON.parse(metadataContent);
 
+    // Process coverImage path - if it starts with './assets/', convert to absolute path
+    if (metadata.coverImage && metadata.coverImage.startsWith('./assets/')) {
+      const assetPath = metadata.coverImage.replace('./assets/', '');
+      metadata.coverImage = `/api/articles/${slug}/assets/${assetPath}`;
+    } else if (metadata.coverImage && metadata.coverImage.startsWith('assets/')) {
+      const assetPath = metadata.coverImage.replace('assets/', '');
+      metadata.coverImage = `/api/articles/${slug}/assets/${assetPath}`;
+    }
+
     // Read markdown content
     const markdownContent = fs.readFileSync(markdownFile, 'utf8');
     const { content } = matter(markdownContent);

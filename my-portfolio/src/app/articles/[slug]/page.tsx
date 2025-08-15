@@ -165,6 +165,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             <MarkdownRenderer 
               content={content}
               className="article-content"
+              articleSlug={slug}
             />
           </div>
 

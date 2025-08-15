@@ -1,6 +1,6 @@
-# Matirx multiplication
+# Matrix Multiplication
 
-![alt text](assets/g6_matrixmultiplikation.jpg)
+![Matrix Multiplication Diagram](./assets/g6_matrixmultiplikation.jpg)
 
 Matrix multiplication is a fundamental operation in linear algebra where two matrices are combined to produce a new matrix. Unlike element-wise multiplication, matrix multiplication involves a series of dot products between rows and columns. Here's a detailed explanation:
 
@@ -55,3 +55,35 @@ Matrix multiplication is a fundamental operation in linear algebra where two mat
 
 ### **Note:**  
 Matrix multiplication is distinct from the Hadamard (element-wise) product, where corresponding elements are multiplied directly.
+
+
+### **Updated Answer with Plot**
+
+1. **Projection of Line A onto Line B**:
+   - Line A: Vertical at $x = 1$ , vector representation $\mathbf{a} = \begin{bmatrix} 0 \\ 2 \end{bmatrix}$.
+   - Line B: Vertical at $x = 2$ , vector representation $\mathbf{b} = \begin{bmatrix} 0 \\ 4 \end{bmatrix}$.
+
+   **Steps to Compute the Projection**:
+   $$
+   \text{Proj}_{\mathbf{b}}(\mathbf{a}) = \frac{\mathbf{a} \cdot \mathbf{b}}{\|\mathbf{b}\|^2} \mathbf{b}
+   $$
+
+   - **Dot Product**:
+     $$
+     \mathbf{a} \cdot \mathbf{b} = (0 \cdot 0) + (2 \cdot 4) = 8
+     $$
+
+   - **Magnitude Squared of $\mathbf{b}$**:
+     $$
+     \|\mathbf{b}\|^2 = 0^2 + 4^2 = 16
+     $$
+
+   - **Projection Vector**:
+     $$
+     \text{Proj}_{\mathbf{b}}(\mathbf{a}) = \frac{8}{16} \cdot \begin{bmatrix} 0 \\ 4 \end{bmatrix} = \begin{bmatrix} 0 \\ 2 \end{bmatrix}
+     $$
+
+   - **Normalize the Projection**:
+     $$
+     \text{Normalized Projection} = \frac{\text{Proj}_{\mathbf{b}}(\mathbf{a})}{\|\text{Proj}_{\mathbf{b}}(\mathbf{a})\|} = \frac{\begin{bmatrix} 0 \\ 2 \end{bmatrix}}{2} = \begin{bmatrix} 0 \\ 1 \end{bmatrix}
+     $$
