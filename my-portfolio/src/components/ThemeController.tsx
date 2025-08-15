@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, useCallback } from 'react';
+import { getCookieConsent } from '@/utils/cookies';
 import type { SiteConfig } from '@/types/content';
 
 type Palette = {
@@ -53,9 +54,9 @@ export default function ThemeController({ palettes, colorProfile, colorRotation,
       toggleAnimations,
     };
 
-    // Check for stored preferences on mount
-    const consent = localStorage.getItem('cookie-consent');
-    if (consent === 'accepted') {
+    // Check for stored preferences on mount (only if consent given and preferences allowed)
+    const consent = getCookieConsent();
+    if (consent && consent.preferences) {
       const stored = localStorage.getItem('user-preferences');
       if (stored) {
         try {

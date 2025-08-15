@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { getCookieConsent } from '@/utils/cookies';
 import type { SkillsContent, SkillGroup, SiteConfig } from '@/types/content';
 
 type Props = { 
@@ -294,8 +295,8 @@ export default function SkillsShowcaseMultiDesign({ skills, config }: Props) {
   useEffect(() => {
     // Check for stored preferences on mount
     const loadStoredPreferences = () => {
-      const consent = localStorage.getItem('cookie-consent');
-      if (consent === 'accepted') {
+      const consent = getCookieConsent();
+      if (consent && consent.preferences) {
         const stored = localStorage.getItem('user-preferences');
         if (stored) {
           try {

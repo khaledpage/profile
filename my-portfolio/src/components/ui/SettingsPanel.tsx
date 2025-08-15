@@ -56,6 +56,15 @@ export default function SettingsPanel({ config }: Props) {
         try {
           const prefs = JSON.parse(storedPrefs);
           setPreferences(prefs);
+          // Apply stored preferences immediately on load
+      if (typeof window !== 'undefined' && window.__themeController) {
+            if (prefs.colorProfile) {
+        window.__themeController.changeTheme(prefs.colorProfile);
+            }
+            if (typeof prefs.animationsEnabled === 'boolean') {
+        window.__themeController.toggleAnimations(prefs.animationsEnabled);
+            }
+          }
         } catch {
           console.warn('Failed to parse stored preferences');
         }
@@ -83,15 +92,19 @@ export default function SettingsPanel({ config }: Props) {
     };
   }, [settingsConfig?.cookieConsent]);
 
-  const acceptCookies = () => {
-    localStorage.setItem('cookie-consent', 'accepted');
-    setHasConsent(true);
-    setShowCookieConsent(false);
-  };
+  // acceptCookies removed; use handleAcceptCookies instead to persist and apply settings
 
   const declineCookies = () => {
-    localStorage.setItem('cookie-consent', 'declined');
+    // Store explicit decline with only necessary allowed
+    setCookieConsent({
+      necessary: true,
+      analytics: false,
+      preferences: false,
+      marketing: false,
+    });
+    setHasConsent(false);
     setShowCookieConsent(false);
+    window.dispatchEvent(new CustomEvent('cookieConsentChanged'));
   };
 
   const handleAcceptCookies = () => {
@@ -111,11 +124,13 @@ export default function SettingsPanel({ config }: Props) {
       localStorage.setItem('user-preferences', JSON.stringify(preferences));
       
       // Apply preferences immediately
-      if (preferences.colorProfile && typeof window !== 'undefined' && window.__themeController) {
-        window.__themeController.changeTheme(preferences.colorProfile);
-      }
-      if (preferences.animationsEnabled !== undefined && typeof window !== 'undefined' && window.__themeController) {
-        window.__themeController.toggleAnimations(preferences.animationsEnabled);
+    if (typeof window !== 'undefined' && window.__themeController) {
+        if (preferences.colorProfile) {
+      window.__themeController.changeTheme(preferences.colorProfile);
+        }
+        if (typeof preferences.animationsEnabled === 'boolean') {
+      window.__themeController.toggleAnimations(preferences.animationsEnabled);
+        }
       }
     }
     
@@ -404,7 +419,7 @@ export default function SettingsPanel({ config }: Props) {
                   Decline
                 </button>
                 <button
-                  onClick={acceptCookies}
+                  onClick={handleAcceptCookies}
                   className="px-3 py-1.5 text-xs rounded-lg btn-primary"
                 >
                   Accept
