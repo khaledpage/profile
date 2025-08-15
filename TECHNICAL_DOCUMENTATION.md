@@ -77,7 +77,23 @@ my-portfolio/
   - PDF export capability
 - **Features**: Static generation with `generateStaticParams`
 
-### 🛠 **API Routes (`src/app/api/`)**
+### � **Projects System (`src/app/projects/`)**
+
+#### **`src/app/projects/[slug]/page.tsx`**
+- **Purpose**: Individual project detail page
+- **Functionality**:
+  - Loads project data from `src/content/projects.json`
+  - Gallery with hero image and thumbnails
+  - Tech stack chips and quick metrics
+  - Features/challenges lists in a glass card
+  - “See also” related projects
+  - Fixed back button
+  - Breadcrumbs: Home / Projects / {title}
+- **Design**:
+  - Theme-aware text using CSS variables (`--foreground`, `--muted`)
+  - No Tailwind gray classes to preserve readability across themes
+
+### �🛠 **API Routes (`src/app/api/`)**
 
 #### **`src/app/api/articles/route.ts`**
 - **Purpose**: Articles data API endpoint
@@ -170,6 +186,7 @@ my-portfolio/
   - Technology stack visualization
   - Link handling (external/internal)
   - Responsive image loading
+  - Theme-aware colors using CSS variables
 
 ##### **`src/components/ui/MarkdownRenderer.tsx`**
 - **Purpose**: Markdown and LaTeX rendering
@@ -349,6 +366,8 @@ my-portfolio/
 - `npm run build`: Production build
 - `npm run start`: Production server
 - `npm run lint`: ESLint validation
+- `npm run build:pages`: Static export build (GitHub Pages)
+- `npm run build:widgets": Build Vite widgets to `public/widgets`
 
 ### File Watching
 - Hot reload for code changes
@@ -385,6 +404,12 @@ my-portfolio/
 - Build-time configuration
 - API endpoints
 - Feature flags
+
+### Bundling with Vite (Optional)
+- Config file: `vite.widgets.config.ts`
+- Library entry: `widgets/src/index.ts`
+- Outputs ES and IIFE bundles to `public/widgets`
+- Intended for small embeddable widgets independent of Next.js runtime
 
 ### Content Configuration
 - JSON-based content management

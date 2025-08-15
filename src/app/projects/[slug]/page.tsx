@@ -45,6 +45,24 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
   return (
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-20 relative">
+      {/* Breadcrumbs */}
+      <nav className="mb-8">
+        <ol className="flex items-center space-x-2 text-sm">
+          <li>
+            <Link href="/" className="hover:text-accent-1 transition-colors" style={{ color: 'var(--muted)' }}>
+              Home
+            </Link>
+          </li>
+          <span style={{ color: 'var(--muted)' }}>/</span>
+          <li>
+            <Link href="/#projects" className="hover:text-accent-1 transition-colors" style={{ color: 'var(--muted)' }}>
+              Projects
+            </Link>
+          </li>
+          <span style={{ color: 'var(--muted)' }}>/</span>
+          <li style={{ color: 'var(--foreground)' }}>{project.title}</li>
+        </ol>
+      </nav>
       {/* Floating Back Button */}
   <Link href="/" className="fixed left-4 bottom-4 z-40 btn-secondary">← {tCommon.back}</Link>
       {/* Header Section */}
@@ -69,7 +87,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
               {project.metrics.map((m, idx) => (
                 <div key={idx} className="glass rounded-xl p-4 text-center">
                   <div className="text-xs" style={{ color: 'var(--muted)' }}>{m.label}</div>
-                  <div className="text-lg font-semibold">{m.value}</div>
+                  <div className="text-lg font-semibold" style={{ color: 'var(--foreground)' }}>{m.value}</div>
                 </div>
               ))}
             </div>
@@ -114,7 +132,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
       {project.overview && (
         <section className="mt-12">
           <h2 className="text-2xl font-semibold mb-3">Überblick</h2>
-          <p className="text-gray-300">{project.overview}</p>
+          <p style={{ color: 'var(--foreground)' }}>{project.overview}</p>
         </section>
       )}
 
@@ -128,7 +146,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                 {project.features.map((f, i) => (
                   <li key={i} className="flex items-start gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-gradient-to-r from-indigo-400 to-purple-400" />
-                    <span className="text-gray-200">{f}</span>
+                    <span style={{ color: 'var(--foreground)' }}>{f}</span>
                   </li>
                 ))}
               </ul>
@@ -142,7 +160,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                 {project.challenges.map((c, i) => (
                   <li key={i} className="flex items-start gap-2">
                     <span className="mt-1 h-1.5 w-1.5 rounded-full bg-white/50" />
-                    <span className="text-gray-200">{c}</span>
+                    <span style={{ color: 'var(--foreground)' }}>{c}</span>
                   </li>
                 ))}
               </ul>
@@ -155,16 +173,16 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
       {project.meta && (
         <section className="mt-12 grid sm:grid-cols-2 md:grid-cols-4 gap-4">
           {project.meta.role && (
-            <div className="glass rounded-xl p-4"><div className="text-xs text-gray-400">Rolle</div><div className="font-medium">{project.meta.role}</div></div>
+            <div className="glass rounded-xl p-4"><div className="text-xs" style={{ color: 'var(--muted)' }}>Rolle</div><div className="font-medium" style={{ color: 'var(--foreground)' }}>{project.meta.role}</div></div>
           )}
           {project.meta.duration && (
-            <div className="glass rounded-xl p-4"><div className="text-xs text-gray-400">Dauer</div><div className="font-medium">{project.meta.duration}</div></div>
+            <div className="glass rounded-xl p-4"><div className="text-xs" style={{ color: 'var(--muted)' }}>Dauer</div><div className="font-medium" style={{ color: 'var(--foreground)' }}>{project.meta.duration}</div></div>
           )}
           {project.meta.year && (
-            <div className="glass rounded-xl p-4"><div className="text-xs text-gray-400">Jahr</div><div className="font-medium">{project.meta.year}</div></div>
+            <div className="glass rounded-xl p-4"><div className="text-xs" style={{ color: 'var(--muted)' }}>Jahr</div><div className="font-medium" style={{ color: 'var(--foreground)' }}>{project.meta.year}</div></div>
           )}
           {project.meta.teamSize && (
-            <div className="glass rounded-xl p-4"><div className="text-xs text-gray-400">Team</div><div className="font-medium">{project.meta.teamSize}</div></div>
+            <div className="glass rounded-xl p-4"><div className="text-xs" style={{ color: 'var(--muted)' }}>Team</div><div className="font-medium" style={{ color: 'var(--foreground)' }}>{project.meta.teamSize}</div></div>
           )}
         </section>
       )}
@@ -182,7 +200,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
                   <Image src={p.image} alt={p.title} fill className="object-cover" />
                 </div>
                 <div className="font-medium">{p.title}</div>
-                <div className="text-sm text-gray-400 line-clamp-2">{p.description}</div>
+                <div className="text-sm line-clamp-2" style={{ color: 'var(--muted)' }}>{p.description}</div>
               </Link>
             ))}
         </div>

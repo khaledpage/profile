@@ -1,4 +1,5 @@
 import { getAllArticles } from '@/utils/articles';
+import type { Article, ArticleMetadata } from '@/types/article';
 import ArticleCard from '@/components/ui/ArticleCard';
 import { Metadata } from 'next';
 
@@ -13,9 +14,9 @@ export default async function ArticlesPage() {
     try {
       const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/data/articles.json`, { cache: 'force-cache' });
       if (res.ok) {
-        const list = await res.json();
-        // fetch per-article for content not needed here; use list metadata
-        articles = list.map((a: any) => ({ slug: a.slug, metadata: a.metadata, content: '', assets: [] }));
+  const list: { slug: string; metadata: ArticleMetadata }[] = await res.json();
+  // fetch per-article for content not needed here; use list metadata
+  articles = list.map<Article>((a) => ({ slug: a.slug, metadata: a.metadata, content: '', assets: [] }));
       }
     } catch {}
   }
