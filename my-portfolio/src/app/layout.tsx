@@ -4,6 +4,7 @@ import "./globals.css";
 import { getSiteConfig } from '@/utils/content';
 import ThemeController from '@/components/ThemeController';
 import SettingsPanel from '@/components/ui/SettingsPanel';
+import CookieConsent from '@/components/ui/CookieConsent';
 import type { ColorPalette } from '@/types/content';
 
 const geistSans = Geist({
@@ -85,6 +86,7 @@ export default async function RootLayout({
           <SettingsPanel
             config={config ?? { colorProfile: '', palettes: {} }}
           />
+          <CookieConsent />
           {children}
         </div>
       </body>

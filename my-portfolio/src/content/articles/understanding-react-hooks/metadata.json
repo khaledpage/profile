@@ -1,0 +1,17 @@
+{
+  "title": "Understanding React Hooks: A Complete Guide",
+  "summary": "Learn how to use React Hooks effectively to manage state and side effects in functional components. This comprehensive guide covers useState, useEffect, and custom hooks.",
+  "author": "Khaled Alabsi",
+  "publishDate": "2024-12-15",
+  "lastModified": "2024-12-15",
+  "tags": ["React", "JavaScript", "Web Development", "Frontend"],
+  "category": "Web Development",
+  "coverImage": "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&h=400&fit=crop&crop=entropy&auto=format",
+  "readingTime": 8,
+  "featured": true,
+  "published": true,
+  "seo": {
+    "metaDescription": "Comprehensive guide to React Hooks - useState, useEffect, and custom hooks explained with practical examples.",
+    "keywords": ["React Hooks", "useState", "useEffect", "React functional components", "modern React"]
+  }
+}

@@ -357,12 +357,12 @@
     "defaultLocale": "de",
     "languages": {
       "de": {
-        "nav": { "about": "Über mich", "projects": "Projekte", "skills": "Skills", "contact": "Kontakt" },
+        "nav": { "about": "Über mich", "projects": "Projekte", "skills": "Skills", "articles": "Artikel", "contact": "Kontakt" },
         "cta": { "talk": "Los geht's" },
         "common": { "back": "Zurück", "seeAlso": "Siehe auch" }
       },
       "en": {
-        "nav": { "about": "About", "projects": "Projects", "skills": "Skills", "contact": "Contact" },
+        "nav": { "about": "About", "projects": "Projects", "skills": "Skills", "articles": "Articles", "contact": "Contact" },
         "cta": { "talk": "Let's talk" },
         "common": { "back": "Back", "seeAlso": "See also" }
       }

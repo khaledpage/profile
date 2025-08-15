@@ -110,7 +110,7 @@ export interface SiteConfig {
   i18n?: {
     defaultLocale: string;
     languages: Record<string, {
-      nav: { about: string; projects: string; skills: string; contact: string };
+      nav: { about: string; projects: string; skills: string; articles: string; contact: string };
       cta: { talk: string };
       common: { back: string; seeAlso: string };
     }>;

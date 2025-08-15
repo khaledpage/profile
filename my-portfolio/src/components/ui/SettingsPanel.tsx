@@ -1,8 +1,9 @@
-"use client";
+'use client';
 
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { XMarkIcon, Cog6ToothIcon } from '@heroicons/react/24/outline';
 import type { SiteConfig } from '@/types/content';
+import { canSavePreferences, shouldShowCookieBanner } from '@/utils/cookies';
 
 type Props = {
   config: SiteConfig;
@@ -79,8 +80,15 @@ export default function SettingsPanel({ config }: Props) {
     const updated = { ...preferences, ...newPrefs };
     setPreferences(updated);
     
-    if (hasConsent) {
+    // Check if user has given consent to save preferences
+    if (canSavePreferences()) {
       localStorage.setItem('user-preferences', JSON.stringify(updated));
+    } else if (shouldShowCookieBanner()) {
+      // Show cookie consent banner if preferences cannot be saved
+      setShowCookieConsent(true);
+      // Don't save to localStorage until consent is given
+      console.log('Cookie consent required to save preferences');
+      return;
     }
     
     // Dispatch custom event for immediate updates in the same tab

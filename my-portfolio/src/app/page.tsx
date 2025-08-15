@@ -3,6 +3,7 @@ import Hero from '@/components/sections/Hero';
 import ProjectCard from '@/components/ui/ProjectCard';
 import { getAllContent, getSiteConfig } from '@/utils/content';
 import SkillsShowcaseMultiDesign from '@/components/sections/SkillsShowcaseMultiDesign';
+import ArticlesSection from '@/components/sections/ArticlesSection';
 import { Project } from '@/types/content';
 
 export const revalidate = 0; // Deaktiviert das Caching für Entwicklungszwecke
@@ -84,16 +85,18 @@ export default async function Home() {
             </div>
           </section>
 
-          {/* Contact (static info) */}
+          <ArticlesSection />
+
+          {/* Contact */}
           <section id="contact" className="py-24">
-            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="max-w-3xl mx-auto text-center">
-                <h2 className="text-3xl md:text-4xl font-bold mb-3">{contact.title}</h2>
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+              <div className="max-w-3xl mx-auto">
+                <h2 className="text-3xl md:text-4xl font-bold mb-6">{contact.title}</h2>
                 <p className="mb-8 max-w-2xl mx-auto" style={{ color: 'var(--muted)' }}>{contact.description}</p>
-                <div className="grid gap-4 sm:grid-cols-3">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-2xl mx-auto">
                   <div className="glass rounded-xl p-5">
                     <div className="text-sm" style={{ color: 'var(--muted)' }}>E-Mail</div>
-                    <div className="font-medium">contact@example.com</div>
+                    <div className="font-medium">khaled@example.com</div>
                   </div>
                   <div className="glass rounded-xl p-5">
                     <div className="text-sm" style={{ color: 'var(--muted)' }}>Telefon</div>

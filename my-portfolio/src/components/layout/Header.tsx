@@ -28,6 +28,7 @@ export default function Header({ config }: Props) {
     { href: '#about', label: translations?.nav.about || 'About' },
     { href: '#projects', label: translations?.nav.projects || 'Projects' },
     { href: '#skills', label: translations?.nav.skills || 'Skills' },
+    { href: '#articles', label: translations?.nav.articles || 'Articles' },
     { href: '#contact', label: translations?.nav.contact || 'Contact' },
   ];
 

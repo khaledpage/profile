@@ -9,6 +9,9 @@ Ein modernes Portfolio mit Next.js 15, React 19, TypeScript und Tailwind CSS v4.
 - **Tailwind CSS v4** mit CSS-Variablen
 - **Framer Motion** für Animationen
 - **Heroicons** für Icons
+- **KaTeX** für LaTeX-Mathematik-Rendering
+- **remark/rehype** für Markdown-Processing
+- **gray-matter** für Frontmatter-Parsing
 
 ## Schnellstart
 
@@ -17,6 +20,8 @@ Ein modernes Portfolio mit Next.js 15, React 19, TypeScript und Tailwind CSS v4.
 ```bash
 npm install
 ```
+
+**Hinweis:** Alle benötigten Dependencies für das Article System (KaTeX, remark/rehype, gray-matter) sind bereits in der package.json enthalten.
 
 2. Entwicklung starten:
 
@@ -36,6 +41,97 @@ Standard-URL: `https://localhost:3000`
 ## Inhalte & Konfiguration
 
 Alle Inhalte liegen in `src/content/`. Eine detaillierte Beschreibung der Konfigurationsfelder findest du zusätzlich in `src/content/CONFIGURATION.md`.
+
+## Neue Features
+
+### 🍪 Cookie Consent System
+
+**DSGVO-konformes Cookie-Management:**
+
+- **Kategorisierte Zustimmung**: Necessary, Analytics, Preferences, Marketing
+- **Intelligente Speicherung**: Verhindert Speicherung ohne Zustimmung
+- **365-Tage Gültigkeit**: Automatisches Ablaufen der Zustimmung
+- **Re-Prompt Mechanismus**: Erneute Nachfrage bei Settings-Änderungen ohne Zustimmung
+- **Theme-Integration**: Konsistente Darstellung mit Portfolio-Design
+
+**Features:**
+
+- Accept All / Customize / Reject Workflows
+- Detaillierte Kategorie-Erklärungen
+- Automatische Integration mit Settings-Panel
+- localStorage-basierte Persistierung
+
+### 📝 Article System
+
+**Vollständiges Content-Management-System:**
+
+- **Markdown + LaTeX**: Wissenschaftliche Artikel mit mathematischen Formeln
+- **Flexible Assets**: Lokale Bilder und Internet-Links unterstützt
+- **Rich Metadata**: Tags, Kategorien, Featured-Status, SEO-Optimierung
+- **Responsive Design**: Optimierte Darstellung auf allen Geräten
+
+**Dateistruktur pro Artikel:**
+
+```text
+src/content/articles/[article-slug]/
+├── article.md          # Hauptinhalt (Markdown + LaTeX)
+├── metadata.json       # Meta-Informationen
+└── assets/            # Lokale Bilder und Dateien
+    ├── cover.jpg
+    └── diagram.png
+```
+
+**Features:**
+
+- **LaTeX-Rendering**: KaTeX-Integration für mathematische Formeln
+- **Theme-aware Styling**: Konsistente Farbgebung mit Portfolio
+- **Static Generation**: Optimierte Performance durch ISR
+- **SEO-Optimierung**: OpenGraph, Meta-Tags, strukturierte Daten
+- **Navigation Integration**: Nahtlose Einbindung in Website-Navigation
+- **Filtering System**: Featured Articles, Kategorien, Tags
+- **Reading Experience**: Optimierte Typografie und Lesbarkeit
+
+**Artikel erstellen:**
+
+1. Neuen Ordner unter `src/content/articles/` erstellen (z.B. `my-new-article`)
+
+2. `metadata.json` mit folgendem Schema erstellen:
+
+```json
+{
+  "title": "Artikel Titel",
+  "summary": "Kurze Beschreibung des Artikels",
+  "publishedAt": "2024-01-15",
+  "coverImage": "/images/cover.jpg",
+  "tags": ["react", "javascript"],
+  "category": "tutorial",
+  "featured": false,
+  "published": true,
+  "readingTime": 5,
+  "author": "Dein Name"
+}
+```
+
+3. `article.md` mit Markdown-Inhalt erstellen:
+
+```markdown
+# Artikel Titel
+
+Einleitung des Artikels...
+
+## LaTeX Formeln
+
+Inline Mathe: $E = mc^2$
+
+Display Mathe:
+$$
+\int_{-\infty}^{\infty} e^{-x^2} dx = \sqrt{\pi}
+$$
+
+![Lokales Bild](./assets/diagram.png)
+```
+
+4. Optional: `assets/` Ordner für lokale Bilder erstellen
 
 ### `config.json` – Kurzüberblick
 
@@ -110,6 +206,14 @@ Die Skills sind in `skills.json` konfiguriert und bieten **5 verschiedene Darste
 
 Das umfassende Einstellungssystem ermöglicht folgende Anpassungen:
 
+### Cookie Consent & Privacy
+
+- **DSGVO-Compliance**: Kategorisierte Cookie-Zustimmung (Necessary, Analytics, Preferences, Marketing)
+- **Intelligent Storage**: Verhindert Speicherung ohne Benutzer-Zustimmung
+- **Re-Prompt System**: Automatische Nachfrage bei Settings-Änderungen ohne Consent
+- **365-Tage Gültigkeit**: Automatisches Ablaufen der Zustimmung nach einem Jahr
+- **Graceful Degradation**: Volle Funktionalität auch ohne Cookie-Akzeptanz
+
 ### Theme & Farben
 
 - **Gruppierte Farbpaletten**: Themes organisiert in 3 Kategorien (Dark, Light, Vibrant)
@@ -146,10 +250,7 @@ Benutzer können über das Einstellungs-Icon (falls aktiviert) folgende Änderun
 - **Theme wechseln**: Aus 20+ verfügbaren Farbpaletten auswählen
 - **Skills-Layout**: Zwischen Marquee, Grid, Carousel, Masonry und Timeline wählen
 - **Animationen**: Ein-/Ausschalten der Hintergrundanimationen
-- **Cookie-Consent**: DSGVO-konforme Speicherung der Präferenzen
-
-- **Theme wechseln**: Aus verfügbaren Farbpaletten auswählen
-- **Animationen**: Ein-/Ausschalten der Hintergrundanimationen
+- **Sprache**: Dynamischer Wechsel zwischen Deutsch und Englisch
 - **Cookie-Consent**: DSGVO-konforme Speicherung der Präferenzen
 
 Die Einstellungen werden im `localStorage` gespeichert (mit Zustimmung) oder temporär gehalten.
@@ -159,13 +260,38 @@ Die Einstellungen werden im `localStorage` gespeichert (mit Zustimmung) oder tem
 ```text
 src/
 ├── app/                 # Next.js App Router
+│   ├── api/            # API Routes
+│   │   ├── articles/   # Article data endpoints
+│   │   └── hero-content/ # Localized content
+│   ├── articles/       # Article pages
+│   │   ├── page.tsx    # Article listing
+│   │   └── [slug]/     # Individual articles
+│   └── projects/       # Project pages
 ├── components/          # React-Komponenten
 │   ├── layout/         # Header, Footer
-│   ├── sections/       # Hero, Skills, etc.
+│   ├── sections/       # Hero, Skills, Articles, etc.
 │   └── ui/             # Wiederverwendbare UI-Elemente
-├── content/            # JSON-Konfiguration
+│       ├── ArticleCard.tsx      # Article preview cards
+│       ├── CookieConsent.tsx    # GDPR cookie banner
+│       ├── MarkdownRenderer.tsx # LaTeX + Markdown
+│       └── SettingsPanel.tsx    # Theme & preferences
+├── content/            # JSON-Konfiguration & Articles
+│   ├── articles/       # Article content
+│   │   ├── [slug]/     # Individual article folders
+│   │   │   ├── article.md      # Markdown content
+│   │   │   ├── metadata.json   # Article metadata
+│   │   │   └── assets/         # Local images
+│   ├── config.json     # Main configuration
+│   ├── projects.json   # Project data
+│   └── skills.json     # Skills showcase
 ├── types/              # TypeScript-Definitionen
+│   ├── article.ts      # Article & metadata types
+│   └── content.ts      # Content configuration
 └── utils/              # Hilfsfunktionen
+    ├── articles.ts     # Article data utilities
+    ├── content.ts      # Content loading
+    ├── cookies.ts      # Cookie consent management
+    └── i18n.ts         # Internationalization
 ```
 
 Weitere Details zur Konfiguration finden Sie in `src/content/CONFIGURATION.md`.
