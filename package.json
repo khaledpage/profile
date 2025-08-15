@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+  "lint": "next lint",
+  "build:pages": "NEXT_PUBLIC_STATIC_EXPORT=true NEXT_PUBLIC_BASE_PATH=/profile node ./scripts/build-static-content.js && next build"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.7",

@@ -52,13 +52,18 @@ export async function getArticleBySlug(slug: string): Promise<Article | null> {
     const metadataContent = fs.readFileSync(metadataFile, 'utf8');
     const metadata: ArticleMetadata = JSON.parse(metadataContent);
 
-    // Process coverImage path - if it starts with './assets/', convert to absolute path
+    // Process coverImage path - prefer static path when exporting for GitHub Pages
+    const isStatic = process.env.NEXT_PUBLIC_STATIC_EXPORT === 'true';
     if (metadata.coverImage && metadata.coverImage.startsWith('./assets/')) {
       const assetPath = metadata.coverImage.replace('./assets/', '');
-      metadata.coverImage = `/api/articles/${slug}/assets/${assetPath}`;
+      metadata.coverImage = isStatic
+        ? `/articles/${slug}/assets/${assetPath}`
+        : `/api/articles/${slug}/assets/${assetPath}`;
     } else if (metadata.coverImage && metadata.coverImage.startsWith('assets/')) {
       const assetPath = metadata.coverImage.replace('assets/', '');
-      metadata.coverImage = `/api/articles/${slug}/assets/${assetPath}`;
+      metadata.coverImage = isStatic
+        ? `/articles/${slug}/assets/${assetPath}`
+        : `/api/articles/${slug}/assets/${assetPath}`;
     }
 
     // Read markdown content

@@ -25,6 +25,10 @@ export default function ReadingTheme({ children }: ReadingThemeProps) {
   }, []);
 
   const handleDownloadPDF = async () => {
+    if (process.env.NEXT_PUBLIC_STATIC_EXPORT === 'true') {
+      alert('PDF generation is unavailable on static export. Clone the repo and run locally to generate PDFs.');
+      return;
+    }
     try {
       setIsDownloading(true);
       const response = await fetch(`/api/articles/${slug}/pdf`);
@@ -42,7 +46,7 @@ export default function ReadingTheme({ children }: ReadingThemeProps) {
       a.click();
       window.URL.revokeObjectURL(url);
       document.body.removeChild(a);
-    } catch (error) {
+  } catch (error) {
       console.error('Error downloading PDF:', error);
       alert('Failed to download PDF. Please try again.');
     } finally {

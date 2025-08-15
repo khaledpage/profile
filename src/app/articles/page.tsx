@@ -8,7 +8,17 @@ export const metadata: Metadata = {
 };
 
 export default async function ArticlesPage() {
-  const articles = await getAllArticles();
+  let articles = await getAllArticles();
+  if (process.env.NEXT_PUBLIC_STATIC_EXPORT === 'true') {
+    try {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/data/articles.json`, { cache: 'force-cache' });
+      if (res.ok) {
+        const list = await res.json();
+        // fetch per-article for content not needed here; use list metadata
+        articles = list.map((a: any) => ({ slug: a.slug, metadata: a.metadata, content: '', assets: [] }));
+      }
+    } catch {}
+  }
 
   const featuredArticles = articles.filter(article => article.metadata.featured);
   const regularArticles = articles.filter(article => !article.metadata.featured);

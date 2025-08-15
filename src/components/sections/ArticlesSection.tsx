@@ -13,7 +13,9 @@ export default function ArticlesSection() {
   useEffect(() => {
     async function fetchArticles() {
       try {
-        const response = await fetch('/api/articles');
+  const isStatic = process.env.NEXT_PUBLIC_STATIC_EXPORT === 'true';
+  const url = isStatic ? '/data/articles.json' : '/api/articles';
+  const response = await fetch(url);
         if (!response.ok) {
           throw new Error('Failed to fetch articles');
         }
