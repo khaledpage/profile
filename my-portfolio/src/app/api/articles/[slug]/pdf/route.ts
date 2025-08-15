@@ -4,55 +4,93 @@ import puppeteer from 'puppeteer';
 import katex from 'katex';
 
 // Enhanced markdown to HTML conversion with LaTeX support
-function markdownToHtml(markdown: string): string {
+function resolveAssetUrl(src: string, slug: string): string {
+  try {
+    if (!src) return src;
+    // Absolute http(s) URLs stay as-is
+    if (/^https?:\/\//i.test(src)) return src;
+    // Already targeting API
+    if (src.startsWith('/api/')) return src;
+    // Strip leading ./ or /
+    const cleaned = src.replace(/^\.\/?/, '').replace(/^\//, '');
+    // If points into assets/, map to API route using filename
+    if (cleaned.startsWith('assets/')) {
+      const filename = cleaned.split('/').pop() as string;
+      return `/api/articles/${slug}/assets/${filename}`;
+    }
+    // Default: try last segment as filename in assets
+    const filename = cleaned.split('/').pop() as string;
+    return `/api/articles/${slug}/assets/${filename}`;
+  } catch {
+    return src;
+  }
+}
+
+// Enhanced markdown to HTML conversion with LaTeX support and image handling
+function markdownToHtml(markdown: string, slug: string): string {
   let html = markdown;
   
   // Process LaTeX expressions first (before other markdown)
+  const katexOptions = {
+    throwOnError: false,
+    strict: false as const,
+    trust: true,
+    macros: {
+      "\\vec": "\\mathbf{#1}",
+      "\\mat": "\\mathbf{#1}",
+      "\\tr": "\\operatorname{tr}",
+      "\\det": "\\operatorname{det}",
+      "\\rank": "\\operatorname{rank}",
+      "\\norm": "\\left\\|#1\\right\\|",
+      "\\abs": "\\left|#1\\right|",
+      "\\bm": "\\boldsymbol{#1}",
+      "\\E": "\\mathbb{E}",
+      "\\Var": "\\operatorname{Var}",
+      "\\Cov": "\\operatorname{Cov}",
+      "\\argmax": "\\mathop{\\mathrm{arg\,max}}",
+      "\\argmin": "\\mathop{\\mathrm{arg\,min}}"
+    }
+  };
+
   // Display math ($$...$$)
   html = html.replace(/\$\$([\s\S]*?)\$\$/g, (match, latex) => {
     try {
-      const rendered = katex.renderToString(latex.trim(), {
-        displayMode: true,
-        throwOnError: false,
-        strict: false,
-        macros: {
-          "\\vec": "\\mathbf{#1}",
-          "\\mat": "\\mathbf{#1}",
-          "\\tr": "\\text{tr}",
-          "\\det": "\\text{det}",
-          "\\rank": "\\text{rank}",
-          "\\norm": "\\left\\|#1\\right\\|",
-          "\\abs": "\\left|#1\\right|"
-        }
-      });
+      const rendered = katex.renderToString(latex.trim(), { ...katexOptions, displayMode: true });
       return `<div class="katex-display">${rendered}</div>`;
     } catch (error) {
       console.error('KaTeX rendering error:', error);
       return `<div class="katex-error">$$${latex}$$</div>`;
     }
   });
+  // Display math using \[ ... \]
+  html = html.replace(/\\\[([\s\S]*?)\\\]/g, (match, latex) => {
+    try {
+      const rendered = katex.renderToString(latex.trim(), { ...katexOptions, displayMode: true });
+      return `<div class="katex-display">${rendered}</div>`;
+    } catch (error) {
+      console.error('KaTeX rendering error:', error);
+      return `<div class="katex-error">\\[${latex}\\]</div>`;
+    }
+  });
   
   // Inline math ($...$)
   html = html.replace(/\$([^$\n]+)\$/g, (match, latex) => {
     try {
-      const rendered = katex.renderToString(latex.trim(), {
-        displayMode: false,
-        throwOnError: false,
-        strict: false,
-        macros: {
-          "\\vec": "\\mathbf{#1}",
-          "\\mat": "\\mathbf{#1}",
-          "\\tr": "\\text{tr}",
-          "\\det": "\\text{det}",
-          "\\rank": "\\text{rank}",
-          "\\norm": "\\left\\|#1\\right\\|",
-          "\\abs": "\\left|#1\\right|"
-        }
-      });
+      const rendered = katex.renderToString(latex.trim(), { ...katexOptions, displayMode: false });
       return `<span class="katex-inline">${rendered}</span>`;
     } catch (error) {
       console.error('KaTeX rendering error:', error);
       return `<span class="katex-error">$${latex}$</span>`;
+    }
+  });
+  // Inline math using \( ... \)
+  html = html.replace(/\\\(([^)]+)\\\)/g, (match, latex) => {
+    try {
+      const rendered = katex.renderToString(latex.trim(), { ...katexOptions, displayMode: false });
+      return `<span class="katex-inline">${rendered}</span>`;
+    } catch (error) {
+      console.error('KaTeX rendering error:', error);
+      return `<span class="katex-error">\\(${latex}\\)</span>`;
     }
   });
   
@@ -76,6 +114,13 @@ function markdownToHtml(markdown: string): string {
   // Inline code
   html = html.replace(/`([^`\n]+)`/gim, '<code>$1</code>');
   
+  // Images: ![alt](src) — handle before links
+  html = html.replace(/!\[([^\]]*)\]\(([^)]+)\)/gim, (match, alt, src) => {
+    const resolved = resolveAssetUrl(src, slug);
+    const safeAlt = String(alt || '').replace(/"/g, '&quot;');
+    return `<img src="${resolved}" alt="${safeAlt}" />`;
+  });
+
   // Links
   html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/gim, '<a href="$2">$1</a>');
   
@@ -128,19 +173,22 @@ export async function GET(
       args: ['--no-sandbox', '--disable-setuid-sandbox']
     });
 
-    const page = await browser.newPage();
+  const page = await browser.newPage();
     
     // Set page format for better PDF output
     await page.setViewport({ width: 1200, height: 800 });
 
     // Create HTML content for PDF
-    const htmlContent = `
+  const origin = request.nextUrl.origin;
+  const coverSrc = article.metadata.coverImage ? resolveAssetUrl(String(article.metadata.coverImage), slug) : '';
+  const htmlContent = `
       <!DOCTYPE html>
       <html>
         <head>
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <title>${article.metadata.title}</title>
+      <base href="${origin}">
           <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css" integrity="sha384-Xi8rHCmBmhbuyyhbI88391ZKP2dmfnOl4rT9ZfRI7mLTdk1wblIUnrIq35nqwEvC" crossorigin="anonymous">
           <style>
             @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
@@ -319,6 +367,13 @@ export async function GET(
               color: #6b7280;
               text-align: center;
             }
+
+            .cover {
+              width: 100%;
+              height: auto;
+              margin: 20px 0 0 0;
+              border-radius: 10px;
+            }
             
             /* KaTeX Math Rendering for PDF */
             .katex {
@@ -406,9 +461,10 @@ export async function GET(
               ${article.metadata.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
             </div>
           </div>
+          ${coverSrc ? `<img class="cover" src="${coverSrc}" alt="Cover image" />` : ''}
           
           <div class="content">
-            ${markdownToHtml(article.content)}
+            ${markdownToHtml(article.content, slug)}
           </div>
           
           <div class="footer">
