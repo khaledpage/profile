@@ -127,6 +127,11 @@ export interface SiteConfig {
     allowAnimationToggle?: boolean;
     cookieConsent?: boolean;
   };
+  skillsDisplay?: {
+    design?: string;
+    availableDesigns?: string[];
+    allowDesignChange?: boolean;
+  };
 }
 
 // Skills content types

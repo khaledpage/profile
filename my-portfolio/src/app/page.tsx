@@ -1,8 +1,8 @@
 import Header from '@/components/layout/Header';
 import Hero from '@/components/sections/Hero';
 import ProjectCard from '@/components/ui/ProjectCard';
-import { getAllContent } from '@/utils/content';
-import SkillsShowcase from '@/components/sections/SkillsShowcase';
+import { getAllContent, getSiteConfig } from '@/utils/content';
+import SkillsShowcaseMultiDesign from '@/components/sections/SkillsShowcaseMultiDesign';
 import { Project } from '@/types/content';
 
 export const revalidate = 0; // Deaktiviert das Caching für Entwicklungszwecke
@@ -10,6 +10,7 @@ export const revalidate = 0; // Deaktiviert das Caching für Entwicklungszwecke
 export default async function Home() {
   try {
     const content = await getAllContent();
+    const config = await getSiteConfig();
     const { hero, projects, contact } = content;
 
     return (
@@ -62,7 +63,7 @@ export default async function Home() {
             </div>
           </section>
 
-          <SkillsShowcase skills={content.skills} />
+          <SkillsShowcaseMultiDesign skills={content.skills} config={config} />
 
           {/* Projects */}
           <section id="projects" className="py-24">

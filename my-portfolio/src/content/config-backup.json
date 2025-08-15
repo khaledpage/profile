@@ -11,6 +11,78 @@
       "accent1": "#7c3aed",
       "accent2": "#4f46e5"
     },
+      "card": "#1a1a1a",
+      "cardContrast": "#262626",
+      "accent1": "#6366f1",
+      "accent2": "#8b5cf6"
+    },
+    "forestMistDark": {
+      "name": "Forest Mist Dark",
+      "background": "#0a0f0b",
+      "foreground": "#e8f5e8",
+      "muted": "#8fa78f",
+      "card": "#0f170f",
+      "cardContrast": "#141c14",
+      "accent1": "#22c55e",
+      "accent2": "#65a30d"
+    },
+    "midnightBlueDark": {
+      "name": "Midnight Blue Dark",
+      "background": "#0c0e1a",
+      "foreground": "#e1e7ff",
+      "muted": "#8892c7",
+      "card": "#111326",
+      "cardContrast": "#161b2e",
+      "accent1": "#6366f1",
+      "accent2": "#3b82f6"
+    },
+    "copperBronzeDark": {
+      "name": "Copper Bronze Dark",
+      "background": "#0f0b08",
+      "foreground": "#fff2e8",
+      "muted": "#b8a085",
+      "card": "#181310",
+      "cardContrast": "#201a15",
+      "accent1": "#ea580c",
+      "accent2": "#dc2626"
+    },
+    "lavenderGrayDark": {
+      "name": "Lavender Gray Dark",
+      "background": "#0d0b0f",
+      "foreground": "#f0edf4",
+      "muted": "#a599aa",
+      "card": "#151117",
+      "cardContrast": "#1b171f",
+      "accent1": "#8b5cf6",
+      "accent2": "#a855f7"
+    },
+    "warmSepiaLight": {
+      "name": "Warm Sepia Light",
+      "background": "#faf8f5",
+      "foreground": "#2d2a26",
+      "muted": "#6b6560",
+      "card": "#f5f2ee",
+      "cardContrast": "#ede8e0",
+      "accent1": "#d97706",
+      "accent2": "#ea580c"
+    },
+    "coolGrayLight": {
+      "name": "Cool Gray Light",
+      "background": "#f8fafc",
+      "foreground": "#1e293b",
+      "muted": "#64748b",
+      "card": "#f1f5f9",
+      "cardContrast": "#e2e8f0",
+      "accent1": "#0f172a",
+      "accent2": "#334155"
+    }b10",
+      "foreground": "#e7e7ea",
+      "muted": "#9aa0aa",
+      "card": "#0f1117",
+      "cardContrast": "#11131a",
+      "accent1": "#7c3aed",
+      "accent2": "#4f46e5"
+    },
     "tealCyanDark": {
       "name": "Teal Cyan Dark",
       "background": "#071316",
@@ -139,67 +211,7 @@
       "card": "#1a1a1a",
       "cardContrast": "#262626",
       "accent1": "#6366f1",
-      "accent2": "#8b5cf6"
-    },
-    "forestMistDark": {
-      "name": "Forest Mist Dark",
-      "background": "#0a0f0b",
-      "foreground": "#e8f5e8",
-      "muted": "#8fa78f",
-      "card": "#0f170f",
-      "cardContrast": "#141c14",
-      "accent1": "#22c55e",
-      "accent2": "#65a30d"
-    },
-    "midnightBlueDark": {
-      "name": "Midnight Blue Dark",
-      "background": "#0c0e1a",
-      "foreground": "#e1e7ff",
-      "muted": "#8892c7",
-      "card": "#111326",
-      "cardContrast": "#161b2e",
-      "accent1": "#6366f1",
-      "accent2": "#3b82f6"
-    },
-    "copperBronzeDark": {
-      "name": "Copper Bronze Dark",
-      "background": "#0f0b08",
-      "foreground": "#fff2e8",
-      "muted": "#b8a085",
-      "card": "#181310",
-      "cardContrast": "#201a15",
-      "accent1": "#ea580c",
-      "accent2": "#dc2626"
-    },
-    "lavenderGrayDark": {
-      "name": "Lavender Gray Dark",
-      "background": "#0d0b0f",
-      "foreground": "#f0edf4",
-      "muted": "#a599aa",
-      "card": "#151117",
-      "cardContrast": "#1b171f",
-      "accent1": "#8b5cf6",
-      "accent2": "#a855f7"
-    },
-    "warmSepiaLight": {
-      "name": "Warm Sepia Light",
-      "background": "#faf8f5",
-      "foreground": "#2d2a26",
-      "muted": "#6b6560",
-      "card": "#f5f2ee",
-      "cardContrast": "#ede8e0",
-      "accent1": "#d97706",
-      "accent2": "#ea580c"
-    },
-    "coolGrayLight": {
-      "name": "Cool Gray Light",
-      "background": "#f8fafc",
-      "foreground": "#1e293b",
-      "muted": "#64748b",
-      "card": "#f1f5f9",
-      "cardContrast": "#e2e8f0",
-      "accent1": "#0f172a",
-      "accent2": "#334155"
+      "accent2": "#14b8a6"
     }
   },
   "animation": {
@@ -214,19 +226,19 @@
   "colorRotation": {
     "enabled": true,
     "intervalSec": 120,
-    "candidates": ["indigoPurpleDark", "tealCyanDark", "amberOrangeDark", "sunsetPinkOrange", "emeraldGreenDark", "oceanBlueDark", "roseMauveDark", "goldNavyDark", "cyberNeonDark", "graphiteCyanDark", "plumGrapeDark", "lavaRedDark", "minimalistLight", "minimalistDark", "forestMistDark", "midnightBlueDark", "copperBronzeDark", "lavenderGrayDark", "warmSepiaLight", "coolGrayLight"]
+    "candidates": ["indigoPurpleDark", "tealCyanDark", "amberOrangeDark", "sunsetPinkOrange", "emeraldGreenDark", "oceanBlueDark", "roseMauveDark", "goldNavyDark", "cyberNeonDark", "graphiteCyanDark", "plumGrapeDark", "lavaRedDark", "minimalistLight", "minimalistDark"]
   },
   "i18n": {
     "defaultLocale": "de",
     "languages": {
       "de": {
         "nav": { "about": "Über mich", "projects": "Projekte", "skills": "Skills", "contact": "Kontakt" },
-        "cta": { "talk": "Los geht's" },
+        "cta": { "talk": "Los geht’s" },
         "common": { "back": "Zurück", "seeAlso": "Siehe auch" }
       },
       "en": {
         "nav": { "about": "About", "projects": "Projects", "skills": "Skills", "contact": "Contact" },
-        "cta": { "talk": "Let's talk" },
+        "cta": { "talk": "Let’s talk" },
         "common": { "back": "Back", "seeAlso": "See also" }
       }
     }

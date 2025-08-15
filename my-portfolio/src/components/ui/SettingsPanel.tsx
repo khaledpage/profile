@@ -11,6 +11,7 @@ type Props = {
 type UserPreferences = {
   colorProfile?: string;
   animationsEnabled?: boolean;
+  skillsDesign?: string;
   cookieConsent?: boolean;
 };
 
@@ -62,6 +63,9 @@ export default function SettingsPanel({ config }: Props) {
       localStorage.setItem('user-preferences', JSON.stringify(updated));
     }
     
+    // Dispatch custom event for immediate updates in the same tab
+    window.dispatchEvent(new CustomEvent('preferencesUpdated', { detail: newPrefs }));
+    
     // Apply changes immediately
     if (newPrefs.colorProfile && typeof window !== 'undefined' && window.__themeController) {
       window.__themeController.changeTheme(newPrefs.colorProfile);
@@ -75,6 +79,12 @@ export default function SettingsPanel({ config }: Props) {
     // Update local state immediately for UI responsiveness
     setPreferences(prev => ({ ...prev, colorProfile: profileKey }));
     savePreferences({ colorProfile: profileKey });
+  };
+
+  const handleSkillsDesignChange = (design: string) => {
+    // Update local state immediately for UI responsiveness
+    setPreferences(prev => ({ ...prev, skillsDesign: design }));
+    savePreferences({ skillsDesign: design });
   };
 
   const handleAnimationToggle = (enabled: boolean) => {
@@ -98,8 +108,14 @@ export default function SettingsPanel({ config }: Props) {
 
       {/* Settings Panel */}
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
-          <div className="w-full max-w-lg glass rounded-2xl p-6 max-h-[80vh] overflow-hidden flex flex-col">
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm"
+          onClick={() => setIsOpen(false)}
+        >
+          <div 
+            className="w-full max-w-2xl glass rounded-2xl p-6 max-h-[80vh] overflow-hidden flex flex-col"
+            onClick={(e) => e.stopPropagation()}
+          >
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-xl font-semibold">Settings</h2>
               <button
@@ -162,6 +178,35 @@ export default function SettingsPanel({ config }: Props) {
                   />
                   <span className="text-sm">Enable background animations</span>
                 </label>
+              </div>
+            )}
+
+            {/* Skills Design Selection */}
+            {config.skillsDisplay?.allowDesignChange && (
+              <div className="mb-6">
+                <h3 className="text-sm font-medium mb-3">Skills Layout</h3>
+                <div className="grid grid-cols-1 gap-2">
+                  {config.skillsDisplay.availableDesigns?.map((design) => (
+                    <button
+                      key={design}
+                      onClick={() => handleSkillsDesignChange(design)}
+                      className={`p-3 rounded-lg text-left transition-all text-sm ${
+                        (preferences.skillsDesign || config.skillsDisplay?.design) === design
+                          ? 'ring-2 ring-accent-1 bg-white/10'
+                          : 'bg-white/5 hover:bg-white/10'
+                      }`}
+                    >
+                      <div className="font-medium capitalize">{design}</div>
+                      <div className="text-xs text-gray-400 mt-1">
+                        {design === 'marquee' && 'Scrolling animation with hover controls'}
+                        {design === 'grid' && 'Clean organized grid layout'}
+                        {design === 'carousel' && 'Interactive slideshow format'}
+                        {design === 'masonry' && 'Pinterest-style varied heights'}
+                        {design === 'timeline' && 'Chronological flow design'}
+                      </div>
+                    </button>
+                  ))}
+                </div>
               </div>
             )}
 

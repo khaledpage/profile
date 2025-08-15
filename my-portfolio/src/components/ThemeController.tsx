@@ -107,6 +107,17 @@ export default function ThemeController({ palettes, colorProfile, colorRotation,
 
     applyPalette(currentProfile);
 
+    // Control animation class
+    const gradient = document.querySelector('.animated-gradient') as HTMLElement | null;
+    if (gradient) {
+      if (animationsEnabled) {
+        gradient.style.display = 'block';
+        gradient.style.opacity = String(animation?.fadeMax ?? 0.5);
+      } else {
+        gradient.style.opacity = '0';
+      }
+    }
+
     let intervalTimer: ReturnType<typeof setInterval> | undefined;
     let fadeTimer: ReturnType<typeof setTimeout> | undefined;
     

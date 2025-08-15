@@ -34,17 +34,17 @@
         { "name": "AWS", "level": "Intermediate", "years": 3, "tags": ["S3", "Lambda"], "description": "Managed services for scale and reliability." },
         { "name": "CI/CD", "level": "Advanced", "years": 5, "tags": ["GitHub Actions"], "description": "Automated testing and delivery pipelines." }
       ]
-    }
-,
+    },
     {
-      "key": "devops",
-      "title": "DevOps & Cloud",
-      "direction": "left",
-      "speedSec": 50,
+      "key": "tools",
+      "title": "Tools & Platforms",
+      "direction": "right",
+      "speedSec": 35,
       "items": [
-        { "name": "Docker", "level": "Advanced", "years": 5, "tags": ["Compose"], "description": "Containerization for reproducible environments." },
-        { "name": "AWS", "level": "Intermediate", "years": 3, "tags": ["S3", "Lambda"], "description": "Managed services for scale and reliability." },
-        { "name": "CI/CD", "level": "Advanced", "years": 5, "tags": ["GitHub Actions"], "description": "Automated testing and delivery pipelines." }
+        { "name": "Git", "level": "Expert", "years": 7, "tags": ["Branching", "Workflows"], "description": "Version control, collaborative workflows, and code reviews." },
+        { "name": "VS Code", "level": "Expert", "years": 6, "tags": ["Extensions", "Debugging"], "description": "Development environment with custom extensions and configurations." },
+        { "name": "Figma", "level": "Intermediate", "years": 3, "tags": ["Design Systems"], "description": "UI/UX design and prototyping for web applications." },
+        { "name": "Vercel", "level": "Advanced", "years": 4, "tags": ["Deployment", "Edge"], "description": "Serverless deployment platform with global edge network." }
       ]
     }
   ]

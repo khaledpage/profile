@@ -40,12 +40,13 @@ Alle Inhalte liegen in `src/content/`. Eine detaillierte Beschreibung der Konfig
 ### `config.json` – Kurzüberblick
 
 - **colorProfile**: Aktives Paletten‑Profil (Schlüssel in `palettes`)
-- **palettes**: Farbschemata (name, background, foreground, muted, card, cardContrast, accent1, accent2)
+- **palettes**: 20+ Farbschemata (name, background, foreground, muted, card, cardContrast, accent1, accent2)
 - **animation**: Hintergrund‑Gradient (rotateDurationSec, fadeDurationSec, fadeOutDurationSec, fadeInAfterSec, fadeMin, fadeMax, enabled)
 - **colorRotation**: Automatischer Palettenwechsel (enabled, intervalSec, candidates)
 - **i18n**: Basis‑Übersetzungen (nav/cta/common) mit defaultLocale und languages
 - **interactiveEffects**: Dezente Maus‑Ripples (enabled, triggerChance, minIntervalSec, maxPerMinute, ripple.sizePx, ripple.durationMs, ripple.color)
 - **settings**: Client‑seitige Einstellungen (enabled, showIcon, allowThemeChange, allowAnimationToggle, cookieConsent)
+- **skillsDisplay**: Skills-Layout Konfiguration (design, availableDesigns, allowDesignChange)
 
 Hinweis: `config.json` ist reines JSON (keine Kommentare).
 
@@ -80,23 +81,58 @@ Hinweis: `config.json` ist reines JSON (keine Kommentare).
 
 ## Skills System
 
-Die Skills sind in `skills.json` konfiguriert mit folgender Struktur:
+Die Skills sind in `skills.json` konfiguriert und bieten **5 verschiedene Darstellungsformen**:
+
+### Verfügbare Skill-Layouts
+
+1. **Marquee** (Standard): Animierte Laufschrift mit Richtungswechsel pro Gruppe
+2. **Grid**: Sauberes Raster-Layout mit Expand/Collapse-Funktionalität  
+3. **Carousel**: Interaktive Slideshow mit Navigation
+4. **Masonry**: Pinterest-Style mit variablen Höhen
+5. **Timeline**: Chronologische Flusslinie mit Verbindungslinien
+
+### Konfiguration
 
 - **groups**: Array von Skill-Gruppen (frontend, backend, devops, etc.)
-- **direction**: Scrollrichtung ("left" oder "right")
-- **speed**: Geschwindigkeit in px/s
+- **direction**: Scrollrichtung ("left" oder "right") - nur bei Marquee
+- **speed**: Geschwindigkeit in px/s - nur bei Marquee  
 - **items**: Array mit name, icon, description, proficiency
 
-**Features:**
+### Features
 
-- Marquee-Animation mit Richtungswechsel pro Gruppe
-- Hover pausiert die Animation
-- Klick expandiert/kollabiert Details
-- Responsive Design
+- **Real-time Layout-Wechsel**: Sofortige Änderung über Settings-Panel
+- **Persistent Selection**: Gewähltes Layout wird gespeichert (mit Cookie-Zustimmung)
+- **Responsive Design**: Alle Layouts funktionieren auf allen Bildschirmgrößen
+- **Hover/Click Interaktionen**: Je nach Layout verschiedene Interaktionsmöglichkeiten
 
 ## Settings System
 
+Das umfassende Einstellungssystem ermöglicht folgende Anpassungen:
+
+### Theme & Farben
+
+- **20+ Farbpaletten**: Von professionell bis lebendig, hell und dunkel
+- **Sofortige Anwendung**: Themes wechseln ohne Seitenreload
+- **Minimalist-Optionen**: Saubere, reduzierte Farbschemata
+
+### Layout & Design
+
+- **Skills-Layout Wahl**: 5 verschiedene Darstellungsformen
+- **Animation Controls**: Hintergrundanimationen ein-/ausschalten
+- **Real-time Updates**: Alle Änderungen sofort sichtbar
+
+### Benutzerfreundlichkeit
+
+- **Hintergrund-Klick schließt**: Panel schließt beim Klick außerhalb
+- **Breiteres Panel**: Optimierte Breite für bessere Bedienbarkeit
+- **GDPR-konform**: Cookie-Zustimmung für Speicherung der Einstellungen
+
 Benutzer können über das Einstellungs-Icon (falls aktiviert) folgende Änderungen vornehmen:
+
+- **Theme wechseln**: Aus 20+ verfügbaren Farbpaletten auswählen
+- **Skills-Layout**: Zwischen Marquee, Grid, Carousel, Masonry und Timeline wählen
+- **Animationen**: Ein-/Ausschalten der Hintergrundanimationen
+- **Cookie-Consent**: DSGVO-konforme Speicherung der Präferenzen
 
 - **Theme wechseln**: Aus verfügbaren Farbpaletten auswählen
 - **Animationen**: Ein-/Ausschalten der Hintergrundanimationen
