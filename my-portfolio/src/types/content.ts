@@ -92,9 +92,15 @@ export interface AnimationConfig {
   enabled?: boolean;
 }
 
+export interface PaletteGroup {
+  name: string;
+  palettes: Record<string, ColorPalette>;
+}
+
 export interface SiteConfig {
   colorProfile: string; // key of palettes
-  palettes: Record<string, ColorPalette>;
+  palettes?: Record<string, ColorPalette>; // legacy support
+  paletteGroups?: Record<string, PaletteGroup>; // new grouped structure
   animation?: AnimationConfig;
   colorRotation?: {
     enabled?: boolean;

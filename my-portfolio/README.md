@@ -39,9 +39,10 @@ Alle Inhalte liegen in `src/content/`. Eine detaillierte Beschreibung der Konfig
 
 ### `config.json` – Kurzüberblick
 
-- **colorProfile**: Aktives Paletten‑Profil (Schlüssel in `palettes`)
-- **palettes**: 20+ Farbschemata (name, background, foreground, muted, card, cardContrast, accent1, accent2)
-- **animation**: Hintergrund‑Gradient (rotateDurationSec, fadeDurationSec, fadeOutDurationSec, fadeInAfterSec, fadeMin, fadeMax, enabled)
+- **colorProfile**: Aktives Paletten‑Profil (Schlüssel in `palettes` oder `paletteGroups`)
+- **paletteGroups**: Neue gruppierte Farbschemata (dark, light, vibrant) mit je 4-6 Themes
+- **palettes**: Legacy-Unterstützung für ungroupierte Farbschemata
+- **animation**: Hintergrund‑Gradient mit sofortiger Ein-/Ausschaltung (rotateDurationSec, fadeDurationSec, fadeOutDurationSec, fadeInAfterSec, fadeMin, fadeMax, enabled)
 - **colorRotation**: Automatischer Palettenwechsel (enabled, intervalSec, candidates)
 - **i18n**: Basis‑Übersetzungen (nav/cta/common) mit defaultLocale und languages
 - **interactiveEffects**: Dezente Maus‑Ripples (enabled, triggerChance, minIntervalSec, maxPerMinute, ripple.sizePx, ripple.durationMs, ripple.color)
@@ -111,9 +112,13 @@ Das umfassende Einstellungssystem ermöglicht folgende Anpassungen:
 
 ### Theme & Farben
 
-- **20+ Farbpaletten**: Von professionell bis lebendig, hell und dunkel
+- **Gruppierte Farbpaletten**: Themes organisiert in 3 Kategorien (Dark, Light, Vibrant)
+- **16+ Farbpaletten**: Erweiterte Auswahl mit harmonischen Farbkombinationen
+- **Verbesserte Farbharmonie**: Professionelle Kontraste und ästhetische Akzentfarben
+- **6+ Light Themes**: Cloud White, Warm Cream, Soft Blue, Mint Green, Lavender, Peach
+- **6+ Dark Themes**: Indigo Purple, Ocean Blue, Emerald Forest, Sunset Orange, Rose Gold, Midnight Purple
+- **4+ Vibrant Themes**: Neon Cyber, Electric Pink, Acid Green, Sunburst Yellow
 - **Sofortige Anwendung**: Themes wechseln ohne Seitenreload
-- **Minimalist-Optionen**: Saubere, reduzierte Farbschemata
 
 ### Layout & Design
 

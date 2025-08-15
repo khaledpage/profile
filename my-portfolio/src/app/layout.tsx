@@ -4,6 +4,7 @@ import "./globals.css";
 import { getSiteConfig } from '@/utils/content';
 import ThemeController from '@/components/ThemeController';
 import SettingsPanel from '@/components/ui/SettingsPanel';
+import type { ColorPalette } from '@/types/content';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -41,6 +42,20 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const config = await getSiteConfig().catch(() => null);
+  
+  // Helper function to get flattened palettes from both legacy and grouped structures
+  const getAllPalettes = () => {
+    if (config?.paletteGroups) {
+      const flattened: Record<string, ColorPalette> = {};
+      Object.values(config.paletteGroups).forEach(group => {
+        Object.assign(flattened, group.palettes);
+      });
+      return flattened;
+    }
+    return config?.palettes ?? {};
+  };
+  
+  const allPalettes = getAllPalettes();
   const anim = config?.animation;
 
   const gradientStyle: React.CSSProperties | undefined = anim
@@ -61,7 +76,7 @@ export default async function RootLayout({
           <div className="fixed inset-0 bg-grid pointer-events-none" aria-hidden />
           <div className="fixed inset-0 animated-gradient -z-10" style={gradientStyle} aria-hidden />
           <ThemeController
-            palettes={config?.palettes ?? {}}
+            palettes={allPalettes}
             colorProfile={config?.colorProfile ?? ''}
             colorRotation={config?.colorRotation}
             animation={config?.animation}

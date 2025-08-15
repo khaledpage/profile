@@ -25,6 +25,25 @@ export default function SettingsPanel({ config }: Props) {
   const settingsConfig = config.settings;
   const shouldShow = settingsConfig?.enabled && settingsConfig?.showIcon;
 
+  // Helper function to get all palettes (support both legacy and grouped structure)
+  const getAllPalettes = () => {
+    if (config.paletteGroups) {
+      return config.paletteGroups;
+    }
+    // Legacy support
+    if (config.palettes) {
+      return {
+        all: {
+          name: "All Themes",
+          palettes: config.palettes
+        }
+      };
+    }
+    return {};
+  };
+
+  const allPaletteGroups = getAllPalettes();
+
   useEffect(() => {
     // Check for existing consent and preferences
     const consent = localStorage.getItem('cookie-consent');
@@ -138,35 +157,44 @@ export default function SettingsPanel({ config }: Props) {
             {/* Theme Selection */}
             {settingsConfig?.allowThemeChange && (
               <div className="mb-6">
-                <h3 className="text-sm font-medium mb-3">Color Theme</h3>
-                <div className="grid grid-cols-3 gap-3">
-                  {Object.entries(config.palettes).map(([key, palette]) => (
-                    <button
-                      key={key}
-                      onClick={() => handleThemeChange(key)}
-                      className={`p-3 rounded-lg text-left transition-all ${
-                        (preferences.colorProfile || config.colorProfile) === key
-                          ? 'ring-2 ring-white/40 scale-105'
-                          : 'hover:scale-105'
-                      }`}
-                      style={{
-                        backgroundColor: palette.card,
-                        color: palette.foreground,
-                        border: `1px solid ${palette.cardContrast}`,
-                      }}
-                    >
-                      <div className="text-xs font-medium">{palette.name}</div>
-                      <div className="flex gap-1 mt-1">
-                        <div
-                          className="w-3 h-3 rounded-full"
-                          style={{ backgroundColor: palette.accent1 }}
-                        />
-                        <div
-                          className="w-3 h-3 rounded-full"
-                          style={{ backgroundColor: palette.accent2 }}
-                        />
+                <h3 className="text-sm font-medium mb-3">Color Themes</h3>
+                <div className="space-y-4">
+                  {Object.entries(allPaletteGroups).map(([groupKey, group]) => (
+                    <div key={groupKey}>
+                      <h4 className="text-xs font-medium text-gray-400 mb-2 uppercase tracking-wide">
+                        {group.name}
+                      </h4>
+                      <div className="grid grid-cols-3 gap-2">
+                        {Object.entries(group.palettes).map(([key, palette]) => (
+                          <button
+                            key={key}
+                            onClick={() => handleThemeChange(key)}
+                            className={`p-2.5 rounded-lg text-left transition-all ${
+                              (preferences.colorProfile || config.colorProfile) === key
+                                ? 'ring-2 ring-accent-1 scale-105'
+                                : 'hover:scale-105'
+                            }`}
+                            style={{
+                              backgroundColor: palette.card,
+                              color: palette.foreground,
+                              border: `1px solid ${palette.cardContrast}`,
+                            }}
+                          >
+                            <div className="text-xs font-medium mb-1">{palette.name}</div>
+                            <div className="flex gap-1">
+                              <div
+                                className="w-2.5 h-2.5 rounded-full"
+                                style={{ backgroundColor: palette.accent1 }}
+                              />
+                              <div
+                                className="w-2.5 h-2.5 rounded-full"
+                                style={{ backgroundColor: palette.accent2 }}
+                              />
+                            </div>
+                          </button>
+                        ))}
                       </div>
-                    </button>
+                    </div>
                   ))}
                 </div>
               </div>

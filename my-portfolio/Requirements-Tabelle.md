@@ -38,6 +38,10 @@
 | SET-10   | Language Switching        | Dynamic language change via settings panel        | High     | Language selector shows available languages; changes apply immediately; navigation and hero content update   |
 | SET-11   | Language Persistence      | Selected language saved and restored              | High     | Language preference saved in localStorage (with consent); restored on page reload; synced across tabs        |
 | SET-12   | Multilingual Content      | Support for German and English content           | Medium   | Hero content, navigation labels change based on selected language; API provides localized content           |
+| SET-13   | Grouped Theme Categories  | Color themes organized into logical groups       | Medium   | Themes grouped as Dark, Light, and Vibrant; clear category headers in settings panel                       |
+| SET-14   | Enhanced Color Harmony    | Improved color combinations for better aesthetics | High     | Better contrast ratios, harmonious accent combinations, professional color schemes                          |
+| SET-15   | Real-time Animation Toggle| Animation setting applies immediately            | High     | Background animation toggle takes effect without page reload; smooth transitions                           |
+| SET-16   | Additional Light Themes   | More light theme options for user preference    | Medium   | 6+ light themes available including Cloud White, Warm Cream, Soft Blue, Mint Green, Lavender, Peach      |
 | A11Y-02  | Semantics / Accessibility | Keyboard- and screen reader-friendly                | Medium   | Semantic HTML; logical focus order; `aria-hidden` applied to decorative elements                              |
 | SEO-01   | Metadata                  | Correct title, description, and Open Graph tags     | Medium   | Proper social previews; unique title per page                                                                 |
 | PERF-01  | Image / Load Performance  | Optimized media and rendering path                  | Medium   | Use `Next/Image` where possible; lazy loading; minimal CLS; smooth 60fps animations                           |

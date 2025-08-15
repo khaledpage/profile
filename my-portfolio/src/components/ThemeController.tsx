@@ -72,6 +72,19 @@ export default function ThemeController({ palettes, colorProfile, colorRotation,
       }
     }
 
+    // Listen for preference updates
+    const handlePreferencesUpdate = (event: CustomEvent) => {
+      const newPrefs = event.detail;
+      if (newPrefs.colorProfile && palettes[newPrefs.colorProfile]) {
+        setCurrentProfile(newPrefs.colorProfile);
+      }
+      if (newPrefs.animationsEnabled !== undefined) {
+        setAnimationsEnabled(newPrefs.animationsEnabled);
+      }
+    };
+
+    window.addEventListener('preferencesUpdated', handlePreferencesUpdate as EventListener);
+
     // Apply initial theme immediately
     const root = document.documentElement;
     const initialProfile = currentProfile || colorProfile;
@@ -87,6 +100,7 @@ export default function ThemeController({ palettes, colorProfile, colorRotation,
     }
 
     return () => {
+      window.removeEventListener('preferencesUpdated', handlePreferencesUpdate as EventListener);
       delete window.__themeController;
     };
   }, [changeTheme, toggleAnimations, palettes, currentProfile, colorProfile]);
