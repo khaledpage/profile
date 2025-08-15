@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { getSiteConfig } from '@/utils/content';
 import ThemeController from '@/components/ThemeController';
+import SettingsPanel from '@/components/ui/SettingsPanel';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -40,19 +41,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const config = await getSiteConfig().catch(() => null);
-  const palette = config?.palettes?.[config?.colorProfile ?? ''] ?? null;
   const anim = config?.animation;
-  const bodyStyle: React.CSSProperties | undefined = palette
-    ? (Object.assign({}, {
-        ['--background']: palette.background,
-        ['--foreground']: palette.foreground,
-        ['--muted']: palette.muted,
-        ['--card']: palette.card,
-        ['--card-contrast']: palette.cardContrast,
-        ['--accent-1']: palette.accent1,
-        ['--accent-2']: palette.accent2,
-      }) as React.CSSProperties)
-    : undefined;
 
   const gradientStyle: React.CSSProperties | undefined = anim
     ? (Object.assign({}, {
@@ -66,7 +55,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`} style={bodyStyle}>        
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>        
         <div className="relative min-h-dvh">
           {/* subtle grid background */}
           <div className="fixed inset-0 bg-grid pointer-events-none" aria-hidden />
@@ -77,6 +66,9 @@ export default async function RootLayout({
             colorRotation={config?.colorRotation}
             animation={config?.animation}
             interactiveEffects={config?.interactiveEffects}
+          />
+          <SettingsPanel
+            config={config ?? { colorProfile: '', palettes: {} }}
           />
           {children}
         </div>

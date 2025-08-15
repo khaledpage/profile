@@ -35,5 +35,17 @@
         { "name": "CI/CD", "level": "Advanced", "years": 5, "tags": ["GitHub Actions"], "description": "Automated testing and delivery pipelines." }
       ]
     }
+,
+    {
+      "key": "devops",
+      "title": "DevOps & Cloud",
+      "direction": "left",
+      "speedSec": 50,
+      "items": [
+        { "name": "Docker", "level": "Advanced", "years": 5, "tags": ["Compose"], "description": "Containerization for reproducible environments." },
+        { "name": "AWS", "level": "Intermediate", "years": 3, "tags": ["S3", "Lambda"], "description": "Managed services for scale and reliability." },
+        { "name": "CI/CD", "level": "Advanced", "years": 5, "tags": ["GitHub Actions"], "description": "Automated testing and delivery pipelines." }
+      ]
+    }
   ]
 }

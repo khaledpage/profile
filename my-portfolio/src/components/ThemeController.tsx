@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import type { SiteConfig } from '@/types/content';
 
 type Palette = {
@@ -18,11 +18,79 @@ type Props = {
   palettes: Record<string, Palette>;
   colorProfile: string;
   colorRotation?: { enabled?: boolean; intervalSec?: number; candidates?: string[] };
-  animation?: { fadeOutDurationSec?: number; fadeInAfterSec?: number; fadeDurationSec?: number; fadeMin?: number; fadeMax?: number };
+  animation?: { fadeOutDurationSec?: number; fadeInAfterSec?: number; fadeDurationSec?: number; fadeMin?: number; fadeMax?: number; enabled?: boolean };
   interactiveEffects?: SiteConfig['interactiveEffects'];
 };
 
+declare global {
+  interface Window {
+    __themeController?: {
+      changeTheme: (profileKey: string) => void;
+      toggleAnimations: (enabled: boolean) => void;
+    };
+  }
+}
+
 export default function ThemeController({ palettes, colorProfile, colorRotation, animation, interactiveEffects }: Props) {
+  const [currentProfile, setCurrentProfile] = useState(colorProfile);
+  const [animationsEnabled, setAnimationsEnabled] = useState(animation?.enabled ?? true);
+
+  // Expose theme change function globally for SettingsPanel
+  const changeTheme = useCallback((profileKey: string) => {
+    if (palettes[profileKey]) {
+      setCurrentProfile(profileKey);
+    }
+  }, [palettes]);
+
+  const toggleAnimations = useCallback((enabled: boolean) => {
+    setAnimationsEnabled(enabled);
+  }, []);
+
+  useEffect(() => {
+    // Make functions available globally
+    window.__themeController = {
+      changeTheme,
+      toggleAnimations,
+    };
+
+    // Check for stored preferences on mount
+    const consent = localStorage.getItem('cookie-consent');
+    if (consent === 'accepted') {
+      const stored = localStorage.getItem('user-preferences');
+      if (stored) {
+        try {
+          const prefs = JSON.parse(stored);
+          if (prefs.colorProfile && palettes[prefs.colorProfile]) {
+            setCurrentProfile(prefs.colorProfile);
+          }
+          if (prefs.animationsEnabled !== undefined) {
+            setAnimationsEnabled(prefs.animationsEnabled);
+          }
+        } catch {
+          // Ignore parsing errors
+        }
+      }
+    }
+
+    // Apply initial theme immediately
+    const root = document.documentElement;
+    const initialProfile = currentProfile || colorProfile;
+    const p = palettes[initialProfile];
+    if (p) {
+      root.style.setProperty('--background', p.background);
+      root.style.setProperty('--foreground', p.foreground);
+      root.style.setProperty('--muted', p.muted);
+      root.style.setProperty('--card', p.card);
+      root.style.setProperty('--card-contrast', p.cardContrast);
+      root.style.setProperty('--accent-1', p.accent1);
+      root.style.setProperty('--accent-2', p.accent2);
+    }
+
+    return () => {
+      delete window.__themeController;
+    };
+  }, [changeTheme, toggleAnimations, palettes, currentProfile, colorProfile]);
+
   useEffect(() => {
     const root = document.documentElement;
     const applyPalette = (key: string) => {
@@ -37,23 +105,26 @@ export default function ThemeController({ palettes, colorProfile, colorRotation,
       root.style.setProperty('--accent-2', p.accent2);
     };
 
-    applyPalette(colorProfile);
+    applyPalette(currentProfile);
 
-  let intervalTimer: ReturnType<typeof setInterval> | undefined;
-  let fadeTimer: ReturnType<typeof setTimeout> | undefined;
-    if (colorRotation?.enabled) {
+    let intervalTimer: ReturnType<typeof setInterval> | undefined;
+    let fadeTimer: ReturnType<typeof setTimeout> | undefined;
+    
+    if (colorRotation?.enabled && animationsEnabled) {
       const list = colorRotation.candidates && colorRotation.candidates.length > 0
         ? colorRotation.candidates
         : Object.keys(palettes);
-      let idx = list.indexOf(colorProfile);
+      let idx = list.indexOf(currentProfile);
       intervalTimer = setInterval(() => {
         idx = (idx + 1) % list.length;
-        applyPalette(list[idx]);
+        const newProfile = list[idx];
+        setCurrentProfile(newProfile);
+        applyPalette(newProfile);
       }, (colorRotation.intervalSec ?? 120) * 1000);
     }
 
-  // Control fading out and back in
-    if (animation) {
+    // Control fading out and back in
+    if (animation && animationsEnabled) {
       const min = animation.fadeMin ?? 0.2;
       const max = animation.fadeMax ?? 0.6;
       const outMs = (animation.fadeOutDurationSec ?? animation.fadeDurationSec ?? 60) * 1000;
@@ -86,15 +157,15 @@ export default function ThemeController({ palettes, colorProfile, colorRotation,
     }
 
     return () => {
-  if (intervalTimer) clearInterval(intervalTimer);
-  if (fadeTimer) clearTimeout(fadeTimer);
+      if (intervalTimer) clearInterval(intervalTimer);
+      if (fadeTimer) clearTimeout(fadeTimer);
     };
-  }, [palettes, colorProfile, colorRotation, animation]);
+  }, [palettes, currentProfile, colorRotation, animation, animationsEnabled]);
 
   // Subtle random ripple effect on pointer move
   useEffect(() => {
     const cfg = interactiveEffects;
-    if (cfg?.enabled === false) return;
+    if (cfg?.enabled === false || !animationsEnabled) return;
 
     let target = document.querySelector('.ripples-layer') as HTMLElement | null;
     if (!target) {
@@ -143,7 +214,7 @@ export default function ThemeController({ palettes, colorProfile, colorRotation,
 
     window.addEventListener('pointermove', onMove, { passive: true });
     return () => window.removeEventListener('pointermove', onMove);
-  }, [interactiveEffects]);
+  }, [interactiveEffects, animationsEnabled]);
 
   return null;
 }

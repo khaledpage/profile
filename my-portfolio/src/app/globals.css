@@ -48,6 +48,12 @@ body {
   box-shadow: 0 8px 30px rgba(0,0,0,0.25);
   backdrop-filter: blur(12px);
 }
+.glass-dark {
+  background: linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,0.05));
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+  backdrop-filter: blur(12px);
+}
 
 .glass-dark {
   background: linear-gradient(180deg, rgba(17,25,40,0.55), rgba(17,25,40,0.35));
@@ -185,5 +191,14 @@ body {
 @keyframes rippleScale {
   10% { opacity: 0.25; }
   100% { opacity: 0; transform: translate(-50%, -50%) scale(1.4); }
+}
+
+/* Hide scrollbars */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+.scrollbar-hide::-webkit-scrollbar { 
+  display: none;  /* Safari and Chrome */
 }
 

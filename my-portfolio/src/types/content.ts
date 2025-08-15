@@ -120,6 +120,13 @@ export interface SiteConfig {
       color?: string; // fallback color; default uses accent vars
     };
   };
+  settings?: {
+    enabled?: boolean;
+    showIcon?: boolean;
+    allowThemeChange?: boolean;
+    allowAnimationToggle?: boolean;
+    cookieConsent?: boolean;
+  };
 }
 
 // Skills content types

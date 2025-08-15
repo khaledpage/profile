@@ -120,6 +120,26 @@
       "cardContrast": "#201314",
       "accent1": "#ef4444",
       "accent2": "#f97316"
+    },
+    "minimalistLight": {
+      "name": "Minimalist Light",
+      "background": "#fefefe",
+      "foreground": "#1a1a1a",
+      "muted": "#6b7280",
+      "card": "#f9fafb",
+      "cardContrast": "#f3f4f6",
+      "accent1": "#4f46e5",
+      "accent2": "#06b6d4"
+    },
+    "minimalistDark": {
+      "name": "Minimalist Dark",
+      "background": "#0f0f0f",
+      "foreground": "#f5f5f5",
+      "muted": "#9ca3af",
+      "card": "#1a1a1a",
+      "cardContrast": "#262626",
+      "accent1": "#6366f1",
+      "accent2": "#14b8a6"
     }
   },
   "animation": {
@@ -134,7 +154,7 @@
   "colorRotation": {
     "enabled": true,
     "intervalSec": 120,
-    "candidates": ["indigoPurpleDark", "tealCyanDark", "amberOrangeDark", "sunsetPinkOrange", "emeraldGreenDark", "oceanBlueDark", "roseMauveDark", "goldNavyDark", "cyberNeonDark", "graphiteCyanDark", "plumGrapeDark", "lavaRedDark"]
+    "candidates": ["indigoPurpleDark", "tealCyanDark", "amberOrangeDark", "sunsetPinkOrange", "emeraldGreenDark", "oceanBlueDark", "roseMauveDark", "goldNavyDark", "cyberNeonDark", "graphiteCyanDark", "plumGrapeDark", "lavaRedDark", "minimalistLight", "minimalistDark"]
   },
   "i18n": {
     "defaultLocale": "de",
@@ -150,8 +170,7 @@
         "common": { "back": "Back", "seeAlso": "See also" }
       }
     }
-  }
-  ,
+  },
   "interactiveEffects": {
     "enabled": true,
     "triggerChance": 0.08,
@@ -162,5 +181,12 @@
       "durationMs": 1200,
       "color": ""
     }
+  },
+  "settings": {
+    "enabled": true,
+    "showIcon": true,
+    "allowThemeChange": true,
+    "allowAnimationToggle": true,
+    "cookieConsent": true
   }
 }

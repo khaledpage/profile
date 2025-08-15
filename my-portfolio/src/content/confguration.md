@@ -44,14 +44,6 @@ Dieses Dokument erklärt die Felder der Konfigurationsdatei und deren Wirkung in
       - sizePx (number): Basisgröße des Ripples.
       - durationMs (number): Animationsdauer in Millisekunden.
       - color (string): Farbgradient (leer = Standard über Paletten‑Akzentfarben).
-- settings (optional)
-  - Client‑seitige Einstellungen‑Oberfläche.
-  - Felder:
-    - enabled (boolean): aktiviert/deaktiviert das Einstellungssystem.
-    - showIcon (boolean): zeigt/versteckt das Einstellungssymbol.
-    - allowThemeChange (boolean): erlaubt Nutzern Farbpalettenwechsel.
-    - allowAnimationToggle (boolean): erlaubt Nutzern Animationen ein‑/auszuschalten.
-    - cookieConsent (boolean): zeigt Cookie‑Zustimmungsbanner für Speicherung von Präferenzen.
 
 ## Hinweise
 
