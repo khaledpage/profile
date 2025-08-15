@@ -33,6 +33,14 @@ export default function MarkdownRenderer({ content, className = '', articleSlug 
           );
         }
 
+        // Support TeX delimiters \( ... \) and \[ ... ] by mapping to $ ... $ and $$ ... $$
+        // Do this before remark-math so it can parse them properly.
+        processedContent = processedContent
+          // Display math: \[ ... ] -> $$ ... $$ (preserve multi-line)
+          .replace(/\\\[([\s\S]*?)\\\]/g, (_m, latex) => `\n\n$$\n${String(latex).trim()}\n$$\n\n`)
+          // Inline math: \( ... \) -> $ ... $
+          .replace(/\\\(([\s\S]*?)\\\)/g, (_m, latex) => `$${String(latex).trim()}$`);
+
         // First process with remark (markdown to HTML with math)
         const remarkResult = await remark()
           .use(remarkMath)
@@ -47,12 +55,27 @@ export default function MarkdownRenderer({ content, className = '', articleSlug 
             throwOnError: false,
             errorColor: '#cc0000',
             strict: false,
+            trust: true,
             fleqn: false,
             macros: {
-              // Add custom macros for better compatibility
+              // Common sets
               '\\RR': '\\mathbb{R}',
               '\\NN': '\\mathbb{N}',
               '\\ZZ': '\\mathbb{Z}',
+              // Align with PDF macros
+              '\\vec': '\\mathbf{#1}',
+              '\\mat': '\\mathbf{#1}',
+              '\\tr': '\\operatorname{tr}',
+              '\\det': '\\operatorname{det}',
+              '\\rank': '\\operatorname{rank}',
+              '\\norm': '\\left\\|#1\\right\\|',
+              '\\abs': '\\left|#1\\right|',
+              '\\bm': '\\boldsymbol{#1}',
+              '\\E': '\\mathbb{E}',
+              '\\Var': '\\operatorname{Var}',
+              '\\Cov': '\\operatorname{Cov}',
+              '\\argmax': '\\mathop{\\mathrm{arg\\,max}}',
+              '\\argmin': '\\mathop{\\mathrm{arg\\,min}}',
             }
           })
           .process(remarkResult.toString());
