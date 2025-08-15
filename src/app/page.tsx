@@ -6,7 +6,8 @@ import SkillsShowcaseMultiDesign from '@/components/sections/SkillsShowcaseMulti
 import ArticlesSection from '@/components/sections/ArticlesSection';
 import { Project } from '@/types/content';
 
-export const revalidate = 0; // Deaktiviert das Caching für Entwicklungszwecke
+// Pre-render the homepage as static with revalidation once per day (works for static export)
+export const revalidate = 86400;
 
 export default async function Home() {
   try {

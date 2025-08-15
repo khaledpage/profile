@@ -367,7 +367,9 @@ my-portfolio/
 - `npm run start`: Production server
 - `npm run lint`: ESLint validation
 - `npm run build:pages`: Static export build (GitHub Pages)
-- `npm run build:widgets": Build Vite widgets to `public/widgets`
+- `npm run build:widgets`: Build Vite widgets to `public/widgets`
+- `npm run export:docs`: Assemble `docs/` from Next 15 build artifacts for manual GitHub Pages
+- `npm run pages:publish`: Build and export to `docs/` in one step
 
 ### File Watching
 - Hot reload for code changes

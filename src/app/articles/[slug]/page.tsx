@@ -174,6 +174,18 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             {/* Article Footer */}
             <footer className="mt-16 pt-8" style={{ borderTop: '1px solid color-mix(in srgb, var(--foreground), transparent 85%)' }}>
               <div className="flex items-center justify-between flex-wrap gap-4">
+                <Link
+                  href="/articles"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all"
+                  style={{
+                    backgroundColor: 'color-mix(in srgb, var(--accent-1), transparent 10%)',
+                    color: 'var(--accent-1)',
+                    border: '1px solid color-mix(in srgb, var(--accent-1), transparent 70%)',
+                  }}
+                >
+                  ← Back to Articles
+                </Link>
+
                 <div>
                   <p className="text-sm mb-2" style={{ color: 'var(--muted)' }}>
                     Published on {publishDate}
@@ -188,18 +200,6 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                     </p>
                   )}
                 </div>
-                
-                <Link
-                  href="/articles"
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all"
-                  style={{
-                    backgroundColor: 'color-mix(in srgb, var(--accent-1), transparent 10%)',
-                    color: 'var(--accent-1)',
-                    border: '1px solid color-mix(in srgb, var(--accent-1), transparent 70%)',
-                  }}
-                >
-                  ← Back to Articles
-                </Link>
               </div>
             </footer>
           </div>

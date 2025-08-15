@@ -8,9 +8,10 @@ A Next.js-based portfolio with articles, projects, LaTeX rendering, PDF export (
 - build: Next production build
 - start: Next prod server
 - lint: ESLint
-- build:pages: Static export for GitHub Pages (uses env flags and copies content to public)
+- build:pages: Static export build for GitHub Pages (sets env flags, prepares static content, then runs Next build)
 - build:widgets: Build standalone browser widgets with Vite to `public/widgets/`
-- export:docs: Copy `out/` to `docs/` for branch-based GitHub Pages
+- export:docs: Assemble `docs/` from Next 15 build artifacts (`.next/server/app` and `_next/static`) and copy `public/` assets
+- pages:publish: Run `build:pages` then `export:docs` in one step
 
 ## Vite Widgets
 
@@ -40,10 +41,17 @@ You can load the IIFE bundle on any static page:
 npm run build:pages
 ```
 
-2. Copy the export to `docs/`:
+1. Assemble the `docs/` folder from the build output:
 
 ```bash
 npm run export:docs
 ```
+
+Alternatively, run both in one step:
+
+```bash
+npm run pages:publish
+```
+
 3. Push to the `main` branch and enable GitHub Pages → Deploy from Branch → Branch: `main`, Folder: `/docs`.
 4. If your repo name isn’t `profile`, set `NEXT_PUBLIC_BASE_PATH` to `/<repo>` when building.
