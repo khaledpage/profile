@@ -2,6 +2,7 @@ import { getAllArticles } from '@/utils/articles';
 import type { Article, ArticleMetadata } from '@/types/article';
 import ArticleCard from '@/components/ui/ArticleCard';
 import { Metadata } from 'next';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Articles - Khaled Alabsi',
@@ -25,10 +26,22 @@ export default async function ArticlesPage() {
   const regularArticles = articles.filter(article => !article.metadata.featured);
 
   return (
-    <div className="min-h-screen pt-20">
+    <div className="min-h-screen pt-20 relative">
       {/* Hero Section */}
       <section className="py-20 text-center">
         <div className="container mx-auto px-6">
+          {/* Breadcrumbs */}
+          <nav className="mb-6">
+            <ol className="flex items-center justify-center gap-2 text-sm">
+              <li>
+                <Link href="/" className="hover:text-accent-1 transition-colors" style={{ color: 'var(--muted)' }}>
+                  Home
+                </Link>
+              </li>
+              <span style={{ color: 'var(--muted)' }}>/</span>
+              <li style={{ color: 'var(--foreground)' }}>Articles</li>
+            </ol>
+          </nav>
           <h1 className="text-5xl font-bold mb-6" style={{ color: 'var(--foreground)' }}>
             Articles & Insights
           </h1>
@@ -77,6 +90,9 @@ export default async function ArticlesPage() {
           )}
         </div>
       </section>
+
+  {/* Floating Back Button (consistent with project pages) */}
+  <Link href="/" className="fixed right-4 bottom-4 z-40 btn-secondary">← Home</Link>
     </div>
   );
 }
