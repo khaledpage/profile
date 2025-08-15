@@ -90,8 +90,15 @@ export default function ArticlesSection() {
     );
   }
 
-  const featuredArticle = articles.find(article => article.metadata.featured);
-  const regularArticles = articles.filter(article => !article.metadata.featured);
+  // Sort articles by date (newest first)
+  const sortedArticles = [...articles].sort((a, b) => {
+    const dateA = new Date(a.metadata.publishDate);
+    const dateB = new Date(b.metadata.publishDate);
+    return dateB.getTime() - dateA.getTime();
+  });
+
+  const featuredArticle = sortedArticles.find(article => article.metadata.featured);
+  const regularArticles = sortedArticles.filter(article => !article.metadata.featured);
 
   return (
     <section id="articles" className="py-20">
@@ -105,15 +112,43 @@ export default function ArticlesSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
-          {featuredArticle && (
-            <ArticleCard article={featuredArticle} featured />
-          )}
+        {/* Featured Article - if exists */}
+        {featuredArticle && (
+          <div className="mb-12">
+            <div className="text-left mb-6">
+              <h3 className="text-2xl font-semibold" style={{ color: 'var(--foreground)' }}>
+                Featured Article
+              </h3>
+            </div>
+            <div className="max-w-4xl mx-auto">
+              <ArticleCard article={featuredArticle} featured />
+            </div>
+          </div>
+        )}
+
+        {/* Horizontal Scrollable Articles */}
+        <div className="mb-8">
+          <div className="text-left mb-6">
+            <h3 className="text-2xl font-semibold" style={{ color: 'var(--foreground)' }}>
+              {featuredArticle ? 'More Articles' : 'All Articles'}
+            </h3>
+          </div>
           
-          <div className={`grid grid-cols-1 gap-6 ${featuredArticle ? 'lg:col-span-1' : 'lg:col-span-3 md:grid-cols-2 lg:grid-cols-3'}`}>
-            {regularArticles.slice(0, featuredArticle ? 2 : 6).map((article) => (
-              <ArticleCard key={article.slug} article={article} />
-            ))}
+          <div className="relative overflow-hidden">
+            <div 
+              className="flex gap-6 animate-scroll hover:animate-pause"
+              style={{
+                width: 'max-content',
+                '--scroll-duration': '30s'
+              } as React.CSSProperties}
+            >
+              {/* Duplicate articles for infinite scroll effect */}
+              {[...regularArticles, ...regularArticles].map((article, index) => (
+                <div key={`${article.slug}-${index}`} className="flex-shrink-0 w-80">
+                  <ArticleCard article={article} />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 

@@ -48,7 +48,8 @@ export function hasUserGivenConsent(): boolean {
 
 export function canSavePreferences(): boolean {
   const consent = getCookieConsent();
-  return consent?.preferences === true;
+  // Allow saving preferences if user has given consent and specifically allowed preferences
+  return consent !== null && consent.preferences === true;
 }
 
 export function revokeCookieConsent(): void {

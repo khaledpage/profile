@@ -42,7 +42,19 @@ export default function MarkdownRenderer({ content, className = '', articleSlug 
         // Then process with rehype to handle KaTeX
         const { rehype } = await import('rehype');
         const rehypeResult = await rehype()
-          .use(rehypeKatex)
+          .use(rehypeKatex, {
+            // KaTeX options for better compatibility
+            throwOnError: false,
+            errorColor: '#cc0000',
+            strict: false,
+            fleqn: false,
+            macros: {
+              // Add custom macros for better compatibility
+              '\\RR': '\\mathbb{R}',
+              '\\NN': '\\mathbb{N}',
+              '\\ZZ': '\\mathbb{Z}',
+            }
+          })
           .process(remarkResult.toString());
 
         setHtmlContent(rehypeResult.toString());

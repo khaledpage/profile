@@ -357,3 +357,184 @@ body {
   display: none;  /* Safari and Chrome */
 }
 
+/* Horizontal scrolling animations */
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-scroll {
+  animation: scroll var(--scroll-duration, 30s) linear infinite;
+}
+
+.animate-pause:hover {
+  animation-play-state: paused;
+}
+
+/* Smooth scrollable container */
+.horizontal-scroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--foreground), transparent 80%) transparent;
+}
+
+.horizontal-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+
+.horizontal-scroll::-webkit-scrollbar-track {
+  background: color-mix(in srgb, var(--foreground), transparent 95%);
+  border-radius: 3px;
+}
+
+.horizontal-scroll::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--foreground), transparent 70%);
+  border-radius: 3px;
+}
+
+.horizontal-scroll::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in srgb, var(--foreground), transparent 60%);
+}
+
+/* Reading Theme - Optimized for article consumption */
+.reading-theme {
+  --reading-background: #fefefe;
+  --reading-foreground: #1a1a1a;
+  --reading-muted: #6b7280;
+  --reading-card: #ffffff;
+  --reading-accent-1: #2563eb;
+  --reading-accent-2: #1d4ed8;
+}
+
+.reading-theme.dark {
+  --reading-background: #1f2937;
+  --reading-foreground: #f9fafb;
+  --reading-muted: #9ca3af;
+  --reading-card: #374151;
+  --reading-accent-1: #60a5fa;
+  --reading-accent-2: #3b82f6;
+}
+
+.reading-container.reading-active {
+  background: var(--reading-background);
+  color: var(--reading-foreground);
+  min-height: 100vh;
+  transition: all 0.3s ease;
+}
+
+.reading-container.reading-active .article-content {
+  max-width: 65ch;
+  margin: 0 auto;
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--reading-foreground);
+}
+
+.reading-container.reading-active .article-content h1,
+.reading-container.reading-active .article-content h2,
+.reading-container.reading-active .article-content h3,
+.reading-container.reading-active .article-content h4,
+.reading-container.reading-active .article-content h5,
+.reading-container.reading-active .article-content h6 {
+  color: var(--reading-foreground);
+  font-weight: 700;
+  margin-top: 2.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.reading-container.reading-active .article-content p {
+  margin-bottom: 1.5rem;
+  text-align: justify;
+  hyphens: auto;
+}
+
+.reading-container.reading-active .article-content a {
+  color: var(--reading-accent-1);
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--reading-accent-1), transparent 60%);
+}
+
+.reading-container.reading-active .article-content a:hover {
+  color: var(--reading-accent-2);
+  border-bottom-color: var(--reading-accent-2);
+}
+
+.reading-container.reading-active .article-content code {
+  background: color-mix(in srgb, var(--reading-card), #f3f4f6 50%);
+  color: var(--reading-accent-2);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.375rem;
+  font-size: 0.9em;
+}
+
+.reading-container.reading-active .article-content pre {
+  background: color-mix(in srgb, var(--reading-card), #f8fafc 50%);
+  border: 1px solid color-mix(in srgb, var(--reading-foreground), transparent 85%);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  overflow-x: auto;
+  line-height: 1.6;
+}
+
+.reading-container.reading-active .article-content blockquote {
+  border-left: 4px solid var(--reading-accent-1);
+  background: color-mix(in srgb, var(--reading-accent-1), transparent 95%);
+  padding: 1rem 1.5rem;
+  margin: 2rem 0;
+  border-radius: 0 0.5rem 0.5rem 0;
+  font-style: italic;
+  color: var(--reading-muted);
+}
+
+.reading-container.reading-active .article-content ul,
+.reading-container.reading-active .article-content ol {
+  margin: 1.5rem 0;
+  padding-left: 2rem;
+}
+
+.reading-container.reading-active .article-content li {
+  margin-bottom: 0.75rem;
+  line-height: 1.7;
+}
+
+.reading-container.reading-active .article-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.75rem;
+  margin: 2.5rem auto;
+  display: block;
+  box-shadow: 0 4px 20px color-mix(in srgb, var(--reading-foreground), transparent 85%);
+}
+
+.reading-container.reading-active .katex {
+  color: var(--reading-foreground) !important;
+}
+
+.reading-container.reading-active .katex-display {
+  margin: 2rem 0 !important;
+  padding: 1rem;
+  background: color-mix(in srgb, var(--reading-accent-1), transparent 95%);
+  border-radius: 0.5rem;
+  border-left: 3px solid var(--reading-accent-1);
+}
+
+.reading-controls {
+  backdrop-filter: blur(10px);
+}
+
+.glass-subtle {
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--background), black 50%);
+}
+
+/* Reading mode transitions */
+.reading-container {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.reading-container * {
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+

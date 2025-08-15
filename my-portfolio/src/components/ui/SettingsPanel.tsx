@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { XMarkIcon, Cog6ToothIcon } from '@heroicons/react/24/outline';
 import type { SiteConfig } from '@/types/content';
-import { canSavePreferences, shouldShowCookieBanner } from '@/utils/cookies';
+import { canSavePreferences, shouldShowCookieBanner, getCookieConsent, setCookieConsent } from '@/utils/cookies';
 
 type Props = {
   config: SiteConfig;
@@ -47,10 +47,10 @@ export default function SettingsPanel({ config }: Props) {
 
   useEffect(() => {
     // Check for existing consent and preferences
-    const consent = localStorage.getItem('cookie-consent');
+    const consent = getCookieConsent();
     const storedPrefs = localStorage.getItem('user-preferences');
     
-    if (consent === 'accepted') {
+    if (consent && consent.preferences) {
       setHasConsent(true);
       if (storedPrefs) {
         try {
@@ -60,17 +60,17 @@ export default function SettingsPanel({ config }: Props) {
           console.warn('Failed to parse stored preferences');
         }
       }
-    } else if (consent === null && settingsConfig?.cookieConsent) {
+    } else if (!consent && settingsConfig?.cookieConsent) {
       setShowCookieConsent(true);
     }
 
     // Listen for cookie consent changes
     const handleConsentChange = () => {
-      const newConsent = localStorage.getItem('cookie-consent');
-      if (newConsent === 'accepted') {
+      const newConsent = getCookieConsent();
+      if (newConsent && newConsent.preferences) {
         setHasConsent(true);
         setShowCookieConsent(false);
-      } else if (newConsent === 'declined') {
+      } else if (!newConsent) {
         setHasConsent(false);
       }
     };
@@ -90,6 +90,24 @@ export default function SettingsPanel({ config }: Props) {
   const declineCookies = () => {
     localStorage.setItem('cookie-consent', 'declined');
     setShowCookieConsent(false);
+  };
+
+  const handleAcceptCookies = () => {
+    setCookieConsent({
+      necessary: true,
+      analytics: false,
+      preferences: true,
+      marketing: false,
+    });
+    setHasConsent(true);
+    setShowCookieConsent(false);
+    
+    // Save current preferences now that consent is given
+    if (Object.keys(preferences).length > 0) {
+      localStorage.setItem('user-preferences', JSON.stringify(preferences));
+    }
+    
+    window.dispatchEvent(new CustomEvent('cookieConsentChanged'));
   };
 
   const savePreferences = (newPrefs: Partial<UserPreferences>) => {
@@ -170,9 +188,21 @@ export default function SettingsPanel({ config }: Props) {
               <div>
                 <h2 className="text-xl font-semibold">Settings</h2>
                 {!hasConsent && settingsConfig?.cookieConsent && (
-                  <p className="text-sm text-orange-400 mt-1">
-                    ⚠️ Settings cannot be saved without cookie consent
-                  </p>
+                  <div className="flex items-center gap-3 mt-2">
+                    <p className="text-sm text-orange-400">
+                      ⚠️ Settings cannot be saved without cookie consent
+                    </p>
+                    <button
+                      onClick={handleAcceptCookies}
+                      className="px-3 py-1 text-xs rounded-lg font-medium transition-all"
+                      style={{
+                        backgroundColor: 'var(--accent-1)',
+                        color: 'white',
+                      }}
+                    >
+                      Accept Cookies
+                    </button>
+                  </div>
                 )}
               </div>
               <button
