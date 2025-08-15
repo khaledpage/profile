@@ -84,7 +84,7 @@ function markdownToHtml(markdown: string, slug: string): string {
     }
   });
   // Inline math using \( ... \)
-  html = html.replace(/\\\(([^)]+)\\\)/g, (match, latex) => {
+    html = html.replace(/\\\(([\s\S]*?)\\\)/g, (match, latex) => {
     try {
       const rendered = katex.renderToString(latex.trim(), { ...katexOptions, displayMode: false });
       return `<span class="katex-inline">${rendered}</span>`;
@@ -128,7 +128,8 @@ function markdownToHtml(markdown: string, slug: string): string {
   html = html.replace(/^> (.*$)/gim, '<blockquote>$1</blockquote>');
   
   // Lists
-  html = html.replace(/^\* (.*$)/gim, '<li>$1</li>');
+    html = html.replace(/^\* (.*$)/gim, '<li>$1</li>');
+    html = html.replace(/^\- (.*$)/gim, '<li>$1</li>');
   html = html.replace(/^\d+\. (.*$)/gim, '<li>$1</li>');
   
   // Wrap consecutive list items in ul/ol
