@@ -1,10 +1,60 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getArticleBySlug } from '@/utils/articles';
 import puppeteer from 'puppeteer';
+import katex from 'katex';
 
-// Simple markdown to HTML conversion
+// Enhanced markdown to HTML conversion with LaTeX support
 function markdownToHtml(markdown: string): string {
   let html = markdown;
+  
+  // Process LaTeX expressions first (before other markdown)
+  // Display math ($$...$$)
+  html = html.replace(/\$\$([\s\S]*?)\$\$/g, (match, latex) => {
+    try {
+      const rendered = katex.renderToString(latex.trim(), {
+        displayMode: true,
+        throwOnError: false,
+        strict: false,
+        macros: {
+          "\\vec": "\\mathbf{#1}",
+          "\\mat": "\\mathbf{#1}",
+          "\\tr": "\\text{tr}",
+          "\\det": "\\text{det}",
+          "\\rank": "\\text{rank}",
+          "\\norm": "\\left\\|#1\\right\\|",
+          "\\abs": "\\left|#1\\right|"
+        }
+      });
+      return `<div class="katex-display">${rendered}</div>`;
+    } catch (error) {
+      console.error('KaTeX rendering error:', error);
+      return `<div class="katex-error">$$${latex}$$</div>`;
+    }
+  });
+  
+  // Inline math ($...$)
+  html = html.replace(/\$([^$\n]+)\$/g, (match, latex) => {
+    try {
+      const rendered = katex.renderToString(latex.trim(), {
+        displayMode: false,
+        throwOnError: false,
+        strict: false,
+        macros: {
+          "\\vec": "\\mathbf{#1}",
+          "\\mat": "\\mathbf{#1}",
+          "\\tr": "\\text{tr}",
+          "\\det": "\\text{det}",
+          "\\rank": "\\text{rank}",
+          "\\norm": "\\left\\|#1\\right\\|",
+          "\\abs": "\\left|#1\\right|"
+        }
+      });
+      return `<span class="katex-inline">${rendered}</span>`;
+    } catch (error) {
+      console.error('KaTeX rendering error:', error);
+      return `<span class="katex-error">$${latex}$</span>`;
+    }
+  });
   
   // Headers
   html = html.replace(/^### (.*$)/gim, '<h3>$1</h3>');
@@ -17,11 +67,14 @@ function markdownToHtml(markdown: string): string {
   // Italic
   html = html.replace(/\*(.*?)\*/gim, '<em>$1</em>');
   
-  // Inline code
-  html = html.replace(/`([^`]+)`/gim, '<code>$1</code>');
+  // Code blocks (must be processed before inline code)
+  html = html.replace(/```(\w*)\n?([\s\S]*?)```/g, (match, language, code) => {
+    const lang = language ? ` class="language-${language}"` : '';
+    return `<pre><code${lang}>${code.trim()}</code></pre>`;
+  });
   
-  // Code blocks
-  html = html.replace(/```([^`]+)```/gim, '<pre><code>$1</code></pre>');
+  // Inline code
+  html = html.replace(/`([^`\n]+)`/gim, '<code>$1</code>');
   
   // Links
   html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/gim, '<a href="$2">$1</a>');
@@ -51,6 +104,8 @@ function markdownToHtml(markdown: string): string {
   html = html.replace(/(<\/blockquote>)<\/p>/gim, '$1');
   html = html.replace(/<p>(<ul>)/gim, '$1');
   html = html.replace(/(<\/ul>)<\/p>/gim, '$1');
+  html = html.replace(/<p>(<div class="katex-display">)/gim, '$1');
+  html = html.replace(/(<\/div>)<\/p>/gim, '$1');
   
   return html;
 }
@@ -86,6 +141,7 @@ export async function GET(
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <title>${article.metadata.title}</title>
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css" integrity="sha384-Xi8rHCmBmhbuyyhbI88391ZKP2dmfnOl4rT9ZfRI7mLTdk1wblIUnrIq35nqwEvC" crossorigin="anonymous">
           <style>
             @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
             
@@ -264,6 +320,55 @@ export async function GET(
               text-align: center;
             }
             
+            /* KaTeX Math Rendering for PDF */
+            .katex {
+              color: #1f2937 !important;
+              font-size: 1em !important;
+            }
+            
+            .katex-display {
+              margin: 1.5rem 0 !important;
+              text-align: center;
+              background: #f9fafb;
+              padding: 1rem;
+              border-radius: 8px;
+              border-left: 3px solid #2563eb;
+            }
+            
+            .katex-inline {
+              color: #1f2937 !important;
+            }
+            
+            .katex-error {
+              color: #dc2626;
+              background: #fef2f2;
+              padding: 0.25rem 0.5rem;
+              border-radius: 4px;
+              font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+              font-size: 0.9em;
+            }
+            
+            /* Enhanced math display */
+            .katex .mord {
+              color: #1f2937 !important;
+            }
+            
+            .katex .mop {
+              color: #1f2937 !important;
+            }
+            
+            .katex .mbin {
+              color: #1f2937 !important;
+            }
+            
+            .katex .mrel {
+              color: #1f2937 !important;
+            }
+            
+            .katex .mpunct {
+              color: #1f2937 !important;
+            }
+            
             /* Page break handling */
             @media print {
               body { margin: 0; }
@@ -274,7 +379,8 @@ export async function GET(
                 page-break-after: avoid;
               }
               .content pre,
-              .content blockquote {
+              .content blockquote,
+              .katex-display {
                 page-break-inside: avoid;
               }
             }

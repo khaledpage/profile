@@ -1,0 +1,1 @@
+- update Requirements-Tabelle, TECHNICAL_DOCUMENTATION and readme files

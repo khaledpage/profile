@@ -76,8 +76,10 @@ export default function SettingsPanel({ config }: Props) {
     };
 
     window.addEventListener('cookieConsentChanged', handleConsentChange);
+    window.addEventListener('cookieConsentGiven', handleConsentChange);
     return () => {
       window.removeEventListener('cookieConsentChanged', handleConsentChange);
+      window.removeEventListener('cookieConsentGiven', handleConsentChange);
     };
   }, [settingsConfig?.cookieConsent]);
 
@@ -93,20 +95,32 @@ export default function SettingsPanel({ config }: Props) {
   };
 
   const handleAcceptCookies = () => {
+    // Set cookie consent with proper preferences
     setCookieConsent({
       necessary: true,
       analytics: false,
       preferences: true,
       marketing: false,
     });
+    
     setHasConsent(true);
     setShowCookieConsent(false);
     
     // Save current preferences now that consent is given
     if (Object.keys(preferences).length > 0) {
       localStorage.setItem('user-preferences', JSON.stringify(preferences));
+      
+      // Apply preferences immediately
+      if (preferences.colorProfile && typeof window !== 'undefined' && window.__themeController) {
+        window.__themeController.changeTheme(preferences.colorProfile);
+      }
+      if (preferences.animationsEnabled !== undefined && typeof window !== 'undefined' && window.__themeController) {
+        window.__themeController.toggleAnimations(preferences.animationsEnabled);
+      }
     }
     
+    // Dispatch event to notify other components
+    window.dispatchEvent(new CustomEvent('cookieConsentGiven'));
     window.dispatchEvent(new CustomEvent('cookieConsentChanged'));
   };
 

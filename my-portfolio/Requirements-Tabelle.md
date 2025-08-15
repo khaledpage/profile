@@ -69,4 +69,16 @@
 | OPS-02   | Lint / Types              | Clean type and lint checks                          | Medium   | `npm run lint/typecheck` runs without errors                                                                  |
 | SEC-01   | External Links            | Secure link attributes                              | Low      | `rel="noopener noreferrer"` applied to `target="_blank"`                                                      |
 | QA-01    | Cross-Browser             | Works in modern browsers                            | Low      | Chrome, Firefox, Safari (macOS) without functional or display issues                                          |
+| ART-13   | Horizontal Article Scroll | Articles display in auto-scrolling horizontal row  | High     | One-row layout; smooth auto-scroll; pause on hover; infinite loop effect; responsive cards                   |
+| ART-14   | Date-based Article Sort   | Articles sorted newest to oldest                    | Medium   | Sort by publishDate descending; featured articles highlighted separately                                      |
+| ART-15   | Reading Theme Mode        | Optimized reading experience for articles          | High     | Toggle between normal and reading themes; improved typography; focus-friendly colors; book icon control     |
+| ART-16   | PDF Export Feature        | Download articles as formatted PDFs                | Medium   | PDF generation with proper LaTeX rendering; professional layout; download button in reading controls        |
+| ART-17   | Enhanced LaTeX Support    | Comprehensive math rendering in PDFs               | High     | Display and inline math; mathematical macros; KaTeX CSS integration; error handling for invalid LaTeX       |
+| ART-18   | Code Block PDF Rendering  | Code blocks properly formatted in PDF exports      | Medium   | Syntax highlighting preservation; proper escaping; multiline code support; language detection              |
+| SET-17   | Cookie Config Persistence | Settings save immediately after cookie acceptance  | High     | Theme changes persist after consent; immediate preference application; event-driven updates                 |
+| SET-18   | Enhanced Theme Controls   | Reading mode respects theme variables              | Medium   | Buttons follow theme colors; consistent styling in all modes; proper contrast ratios                       |
+| UI-01    | Theme-aware Navigation    | All UI elements follow active theme colors         | High     | Navigation links, buttons, and interactive elements use CSS variables; readable in all themes              |
+| UI-02    | Responsive Button Styling | Buttons maintain readability across themes         | High     | High contrast ratios; proper hover states; accessible focus indicators; theme variable integration         |
+| DOC-01   | Technical Documentation   | Comprehensive architecture documentation           | Medium   | File structure explained; component responsibilities; data flow; deployment guide; development workflow     |
+| DOC-02   | Code Architecture Guide   | Detailed code organization documentation           | Medium   | TypeScript patterns; component hierarchies; utility functions; API design; configuration management        |
 
