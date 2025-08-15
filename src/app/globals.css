@@ -424,11 +424,10 @@ body {
 }
 
 /* Reading mode button styling */
-.reading-container.reading-active a[href="/articles"],
 .reading-container.reading-active .btn-primary,
-.reading-container.reading-active .btn-secondary {
+.reading-container.reading-active .btn-secondary,
+.reading-container.reading-active a[href="/articles"] {
   background: color-mix(in srgb, var(--reading-accent-1), transparent 10%) !important;
-  color: var(--reading-accent-1) !important;
   border: 1px solid color-mix(in srgb, var(--reading-accent-1), transparent 70%) !important;
 }
 
@@ -436,7 +435,6 @@ body {
 .reading-container.reading-active .btn-primary:hover,
 .reading-container.reading-active .btn-secondary:hover {
   background: color-mix(in srgb, var(--reading-accent-1), transparent 20%) !important;
-  color: var(--reading-accent-2) !important;
   border-color: var(--reading-accent-2) !important;
 }
 

@@ -176,12 +176,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               <div className="flex items-center justify-between flex-wrap gap-4">
                 <Link
                   href="/articles"
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-all"
-                  style={{
-                    backgroundColor: 'color-mix(in srgb, var(--accent-1), transparent 10%)',
-                    color: 'var(--accent-1)',
-                    border: '1px solid color-mix(in srgb, var(--accent-1), transparent 70%)',
-                  }}
+                  className="btn-secondary inline-flex items-center gap-2"
                 >
                   ← Back to Articles
                 </Link>
