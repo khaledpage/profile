@@ -69,7 +69,7 @@ function HomeSectionsEditor({
   return (
     <div id="home-sections-editor" className="space-y-3">
       <div id="home-sections-description" className="text-xs" style={{ color: 'var(--muted)' }}>
-        {translations?.settingsPanel?.homeSectionsDescription || 'Customize the order and visibility of home page sections'}
+        {'Customize the order and visibility of home page sections'}
       </div>
       {order.map((key, idx) => {
         const isHidden = hidden.includes(key);

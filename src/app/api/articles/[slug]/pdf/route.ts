@@ -106,6 +106,9 @@ function markdownToHtml(markdown: string, slug: string): string {
   // Italic
   html = html.replace(/\*(.*?)\*/gim, '<em>$1</em>');
   
+  // Strikethrough (GitHub Flavored Markdown)
+  html = html.replace(/~~(.*?)~~/gim, '<del>$1</del>');
+  
   // Code blocks (must be processed before inline code)
   html = html.replace(/```(\w*)\n?([\s\S]*?)```/g, (match, language, code) => {
     const lang = language ? ` class="language-${language}"` : '';
@@ -114,6 +117,51 @@ function markdownToHtml(markdown: string, slug: string): string {
   
   // Inline code
   html = html.replace(/`([^`\n]+)`/gim, '<code>$1</code>');
+  
+  // Tables (GitHub Flavored Markdown) - process before other formatting
+  html = html.replace(/(\|[^\r\n]+\|\r?\n)+/g, (tableMatch) => {
+    const rows = tableMatch.trim().split(/\r?\n/);
+    let tableHtml = '<table>';
+    let inHeader = true;
+    
+    for (const row of rows) {
+      // Skip separator rows (|----|----|)
+      if (row.match(/^\|[\s\-:]+\|$/)) {
+        tableHtml += '<tbody>';
+        inHeader = false;
+        continue;
+      }
+      
+      const cells = row.split('|').slice(1, -1).map((cell: string) => cell.trim());
+      const tag = inHeader ? 'th' : 'td';
+      
+      if (inHeader && !tableHtml.includes('<thead>')) {
+        tableHtml += '<thead>';
+      }
+      
+      tableHtml += `<tr>${cells.map((cell: string) => {
+        // Remove bold formatting from headers as they're already styled
+        const cleanCell = cell.replace(/\*\*(.*?)\*\*/g, '$1');
+        return `<${tag}>${cleanCell}</${tag}>`;
+      }).join('')}</tr>`;
+      
+      if (inHeader && !row.includes('|----')) {
+        // Check if next row is separator, if not close header
+        const nextRowIndex = rows.indexOf(row) + 1;
+        if (nextRowIndex >= rows.length || !rows[nextRowIndex].includes('----')) {
+          tableHtml += '</thead><tbody>';
+          inHeader = false;
+        }
+      }
+    }
+    
+    if (inHeader) {
+      tableHtml += '</thead><tbody>';
+    }
+    
+    tableHtml += '</tbody></table>';
+    return tableHtml;
+  });
   
   // Images: ![alt](src) — handle before links
   html = html.replace(/!\[([^\]]*)\]\(([^)]+)\)/gim, (match, alt, src) => {
@@ -129,9 +177,13 @@ function markdownToHtml(markdown: string, slug: string): string {
   html = html.replace(/^> (.*$)/gim, '<blockquote>$1</blockquote>');
   
   // Lists
-    html = html.replace(/^\* (.*$)/gim, '<li>$1</li>');
-    html = html.replace(/^\- (.*$)/gim, '<li>$1</li>');
+  html = html.replace(/^\* (.*$)/gim, '<li>$1</li>');
+  html = html.replace(/^\- (.*$)/gim, '<li>$1</li>');
   html = html.replace(/^\d+\. (.*$)/gim, '<li>$1</li>');
+  
+  // Task lists (GitHub Flavored Markdown)
+  html = html.replace(/^- \[ \] (.*$)/gim, '<li class="task-list-item"><input type="checkbox" disabled> $1</li>');
+  html = html.replace(/^- \[x\] (.*$)/gim, '<li class="task-list-item"><input type="checkbox" checked disabled> $1</li>');
   
   // Wrap consecutive list items in ul/ol
   html = html.replace(/(<li>.*<\/li>)/gim, '<ul>$1</ul>');
@@ -373,6 +425,46 @@ export async function GET(request: Request) {
               border-radius: 8px;
               margin: 24px 0;
               display: block;
+            }
+            
+            .content table {
+              width: 100%;
+              border-collapse: collapse;
+              margin: 24px 0;
+              font-size: 14px;
+              border: 1px solid #e5e7eb;
+              border-radius: 8px;
+              overflow: hidden;
+            }
+            
+            .content table th,
+            .content table td {
+              padding: 12px 16px;
+              text-align: left;
+              border-bottom: 1px solid #e5e7eb;
+            }
+            
+            .content table th {
+              background: #f9fafb;
+              font-weight: 600;
+              color: #374151;
+            }
+            
+            .content table tr:last-child td {
+              border-bottom: none;
+            }
+            
+            .content table tr:nth-child(even) {
+              background: #f9fafb;
+            }
+            
+            .content .task-list-item {
+              list-style: none;
+              margin-left: -20px;
+            }
+            
+            .content .task-list-item input[type="checkbox"] {
+              margin-right: 8px;
             }
             
             .footer {
