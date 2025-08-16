@@ -370,6 +370,67 @@
           "colorThemes": "Farbthemen",
           "language": "Sprache",
           "skillsLayout": "Skills-Layout"
+        },
+        "workflow": {
+          "title": "Von der Vision zur Realität",
+          "subtitle": "Jedes erfolgreiche Projekt folgt einem bewährten Pfad. Lassen Sie mich Ihre Ideen durch eine strategische Reise vom ersten Konzept zur florierenden Geschäftslösung führen.",
+          "steps": {
+            "idea": {
+              "title": "Ihre Idee",
+              "description": "Teilen Sie Ihre Vision, Herausforderung oder Ihr Geschäftskonzept",
+              "details": [
+                "Geschäftsproblem-Identifikation",
+                "Marktchancen-Analyse",
+                "Nutzerbedürfnisse-Bewertung",
+                "Wettbewerbslandschaft-Überprüfung"
+              ]
+            },
+            "concept": {
+              "title": "Konzept-Design",
+              "description": "Verwandeln Sie Ideen in strukturierte technische Konzepte",
+              "details": [
+                "Systemarchitektur-Planung",
+                "Technologie-Stack-Auswahl",
+                "Benutzererfahrungs-Design",
+                "Technische Machbarkeitsstudie"
+              ]
+            },
+            "code": {
+              "title": "Entwicklung",
+              "description": "Erstellen Sie robuste, skalierbare Lösungen mit modernen Technologien",
+              "details": [
+                "Sauberer, wartbarer Code",
+                "Performance-Optimierung",
+                "Sicherheits-Best-Practices",
+                "Responsive Design-Implementierung"
+              ]
+            },
+            "goal": {
+              "title": "Zielerreichung",
+              "description": "Liefern Sie funktionale Produkte, die Ziele erfüllen",
+              "details": [
+                "Qualitätssicherung-Tests",
+                "Benutzerakzeptanz-Validierung",
+                "Performance-Benchmarking",
+                "Dokumentations-Lieferung"
+              ]
+            },
+            "business": {
+              "title": "Geschäftsauswirkung",
+              "description": "Starten Sie Lösungen, die echten Geschäftswert schaffen",
+              "details": [
+                "Umsatzgenerierung",
+                "Prozessoptimierung",
+                "Nutzerengagement-Wachstum",
+                "Marktexpansions-Möglichkeiten"
+              ]
+            }
+          },
+          "cta": {
+            "title": "Bereit, Ihre Idee zu verwandeln?",
+            "description": "Lassen Sie uns besprechen, wie ich dabei helfen kann, Ihre Vision mit bewährter Expertise und strategischem Denken zum Leben zu erwecken.",
+            "button": "Lass uns reden"
+          }
         }
       },
       "en": {
@@ -386,6 +447,67 @@
           "colorThemes": "Color Themes",
           "language": "Language",
           "skillsLayout": "Skills Layout"
+        },
+        "workflow": {
+          "title": "From Vision to Reality",
+          "subtitle": "Every successful project follows a proven path. Let me guide your ideas through a strategic journey from initial concept to thriving business solution.",
+          "steps": {
+            "idea": {
+              "title": "Your Idea",
+              "description": "Share your vision, challenge, or business concept",
+              "details": [
+                "Business problem identification",
+                "Market opportunity analysis",
+                "User needs assessment",
+                "Competitive landscape review"
+              ]
+            },
+            "concept": {
+              "title": "Concept Design",
+              "description": "Transform ideas into structured technical concepts",
+              "details": [
+                "System architecture planning",
+                "Technology stack selection",
+                "User experience design",
+                "Technical feasibility study"
+              ]
+            },
+            "code": {
+              "title": "Development",
+              "description": "Build robust, scalable solutions with modern technologies",
+              "details": [
+                "Clean, maintainable code",
+                "Performance optimization",
+                "Security best practices",
+                "Responsive design implementation"
+              ]
+            },
+            "goal": {
+              "title": "Achievement",
+              "description": "Deliver functional products that meet objectives",
+              "details": [
+                "Quality assurance testing",
+                "User acceptance validation",
+                "Performance benchmarking",
+                "Documentation delivery"
+              ]
+            },
+            "business": {
+              "title": "Business Impact",
+              "description": "Launch solutions that drive real business value",
+              "details": [
+                "Revenue generation",
+                "Process optimization",
+                "User engagement growth",
+                "Market expansion opportunities"
+              ]
+            }
+          },
+          "cta": {
+            "title": "Ready to Transform Your Idea?",
+            "description": "Let&apos;s discuss how I can help bring your vision to life with proven expertise and strategic thinking.",
+            "button": "Let&apos;s Talk"
+          }
         }
       }
     }

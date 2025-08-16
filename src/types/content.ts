@@ -113,6 +113,42 @@ export interface SiteConfig {
       nav: { about: string; projects: string; skills: string; articles: string; contact: string };
       cta: { talk: string };
       common: { back: string; seeAlso: string };
+      workflow?: {
+        title: string;
+        subtitle: string;
+        steps: {
+          idea: {
+            title: string;
+            description: string;
+            details: string[];
+          };
+          concept: {
+            title: string;
+            description: string;
+            details: string[];
+          };
+          code: {
+            title: string;
+            description: string;
+            details: string[];
+          };
+          goal: {
+            title: string;
+            description: string;
+            details: string[];
+          };
+          business: {
+            title: string;
+            description: string;
+            details: string[];
+          };
+        };
+        cta: {
+          title: string;
+          description: string;
+          button: string;
+        };
+      };
     }>;
   };
   interactiveEffects?: {

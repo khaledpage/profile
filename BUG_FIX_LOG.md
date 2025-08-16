@@ -40,6 +40,29 @@
 - **Fix Applied**: Corrected image URLs in `public/data/articles.json` removing double path prefixes
 - **Files Changed**: `public/data/articles.json`
 
+### Issue #010 - Development Guidelines Non-compliance
+
+- **Status**: ✅ Fixed
+- **Priority**: High
+- **Reported**: 2025-01-16
+- **Description**: Not following development guidelines for translations and requirements updates
+- **Root Cause**: Missing systematic approach to text extraction and documentation updates
+- **Fix Applied**:
+  - Added comprehensive workflow translations to config.json (EN/DE)
+  - Updated WorkflowSection component to use translation system
+  - Added new requirements to Requirements-Tabelle.md
+  - Updated TypeScript types to support workflow translations
+- **Files Changed**:
+  - `src/content/config.json` (added workflow translations)
+  - `src/components/sections/WorkflowSection.tsx` (i18n integration)
+  - `src/types/content.ts` (workflow translation types)
+  - `Requirements-Tabelle.md` (added WORK-*, BACK-*, IMG-*, DEV-* requirements)
+- **Guidelines Followed**:
+  - ✅ Extracted all UI text to translations
+  - ✅ Updated Requirements-Tabelle with new features
+  - ✅ Added proper TypeScript types
+  - ✅ Tested build process
+
 ## ✅ Resolved Issues
 
 ### Issue #001 - Articles API Fetch Failure

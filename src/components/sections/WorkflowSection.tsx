@@ -1,82 +1,88 @@
 'use client';
 
 import { useState } from 'react';
+import { useLanguage } from '@/utils/i18n';
 import type { SiteConfig } from '@/types/content';
 
 type Props = {
   config: SiteConfig;
 };
 
-const workflowSteps = [
-  {
-    id: 'idea',
-    icon: '💡',
-    title: 'Your Idea',
-    description: 'Share your vision, challenge, or business concept',
-    color: 'var(--accent-1)',
-    details: [
-      'Business problem identification',
-      'Market opportunity analysis',
-      'User needs assessment',
-      'Competitive landscape review'
-    ]
-  },
-  {
-    id: 'concept',
-    icon: '🎯',
-    title: 'Concept Design',
-    description: 'Transform ideas into structured technical concepts',
-    color: 'var(--accent-2)',
-    details: [
-      'System architecture planning',
-      'Technology stack selection',
-      'User experience design',
-      'Technical feasibility study'
-    ]
-  },
-  {
-    id: 'code',
-    icon: '⚡',
-    title: 'Development',
-    description: 'Build robust, scalable solutions with modern technologies',
-    color: '#00d4aa',
-    details: [
-      'Clean, maintainable code',
-      'Performance optimization',
-      'Security best practices',
-      'Responsive design implementation'
-    ]
-  },
-  {
-    id: 'goal',
-    icon: '🎖️',
-    title: 'Achievement',
-    description: 'Deliver functional products that meet objectives',
-    color: '#ff6b6b',
-    details: [
-      'Quality assurance testing',
-      'User acceptance validation',
-      'Performance benchmarking',
-      'Documentation delivery'
-    ]
-  },
-  {
-    id: 'business',
-    icon: '🚀',
-    title: 'Business Impact',
-    description: 'Launch solutions that drive real business value',
-    color: '#4ecdc4',
-    details: [
-      'Revenue generation',
-      'Process optimization',
-      'User engagement growth',
-      'Market expansion opportunities'
-    ]
-  }
-];
-
-export default function WorkflowSection({ }: Props) {
+export default function WorkflowSection({ config }: Props) {
   const [activeStep, setActiveStep] = useState<string | null>(null);
+  const { translations } = useLanguage(config);
+
+  // Get workflow translations with fallbacks
+  const workflowTranslations = translations?.workflow;
+  const stepTranslations = workflowTranslations?.steps;
+
+  const workflowSteps = [
+    {
+      id: 'idea',
+      icon: '💡',
+      title: stepTranslations?.idea?.title || 'Your Idea',
+      description: stepTranslations?.idea?.description || 'Share your vision, challenge, or business concept',
+      color: 'var(--accent-1)',
+      details: stepTranslations?.idea?.details || [
+        'Business problem identification',
+        'Market opportunity analysis',
+        'User needs assessment',
+        'Competitive landscape review'
+      ]
+    },
+    {
+      id: 'concept',
+      icon: '🎯',
+      title: stepTranslations?.concept?.title || 'Concept Design',
+      description: stepTranslations?.concept?.description || 'Transform ideas into structured technical concepts',
+      color: 'var(--accent-2)',
+      details: stepTranslations?.concept?.details || [
+        'System architecture planning',
+        'Technology stack selection',
+        'User experience design',
+        'Technical feasibility study'
+      ]
+    },
+    {
+      id: 'code',
+      icon: '⚡',
+      title: stepTranslations?.code?.title || 'Development',
+      description: stepTranslations?.code?.description || 'Build robust, scalable solutions with modern technologies',
+      color: '#00d4aa',
+      details: stepTranslations?.code?.details || [
+        'Clean, maintainable code',
+        'Performance optimization',
+        'Security best practices',
+        'Responsive design implementation'
+      ]
+    },
+    {
+      id: 'goal',
+      icon: '🎖️',
+      title: stepTranslations?.goal?.title || 'Achievement',
+      description: stepTranslations?.goal?.description || 'Deliver functional products that meet objectives',
+      color: '#ff6b6b',
+      details: stepTranslations?.goal?.details || [
+        'Quality assurance testing',
+        'User acceptance validation',
+        'Performance benchmarking',
+        'Documentation delivery'
+      ]
+    },
+    {
+      id: 'business',
+      icon: '🚀',
+      title: stepTranslations?.business?.title || 'Business Impact',
+      description: stepTranslations?.business?.description || 'Launch solutions that drive real business value',
+      color: '#4ecdc4',
+      details: stepTranslations?.business?.details || [
+        'Revenue generation',
+        'Process optimization',
+        'User engagement growth',
+        'Market expansion opportunities'
+      ]
+    }
+  ];
 
   return (
     <section id="workflow" className="py-20 relative overflow-hidden">
@@ -93,11 +99,10 @@ export default function WorkflowSection({ }: Props) {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6" style={{ color: 'var(--foreground)' }}>
-            From Vision to Reality
+            {workflowTranslations?.title || 'From Vision to Reality'}
           </h2>
           <p className="text-xl max-w-3xl mx-auto leading-relaxed" style={{ color: 'var(--muted)' }}>
-            Every successful project follows a proven path. Let me guide your ideas through a strategic 
-            journey from initial concept to thriving business solution.
+            {workflowTranslations?.subtitle || 'Every successful project follows a proven path. Let me guide your ideas through a strategic journey from initial concept to thriving business solution.'}
           </p>
         </div>
 
@@ -274,10 +279,10 @@ export default function WorkflowSection({ }: Props) {
         <div className="text-center mt-16">
           <div className="glass rounded-2xl p-8 max-w-2xl mx-auto">
             <h3 className="text-2xl font-bold mb-4" style={{ color: 'var(--foreground)' }}>
-              Ready to Transform Your Idea?
+              {workflowTranslations?.cta?.title || 'Ready to Transform Your Idea?'}
             </h3>
             <p className="text-lg mb-6" style={{ color: 'var(--muted)' }}>
-              Let&apos;s discuss how I can help bring your vision to life with proven expertise and strategic thinking.
+              {workflowTranslations?.cta?.description || 'Let&apos;s discuss how I can help bring your vision to life with proven expertise and strategic thinking.'}
             </p>
             <a
               href="#contact"
@@ -288,7 +293,7 @@ export default function WorkflowSection({ }: Props) {
                 textDecoration: 'none',
               }}
             >
-              <span>Let&apos;s Talk</span>
+              <span>{workflowTranslations?.cta?.button || 'Let&apos;s Talk'}</span>
               <span className="text-xl">💬</span>
             </a>
           </div>
