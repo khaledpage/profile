@@ -348,6 +348,12 @@
     "fadeMax": 0.6,
     "enabled": true
   },
+  "admin": {
+    "enabledByDefault": true,
+    "allowToggle": true,
+    "allowZipDownload": true,
+    "allowZipUpload": true
+  },
   "colorRotation": {
     "enabled": true,
     "intervalSec": 120,
@@ -358,7 +364,7 @@
     "languages": {
       "de": {
         "nav": { "about": "Über mich", "projects": "Projekte", "skills": "Skills", "articles": "Artikel", "contact": "Kontakt" },
-        "cta": { "talk": "Los geht's" },
+  "cta": { "talk": "Lass uns sprechen" },
         "common": { 
           "back": "Zurück", 
           "seeAlso": "Siehe auch",
@@ -369,7 +375,10 @@
           "enableAnimations": "Animationen aktivieren",
           "colorThemes": "Farbthemen",
           "language": "Sprache",
-          "skillsLayout": "Skills-Layout"
+          "skillsLayout": "Skills-Layout",
+          "reorderSectionsHelp": "Abschnitte neu anordnen und Sichtbarkeit umschalten. Änderungen werden in Ihren Einstellungen gespeichert.",
+          "hidden": "Ausgeblendet",
+          "visible": "Sichtbar"
         },
         "workflow": {
           "title": "Von der Vision zur Realität",
@@ -435,7 +444,7 @@
       },
       "en": {
         "nav": { "about": "About", "projects": "Projects", "skills": "Skills", "articles": "Articles", "contact": "Contact" },
-        "cta": { "talk": "Let's talk" },
+  "cta": { "talk": "Let's Talk" },
         "common": { 
           "back": "Back", 
           "seeAlso": "See also",
@@ -446,7 +455,10 @@
           "enableAnimations": "Enable animations",
           "colorThemes": "Color Themes",
           "language": "Language",
-          "skillsLayout": "Skills Layout"
+          "skillsLayout": "Skills Layout",
+          "reorderSectionsHelp": "Reorder sections and toggle their visibility. Changes are saved to your preferences.",
+          "hidden": "Hidden",
+          "visible": "Visible"
         },
         "workflow": {
           "title": "From Vision to Reality",
@@ -529,7 +541,8 @@
     "allowThemeChange": true,
     "allowAnimationToggle": true,
     "allowLanguageChange": true,
-    "cookieConsent": true
+    "cookieConsent": true,
+    "adminOnly": false
   },
   "skillsDisplay": {
     "design": "grid",

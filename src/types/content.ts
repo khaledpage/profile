@@ -112,7 +112,18 @@ export interface SiteConfig {
     languages: Record<string, {
       nav: { about: string; projects: string; skills: string; articles: string; contact: string };
       cta: { talk: string };
-      common: { back: string; seeAlso: string };
+      common: {
+        back: string;
+        seeAlso: string;
+        liveView?: string;
+        viewProject?: string;
+        downloadSettings?: string;
+        enableAnimations?: string;
+        colorThemes?: string;
+        language?: string;
+        skillsLayout?: string;
+        home?: string;
+      };
       workflow?: {
         title: string;
         subtitle: string;
@@ -169,11 +180,29 @@ export interface SiteConfig {
     allowAnimationToggle?: boolean;
     allowLanguageChange?: boolean;
     cookieConsent?: boolean;
+    /** If true, the Settings panel is only visible when Admin mode is enabled */
+    adminOnly?: boolean;
   };
   skillsDisplay?: {
     design?: string;
     availableDesigns?: string[];
     allowDesignChange?: boolean;
+  };
+  /** Default homepage sections order and visibility */
+  homeSections?: {
+    order: Array<'hero' | 'about' | 'skills' | 'projects' | 'articles' | 'workflow' | 'contact'>;
+    hidden?: Array<'hero' | 'about' | 'skills' | 'projects' | 'articles' | 'workflow' | 'contact'>;
+  };
+  /** Admin configuration and feature flags */
+  admin?: {
+    /** Admin mode default on (can be toggled in Settings if allowToggle is true) */
+    enabledByDefault?: boolean;
+    /** Allow toggling Admin mode from the UI */
+    allowToggle?: boolean;
+    /** Enable per-article ZIP download */
+    allowZipDownload?: boolean;
+    /** Enable uploading article ZIPs client-side */
+    allowZipUpload?: boolean;
   };
 }
 

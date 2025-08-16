@@ -13,12 +13,15 @@ export default function ArticlesSection() {
   useEffect(() => {
     async function fetchArticles() {
       try {
-        const response = await fetch('/data/articles.json');
+  const base = process.env.NEXT_PUBLIC_BASE_PATH || '';
+  const response = await fetch(`${base}/data/articles.json`);
         if (!response.ok) {
           throw new Error('Failed to fetch articles');
         }
         const data = await response.json();
-        setArticles(data.slice(0, 6)); // Show only first 6 articles on homepage
+  // Ensure data has expected shape
+  const list = Array.isArray(data) ? data : [];
+  setArticles(list.slice(0, 6)); // Show only first 6 articles on homepage
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Failed to load articles');
         console.error('Error fetching articles:', err);

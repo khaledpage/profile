@@ -3,14 +3,44 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Article } from '@/types/article';
+import JSZip from 'jszip';
+import { saveAs } from 'file-saver';
 
 interface ArticleCardProps {
   article: Article;
   featured?: boolean;
+  adminEnabled?: boolean;
+  allowZipDownload?: boolean;
 }
 
-export default function ArticleCard({ article, featured = false }: ArticleCardProps) {
+export default function ArticleCard({ article, featured = false, adminEnabled = false, allowZipDownload = false }: ArticleCardProps) {
   const { metadata, slug } = article;
+  const base = process.env.NEXT_PUBLIC_BASE_PATH || '';
+
+  const handleDownloadZip = async (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    try {
+      const res = await fetch(`${base}/data/articles/${slug}.json`, { cache: 'force-cache' });
+      if (!res.ok) throw new Error('Failed to load article data');
+      const data: Article = await res.json();
+      const zip = new JSZip();
+      zip.file('article.md', data.content || '');
+      zip.file('metadata.json', JSON.stringify(data.metadata, null, 2));
+      // fetch assets
+      for (const name of data.assets || []) {
+        const ares = await fetch(`${base}/articles/${slug}/assets/${name}`);
+        if (ares.ok) {
+          const blob = await ares.blob();
+          zip.file(`assets/${name}`, blob as any);
+        }
+      }
+      const blob = await zip.generateAsync({ type: 'blob' });
+      saveAs(blob, `${slug}.zip`);
+    } catch (err) {
+      console.error('ZIP download failed', err);
+    }
+  };
   
   return (
     <Link href={`/articles/${slug}`} className="group block">
@@ -26,6 +56,19 @@ export default function ArticleCard({ article, featured = false }: ArticleCardPr
             fill
             className="object-cover group-hover:scale-105 transition-transform duration-300"
           />
+          {adminEnabled && allowZipDownload && (
+            <button
+              onClick={handleDownloadZip}
+              className="absolute bottom-3 right-3 px-3 py-1.5 rounded-lg text-xs font-medium border backdrop-blur-sm"
+              style={{
+                backgroundColor: 'color-mix(in srgb, var(--background), transparent 20%)',
+                color: 'var(--foreground)',
+                borderColor: 'color-mix(in srgb, var(--card), transparent 60%)'
+              }}
+            >
+              Download ZIP
+            </button>
+          )}
           
           {metadata.featured && (
             <div 

@@ -294,6 +294,35 @@ $$\int_{-\infty}^{\infty} e^{-x^2} dx = \sqrt{\pi}$$
 
 4. **Add assets**: Place images in `assets/` subfolder
 
+### Downloading Articles as ZIP (Admin)
+
+- When Admin mode is enabled and allowed in `config.json` (`admin.allowZipDownload = true`), each article card shows a "Download ZIP" button.
+- The downloaded archive contains:
+  - `article.md`
+  - `metadata.json`
+  - `assets/` (if any)
+
+Note: In static builds (GitHub Pages), the ZIP is assembled client-side from published JSON and assets.
+
+### Uploading Articles as ZIP (Admin)
+
+- On the Articles page, Admins can upload one or more `.zip` files when `admin.allowZipUpload = true`.
+- Each ZIP should contain an article folder or files with at least:
+  - `metadata.json` (required)
+  - `article.md` (required)
+  - `assets/` (optional)
+- After upload, the app produces a merged `imported-articles.zip` that groups uploaded articles by slug. Extract it into `src/content/articles/` locally and rebuild:
+
+```text
+src/content/articles/
+  your-article-slug/
+    article.md
+    metadata.json
+    assets/
+```
+
+This ensures the build script (`scripts/build-static-content.js`) copies assets to `public/articles/<slug>/assets/` and writes JSON under `public/data/articles/<slug>.json`.
+
 ### Article Features:
 
 - **LaTeX Support**: Inline `$...$` and display `$$...$$` math
@@ -349,6 +378,25 @@ $$\int_{-\infty}^{\infty} e^{-x^2} dx = \sqrt{\pi}$$
   "cookieConsent": true      // Require consent for storage
 }
 ```
+
+  ### Admin Role and Feature Flags
+
+  Add to `config.json` to control Admin features:
+
+  ```json
+  "admin": {
+    "enabledByDefault": true,
+    "allowToggle": true,
+    "allowZipDownload": true,
+    "allowZipUpload": true
+  },
+  "settings": { "adminOnly": false }
+  ```
+
+  Notes:
+
+  - Admin mode can be toggled in the Settings panel (if `allowToggle` is true).
+  - If `settings.adminOnly` is true, the Settings icon appears only for Admins.
 
 ### Animation Control:
 

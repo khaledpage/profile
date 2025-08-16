@@ -3,6 +3,8 @@ import type { Article, ArticleMetadata } from '@/types/article';
 import ArticleCard from '@/components/ui/ArticleCard';
 import { Metadata } from 'next';
 import Link from 'next/link';
+import { getSiteConfig } from '@/utils/content';
+import ArticlesExplorer from '@/components/articles/ArticlesExplorer';
 
 export const metadata: Metadata = {
   title: 'Articles - Khaled Alabsi',
@@ -10,6 +12,7 @@ export const metadata: Metadata = {
 };
 
 export default async function ArticlesPage() {
+  const config = await getSiteConfig();
   let articles = await getAllArticles();
   if (process.env.NEXT_PUBLIC_STATIC_EXPORT === 'true') {
     try {
@@ -52,42 +55,10 @@ export default async function ArticlesPage() {
         </div>
       </section>
 
-      {/* Featured Articles */}
-      {featuredArticles.length > 0 && (
-        <section className="py-12">
-          <div className="container mx-auto px-6">
-            <h2 className="text-3xl font-bold mb-8" style={{ color: 'var(--foreground)' }}>
-              Featured Articles
-            </h2>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              {featuredArticles.map((article) => (
-                <ArticleCard key={article.slug} article={article} featured />
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* All Articles */}
+      {/* Articles Explorer with search & filters */}
       <section className="py-12">
         <div className="container mx-auto px-6">
-          <h2 className="text-3xl font-bold mb-8" style={{ color: 'var(--foreground)' }}>
-            {featuredArticles.length > 0 ? 'More Articles' : 'All Articles'}
-          </h2>
-          
-          {regularArticles.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {regularArticles.map((article) => (
-                <ArticleCard key={article.slug} article={article} />
-              ))}
-            </div>
-          ) : (
-            <div className="text-center py-20">
-              <p className="text-xl" style={{ color: 'var(--muted)' }}>
-                No articles available at the moment.
-              </p>
-            </div>
-          )}
+          <ArticlesExplorer initial={[...featuredArticles, ...regularArticles]} config={config} />
         </div>
       </section>
 

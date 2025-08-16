@@ -5,6 +5,7 @@ import { XMarkIcon, Cog6ToothIcon, ArrowDownTrayIcon } from '@heroicons/react/24
 import type { SiteConfig } from '@/types/content';
 import { canSavePreferences, shouldShowCookieBanner, getCookieConsent, setCookieConsent } from '@/utils/cookies';
 import { useLanguage } from '@/utils/i18n';
+import { getInitialAdminEnabled, setAdminEnabled, isAdminEnabled } from '@/utils/admin';
 
 type Props = {
   config: SiteConfig;
@@ -16,9 +17,96 @@ type UserPreferences = {
   skillsDesign?: string;
   cookieConsent?: boolean;
   language?: string;
+  homeSections?: {
+    order: Array<'hero' | 'about' | 'skills' | 'projects' | 'articles' | 'workflow' | 'contact'>;
+    hidden: Array<'hero' | 'about' | 'skills' | 'projects' | 'articles' | 'workflow' | 'contact'>;
+  };
 };
 
-type TabId = 'appearance' | 'behavior' | 'advanced';
+type TabId = 'appearance' | 'behavior' | 'home' | 'advanced';
+
+// Inline editor component for Home Sections
+type SectionKey = 'hero' | 'about' | 'skills' | 'projects' | 'articles' | 'workflow' | 'contact';
+function HomeSectionsEditor({
+  config,
+  preferences,
+  onChange,
+}: {
+  config: SiteConfig;
+  preferences: UserPreferences;
+  onChange: (next: { order: SectionKey[]; hidden: SectionKey[] }) => void;
+}) {
+  const { translations } = useLanguage(config);
+  const defaultOrder: SectionKey[] = ['hero','about','skills','projects','articles','workflow','contact'];
+  const order: SectionKey[] = (preferences.homeSections?.order as SectionKey[]) || (config.homeSections?.order as SectionKey[]) || defaultOrder;
+  const hidden: SectionKey[] = (preferences.homeSections?.hidden as SectionKey[]) || (config.homeSections?.hidden as SectionKey[]) || [];
+
+  const move = (idx: number, dir: -1 | 1) => {
+    const next = [...order];
+    const newIdx = idx + dir;
+    if (newIdx < 0 || newIdx >= next.length) return;
+    const [item] = next.splice(idx, 1);
+    next.splice(newIdx, 0, item);
+    onChange({ order: next, hidden });
+  };
+
+  const toggle = (key: SectionKey) => {
+    const isHidden = hidden.includes(key);
+    const nextHidden = isHidden ? hidden.filter(k => k !== key) : [...hidden, key];
+    onChange({ order, hidden: nextHidden });
+  };
+
+  const labelMap: Record<SectionKey, string> = {
+    hero: (translations?.common && 'home' in translations.common) ? String(translations.common.home) : 'Home',
+    about: (translations?.nav && 'about' in translations.nav) ? String(translations.nav.about) : 'About',
+    skills: (translations?.nav && 'skills' in translations.nav) ? String(translations.nav.skills) : 'Skills',
+    projects: (translations?.nav && 'projects' in translations.nav) ? String(translations.nav.projects) : 'Projects',
+    articles: (translations?.nav && 'articles' in translations.nav) ? String(translations.nav.articles) : 'Articles',
+    workflow: (translations?.workflow && 'title' in translations.workflow) ? String(translations.workflow.title) : 'Workflow',
+    contact: (translations?.nav && 'contact' in translations.nav) ? String(translations.nav.contact) : 'Contact',
+  };
+
+  return (
+    <div className="space-y-3">
+      <div className="text-xs" style={{ color: 'var(--muted)' }}>
+        {translations?.common && 'reorderSectionsHelp' in translations.common
+          ? String(translations.common.reorderSectionsHelp)
+          : 'Reorder sections and toggle their visibility. Changes are saved to your preferences.'}
+      </div>
+      <ul className="space-y-2">
+        {order.map((key, idx) => (
+          <li key={key} className="flex items-center justify-between p-2 rounded-lg" style={{ backgroundColor: 'color-mix(in srgb, var(--card), transparent 70%)', border: '1px solid color-mix(in srgb, var(--card), transparent 50%)' }}>
+            <div className="flex items-center gap-3">
+              <span className="text-sm font-medium">{labelMap[key]}</span>
+              <label className="flex items-center gap-2 text-xs">
+                <input type="checkbox" checked={!hidden.includes(key)} onChange={() => toggle(key)} />
+                <span>
+                  {hidden.includes(key)
+                    ? (translations?.common && 'hidden' in translations.common ? String(translations.common.hidden) : 'Hidden')
+                    : (translations?.common && 'visible' in translations.common ? String(translations.common.visible) : 'Visible')}
+                </span>
+              </label>
+            </div>
+            <div className="flex items-center gap-2">
+              <button
+                className="px-2 py-1 rounded border text-xs"
+                style={{ borderColor: 'color-mix(in srgb, var(--card), transparent 60%)' }}
+                onClick={() => move(idx, -1)}
+                disabled={idx === 0}
+              >↑</button>
+              <button
+                className="px-2 py-1 rounded border text-xs"
+                style={{ borderColor: 'color-mix(in srgb, var(--card), transparent 60%)' }}
+                onClick={() => move(idx, 1)}
+                disabled={idx === order.length - 1}
+              >↓</button>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
 
 export default function SettingsPanel({ config }: Props) {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,9 +115,12 @@ export default function SettingsPanel({ config }: Props) {
   const [preferences, setPreferences] = useState<UserPreferences>({});
   const [hasConsent, setHasConsent] = useState(false);
   const { translations } = useLanguage(config);
+  const [adminEnabled, setAdmin] = useState<boolean>(false);
 
   const settingsConfig = config.settings;
-  const shouldShow = settingsConfig?.enabled && settingsConfig?.showIcon;
+  const shouldShow = settingsConfig?.enabled && (
+    settingsConfig?.adminOnly ? isAdminEnabled(config) : settingsConfig?.showIcon
+  );
 
   // Helper function to get all palettes (support both legacy and grouped structure)
   const getAllPalettes = () => {
@@ -51,6 +142,10 @@ export default function SettingsPanel({ config }: Props) {
   const allPaletteGroups = getAllPalettes();
 
   useEffect(() => {
+  setAdmin(getInitialAdminEnabled(config));
+  const adminHandler = (e: any) => setAdmin(!!e?.detail?.enabled);
+  window.addEventListener('adminModeChanged', adminHandler);
+
     // Check for existing consent and preferences
     const consent = getCookieConsent();
     const storedPrefs = localStorage.getItem('user-preferences');
@@ -95,7 +190,10 @@ export default function SettingsPanel({ config }: Props) {
       window.removeEventListener('cookieConsentChanged', handleConsentChange);
       window.removeEventListener('cookieConsentGiven', handleConsentChange);
     };
-  }, [settingsConfig?.cookieConsent]);
+    return () => {
+      window.removeEventListener('adminModeChanged', adminHandler);
+    };
+  }, [settingsConfig?.cookieConsent, config]);
 
   // acceptCookies removed; use handleAcceptCookies instead to persist and apply settings
 
@@ -206,6 +304,10 @@ export default function SettingsPanel({ config }: Props) {
       },
       animation: {
         enabled: preferences.animationsEnabled ?? config.animation?.enabled ?? true
+      },
+      homeSections: {
+        order: preferences.homeSections?.order || config.homeSections?.order || ['hero','about','skills','projects','articles','workflow','contact'],
+        hidden: preferences.homeSections?.hidden || config.homeSections?.hidden || []
       }
     };
 
@@ -248,6 +350,19 @@ export default function SettingsPanel({ config }: Props) {
             <div className="flex items-center justify-between mb-6">
               <div>
                 <h2 className="text-xl font-semibold">Settings</h2>
+                {config.admin?.allowToggle && (
+                  <div className="mt-2 text-xs flex items-center gap-2">
+                    <label className="flex items-center gap-2">
+                      <input type="checkbox" checked={adminEnabled} onChange={(e)=> setAdminEnabled(e.target.checked)} />
+                      <span style={{ color: 'var(--muted)' }}>Admin mode</span>
+                    </label>
+                    <button
+                      onClick={()=> { setAdmin(adminEnabled); setAdminEnabled(adminEnabled); }}
+                      className="px-2 py-1 rounded border text-xs"
+                      style={{ borderColor: 'color-mix(in srgb, var(--card), transparent 60%)' }}
+                    >Apply</button>
+                  </div>
+                )}
                 {!hasConsent && settingsConfig?.cookieConsent && (
                   <div className="flex items-center gap-3 mt-2">
                     <p className="text-sm text-orange-400">
@@ -285,11 +400,12 @@ export default function SettingsPanel({ config }: Props) {
             </div>
 
             {/* Tab Navigation */}
-            <div className="flex border-b border-white/10 mb-6">
+      <div className="flex border-b border-white/10 mb-6">
               {[
-                { id: 'appearance' as TabId, label: 'Appearance', icon: '🎨' },
-                { id: 'behavior' as TabId, label: 'Behavior', icon: '⚙️' },
-                { id: 'advanced' as TabId, label: 'Advanced', icon: '🔧' }
+        { id: 'appearance' as TabId, label: 'Appearance', icon: '🎨' },
+        { id: 'behavior' as TabId, label: 'Behavior', icon: '⚙️' },
+        { id: 'home' as TabId, label: 'Home Sections', icon: '🧩' },
+        { id: 'advanced' as TabId, label: 'Advanced', icon: '🔧' }
               ].map((tab) => (
                 <button
                   key={tab.id}
@@ -306,7 +422,7 @@ export default function SettingsPanel({ config }: Props) {
               ))}
             </div>
 
-            <div className="flex-1 overflow-y-auto scrollbar-hide">
+      <div className="flex-1 overflow-y-auto scrollbar-hide">
               {/* Appearance Tab */}
               {activeTab === 'appearance' && (
                 <div className="space-y-6">
@@ -460,6 +576,26 @@ export default function SettingsPanel({ config }: Props) {
                         ))}
                       </div>
                     </div>
+                  )}
+                </div>
+              )}
+
+              {/* Home Sections Tab (admin only) */}
+              {activeTab === 'home' && (
+                <div className="space-y-4">
+                  {!adminEnabled ? (
+                    <div className="text-sm" style={{ color: 'var(--muted)' }}>
+                      Admin mode is required to edit home sections.
+                    </div>
+                  ) : (
+                    <HomeSectionsEditor
+                      config={config}
+                      preferences={preferences}
+                      onChange={(next) => {
+                        setPreferences(prev => ({ ...prev, homeSections: next }));
+                        savePreferences({ homeSections: next });
+                      }}
+                    />
                   )}
                 </div>
               )}
