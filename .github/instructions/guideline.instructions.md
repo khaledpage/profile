@@ -5,6 +5,7 @@ applyTo: '**'
 # Development Guidelines & Prompt Checklist
 
 **Hint:** If a file mentioned here does not exist, create it.
+**Hint:** dont ever close the server that i run on port 3000, i run it for you, so you can run e2e tests in another terminal.
 
 ---
 
@@ -33,8 +34,8 @@ When the user types **"start"**, follow this exact workflow:
    * If suggestions are **approved**: implement, move to `FEATURES_AS_STORIES.md`, and update `REQUIREMENTS_TABELLE.md`. Then delete from `FEATURES_SUGGESTIONS.md`.
    * If suggestions are **rejected**: move them to `FEATURES_REJECTED.md`.
    * If suggestions are **pending**: leave them in `FEATURES_SUGGESTIONS.md`.
-6. Always create test cases in `TEST_CASES.md` for the new features and bug fixes and implement tests using playwright, and also consider end-to-end testing.
-7. The workflow is completed, when all tests including e2e tests pass.
+6. Always create test cases in `TEST_CASES.md` for the new features and the new bug fixes and implement tests using playwright, and also consider end-to-end testing.
+7. The workflow is completed, when all tests (old and new) including e2e tests pass.
 
 ---
 

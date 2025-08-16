@@ -1,0 +1,14 @@
+
+> my-portfolio@0.1.0 dev
+> next dev
+
+   ▲ Next.js 15.4.6
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.178.60:3000
+   - Environments: .env.local
+
+ ✓ Starting...
+ ✓ Ready in 1801ms
+ ○ Compiling / ...
+ ✓ Compiled / in 2.1s (1563 modules)
+No custom defaults found, using base configuration

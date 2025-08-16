@@ -3,10 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "test:headed": "playwright test --headed",
+    "test:all": "./scripts/run-tests.sh all",
+    "test:main": "./scripts/run-tests.sh main",
+    "test:file-ops": "./scripts/run-tests.sh file-ops",
+    "test:admin": "./scripts/run-tests.sh admin",
+    "test:security": "./scripts/run-tests.sh security"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.7",
