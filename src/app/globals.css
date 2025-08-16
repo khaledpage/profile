@@ -27,6 +27,11 @@ html, body {
   height: 100%;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem; /* Account for fixed header height */
+}
+
 body {
   background: radial-gradient(1200px 1200px at 10% -10%, color-mix(in srgb, var(--accent-1), transparent 85%), transparent 60%),
               radial-gradient(1000px 1000px at 110% 10%, color-mix(in srgb, var(--accent-2), transparent 88%), transparent 60%),

@@ -6,6 +6,7 @@ import { Article } from '@/types/article';
 import JSZip from 'jszip';
 import { saveAs } from 'file-saver';
 import { useState } from 'react';
+import ArticleEditModal from '@/components/articles/ArticleEditModal';
 
 interface ArticleCardProps {
   article: Article;
@@ -31,6 +32,7 @@ export default function ArticleCard({
   const { metadata, slug } = article;
   const base = process.env.NEXT_PUBLIC_BASE_PATH || '';
   const [isDeleting, setIsDeleting] = useState(false);
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
 
   const handleSelectionChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
@@ -107,15 +109,34 @@ export default function ArticleCard({
       setIsDeleting(false);
     }
   };
+
+  const handleEdit = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsEditModalOpen(true);
+  };
+
+  const handleEditComplete = async (updatedArticle: Article): Promise<boolean> => {
+    try {
+      setIsEditModalOpen(false);
+      // Optionally refresh the page to show updated content
+      window.location.reload();
+      return true;
+    } catch (error) {
+      console.error('Error handling edit completion:', error);
+      return false;
+    }
+  };
   
   return (
-    <Link href={`/articles/${slug}`} id={`article-card-link-${slug}`} className="group block">
-      <article 
-        id={`article-card-${slug}`}
-        className={`glass rounded-2xl overflow-hidden transition-all duration-300 lift ${
-          featured ? 'col-span-full lg:col-span-2' : ''
-        } ${selected ? 'ring-2 ring-blue-500' : ''}`}
-      >
+    <>
+      <Link href={`/articles/${slug}`} id={`article-card-link-${slug}`} className="group block">
+        <article 
+          id={`article-card-${slug}`}
+          className={`glass rounded-2xl overflow-hidden transition-all duration-300 lift ${
+            featured ? 'col-span-full lg:col-span-2' : ''
+          } ${selected ? 'ring-2 ring-blue-500' : ''}`}
+        >
         {selectable && adminEnabled && (
           <div className="absolute top-3 left-3 z-10">
             <input
@@ -154,6 +175,18 @@ export default function ArticleCard({
                   Download ZIP
                 </button>
               )}
+              <button
+                id={`article-edit-button-${slug}`}
+                onClick={handleEdit}
+                className="px-3 py-1.5 rounded-lg text-xs font-medium border backdrop-blur-sm hover:opacity-80 transition-opacity"
+                style={{
+                  backgroundColor: 'color-mix(in srgb, var(--background), transparent 20%)',
+                  color: 'var(--accent-1)',
+                  borderColor: 'var(--accent-1)'
+                }}
+              >
+                Edit
+              </button>
               <button
                 id={`article-delete-button-${slug}`}
                 onClick={handleDelete}
@@ -272,5 +305,14 @@ export default function ArticleCard({
         </div>
       </article>
     </Link>
+    
+    {/* Article Edit Modal */}
+    <ArticleEditModal
+      article={article}
+      isOpen={isEditModalOpen}
+      onClose={() => setIsEditModalOpen(false)}
+      onSave={handleEditComplete}
+    />
+  </>
   );
 }

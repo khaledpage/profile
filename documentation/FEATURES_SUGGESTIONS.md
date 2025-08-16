@@ -11,7 +11,7 @@ This file contains suggested features and improvements based on recent implement
 - Add edit button next to delete button on article cards
 - Modal editor with markdown preview
 - Auto-save functionality
-**Status**: approved
+**Status**: ✅ Moved to FEATURES_AS_STORYS.md as FEAT-007
 
 ### SUGGESTION-002: Bulk Article Operations  
 **Description**: Allow admin to select multiple articles for bulk operations (delete, export, etc.)
@@ -38,7 +38,7 @@ This file contains suggested features and improvements based on recent implement
 - CSS scroll-behavior or JavaScript smooth scrolling
 - Offset for fixed header
 - Focus management for accessibility
-**Status**: approved
+**Status**: ✅ Moved to FEATURES_AS_STORYS.md as FEAT-008
 
 ### SUGGESTION-005: Admin Dashboard Page
 **Description**: Dedicated admin dashboard with content management overview

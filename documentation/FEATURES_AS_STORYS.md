@@ -61,7 +61,83 @@ As an admin, I can delete articles from the system through the web interface, so
 
 ---
 
+### FEAT-007: Article Edit Functionality
+
+**ID**: FEAT-007
+**Date**: August 16, 2025
+**Status**: ✅ DONE
+**Implementation Date**: August 16, 2025
+
+#### User Story
+
+As an admin, I want to edit articles directly from the web interface, so that I can update content without needing file system access.
+
+#### Implementation Details
+
+- Add edit button next to delete button on article cards
+- Modal editor with markdown preview
+- Auto-save functionality
+- Real-time preview of changes
+- Form validation and error handling
+
+#### Technical Changes
+
+- `src/components/ui/ArticleCard.tsx`: Add edit button and modal integration
+- `src/components/articles/ArticleEditModal.tsx`: New comprehensive edit modal component
+- `src/app/api/articles/route.ts`: Add PUT method for article updates
+- `src/app/api/articles/[slug]/content/route.ts`: New content reading endpoint
+- Enhanced admin workflow for content editing
+
+#### Acceptance Criteria
+
+- ✅ Edit button visible for admin users
+- ✅ Modal opens with current article content
+- ✅ Markdown editor with preview
+- ✅ Save functionality updates article files
+- ✅ Error handling for invalid content
+- ✅ Auto-save every 30 seconds
+
+---
+
+### FEAT-008: Navigation Smooth Scrolling Enhancement
+
+**ID**: FEAT-008
+**Date**: August 16, 2025
+**Status**: ✅ DONE
+**Implementation Date**: August 16, 2025
+
+#### User Story
+
+As a user, I want smooth scrolling when clicking navigation links, so that the page navigation feels polished and modern.
+
+#### Implementation Details
+
+- Add smooth scrolling behavior to navigation links
+- Account for fixed header offset when scrolling to sections
+- Ensure accessibility compliance with focus management
+- Support both CSS scroll-behavior and JavaScript fallback
+
+#### Technical Changes
+
+- `src/app/globals.css`: Add smooth scroll behavior with proper header offset
+- `src/utils/smooth-scroll.ts`: New utility with accessibility support and browser fallbacks
+- `src/components/layout/Header.tsx`: Integration with all navigation links and CTA buttons
+- Enhanced user experience with polished navigation
+
+#### Acceptance Criteria
+
+- ✅ Smooth scrolling when clicking navigation links
+- ✅ Proper offset for fixed header (5rem)
+- ✅ Accessibility compliance with focus management
+- ✅ Cross-browser compatibility with JavaScript fallback
+- ✅ Focus management for keyboard users
+
+---
+
+---
+
 ## FEAT-004: Modular Article System
+
 - **Status**: ✅ Done (2024-12-28)
 - **Story**: As a developer, I want to refactor the article system to be modular so that I can easily reuse the article logic in other applications and maintain clean separation of concerns.
 - **Acceptance Criteria**:
@@ -119,7 +195,6 @@ As an admin, I want to see progress when uploading ZIP files, so that I know the
 - Better visual feedback during uploads
 - Error handling for failed uploads
 
-### Technical Changes
+---
 
-- `src/components/articles/ArticlesExplorer.tsx`: Added upload progress tracking and UI
-- Enhanced user experience with real-time upload feedback
+---

@@ -59,4 +59,71 @@ export async function DELETE(request: Request) {
     return NextResponse.json({ error: 'Failed to delete article' }, { status: 500 });
   }
 }
+
+export async function PUT(request: Request) {
+  try {
+    // Check for admin authentication
+    const adminKey = request.headers.get('x-admin-key');
+
+    if (!adminKey || adminKey !== process.env.ADMIN_PASSWORD) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    }
+
+    const { article }: { article: Article } = await request.json();
+    
+    if (!article || !article.slug) {
+      return NextResponse.json({ error: 'Invalid article data' }, { status: 400 });
+    }
+
+    const { slug, metadata, content } = article;
+
+    // Define article paths
+    const contentDir = path.join(process.cwd(), 'src/content/articles', slug);
+    const metadataPath = path.join(contentDir, 'metadata.json');
+    const contentPath = path.join(contentDir, 'article.md');
+
+    // Ensure content directory exists
+    if (!fs.existsSync(contentDir)) {
+      fs.mkdirSync(contentDir, { recursive: true });
+    }
+
+    // Update metadata.json
+    fs.writeFileSync(metadataPath, JSON.stringify(metadata, null, 2));
+
+    // Update article.md
+    fs.writeFileSync(contentPath, content);
+
+    // Update articles.json in public/data
+    const articlesJsonPath = path.join(process.cwd(), 'public/data/articles.json');
+    if (fs.existsSync(articlesJsonPath)) {
+      const articlesData = JSON.parse(fs.readFileSync(articlesJsonPath, 'utf8'));
+      
+      // Find and update the article in the JSON data
+      const articleIndex = articlesData.findIndex((a: { slug: string }) => a.slug === slug);
+      
+      if (articleIndex !== -1) {
+        // Update existing article
+        articlesData[articleIndex] = {
+          slug,
+          metadata,
+          // Keep existing coverImageUrl if it exists
+          ...(articlesData[articleIndex].coverImageUrl && { coverImageUrl: articlesData[articleIndex].coverImageUrl })
+        };
+      } else {
+        // Add new article
+        articlesData.push({
+          slug,
+          metadata
+        });
+      }
+      
+      fs.writeFileSync(articlesJsonPath, JSON.stringify(articlesData, null, 2));
+    }
+
+    return NextResponse.json({ message: 'Article updated successfully' }, { status: 200 });
+  } catch (error) {
+    console.error('Update article error:', error);
+    return NextResponse.json({ error: 'Failed to update article' }, { status: 500 });
+  }
+}
  

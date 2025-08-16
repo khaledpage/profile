@@ -11,3 +11,8 @@ bug: the hight of the row where the article are anmimated to move, is not high e
 
 
 Bug: the let talks btn in navigation is not Animated.
+
+
+Bug: when try to delet an article, the user is asked to log in as admin first, this dont make since, since in admin role they shouldnt be upload or delete for article , not even setting pannel. admin role or mode is active by default for now on dev env. define the admin role in docs and fix the code.
+
+bug: i cant edit articles in real time or i dont know how

@@ -4,6 +4,7 @@ import { useMemo, useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Bars3Icon, XMarkIcon, CodeBracketIcon } from '@heroicons/react/24/outline';
 import { useLanguage } from '@/utils/i18n';
+import { handleSmoothScrollClick } from '@/utils/smooth-scroll';
 import type { SiteConfig } from '@/types/content';
 
 type Props = {
@@ -154,6 +155,7 @@ export default function Header({ config }: Props) {
                   key={item.href}
                   id={`nav-link-${item.href.replace('#', '')}`}
                   href={item.href}
+                  onClick={handleSmoothScrollClick}
                   className="relative font-medium transition-colors group"
                   style={{ 
                     color: 'var(--muted)',
@@ -179,6 +181,7 @@ export default function Header({ config }: Props) {
             <motion.a
               id="header-cta-button"
               href="#contact"
+              onClick={handleSmoothScrollClick}
               data-heartbeat="true"
               className="hidden md:block relative px-6 py-2 font-medium rounded-full transition-all duration-300 interactive-border hover:shadow-lg"
               style={{
@@ -258,6 +261,10 @@ export default function Header({ config }: Props) {
                       key={item.href}
                       id={`mobile-nav-link-${item.href.replace('#', '')}`}
                       href={item.href}
+                      onClick={(e) => {
+                        handleSmoothScrollClick(e);
+                        setIsOpen(false);
+                      }}
                       className="font-medium py-2 px-4 rounded-lg transition-all"
                       style={{ 
                         color: 'var(--muted)',
@@ -273,7 +280,6 @@ export default function Header({ config }: Props) {
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.1 }}
-                      onClick={() => setIsOpen(false)}
                     >
                       {item.label}
                     </motion.a>
@@ -281,6 +287,10 @@ export default function Header({ config }: Props) {
                   <motion.a
                     id="mobile-cta-button"
                     href="#contact"
+                    onClick={(e) => {
+                      handleSmoothScrollClick(e);
+                      setIsOpen(false);
+                    }}
                     data-heartbeat="true"
                     className="mt-4 px-6 py-3 font-medium rounded-full text-center"
                     style={{
@@ -290,7 +300,6 @@ export default function Header({ config }: Props) {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4 }}
-                    onClick={() => setIsOpen(false)}
                   >
                     {translations?.cta?.talk || "Let's Talk"}
                   </motion.a>

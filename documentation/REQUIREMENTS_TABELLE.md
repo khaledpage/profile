@@ -123,5 +123,7 @@
 | ADMIN-04 | Article Deletion         | Admin can delete articles via web interface     | High     | ✅ COMPLETED (Dec 27, 2024) - Delete button on article cards; confirmation dialog; API authentication; file cleanup |
 | ADMIN-05 | Bulk Article Operations  | Admin can select/delete multiple articles       | Medium   | ✅ COMPLETED (Aug 16, 2025) - Bulk mode toggle; checkbox selection; bulk delete with progress feedback               |
 | ADMIN-06 | Upload Progress Display  | Progress indicator for ZIP file uploads         | Low      | ✅ COMPLETED (Aug 16, 2025) - Progress bars per file; success/error indicators; enhanced upload feedback             |
+| ADMIN-07 | Article Edit Functionality | Admin can edit articles via web interface     | High     | ✅ COMPLETED (Aug 16, 2025) - Edit button on article cards; modal editor with preview; auto-save; API integration    |
+| NAV-01   | Smooth Scrolling          | Navigation links use smooth scrolling         | Medium   | ✅ COMPLETED (Aug 16, 2025) - CSS scroll-behavior; JavaScript fallback; accessibility support; header offset        |
 | FEAT-004 | Modular Article System  | Modular, reusable article management architecture | High     | ✅ COMPLETED (Dec 28, 2024) - ArticleService interface; React hooks; refactored components; maintained functionality |
 | SET-23   | Home Sections Control    | Admin can arrange/hide homepage sections        | Medium   | New Settings tab placeholder; order/hidden stored in preferences and respected by home controller          |
