@@ -20,12 +20,12 @@ export default function ArticlesExplorer({ initial, config }: Props) {
   const allowUpload = !!config.admin?.allowZipUpload;
 
   useEffect(() => {
-    const handler = (e: Event) => {
-      // @ts-ignore
+    const handler = (ev: Event) => {
+      const e = ev as CustomEvent<{ enabled?: boolean }>;
       setAdmin(!!e?.detail?.enabled);
     };
-    window.addEventListener('adminModeChanged', handler);
-    return () => window.removeEventListener('adminModeChanged', handler);
+    window.addEventListener('adminModeChanged', handler as EventListener);
+    return () => window.removeEventListener('adminModeChanged', handler as EventListener);
   }, []);
 
   const tags = useMemo(() => {
@@ -54,19 +54,21 @@ export default function ArticlesExplorer({ initial, config }: Props) {
     if (!files || files.length === 0) return;
     const merged = new JSZip();
     const info: {slug:string; title?:string}[] = [];
+  type ZipEntry = { name: string; dir: boolean; async: (type: 'string' | 'arraybuffer') => Promise<string | ArrayBuffer> };
 
-  for (const file of Array.from(files)) {
+    for (const file of Array.from(files)) {
       const buf = await file.arrayBuffer();
       const zip = await JSZip.loadAsync(buf);
       // expect root folder per article or entries directly with metadata.json/article.md
       // find metadata.json to infer slug
-      let slug = '';
-  const metaEntry = Object.values(zip.files).find((f: any) => (f as any).name?.endsWith('metadata.json')) as any;
-      if (!metaEntry) continue;
-  const metaStr = await metaEntry.async('string');
+  let slug = '';
+  const filesArr = Object.values(zip.files) as unknown as ZipEntry[];
+  const metaEntry = filesArr.find((f) => f.name.endsWith('metadata.json')) as ZipEntry | undefined;
+  if (!metaEntry) continue;
+      const metaStr = await metaEntry.async('string');
       let title: string | undefined = undefined;
       try {
-        const meta = JSON.parse(metaStr);
+        const meta = JSON.parse(String(metaStr));
         title = meta?.title;
       } catch {}
       const parts = metaEntry.name.split('/');
@@ -74,11 +76,10 @@ export default function ArticlesExplorer({ initial, config }: Props) {
       else slug = file.name.replace(/\.zip$/i, '');
 
       // copy all into merged zip under slug/
-      for (const [name, entry] of Object.entries(zip.files)) {
-        const e: any = entry as any;
-        if (e.dir) continue;
-        const data = await e.async('arraybuffer');
-        merged.file(`${slug}/${name.replace(/^.*?\//, '')}`, data as ArrayBuffer);
+      for (const [name, entry] of Object.entries(zip.files) as unknown as [string, ZipEntry][]) {
+        if (entry.dir) continue;
+  const data = await entry.async('arraybuffer');
+  merged.file(`${slug}/${name.replace(/^.*?\//, '')}`, data as ArrayBuffer);
       }
       info.push({ slug, title });
     }

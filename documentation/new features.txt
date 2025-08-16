@@ -1,0 +1,24 @@
+- the show all article page, should be able to search articles, and / or select them from tags.
+
+- the article form the show all article page should have download btn to download the whole article folder with its content as zip. this download option should be enabled/disabled form config, and it a feature for admin role
+
+- create admin role, when it active all admin role feature are active, like download article as zip files
+
+- the admin can upload articles as zip file, that can have one article folder or more then one. the folders. the CONTENT_MANAGER_MANUAL should explain what file should the folder have.
+
+- the setting pannel is a part of admin role.
+
+- admin role is active by default, the document should explain how to enable/disable it.
+
+- in the setting pannel should be a new tab to rearrnage sections in home page or hide/show them. the setting should be also exported with other setting aand saved to CookieConsent
+
+- fix the Let&apos;s Talk btn, it has wrong text
+
+- follow dev guideline file.
+
+
+
+---
+
+
+-

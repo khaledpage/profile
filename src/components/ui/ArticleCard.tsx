@@ -32,7 +32,7 @@ export default function ArticleCard({ article, featured = false, adminEnabled = 
         const ares = await fetch(`${base}/articles/${slug}/assets/${name}`);
         if (ares.ok) {
           const blob = await ares.blob();
-          zip.file(`assets/${name}`, blob as any);
+          zip.file(`assets/${name}`, blob as Blob);
         }
       }
       const blob = await zip.generateAsync({ type: 'blob' });

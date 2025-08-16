@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { remark } from 'remark';
 import remarkHtml from 'remark-html';
+import remarkGfm from 'remark-gfm';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 import 'katex/dist/katex.min.css';
@@ -43,6 +44,7 @@ export default function MarkdownRenderer({ content, className = '', articleSlug 
 
         // First process with remark (markdown to HTML with math)
         const remarkResult = await remark()
+          .use(remarkGfm) // GitHub-Flavored Markdown (tables, task lists, etc.)
           .use(remarkMath)
           .use(remarkHtml, { sanitize: false })
           .process(processedContent);

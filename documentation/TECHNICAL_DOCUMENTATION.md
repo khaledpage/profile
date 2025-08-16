@@ -432,7 +432,6 @@ The application now supports a two-tier configuration system:
 - `npm run start`: Production server
 - `npm run lint`: ESLint validation
 - `npm run build:pages`: Static export build (GitHub Pages)
-- `npm run build:widgets`: Build Vite widgets to `public/widgets`
 - `npm run export:docs`: Assemble `docs/` from Next 15 build artifacts for manual GitHub Pages
 - `npm run pages:publish`: Build and export to `docs/` in one step
 
@@ -504,11 +503,6 @@ The application now supports a two-tier configuration system:
 - API endpoints
 - Feature flags
 
-### Bundling with Vite (Optional)
-- Config file: `vite.widgets.config.ts`
-- Library entry: `widgets/src/index.ts`
-- Outputs ES and IIFE bundles to `public/widgets`
-- Intended for small embeddable widgets independent of Next.js runtime
 
 ### Content Configuration
 - JSON-based content management

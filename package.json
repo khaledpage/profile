@@ -6,18 +6,16 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-  "lint": "next lint",
-  "build:pages": "NEXT_PUBLIC_STATIC_EXPORT=true NEXT_PUBLIC_BASE_PATH=/profile node ./scripts/build-static-content.js && NEXT_PUBLIC_STATIC_EXPORT=true NEXT_PUBLIC_BASE_PATH=/profile next build",
-  "build:widgets": "vite build -c vite.widgets.config.ts",
-  "export:docs": "node ./scripts/export-to-docs.js",
-  "pages:publish": "npm run build:pages && npm run export:docs"
+  "lint": "next lint"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.7",
     "@heroicons/react": "^2.2.0",
     "@types/puppeteer": "^5.4.7",
+    "file-saver": "^2.0.5",
     "framer-motion": "^12.23.12",
     "gray-matter": "^4.0.3",
+    "jszip": "^3.10.1",
     "katex": "^0.16.22",
     "next": "15.4.6",
     "puppeteer": "^24.16.2",
@@ -27,9 +25,7 @@
     "rehype-katex": "^7.0.1",
     "remark": "^15.0.1",
     "remark-html": "^16.0.1",
-  "remark-math": "^6.0.0",
-  "jszip": "^3.10.1",
-  "file-saver": "^2.0.5"
+    "remark-math": "^6.0.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
@@ -39,8 +35,8 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.4.6",
-    "tailwindcss": "^4",
-  "typescript": "^5",
-  "vite": "^5.4.8"
+    "remark-gfm": "^4.0.1",
+  "tailwindcss": "^4",
+  "typescript": "^5"
   }
 }

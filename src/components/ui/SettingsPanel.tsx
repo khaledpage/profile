@@ -142,9 +142,12 @@ export default function SettingsPanel({ config }: Props) {
   const allPaletteGroups = getAllPalettes();
 
   useEffect(() => {
-  setAdmin(getInitialAdminEnabled(config));
-  const adminHandler = (e: any) => setAdmin(!!e?.detail?.enabled);
-  window.addEventListener('adminModeChanged', adminHandler);
+    setAdmin(getInitialAdminEnabled(config));
+    const adminHandler = (ev: Event) => {
+      const e = ev as CustomEvent<{ enabled?: boolean }>;
+      setAdmin(!!e?.detail?.enabled);
+    };
+    window.addEventListener('adminModeChanged', adminHandler as EventListener);
 
     // Check for existing consent and preferences
     const consent = getCookieConsent();
@@ -189,9 +192,7 @@ export default function SettingsPanel({ config }: Props) {
     return () => {
       window.removeEventListener('cookieConsentChanged', handleConsentChange);
       window.removeEventListener('cookieConsentGiven', handleConsentChange);
-    };
-    return () => {
-      window.removeEventListener('adminModeChanged', adminHandler);
+      window.removeEventListener('adminModeChanged', adminHandler as EventListener);
     };
   }, [settingsConfig?.cookieConsent, config]);
 

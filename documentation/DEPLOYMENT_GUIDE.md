@@ -6,8 +6,7 @@ This comprehensive guide covers all deployment options for the portfolio applica
 
 - [Local Development](#local-development)
 - [Docker Deployment](#docker-deployment)
-- [GitHub Pages Deployment](#github-pages-deployment)
-- [GitHub Actions CI/CD](#github-actions-cicd)
+- [CI/CD](#cicd)
 - [Environment Variables](#environment-variables)
 - [Troubleshooting](#troubleshooting)
 
@@ -110,49 +109,9 @@ docker run -p 3000:3000 -v $(pwd)/src:/app/src portfolio:dev
 - `NODE_ENV=production` - Production mode
 - `NEXT_TELEMETRY_DISABLED=1` - Disable Next.js telemetry
 
-## 📄 GitHub Pages Deployment
+ 
 
-### Manual Deployment
-
-1. **Build static export**
-   ```bash
-   npm run build:pages
-   ```
-
-2. **Generate docs folder**
-   ```bash
-   npm run export:docs
-   ```
-
-3. **Complete pipeline**
-   ```bash
-   npm run pages:publish
-   ```
-
-4. **Configure GitHub Pages**
-   - Go to repository Settings → Pages
-   - Source: Deploy from a branch
-   - Branch: `main`
-   - Folder: `/docs`
-
-### Custom Repository Names
-
-For custom repository names, set the base path:
-
-```bash
-NEXT_PUBLIC_BASE_PATH=/your-repo npm run build:pages
-NEXT_PUBLIC_BASE_PATH=/your-repo npm run export:docs
-```
-
-### Static Export Configuration
-
-The build process automatically:
-- Sets `NEXT_PUBLIC_STATIC_EXPORT=true`
-- Configures proper asset paths
-- Disables API routes for static compatibility
-- Generates all pages as static HTML
-
-## ⚙️ GitHub Actions CI/CD
+## ⚙️ CI/CD
 
 ### Basic Workflow
 
@@ -188,17 +147,7 @@ jobs:
         run: npm ci
 
       - name: Build application
-        run: npm run build:pages
-        env:
-          NEXT_PUBLIC_BASE_PATH: /portfolio
-
-      - name: Export static files
-        run: npm run export:docs
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./docs
+        run: npm run build
 
   deploy:
     needs: build
@@ -259,15 +208,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
       
-      - name: Build and export
-        run: npm run pages:publish
-        env:
-          NEXT_PUBLIC_BASE_PATH: /portfolio
-      
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./docs
+      - name: Build
+        run: npm run build
 
   deploy:
     needs: build
@@ -288,8 +230,8 @@ jobs:
 | Variable | Description | Default | Required |
 |----------|-------------|---------|----------|
 | `NODE_ENV` | Node environment | `development` | No |
-| `NEXT_PUBLIC_STATIC_EXPORT` | Enable static export | `false` | For static builds |
-| `NEXT_PUBLIC_BASE_PATH` | Base path for assets | `/` | For GitHub Pages |
+| `NEXT_PUBLIC_STATIC_EXPORT` | Removed (no longer used) | - | - |
+| `NEXT_PUBLIC_BASE_PATH` | Removed (no longer used) | - | - |
 
 ### Optional Variables
 
@@ -309,8 +251,6 @@ NEXT_TELEMETRY_DISABLED=1
 **Production (.env.production):**
 ```bash
 NODE_ENV=production
-NEXT_PUBLIC_STATIC_EXPORT=true
-NEXT_PUBLIC_BASE_PATH=/portfolio
 ```
 
 **Docker:**
@@ -332,10 +272,7 @@ rm -rf .next
 npm run build
 ```
 
-**Static Export Failures**
-- Check for API routes in static export mode
-- Ensure all images have proper paths
-- Verify no server-side only features
+ 
 
 **Docker Issues**
 ```bash
@@ -346,10 +283,7 @@ docker system prune -a
 docker build --no-cache -t portfolio:latest .
 ```
 
-**GitHub Pages 404 Errors**
-- Verify `NEXT_PUBLIC_BASE_PATH` matches repository name
-- Check that `docs/` folder contains `index.html`
-- Ensure GitHub Pages is enabled and configured correctly
+ 
 
 ### Performance Optimization
 
@@ -372,11 +306,7 @@ npm run build -- --debug
 # Analyze bundle size
 npm run analyze
 
-# Check static export
-npm run build:pages -- --debug
-
-# Validate generated files
-ls -la docs/
+ 
 ```
 
 ## 📞 Support

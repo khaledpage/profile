@@ -1,13 +1,13 @@
 # Portfolio
 
-A modern, customizable Next.js portfolio featuring dynamic theming, multilingual support, articles with LaTeX rendering, project showcases, and comprehensive settings management. Includes browser language detection, custom configuration downloads, and both development and static deployment options.
+A modern, customizable Next.js portfolio featuring dynamic theming, multilingual support, articles with LaTeX rendering, project showcases, and comprehensive settings management. Includes browser language detection and custom configuration downloads.
 
 ## 📚 Documentation
 
 | Document | Description |
 |----------|-------------|
-| **[Deployment Guide](documentation/DEPLOYMENT_GUIDE.md)** | Complete deployment instructions for all environments |
-| **[Development Guidelines](documentation/DEVELOPMENT_GUIDELINES.md)** | Development standards and best practices |
+| **[Deployment Guide](documentation/DEPLOYMENT_GUIDE.md)** | Complete deployment instructions |
+| **[Deployment Guide](documentation/DEPLOYMENT_GUIDE.md)** | Deployment instructions |
 | **[Technical Documentation](documentation/TECHNICAL_DOCUMENTATION.md)** | Technical architecture and implementation details |
 | **[Requirements Table](documentation/Requirements-Tabelle.md)** | Project requirements and acceptance criteria |
 | **[Bug Fix Log](documentation/BUG_FIX_LOG.md)** | Issue tracking and resolution history |
@@ -22,7 +22,7 @@ A modern, customizable Next.js portfolio featuring dynamic theming, multilingual
 - **🎭 Smooth Animations**: Configurable background animations and interactive effects
 - **📊 Skills Showcase**: Multiple layout options (Grid, Marquee, Carousel, Masonry, Timeline)
 - **📝 Article System**: LaTeX support, PDF export (server), reading mode
-- **🚀 Deployment Ready**: GitHub Pages support with manual and automated builds
+--
 
 ## 🛠 Scripts
 
@@ -30,10 +30,7 @@ A modern, customizable Next.js portfolio featuring dynamic theming, multilingual
 - `build`: Next production build  
 - `start`: Next prod server
 - `lint`: ESLint
-- `build:pages`: Static export build for GitHub Pages (sets env flags, prepares content)
-- `build:widgets`: Build standalone browser widgets with Vite to `public/widgets/`
-- `export:docs`: Assemble `docs/` from Next build artifacts for GitHub Pages
-- `pages:publish`: Complete static build + export pipeline
+  
 
 ## ⚙️ Configuration System
 
@@ -54,7 +51,7 @@ Create a `public/custom-defaults.json` file to override base settings:
 {
   "colorProfile": "oceanBlueDark",
   "skillsDisplay": { "design": "marquee" },
-  "i18n": { "defaultLocale": "de" },
+- **Performance**: Optimized builds with Next.js 15
   "animation": { "enabled": false },
   "settings": { "enabled": false }
 }
@@ -110,18 +107,7 @@ Available languages: English (en), German (de)
 - **Reading Mode**: Optimized article viewing experience
 - **Mobile First**: Responsive design with touch-friendly interactions
 
-## 🔧 Vite Widgets
-
-Optional standalone browser widgets for embedding:
-
-- **Entry**: `widgets/src/index.ts`
-- **Config**: `vite.widgets.config.ts`
-- **Output**: `public/widgets/widgets.es.js` and `public/widgets/widgets.iife.js`
-
-```html
-<script src="/widgets/widgets.iife.js"></script>
-<div data-widget="greeting"></div>
-```
+ 
 
 ## � Docker Deployment
 
@@ -154,29 +140,11 @@ The Docker setup includes volume mounts for easy customization:
 - `NODE_ENV=production` - Production mode
 - `NEXT_TELEMETRY_DISABLED=1` - Disable Next.js telemetry
 
-## �🚀 Deploy to GitHub Pages
-
-1. Build static export:
-
-   ```bash
-   npm run build:pages
-   ```
-
-2. Generate docs folder:
-
-   ```bash
-   npm run export:docs
-   ```
-
-   Or run both: `npm run pages:publish`
-
-3. Push to `main` branch and enable GitHub Pages → Deploy from Branch → Branch: `main`, Folder: `/docs`
-
-4. For custom repo names, set `NEXT_PUBLIC_BASE_PATH=/your-repo` when building
+ 
 
 ## 📋 Notes
 
-- **GitHub Pages**: API routes and server-side PDF export disabled (UI handles gracefully)
+ 
 - **Theme System**: CSS variables ensure readable contrast across all themes
 - **Performance**: Optimized builds with Next.js 15 and static generation
 - **Browser Support**: Modern browsers with CSS Grid and Custom Properties

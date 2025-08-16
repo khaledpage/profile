@@ -32,21 +32,22 @@ export default function HomeSectionsController({ content, config }: Props) {
         if (parsed?.homeSections?.order) prefOrder = parsed.homeSections.order;
         if (parsed?.homeSections?.hidden) prefHidden = parsed.homeSections.hidden;
       }
-      setOrder(prefOrder as any);
-      setHidden(prefHidden as any);
+      setOrder(prefOrder as typeof DEFAULT_ORDER);
+      setHidden(prefHidden as Array<string>);
     } catch {}
   }, [config.homeSections]);
 
   React.useEffect(() => {
-    const onPrefsUpdated = (e: any) => {
+    const onPrefsUpdated = (ev: Event) => {
       try {
+        const e = ev as CustomEvent<{ homeSections?: { order?: typeof DEFAULT_ORDER; hidden?: Array<string> } }>;
         const detail = e?.detail || {};
         if (detail?.homeSections) {
           if (Array.isArray(detail.homeSections.order)) {
-            setOrder(detail.homeSections.order as any);
+            setOrder(detail.homeSections.order as typeof DEFAULT_ORDER);
           }
           if (Array.isArray(detail.homeSections.hidden)) {
-            setHidden(detail.homeSections.hidden as any);
+            setHidden(detail.homeSections.hidden as Array<string>);
           }
         }
       } catch {}

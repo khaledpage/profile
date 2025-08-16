@@ -60,8 +60,17 @@ function main() {
 
     // Normalize coverImage to static path if present
     if (metadata.coverImage) {
-      const name = metadata.coverImage.replace(/^\.\/?assets\//, '').replace(/^assets\//, '');
-      metadata.coverImage = `/articles/${slug}/assets/${name}`;
+      const cover = String(metadata.coverImage);
+      const isExternal = /^(https?:)?\/\//.test(cover);
+      const isAbsolutePath = cover.startsWith('/');
+      // Only normalize when the path points to our local assets folder
+      if (!isExternal && !isAbsolutePath) {
+        const name = cover
+          .replace(/^\.\/assets\//, '')
+          .replace(/^assets\//, '');
+        metadata.coverImage = `/articles/${slug}/assets/${name}`;
+      }
+      // else keep as-is (external URL or already-absolute path)
     }
 
     const data = {

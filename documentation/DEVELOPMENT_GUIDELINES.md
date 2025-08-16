@@ -81,7 +81,7 @@ Always update these files when relevant:
 ### 🧪 Testing & Validation
 - [ ] Run `npm run build` to ensure no TypeScript errors
 - [ ] Test in development mode: `npm run dev`
-- [ ] Verify static build: `npm run pages:publish`
+- [ ] Verify dev build: `npm run build` and `npm run start`
 - [ ] Test across different browsers and devices
 
 ## 🎯 Component Development Standards
@@ -199,7 +199,7 @@ Before any deployment:
 
 - [ ] All tests pass locally
 - [ ] Build succeeds without errors
-- [ ] Static export works for GitHub Pages
+- [ ] Server build works and Docker build completes successfully
 - [ ] Docker build completes successfully
 - [ ] Documentation is up to date
 - [ ] Translation coverage is complete
