@@ -1,13 +1,12 @@
 /** @type {import('next').NextConfig} */
 const isStatic = process.env.NEXT_PUBLIC_STATIC_EXPORT === 'true';
-const basePath = isStatic ? (process.env.NEXT_PUBLIC_BASE_PATH || '/profile') : '';
+const basePath = isStatic ? '/profile' : '';
 
 const nextConfig = {
-  // Avoid forcing 'export' in JS config to keep API routes functional in dev/normal builds.
-  // Static HTML is assembled by scripts/export-to-docs.js from .next/server/app instead.
-  output: undefined,
+  // Enable static export for GitHub Pages
+  output: isStatic ? 'export' : 'standalone',
   basePath: isStatic ? basePath : undefined,
-  assetPrefix: isStatic ? basePath + '/' : undefined,
+  assetPrefix: isStatic ? basePath : undefined,
   trailingSlash: isStatic ? true : undefined,
   images: {
     unoptimized: isStatic,

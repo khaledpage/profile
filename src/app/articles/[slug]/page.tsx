@@ -86,6 +86,34 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               </ol>
             </nav>
 
+            {/* Floating Back Button */}
+            <Link 
+              href="/articles" 
+              className="fab-nav glass"
+              style={{
+                left: '1rem',
+                right: 'auto',
+                backgroundColor: 'color-mix(in srgb, var(--card), transparent 20%)',
+                border: '1px solid color-mix(in srgb, var(--foreground), transparent 90%)',
+                color: 'var(--foreground)',
+                padding: '0.75rem 1rem',
+                borderRadius: '1rem',
+                textDecoration: 'none',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.5rem',
+                fontSize: '0.875rem',
+                fontWeight: '500',
+                transition: 'all 0.2s ease',
+                backdropFilter: 'blur(12px)',
+                position: 'fixed',
+                bottom: '5.5rem',
+                zIndex: 40
+              }}
+            >
+              ← Articles
+            </Link>
+
             {/* Article Meta */}
             <div className="mb-8">
               <div className="flex items-center gap-2 mb-4">
@@ -173,14 +201,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
             {/* Article Footer */}
             <footer className="mt-16 pt-8" style={{ borderTop: '1px solid color-mix(in srgb, var(--foreground), transparent 85%)' }}>
-              <div className="flex items-center justify-between flex-wrap gap-4">
-                <Link
-                  href="/articles"
-                  className="btn-secondary inline-flex items-center gap-2"
-                >
-                  ← Back to Articles
-                </Link>
-
+              <div className="flex items-center justify-center flex-wrap gap-4">
                 <div>
                   <p className="text-sm mb-2" style={{ color: 'var(--muted)' }}>
                     Published on {publishDate}
@@ -199,6 +220,9 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             </footer>
           </div>
         </article>
+
+        {/* Floating Back Button (consistent with other pages) */}
+
       </div>
     </ReadingTheme>
   );

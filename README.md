@@ -44,9 +44,33 @@ Create a `public/custom-defaults.json` file to override base settings:
   "colorProfile": "oceanBlueDark",
   "skillsDisplay": { "design": "marquee" },
   "i18n": { "defaultLocale": "de" },
-  "animation": { "enabled": false }
+  "animation": { "enabled": false },
+  "settings": { "enabled": false }
 }
 ```
+
+#### Downloading Configuration from Live Site
+
+1. **Visit your deployed site** and open the Settings panel (⚙️ icon)
+2. **Adjust settings** to your preferred configuration (theme, language, skills layout, etc.)
+3. **Click the download button** (⬇️) in the settings panel
+4. **Save the downloaded file** as `custom-defaults.json` in your project's `public/` folder
+5. **Redeploy** your site - it will now use your custom defaults
+
+#### Disabling Settings Panel
+
+To hide the settings panel after applying custom defaults, add this to your `custom-defaults.json`:
+
+```json
+{
+  "settings": {
+    "enabled": false,
+    "showIcon": false
+  }
+}
+```
+
+This prevents end users from changing settings while keeping your custom configuration active.
 
 **📥 Download from Settings**: Use the settings panel to download your current preferences as a JSON file, then save it as `custom-defaults.json` in your `public/` folder.
 
@@ -88,7 +112,38 @@ Optional standalone browser widgets for embedding:
 <div data-widget="greeting"></div>
 ```
 
-## 🚀 Deploy to GitHub Pages
+## � Docker Deployment
+
+### Using Docker/Podman
+
+```bash
+# Build and run with Docker Compose
+docker-compose up --build
+
+# Or with Podman Compose
+podman-compose up --build
+
+# Development mode with hot reload
+docker-compose --profile dev up
+
+# Production mode only
+docker-compose up portfolio
+```
+
+### Volume Mounts
+
+The Docker setup includes volume mounts for easy customization:
+
+- `./src/content:/app/content` - Configuration and content files
+- `./src/content/articles:/app/articles` - Articles content
+- `./public/custom-defaults.json:/app/custom-config/custom-defaults.json` - Custom configuration
+
+### Environment Variables
+
+- `NODE_ENV=production` - Production mode
+- `NEXT_TELEMETRY_DISABLED=1` - Disable Next.js telemetry
+
+## �🚀 Deploy to GitHub Pages
 
 1. Build static export:
 

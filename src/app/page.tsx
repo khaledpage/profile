@@ -4,6 +4,7 @@ import ProjectCard from '@/components/ui/ProjectCard';
 import { getAllContent, getSiteConfig } from '@/utils/content';
 import SkillsShowcaseMultiDesign from '@/components/sections/SkillsShowcaseMultiDesign';
 import ArticlesSection from '@/components/sections/ArticlesSection';
+import WorkflowSection from '@/components/sections/WorkflowSection';
 import { Project } from '@/types/content';
 
 // Pre-render the homepage as static with revalidation once per day (works for static export)
@@ -87,6 +88,8 @@ export default async function Home() {
           </section>
 
           <ArticlesSection />
+
+          <WorkflowSection config={config} />
 
           {/* Contact */}
           <section id="contact" className="py-24">

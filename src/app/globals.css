@@ -561,3 +561,8 @@ body {
   transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
 }
 
+/* Back button hover effect */
+.back-btn:hover {
+  background-color: color-mix(in srgb, var(--card), transparent 10%) !important;
+}
+

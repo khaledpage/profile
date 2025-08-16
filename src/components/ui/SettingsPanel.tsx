@@ -285,7 +285,11 @@ export default function SettingsPanel({ config }: Props) {
             {/* Theme Selection */}
             {settingsConfig?.allowThemeChange && (
               <div className="mb-6">
-                <h3 className="text-sm font-medium mb-3">{(translations?.common as any)?.colorThemes || 'Color Themes'}</h3>
+                <h3 className="text-sm font-medium mb-3">
+                  {translations?.common && 'colorThemes' in translations.common 
+                    ? String(translations.common.colorThemes)
+                    : 'Color Themes'}
+                </h3>
                 <div className="space-y-4">
                   {Object.entries(allPaletteGroups).map(([groupKey, group]) => (
                     <div key={groupKey}>
@@ -339,7 +343,11 @@ export default function SettingsPanel({ config }: Props) {
                     onChange={(e) => handleAnimationToggle(e.target.checked)}
                     className="w-4 h-4 rounded"
                   />
-                  <span className="text-sm">{(translations?.common as any)?.enableAnimations || 'Enable background animations'}</span>
+                  <span className="text-sm">
+                    {translations?.common && 'enableAnimations' in translations.common 
+                      ? String(translations.common.enableAnimations)
+                      : 'Enable background animations'}
+                  </span>
                 </label>
               </div>
             )}
@@ -347,7 +355,11 @@ export default function SettingsPanel({ config }: Props) {
             {/* Language Selection */}
             {settingsConfig?.allowLanguageChange && config.i18n?.languages && Object.keys(config.i18n.languages).length > 1 && (
               <div className="mb-6">
-                <h3 className="text-sm font-medium mb-3">{(translations?.common as any)?.language || 'Language'}</h3>
+                <h3 className="text-sm font-medium mb-3">
+                  {translations?.common && 'language' in translations.common 
+                    ? String(translations.common.language)
+                    : 'Language'}
+                </h3>
                 <div className="grid grid-cols-2 gap-3">
                   {Object.entries(config.i18n.languages).map(([key, lang]) => (
                     <button
@@ -387,7 +399,11 @@ export default function SettingsPanel({ config }: Props) {
             {/* Skills Design Selection */}
             {config.skillsDisplay?.allowDesignChange && (
               <div className="mb-6">
-                <h3 className="text-sm font-medium mb-3">{(translations?.common as any)?.skillsLayout || 'Skills Layout'}</h3>
+                <h3 className="text-sm font-medium mb-3">
+                  {translations?.common && 'skillsLayout' in translations.common 
+                    ? String(translations.common.skillsLayout)
+                    : 'Skills Layout'}
+                </h3>
                 <div className="grid grid-cols-1 gap-2">
                   {config.skillsDisplay.availableDesigns?.map((design) => (
                     <button
@@ -441,7 +457,9 @@ export default function SettingsPanel({ config }: Props) {
                   }}
                 >
                   <ArrowDownTrayIcon className="h-4 w-4" />
-                  {(translations?.common as any)?.downloadSettings || 'Download Settings as JSON'}
+                  {translations?.common && 'downloadSettings' in translations.common 
+                    ? String(translations.common.downloadSettings)
+                    : 'Download Settings as JSON'}
                 </button>
                 
                 <div className="text-xs text-gray-500 px-2">

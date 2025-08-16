@@ -13,9 +13,7 @@ export default function ArticlesSection() {
   useEffect(() => {
     async function fetchArticles() {
       try {
-  const isStatic = process.env.NEXT_PUBLIC_STATIC_EXPORT === 'true';
-  const url = isStatic ? '/data/articles.json' : '/api/articles';
-  const response = await fetch(url);
+        const response = await fetch('/data/articles.json');
         if (!response.ok) {
           throw new Error('Failed to fetch articles');
         }
@@ -100,7 +98,10 @@ export default function ArticlesSection() {
   });
 
   const featuredArticle = sortedArticles.find(article => article.metadata.featured);
-  const regularArticles = sortedArticles.filter(article => !article.metadata.featured);
+  // Show all articles in the scroll except the featured one (if it exists and is shown separately)
+  const scrollArticles = featuredArticle ? 
+    sortedArticles.filter(article => !article.metadata.featured) : 
+    sortedArticles;
 
   return (
     <section id="articles" className="py-20">
@@ -144,12 +145,14 @@ export default function ArticlesSection() {
                 '--scroll-duration': '30s'
               } as React.CSSProperties}
             >
-              {/* Duplicate articles for infinite scroll effect */}
-              {[...regularArticles, ...regularArticles].map((article, index) => (
-                <div key={`${article.slug}-${index}`} className="flex-shrink-0 w-80">
-                  <ArticleCard article={article} />
-                </div>
-              ))}
+              {/* Duplicate articles multiple times for infinite scroll effect */}
+              {Array.from({ length: Math.max(3, Math.ceil(12 / scrollArticles.length)) }, (_, repeatIndex) => 
+                scrollArticles.map((article, index) => (
+                  <div key={`${article.slug}-${repeatIndex}-${index}`} className="flex-shrink-0 w-80">
+                    <ArticleCard article={article} />
+                  </div>
+                ))
+              ).flat()}
             </div>
           </div>
         </div>

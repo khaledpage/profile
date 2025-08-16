@@ -28,7 +28,7 @@ export async function loadCustomDefaults(): Promise<CustomDefaults | null> {
       customDefaults = await response.json();
       return customDefaults;
     }
-  } catch (error) {
+  } catch {
     // Custom defaults file doesn't exist, which is fine
     console.log('No custom defaults found, using base configuration');
   }

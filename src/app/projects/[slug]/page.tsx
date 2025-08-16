@@ -58,7 +58,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         <ol className="flex items-center space-x-2 text-sm">
           <li>
             <Link href="/" className="hover:text-accent-1 transition-colors" style={{ color: 'var(--muted)' }}>
-              {(tCommon as any).home || 'Home'}
+              {'home' in tCommon ? tCommon.home : 'Home'}
             </Link>
           </li>
           <span style={{ color: 'var(--muted)' }}>/</span>
@@ -71,8 +71,28 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           <li style={{ color: 'var(--foreground)' }}>{project.title}</li>
         </ol>
       </nav>
-    {/* Floating Back Button (moved to right) */}
-  <Link href="/" className="fab-nav btn-secondary">{tCommon.back} →</Link>
+    {/* Floating Back Button (fixed positioning and icon) */}
+  <Link href="/" className="fab-nav glass back-btn"
+    style={{
+      left: '1rem',
+      right: 'auto',
+      backgroundColor: 'color-mix(in srgb, var(--card), transparent 20%)',
+      border: '1px solid color-mix(in srgb, var(--foreground), transparent 90%)',
+      color: 'var(--foreground)',
+      padding: '0.75rem 1rem',
+      borderRadius: '1rem',
+      textDecoration: 'none',
+      display: 'flex',
+      alignItems: 'center',
+      gap: '0.5rem',
+      fontSize: '0.875rem',
+      fontWeight: '500',
+      transition: 'all 0.2s ease',
+      backdropFilter: 'blur(12px)'
+    }}
+  >
+    ← {tCommon.back}
+  </Link>
       {/* Header Section */}
       <div className="grid lg:grid-cols-12 gap-10 items-start">
         <div className="lg:col-span-7">
@@ -105,7 +125,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
       <div className="flex gap-3">
             {project.links?.live && (
         <a href={project.links.live} target="_blank" rel="noreferrer" className="btn-primary interactive-border">
-                {(tCommon as any).liveView || 'View Live'}
+                {'liveView' in tCommon ? tCommon.liveView : 'View Live'}
               </a>
             )}
             {project.links?.repo && (
