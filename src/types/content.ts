@@ -160,6 +160,14 @@ export interface SiteConfig {
           button: string;
         };
       };
+      login?: {
+        title: string;
+        username: string;
+        password: string;
+        login: string;
+        logging_in: string;
+        back_to_home: string;
+      };
     }>;
   };
   interactiveEffects?: {

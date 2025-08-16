@@ -66,7 +66,7 @@ function GroupMarquee({ group }: { group: SkillGroup }) {
                 <div id={`skill-name-${item.name.toLowerCase().replace(/\s+/g, '-')}-${idx}`} className="text-sm font-medium">{item.name}</div>
                 {(item.level || item.years) && (
                                     <div id={`skill-meta-${item.name.toLowerCase().replace(/\s+/g, '-')}-${idx}`} className="mt-0.5 text-[11px]" style={{ color: 'var(--muted)' }}>
-                    {item.level} | {item.group}
+                    {item.level}{item.years && ` | ${item.years} years`}
                   </div>
                 )}
                 {isActive && (

@@ -127,6 +127,33 @@ my-portfolio/
   - Internationalization support
   - Content caching
 
+#### **`src/app/api/auth/login/route.ts`**
+- **Purpose**: Admin authentication endpoint
+- **Functionality**:
+  - User credential validation
+  - Environment variable-based authentication
+  - JSON response with success/error status
+- **Security**: Uses ADMIN_USERNAME and ADMIN_PASSWORD environment variables
+- **Method**: POST with username/password in request body
+
+### 🔐 **Authentication System**
+
+#### **`src/app/login/page.tsx`**
+- **Purpose**: Admin login interface
+- **Functionality**:
+  - User authentication form
+  - Internationalization support (English/German)
+  - Theme-aware styling
+  - Admin mode activation upon successful login
+- **Dependencies**: useLanguage, setAdminEnabled utility
+- **Security**: Credential validation via API endpoint
+
+#### **Environment Variables**
+- **`.env.local`**: Contains admin authentication credentials
+  - `ADMIN_USERNAME`: Admin username (default: 'admin')
+  - `ADMIN_PASSWORD`: Admin password (default: 'admin')
+- **Usage**: Can be customized for different environments
+
 ### 🧩 **Components Architecture**
 
 #### **Layout Components (`src/components/layout/`)**
@@ -386,6 +413,31 @@ The application now supports a two-tier configuration system:
 - **Color Mixing**: `color-mix(in srgb, var(--accent-1), transparent 10%)`
 - **Responsive Design**: Mobile-first approach with Tailwind breakpoints
 - **Animations**: CSS animations with `animation-play-state` control
+
+### Animation System
+
+#### **Heartbeat Animation**
+```css
+@keyframes heartbeat {
+  0%, 20%, 50%, 80%, 100% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.08);
+  }
+  60% {
+    transform: scale(1.05);
+  }
+}
+
+.heartbeat {
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+```
+- **Purpose**: Attention-grabbing animation for CTA buttons
+- **Duration**: 1.5 seconds, infinite loop
+- **Effect**: Rhythmic scaling animation resembling a heartbeat
+- **Usage**: Applied to `header-cta-button` (both desktop and mobile)
 
 ## 🔄 **Data Flow**
 

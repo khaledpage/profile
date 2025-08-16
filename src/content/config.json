@@ -440,6 +440,14 @@
             "description": "Lassen Sie uns besprechen, wie ich dabei helfen kann, Ihre Vision mit bewährter Expertise und strategischem Denken zum Leben zu erwecken.",
             "button": "Lass uns reden"
           }
+        },
+        "login": {
+          "title": "Admin Anmeldung",
+          "username": "Benutzername",
+          "password": "Passwort",
+          "login": "Anmelden",
+          "logging_in": "Anmeldung läuft...",
+          "back_to_home": "Zurück zur Startseite"
         }
       },
       "en": {
@@ -520,6 +528,14 @@
             "description": "Let's discuss how I can help bring your vision to life with proven expertise and strategic thinking.",
             "button": "Let's Talk"
           }
+        },
+        "login": {
+          "title": "Admin Login",
+          "username": "Username",
+          "password": "Password",
+          "login": "Login",
+          "logging_in": "Logging in...",
+          "back_to_home": "Back to Home"
         }
       }
     }

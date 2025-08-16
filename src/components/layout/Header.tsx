@@ -141,7 +141,7 @@ export default function Header({ config }: Props) {
             <motion.a
               id="header-cta-button"
               href="#contact"
-              className="hidden md:block relative px-6 py-2 font-medium rounded-full transition-all duration-300 interactive-border wave-ring hover:shadow-lg"
+              className="hidden md:block relative px-6 py-2 font-medium rounded-full transition-all duration-300 interactive-border heartbeat hover:shadow-lg"
               style={{
                 background: `linear-gradient(to right, var(--accent-1), var(--accent-2))`,
                 color: 'var(--card-contrast)',
@@ -242,7 +242,7 @@ export default function Header({ config }: Props) {
                   <motion.a
                     id="mobile-cta-button"
                     href="#contact"
-                    className="mt-4 px-6 py-3 font-medium rounded-full text-center wave-ring"
+                    className="mt-4 px-6 py-3 font-medium rounded-full text-center heartbeat"
                     style={{
                       background: `linear-gradient(to right, var(--accent-1), var(--accent-2))`,
                       color: 'var(--card-contrast)',

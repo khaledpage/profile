@@ -154,6 +154,22 @@ body {
   }
 }
 
+@keyframes heartbeat {
+  0%, 20%, 50%, 80%, 100% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.08);
+  }
+  60% {
+    transform: scale(1.05);
+  }
+}
+
+.heartbeat {
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
 .wave-ring {
   position: relative;
   animation: waveRing 1.8s ease-out infinite;

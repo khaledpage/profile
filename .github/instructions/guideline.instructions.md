@@ -10,10 +10,13 @@ Before making any changes, ensure you follow these steps:
 
 ### Feature to implement
 - Read the file FEATURES_AS_STORIES.md where the user write his wishes.
+- when the user only type "start" he means go implment the story in FEATURES_AS_STORIES.md  and fix bugs from the STOCKING_BUGS.txt
 - refactore and fix the user wisches in FEATURES_AS_STORIES.md
 - Add id to it and implement the feature.
 - Add implementation date and mark it as done.
 - Only implement one feature that is not done yet.
+- you need also to update the `Requirements-Tabelle.md` as well with the implemented features and the BUG_FIX_LOG.md with the fixed bug
+- suggest new features or improvements based on the implemented changes in `FEATURES_SUGGESTIONS.md` and add place holder for the dev to accept or reject them. if you finde approved features in the file `FEATURES_SUGGESTIONS.md` implement them and update `FEATURES_AS_STORIES.md` accordingly and Requirements-Tabelle.md then remove them form `FEATURES_SUGGESTIONS.md`. if some of suggestions are not approved, dont implemnt them and move them to `FEATURES_REJECTED.md` for history, so you dont suggest them again.
 
 
 ### 🔍 Context Gathering
