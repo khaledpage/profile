@@ -22,8 +22,8 @@ When the user types **"start"**, follow this exact workflow:
    * Add an implementation date
    * Mark it as **done**
 3. Fix bugs listed in `ACTIVE_BUGS.md`.
-
-   * Always leave placeholders so the user can confirm fixes where successful.
+   * Reformulate the bug descriptions, that is written form the user and make it more clear and concise.
+   * Always leave placeholders so the user can confirm fixes where successful, then the issue can be closed and moved to `CLOSED_BUGS.md`.
    * if the user mark the fix as not successful, try to fix it again when you read it. and write the number of the fix attempt.
    * Document fixes in `BUG_FIX_LOG.md`.
 4. Update `REQUIREMENTS_TABELLE.md` with implemented features.
@@ -33,6 +33,8 @@ When the user types **"start"**, follow this exact workflow:
    * If suggestions are **approved**: implement, move to `FEATURES_AS_STORIES.md`, and update `REQUIREMENTS_TABELLE.md`. Then delete from `FEATURES_SUGGESTIONS.md`.
    * If suggestions are **rejected**: move them to `FEATURES_REJECTED.md`.
    * If suggestions are **pending**: leave them in `FEATURES_SUGGESTIONS.md`.
+6. Always create test cases in `TEST_CASES.md` for the new features and bug fixes and implement tests using playwright, and also consider end-to-end testing.
+7. The workflow is completed, when all tests including e2e tests pass.
 
 ---
 

@@ -47,7 +47,7 @@ This file contains suggested features and improvements based on recent implement
 - `/admin` route with authentication check
 - Article management, settings, and analytics
 - Quick actions and recent activity
-**Status**: approved
+**Status**: ✅ Moved to FEATURES_AS_STORYS.md as FEAT-009
 
 ### SUGGESTION-006: Multi-Backend Article Support
 **Description**: Extend the ArticleService interface to support multiple backends (database, CMS, API)
@@ -65,7 +65,7 @@ This file contains suggested features and improvements based on recent implement
 - useArticleAnalytics hook with view tracking
 - Reading time, scroll depth metrics
 - Analytics dashboard in admin
-**Status**: approved
+**Status**: ✅ Moved to FEATURES_AS_STORYS.md as FEAT-010
 
 ### SUGGESTION-008: Real-time Article Collaboration
 **Description**: Enable multiple admin users to edit articles simultaneously

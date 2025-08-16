@@ -125,5 +125,7 @@
 | ADMIN-06 | Upload Progress Display  | Progress indicator for ZIP file uploads         | Low      | ✅ COMPLETED (Aug 16, 2025) - Progress bars per file; success/error indicators; enhanced upload feedback             |
 | ADMIN-07 | Article Edit Functionality | Admin can edit articles via web interface     | High     | ✅ COMPLETED (Aug 16, 2025) - Edit button on article cards; modal editor with preview; auto-save; API integration    |
 | NAV-01   | Smooth Scrolling          | Navigation links use smooth scrolling         | Medium   | ✅ COMPLETED (Aug 16, 2025) - CSS scroll-behavior; JavaScript fallback; accessibility support; header offset        |
+| ADMIN-08 | Admin Dashboard           | Centralized admin interface with overview     | High     | ✅ COMPLETED (Aug 16, 2025) - Dashboard with statistics; quick actions; recent activity; system info display       |
+| ADMIN-09 | Article Analytics System  | Track article performance and user engagement | High     | ✅ COMPLETED (Dec 19, 2024) - View tracking; reading time; scroll depth; analytics dashboard; device breakdown |
 | FEAT-004 | Modular Article System  | Modular, reusable article management architecture | High     | ✅ COMPLETED (Dec 28, 2024) - ArticleService interface; React hooks; refactored components; maintained functionality |
 | SET-23   | Home Sections Control    | Admin can arrange/hide homepage sections        | Medium   | New Settings tab placeholder; order/hidden stored in preferences and respected by home controller          |

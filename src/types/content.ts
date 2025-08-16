@@ -168,6 +168,22 @@ export interface SiteConfig {
         logging_in: string;
         back_to_home: string;
       };
+      analytics?: {
+        title: string;
+        subtitle: string;
+        loading: string;
+        noData: string;
+        startTracking: string;
+        clearData: string;
+        clearButton: string;
+        totalViews: string;
+        uniqueVisitors: string;
+        avgReadingTime: string;
+        trackedArticles: string;
+        weeklyViews: string;
+        topArticles: string;
+        deviceBreakdown: string;
+      };
     }>;
   };
   interactiveEffects?: {

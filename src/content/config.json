@@ -448,6 +448,22 @@
           "login": "Anmelden",
           "logging_in": "Anmeldung läuft...",
           "back_to_home": "Zurück zur Startseite"
+        },
+        "analytics": {
+          "title": "Analytics Dashboard",
+          "subtitle": "Verfolgen Sie die Leistung und das Engagement Ihrer Inhalte",
+          "loading": "Analytics werden geladen...",
+          "noData": "Noch keine Analytics-Daten verfügbar.",
+          "startTracking": "Analytics erscheinen, sobald Besucher Ihre Artikel lesen.",
+          "clearData": "Analytics-Daten löschen",
+          "clearButton": "Daten löschen",
+          "totalViews": "Gesamte Aufrufe",
+          "uniqueVisitors": "Eindeutige Besucher",
+          "avgReadingTime": "Durchschn. Lesezeit",
+          "trackedArticles": "Verfolgte Artikel",
+          "weeklyViews": "Wöchentliche Aufrufe",
+          "topArticles": "Top Artikel",
+          "deviceBreakdown": "Geräte-Verteilung"
         }
       },
       "en": {
@@ -536,6 +552,22 @@
           "login": "Login",
           "logging_in": "Logging in...",
           "back_to_home": "Back to Home"
+        },
+        "analytics": {
+          "title": "Analytics Dashboard",
+          "subtitle": "Track your content performance and engagement",
+          "loading": "Loading analytics...",
+          "noData": "No analytics data available yet.",
+          "startTracking": "Analytics will appear as visitors read your articles.",
+          "clearData": "Clear analytics data",
+          "clearButton": "Clear Data",
+          "totalViews": "Total Views",
+          "uniqueVisitors": "Unique Visitors",
+          "avgReadingTime": "Avg. Reading Time",
+          "trackedArticles": "Tracked Articles",
+          "weeklyViews": "Weekly Views",
+          "topArticles": "Top Articles",
+          "deviceBreakdown": "Device Breakdown"
         }
       }
     }

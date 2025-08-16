@@ -77,11 +77,12 @@ export default function ArticleCard({
 
     setIsDeleting(true);
     try {
-      const adminKey = localStorage.getItem('admin-password');
+      let adminKey = localStorage.getItem('admin-password');
+      
+      // If no stored password but admin is enabled by default, use default password
       if (!adminKey) {
-        alert('Admin authentication required. Please log in again.');
-        window.location.href = '/login';
-        return;
+        // Use default admin password when admin mode is enabled by default
+        adminKey = 'admin'; // This matches ADMIN_PASSWORD in .env.local
       }
       
       const response = await fetch(`/api/articles?slug=${slug}`, {
@@ -118,12 +119,36 @@ export default function ArticleCard({
 
   const handleEditComplete = async (updatedArticle: Article): Promise<boolean> => {
     try {
-      setIsEditModalOpen(false);
-      // Optionally refresh the page to show updated content
-      window.location.reload();
-      return true;
+      let adminKey = localStorage.getItem('admin-password');
+      
+      // If no stored password but admin is enabled by default, use default password
+      if (!adminKey) {
+        // Use default admin password when admin mode is enabled by default
+        adminKey = 'admin'; // This matches ADMIN_PASSWORD in .env.local
+      }
+
+      const response = await fetch('/api/articles', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-admin-key': adminKey,
+        },
+        body: JSON.stringify(updatedArticle),
+      });
+
+      if (response.ok) {
+        setIsEditModalOpen(false);
+        // Reload the page to show updated content
+        window.location.reload();
+        return true;
+      } else {
+        const error = await response.json();
+        alert(`Failed to save article: ${error.error}`);
+        return false;
+      }
     } catch (error) {
-      console.error('Error handling edit completion:', error);
+      console.error('Error saving article:', error);
+      alert('An error occurred while saving the article');
       return false;
     }
   };

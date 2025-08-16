@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { getArticleBySlug, getAllArticles } from '@/utils/articles';
 import MarkdownRenderer from '@/components/ui/MarkdownRenderer';
 import ReadingTheme from '@/components/ui/ReadingTheme';
+import ArticleAnalyticsTracker from '@/components/ui/ArticleAnalyticsTracker';
 
 interface ArticlePageProps {
   params: Promise<{
@@ -63,6 +64,9 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
   return (
     <ReadingTheme>
+      {/* Analytics Tracker */}
+      <ArticleAnalyticsTracker slug={article.slug} title={metadata.title} />
+      
       <div className="min-h-screen pt-20">
         {/* Article Header */}
         <article className="py-12">
