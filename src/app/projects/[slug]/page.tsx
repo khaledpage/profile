@@ -64,7 +64,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         </ol>
       </nav>
     {/* Floating Back Button (moved to right) */}
-  <Link href="/" className="fixed right-4 bottom-4 z-40 btn-secondary">{tCommon.back} →</Link>
+  <Link href="/" className="fab-nav btn-secondary">{tCommon.back} →</Link>
       {/* Header Section */}
       <div className="grid lg:grid-cols-12 gap-10 items-start">
         <div className="lg:col-span-7">

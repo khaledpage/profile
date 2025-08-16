@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
   "lint": "next lint",
-  "build:pages": "NEXT_PUBLIC_STATIC_EXPORT=true NEXT_PUBLIC_BASE_PATH=/profile node ./scripts/build-static-content.js && next build",
+  "build:pages": "NEXT_PUBLIC_STATIC_EXPORT=true NEXT_PUBLIC_BASE_PATH=/profile node ./scripts/build-static-content.js && NEXT_PUBLIC_STATIC_EXPORT=true NEXT_PUBLIC_BASE_PATH=/profile next build",
   "build:widgets": "vite build -c vite.widgets.config.ts",
   "export:docs": "node ./scripts/export-to-docs.js",
   "pages:publish": "npm run build:pages && npm run export:docs"

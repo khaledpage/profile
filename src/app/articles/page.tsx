@@ -92,7 +92,7 @@ export default async function ArticlesPage() {
       </section>
 
   {/* Floating Back Button (consistent with project pages) */}
-  <Link href="/" className="fixed right-4 bottom-4 z-40 btn-secondary">← Home</Link>
+  <Link href="/" className="fab-nav btn-secondary">← Home</Link>
     </div>
   );
 }

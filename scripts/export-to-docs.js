@@ -11,6 +11,7 @@ const root = process.cwd();
 const serverAppDir = path.join(root, '.next', 'server', 'app');
 const nextStaticDir = path.join(root, '.next', 'static');
 const docsDir = path.join(root, 'docs');
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '/profile';
 
 if (!fs.existsSync(serverAppDir)) {
   console.error('Missing .next/server/app folder. Run `npm run build:pages` first.');
@@ -55,6 +56,7 @@ function writeRouteHtml(srcHtml, routePath) {
   fs.mkdirSync(destDir, { recursive: true });
   const destFile = path.join(destDir, 'index.html');
   fs.copyFileSync(srcHtml, destFile);
+  rewriteBasePaths(destFile);
 }
 
 // Iterate .next/server/app
@@ -63,13 +65,17 @@ for (const entry of entries) {
   const p = path.join(serverAppDir, entry.name);
   if (entry.isFile() && entry.name.endsWith('.html')) {
     if (entry.name === '_not-found.html') {
-      fs.copyFileSync(p, path.join(docsDir, '404.html'));
+      const notFound = path.join(docsDir, '404.html');
+      fs.copyFileSync(p, notFound);
+      rewriteBasePaths(notFound);
     } else if (entry.name === 'articles.html') {
       writeRouteHtml(p, '/articles');
     } else {
       // If root page html exists (e.g., index.html), copy to docs/index.html
       if (entry.name === 'index.html') {
-        fs.copyFileSync(p, path.join(docsDir, 'index.html'));
+        const idx = path.join(docsDir, 'index.html');
+        fs.copyFileSync(p, idx);
+        rewriteBasePaths(idx);
       }
     }
   } else if (entry.isDirectory()) {
@@ -87,3 +93,30 @@ for (const entry of entries) {
 fs.writeFileSync(path.join(docsDir, '.nojekyll'), '');
 
 console.log('Created docs/ from .next/server/app and _next/static, and added .nojekyll.');
+
+// Rewrites absolute href/src URLs in an HTML file to include the basePath.
+function rewriteBasePaths(filePath) {
+  try {
+    let html = fs.readFileSync(filePath, 'utf8');
+    // Prefix any href/src starting with "/" that isn't already under the basePath
+    const generic = new RegExp('(href|src)="\/(?!' + basePath.replace(/^\//, '') + '\/)','g');
+    html = html.replace(generic, `$1="${basePath}/`);
+
+    // Fix srcset/srcSet where multiple URLs may appear separated by commas/spaces
+    // This captures occurrences of space or comma followed by /path and prefixes the basePath
+    const srcsetPattern = new RegExp('((?:,|\s))\/(?!' + basePath.replace(/^\//, '') + '\/)', 'g');
+    html = html.replace(srcsetPattern, `$1${basePath}/`);
+
+    // Be explicit for a few known cases too (idempotent)
+    html = html
+      .replaceAll('href="/_next', `href="${basePath}/_next`)
+      .replaceAll('src="/_next', `src="${basePath}/_next`)
+      .replaceAll('href="/favicon.ico', `href="${basePath}/favicon.ico`);
+
+    // Some Next inline streaming chunks reference "/_next" inside JS strings; rewrite those too.
+    html = html.replaceAll('"/_next/', `"${basePath}/_next/`).replaceAll("'/_next/", `'${basePath}/_next/`);
+    fs.writeFileSync(filePath, html, 'utf8');
+  } catch (e) {
+    console.warn('Failed to rewrite base paths for', filePath, e?.message || e);
+  }
+}

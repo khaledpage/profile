@@ -332,6 +332,14 @@ body {
 }
 .btn-secondary:hover { background: color-mix(in srgb, var(--foreground), transparent 94%); }
 
+/* Floating nav button (avoids overlapping settings FAB at bottom-right) */
+.fab-nav {
+  position: fixed;
+  right: 1rem; /* right-4 */
+  bottom: 5.5rem; /* lifted above the settings button (bottom-4) */
+  z-index: 40;
+}
+
 /* Interaction ripples */
 .ripples-layer { position: fixed; inset: 0; pointer-events: none; z-index: 5; }
 .ripple-dot {
