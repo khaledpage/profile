@@ -1,5 +1,5 @@
 {
-  "colorProfile": "indigoPurpleDark",
+  "colorProfile": "mintGreenLight",
   "paletteGroups": {
     "dark": {
       "name": "Dark Themes",
@@ -354,17 +354,39 @@
     "candidates": ["indigoPurpleDark", "oceanBlueDark", "emeraldForestDark", "sunsetOrangeDark", "roseGoldDark", "midnightPurpleDark", "cloudWhiteLight", "warmCreamLight", "softBlueLight", "mintGreenLight", "lavenderLight", "peachLight", "neonCyberDark", "electricPinkDark", "acidGreenDark", "sunburstYellowDark"]
   },
   "i18n": {
-    "defaultLocale": "de",
+    "defaultLocale": "en",
     "languages": {
       "de": {
         "nav": { "about": "Über mich", "projects": "Projekte", "skills": "Skills", "articles": "Artikel", "contact": "Kontakt" },
         "cta": { "talk": "Los geht's" },
-        "common": { "back": "Zurück", "seeAlso": "Siehe auch" }
+        "common": { 
+          "back": "Zurück", 
+          "seeAlso": "Siehe auch",
+          "home": "Startseite",
+          "liveView": "Live ansehen",
+          "viewProject": "Projekt ansehen",
+          "downloadSettings": "Einstellungen herunterladen",
+          "enableAnimations": "Animationen aktivieren",
+          "colorThemes": "Farbthemen",
+          "language": "Sprache",
+          "skillsLayout": "Skills-Layout"
+        }
       },
       "en": {
         "nav": { "about": "About", "projects": "Projects", "skills": "Skills", "articles": "Articles", "contact": "Contact" },
         "cta": { "talk": "Let's talk" },
-        "common": { "back": "Back", "seeAlso": "See also" }
+        "common": { 
+          "back": "Back", 
+          "seeAlso": "See also",
+          "home": "Home",
+          "liveView": "View Live",
+          "viewProject": "View Project",
+          "downloadSettings": "Download Settings",
+          "enableAnimations": "Enable animations",
+          "colorThemes": "Color Themes",
+          "language": "Language",
+          "skillsLayout": "Skills Layout"
+        }
       }
     }
   },
@@ -388,7 +410,7 @@
     "cookieConsent": true
   },
   "skillsDisplay": {
-    "design": "marquee",
+    "design": "grid",
     "availableDesigns": ["marquee", "grid", "carousel", "masonry", "timeline"],
     "allowDesignChange": true
   }

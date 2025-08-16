@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { SiteContent, HeroContent, ProjectsContent, ContactContent, SiteConfig, SkillsContent } from '@/types/content';
+import { loadCustomDefaults, mergeCustomDefaults } from './custom-defaults';
 
 const contentDirectory = path.join(process.cwd(), 'src/content');
 
@@ -40,7 +41,9 @@ export async function getAllContent(): Promise<SiteContent> {
 }
 
 export async function getSiteConfig(): Promise<SiteConfig> {
-  return getContentData('config');
+  const baseConfig = await getContentData('config');
+  const customDefaults = await loadCustomDefaults();
+  return mergeCustomDefaults(baseConfig, customDefaults);
 }
 
 export async function getSkillsContent(): Promise<SkillsContent> {

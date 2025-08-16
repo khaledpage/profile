@@ -207,14 +207,20 @@ my-portfolio/
 - **Features**: CSS variable manipulation
 
 ##### **`src/components/ui/SettingsPanel.tsx`**
-- **Purpose**: User preferences management
+- **Purpose**: User preferences management with enhanced functionality
 - **Functionality**:
-  - Theme switching
+  - Theme switching with live preview
   - Cookie consent management
-  - Animation toggles
-  - Language selection
-  - Persistent storage
-- **Storage**: localStorage with cookie consent
+  - Animation toggles with comprehensive control
+  - Language selection with browser detection
+  - **NEW**: Configuration download as JSON file
+  - **NEW**: Comprehensive translation integration
+  - Persistent storage with consent checking
+- **Features**: 
+  - **Enhanced**: Download current settings as custom-defaults.json
+  - **Enhanced**: All UI text translatable through i18n system
+  - **Enhanced**: Real-time theme and animation control
+- **Storage**: localStorage with cookie consent validation
 
 ##### **`src/components/ui/CookieConsent.tsx`**
 - **Purpose**: GDPR cookie consent banner
@@ -226,22 +232,71 @@ my-portfolio/
 - **Categories**: Necessary, Analytics, Preferences, Marketing
 
 ##### **`src/components/ThemeController.tsx`**
-- **Purpose**: Global theme management
+- **Purpose**: Global theme management with enhanced animation control
 - **Functionality**:
   - CSS custom property manipulation
-  - Theme persistence
-  - Animation control
-  - Color profile switching
-- **Themes**: Multiple color schemes available
+  - Theme persistence with localStorage
+  - **ENHANCED**: Animation control for all animated elements
+  - **ENHANCED**: Uses querySelectorAll for comprehensive element targeting
+  - Color profile switching with real-time updates
+- **Features**:
+  - **Fixed**: Animation toggle now controls both gradients and particles
+  - **Enhanced**: Proper pause/resume for multiple animated elements
+  - **Enhanced**: Show/hide functionality for particle effects
+- **Control**: Global window.__themeController interface for cross-component access
 
 ### 📊 **Content Management (`src/content/`)**
 
 #### **Configuration Files**
-- **`config.json`**: Main application configuration
+- **`config.json`**: Main application configuration with updated defaults
+  - **Updated**: Default theme changed to "mintGreenLight"
+  - **Updated**: Default language changed to "en" (English)
+  - **Updated**: Default skills layout changed to "grid"
+  - **Enhanced**: Expanded translation objects for comprehensive i18n support
 - **`hero.json`**: Hero section content
 - **`projects.json`**: Project portfolio data
 - **`skills.json`**: Skills and technologies
 - **`contact.json`**: Contact information
+- **`custom-defaults.json`** (optional): Developer customization overrides
+  - **New Feature**: Allows developers to override any base configuration
+  - **Location**: `/public/custom-defaults.json`
+  - **Usage**: Automatically loaded and merged with base config on startup
+  - **Creation**: Can be generated via settings panel download feature
+
+## 🔧 **Enhanced Configuration Management System**
+
+### Custom Defaults Architecture
+The application now supports a two-tier configuration system:
+
+1. **Base Configuration** (`src/content/config.json`)
+   - Default application settings
+   - Comprehensive translation structure
+   - Fallback values for all features
+
+2. **Custom Defaults** (`/public/custom-defaults.json`) 
+   - Developer-defined overrides
+   - Downloaded from settings panel
+   - Merged at runtime with base configuration
+   - Enables per-deployment customization
+
+### Configuration Loading Flow
+1. **Startup**: Load base configuration from `src/content/config.json`
+2. **Enhancement**: Attempt to fetch `/custom-defaults.json`
+3. **Merging**: Overlay custom settings on base configuration
+4. **Caching**: Cache merged configuration for performance
+5. **Application**: Use merged configuration throughout app
+
+### Browser Language Detection
+- **Auto-detection**: Uses `navigator.language` API on first visit
+- **Fallback Chain**: Checks language availability and falls back intelligently
+- **Preference Storage**: Saves user language choice in localStorage
+- **Precedence**: User selection > stored preference > browser language > default
+
+### Translation System Enhancement
+- **Comprehensive Coverage**: All UI text now translatable
+- **Common Strings**: Shared translations in `config.common` object
+- **Component Integration**: All components use translation hooks
+- **Expandable Structure**: Easy to add new languages and text keys
 
 #### **Articles (`src/content/articles/`)**
 - **Structure**: Folder-based organization
@@ -259,13 +314,22 @@ my-portfolio/
   - `generateStaticParams()`: Support for static generation
 - **Features**: File system integration, metadata parsing
 
+#### **`src/utils/custom-defaults.ts`**
+- **Purpose**: Custom configuration management system
+- **Functions**:
+  - `loadCustomDefaults()`: Fetch custom-defaults.json from public folder
+  - `mergeCustomDefaults()`: Overlay custom settings on base configuration
+  - Client-side caching for performance optimization
+- **Features**: Developer customization support, graceful fallback handling
+
 #### **`src/utils/content.ts`**
 - **Purpose**: General content loading utilities
 - **Functions**:
-  - Configuration file loading
+  - `getSiteConfig()`: Enhanced with custom defaults integration
+  - Configuration file loading with custom overlay support
   - JSON parsing with validation
   - Error handling
-- **Usage**: Hero, projects, skills content
+- **Usage**: Hero, projects, skills content with developer customization
 
 #### **`src/utils/cookies.ts`**
 - **Purpose**: Cookie consent management
@@ -277,12 +341,13 @@ my-portfolio/
 - **Features**: Expiration handling, validation
 
 #### **`src/utils/i18n.ts`**
-- **Purpose**: Internationalization utilities
+- **Purpose**: Internationalization utilities with browser language detection
 - **Functions**:
-  - Language detection
-  - Content localization
-  - Fallback handling
-- **Status**: Foundation for future i18n support
+  - `useLanguage()`: Enhanced with automatic browser language detection
+  - `getBrowserLanguage()`: Parse navigator.language API
+  - Language availability checking with intelligent fallbacks
+  - Content localization with localStorage persistence
+- **Features**: Auto-detection, fallback chain, preference persistence
 
 ### 📱 **Type Definitions (`src/types/`)**
 
@@ -376,7 +441,39 @@ my-portfolio/
 - Content changes trigger regeneration
 - CSS changes apply immediately
 
-## 🔐 **Security & Privacy**
+## � **Recent Feature Implementations (2024)**
+
+### Configuration Management System
+- **Custom Defaults**: New `src/utils/custom-defaults.ts` utility for loading developer-specific overrides
+- **Download Feature**: Settings panel now includes download button to export current configuration as JSON
+- **Automatic Merging**: System automatically merges custom defaults with base configuration at startup
+- **Developer Workflow**: Developers can download settings, save as `/public/custom-defaults.json`, and distribute
+
+### Enhanced Internationalization
+- **Browser Detection**: Automatic language detection using `navigator.language` API
+- **Intelligent Fallbacks**: Smart fallback chain from browser language to available languages to default
+- **Preference Persistence**: User language choices stored in localStorage with consent
+- **Comprehensive Coverage**: All UI text now uses translation system including settings panel, navigation, common strings
+
+### Animation System Improvements
+- **Fixed Toggle Bug**: Animation toggle now properly controls all animated elements (gradients and particles)
+- **Enhanced Targeting**: Uses `querySelectorAll` instead of `querySelector` for multiple element control
+- **Comprehensive Control**: Properly pauses/resumes animations and shows/hides particle effects
+- **Cross-Component**: Global `window.__themeController` interface for cross-component animation control
+
+### Updated Application Defaults
+- **Theme**: Changed default from dark indigo/purple to mint green light theme
+- **Language**: Changed default from German to English for broader accessibility  
+- **Skills Layout**: Changed default from marquee to grid for better readability
+- **Enhanced UX**: Improved user experience with modern, accessible defaults
+
+### Translation System Expansion
+- **Common Strings**: Added `config.common` object for shared UI translations
+- **Settings Panel**: Complete translation integration for all settings controls and labels
+- **Navigation**: Back buttons, breadcrumbs, and navigation elements use translation system
+- **Expandable Structure**: Easy addition of new languages and text keys
+
+## �🔐 **Security & Privacy**
 
 ### Cookie Consent
 - GDPR compliance with category-based consent

@@ -152,7 +152,7 @@ export default function Header({ config }: Props) {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.5 }}
             >
-              Let&apos;s Talk
+              {translations?.cta?.talk || "Let's Talk"}
             </motion.a>
 
             {/* Mobile Menu Button */}
@@ -238,7 +238,7 @@ export default function Header({ config }: Props) {
                     transition={{ delay: 0.4 }}
                     onClick={() => setIsOpen(false)}
                   >
-                    Let&apos;s Talk
+                    {translations?.cta?.talk || "Let's Talk"}
                   </motion.a>
                 </div>
               </div>

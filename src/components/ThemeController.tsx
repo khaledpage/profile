@@ -123,13 +123,26 @@ export default function ThemeController({ palettes, colorProfile, colorRotation,
     applyPalette(currentProfile);
 
     // Control animation class
-    const gradient = document.querySelector('.animated-gradient') as HTMLElement | null;
-    if (gradient) {
+    const gradients = document.querySelectorAll('.animated-gradient');
+    const particles = document.querySelector('.particles') as HTMLElement | null;
+    
+    gradients.forEach(gradient => {
+      const element = gradient as HTMLElement;
       if (animationsEnabled) {
-        gradient.style.display = 'block';
-        gradient.style.opacity = String(animation?.fadeMax ?? 0.5);
+        element.style.display = 'block';
+        element.style.opacity = String(animation?.fadeMax ?? 0.5);
+        element.style.animationPlayState = 'running';
       } else {
-        gradient.style.opacity = '0';
+        element.style.opacity = '0';
+        element.style.animationPlayState = 'paused';
+      }
+    });
+    
+    if (particles) {
+      if (animationsEnabled) {
+        particles.style.display = 'block';
+      } else {
+        particles.style.display = 'none';
       }
     }
 

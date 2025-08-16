@@ -26,7 +26,15 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   const { slug } = await params;
   const { projects } = await getAllContent();
   const cfg = await getSiteConfig().catch(() => null);
-  const tCommon = cfg?.i18n?.languages?.[cfg?.i18n?.defaultLocale ?? 'de']?.common ?? { back: 'Zurück', seeAlso: 'Siehe auch' };
+  const tCommon = cfg?.i18n?.languages?.[cfg?.i18n?.defaultLocale ?? 'en']?.common ?? { 
+    back: 'Back', 
+    seeAlso: 'See also',
+    home: 'Home',
+    liveView: 'View Live'
+  };
+  const tNav = cfg?.i18n?.languages?.[cfg?.i18n?.defaultLocale ?? 'en']?.nav ?? { 
+    projects: 'Projects' 
+  };
   const project = findProject(projects.projects, slug) || {
     title: 'Unbekanntes Projekt',
     description: 'Dieses Projekt konnte nicht gefunden werden. Hier sind Beispielinhalte.',
@@ -50,13 +58,13 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         <ol className="flex items-center space-x-2 text-sm">
           <li>
             <Link href="/" className="hover:text-accent-1 transition-colors" style={{ color: 'var(--muted)' }}>
-              Home
+              {(tCommon as any).home || 'Home'}
             </Link>
           </li>
           <span style={{ color: 'var(--muted)' }}>/</span>
           <li>
             <Link href="/#projects" className="hover:text-accent-1 transition-colors" style={{ color: 'var(--muted)' }}>
-              Projects
+              {tNav.projects}
             </Link>
           </li>
           <span style={{ color: 'var(--muted)' }}>/</span>
@@ -97,7 +105,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
       <div className="flex gap-3">
             {project.links?.live && (
         <a href={project.links.live} target="_blank" rel="noreferrer" className="btn-primary interactive-border">
-                Live ansehen
+                {(tCommon as any).liveView || 'View Live'}
               </a>
             )}
             {project.links?.repo && (

@@ -85,4 +85,12 @@
 | OPS-03   | Vite Widgets Bundling     | Optional Vite build for standalone widgets          | Low      | `npm run build:widgets` outputs `public/widgets/widgets.{es,iife}.js`; simple greeting widget mounts       |
 | DOC-01   | Technical Documentation   | Comprehensive architecture documentation           | Medium   | File structure explained; component responsibilities; data flow; deployment guide; development workflow     |
 | DOC-02   | Code Architecture Guide   | Detailed code organization documentation           | Medium   | TypeScript patterns; component hierarchies; utility functions; API design; configuration management        |
+| SET-19   | Configuration Download    | Download current settings as JSON file            | High     | Settings panel provides download button; exports custom-defaults.json; all user preferences included        |
+| SET-20   | Custom Defaults Loading   | Load custom defaults from public folder           | High     | App checks for /custom-defaults.json on startup; merges with base config; developer customization support  |
+| SET-21   | Browser Language Detection| Auto-detect user's browser language              | High     | Uses navigator.language API; fallback to available languages; respects user preference over auto-detection |
+| SET-22   | Default Configuration     | Updated application defaults                       | High     | Mint green theme default; grid skills layout; English as fallback language; improved user experience       |
+| ANIM-04  | Enhanced Animation Control| Fixed animation toggle for all elements          | High     | Toggle controls gradients and particles; querySelectorAll for multiple elements; proper pause/resume        |
+| TRANS-01 | Comprehensive Translations| Complete translation coverage                     | Medium   | All UI text translatable; common strings in config; expandable translation structure; settings panel i18n  |
+| NAV-02   | Translation-aware Buttons | Navigation uses translation system                | Medium   | Back buttons, breadcrumbs use translations; theme-aware styling; consistent positioning across pages       |
+| ANIM-05  | Header CTA Animation      | "Let's Talk" button pulse animation               | Medium   | Attention-drawing pulse-glow animation; configurable timing; maintains user engagement                      |
 

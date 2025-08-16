@@ -1,9 +1,10 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { XMarkIcon, Cog6ToothIcon } from '@heroicons/react/24/outline';
+import { XMarkIcon, Cog6ToothIcon, ArrowDownTrayIcon } from '@heroicons/react/24/outline';
 import type { SiteConfig } from '@/types/content';
 import { canSavePreferences, shouldShowCookieBanner, getCookieConsent, setCookieConsent } from '@/utils/cookies';
+import { useLanguage } from '@/utils/i18n';
 
 type Props = {
   config: SiteConfig;
@@ -22,6 +23,7 @@ export default function SettingsPanel({ config }: Props) {
   const [showCookieConsent, setShowCookieConsent] = useState(false);
   const [preferences, setPreferences] = useState<UserPreferences>({});
   const [hasConsent, setHasConsent] = useState(false);
+  const { translations } = useLanguage(config);
 
   const settingsConfig = config.settings;
   const shouldShow = settingsConfig?.enabled && settingsConfig?.showIcon;
@@ -190,6 +192,33 @@ export default function SettingsPanel({ config }: Props) {
     savePreferences({ language: language });
   };
 
+  const downloadConfiguration = () => {
+    const configToDownload = {
+      colorProfile: preferences.colorProfile || config.colorProfile,
+      skillsDisplay: {
+        design: preferences.skillsDesign || config.skillsDisplay?.design || 'grid'
+      },
+      i18n: {
+        defaultLocale: preferences.language || config.i18n?.defaultLocale || 'en'
+      },
+      animation: {
+        enabled: preferences.animationsEnabled ?? config.animation?.enabled ?? true
+      }
+    };
+
+    const dataStr = JSON.stringify(configToDownload, null, 2);
+    const dataBlob = new Blob([dataStr], { type: 'application/json' });
+    const url = URL.createObjectURL(dataBlob);
+    
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'custom-defaults.json';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  };
+
   if (!shouldShow) return null;
 
   return (
@@ -256,7 +285,7 @@ export default function SettingsPanel({ config }: Props) {
             {/* Theme Selection */}
             {settingsConfig?.allowThemeChange && (
               <div className="mb-6">
-                <h3 className="text-sm font-medium mb-3">Color Themes</h3>
+                <h3 className="text-sm font-medium mb-3">{(translations?.common as any)?.colorThemes || 'Color Themes'}</h3>
                 <div className="space-y-4">
                   {Object.entries(allPaletteGroups).map(([groupKey, group]) => (
                     <div key={groupKey}>
@@ -310,7 +339,7 @@ export default function SettingsPanel({ config }: Props) {
                     onChange={(e) => handleAnimationToggle(e.target.checked)}
                     className="w-4 h-4 rounded"
                   />
-                  <span className="text-sm">Enable background animations</span>
+                  <span className="text-sm">{(translations?.common as any)?.enableAnimations || 'Enable background animations'}</span>
                 </label>
               </div>
             )}
@@ -318,7 +347,7 @@ export default function SettingsPanel({ config }: Props) {
             {/* Language Selection */}
             {settingsConfig?.allowLanguageChange && config.i18n?.languages && Object.keys(config.i18n.languages).length > 1 && (
               <div className="mb-6">
-                <h3 className="text-sm font-medium mb-3">Language</h3>
+                <h3 className="text-sm font-medium mb-3">{(translations?.common as any)?.language || 'Language'}</h3>
                 <div className="grid grid-cols-2 gap-3">
                   {Object.entries(config.i18n.languages).map(([key, lang]) => (
                     <button
@@ -358,7 +387,7 @@ export default function SettingsPanel({ config }: Props) {
             {/* Skills Design Selection */}
             {config.skillsDisplay?.allowDesignChange && (
               <div className="mb-6">
-                <h3 className="text-sm font-medium mb-3">Skills Layout</h3>
+                <h3 className="text-sm font-medium mb-3">{(translations?.common as any)?.skillsLayout || 'Skills Layout'}</h3>
                 <div className="grid grid-cols-1 gap-2">
                   {config.skillsDisplay.availableDesigns?.map((design) => (
                     <button
@@ -384,14 +413,40 @@ export default function SettingsPanel({ config }: Props) {
               </div>
             )}
 
-            {/* Storage Info */}
+            {/* Storage Info & Download */}
             {settingsConfig?.cookieConsent && (
-              <div className="text-xs text-gray-400 mt-4 p-3 rounded-lg bg-white/5">
-                {hasConsent ? (
-                  <>✓ Settings are saved in your browser</>
-                ) : (
-                  <>Settings are temporary (cookies declined)</>
-                )}
+              <div className="space-y-3">
+                <div className="text-xs text-gray-400 p-3 rounded-lg bg-white/5">
+                  {hasConsent ? (
+                    <>✓ Settings are saved in your browser</>
+                  ) : (
+                    <>Settings are temporary (cookies declined)</>
+                  )}
+                </div>
+                
+                {/* Download Configuration Button */}
+                <button
+                  onClick={downloadConfiguration}
+                  className="w-full flex items-center justify-center gap-2 p-3 rounded-lg text-sm font-medium transition-all"
+                  style={{
+                    backgroundColor: 'color-mix(in srgb, var(--accent-1), transparent 80%)',
+                    color: 'var(--foreground)',
+                    border: '1px solid color-mix(in srgb, var(--accent-1), transparent 50%)'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = 'color-mix(in srgb, var(--accent-1), transparent 70%)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = 'color-mix(in srgb, var(--accent-1), transparent 80%)';
+                  }}
+                >
+                  <ArrowDownTrayIcon className="h-4 w-4" />
+                  {(translations?.common as any)?.downloadSettings || 'Download Settings as JSON'}
+                </button>
+                
+                <div className="text-xs text-gray-500 px-2">
+                  Save this file as <code className="px-1 py-0.5 rounded bg-black/20">custom-defaults.json</code> in your project to set these as default values.
+                </div>
               </div>
             )}
             </div>
