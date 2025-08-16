@@ -14,6 +14,6 @@ same issue:
 
 you fixed the pdf for one articl Next.js vs React” but you broke it for the other one : Matrix Multiplication
 
-- there are 2 "lets talk" button, one of them has broken text (in Ready to Transform Your Idea section id= uid-html-1_body-1_div-2_div-3_main-1_section-6_div-2_div-3_div-1_a-1_span-1__2), the other (in header id = uid-html-1_body-1_div-2_div-3_header-1_nav-1_div-1_a-2__2) has broken animation 
+- there are 2 "lets talk" button, one of them has broken text "Let&apos;s Talk (in Ready to Transform Your Idea section id= ), the other (in header id = ) has broken animation 
 
 - why i cant search for element id in my code ?

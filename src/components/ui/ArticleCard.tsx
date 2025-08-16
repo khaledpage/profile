@@ -43,14 +43,16 @@ export default function ArticleCard({ article, featured = false, adminEnabled = 
   };
   
   return (
-    <Link href={`/articles/${slug}`} className="group block">
+    <Link href={`/articles/${slug}`} id={`article-card-link-${slug}`} className="group block">
       <article 
+        id={`article-card-${slug}`}
         className={`glass rounded-2xl overflow-hidden transition-all duration-300 lift ${
           featured ? 'col-span-full lg:col-span-2' : ''
         }`}
       >
-        <div className="relative aspect-video overflow-hidden">
+        <div id={`article-image-container-${slug}`} className="relative aspect-video overflow-hidden">
           <Image
+            id={`article-image-${slug}`}
             src={metadata.coverImage}
             alt={metadata.title}
             fill
@@ -58,6 +60,7 @@ export default function ArticleCard({ article, featured = false, adminEnabled = 
           />
           {adminEnabled && allowZipDownload && (
             <button
+              id={`article-download-button-${slug}`}
               onClick={handleDownloadZip}
               className="absolute bottom-3 right-3 px-3 py-1.5 rounded-lg text-xs font-medium border backdrop-blur-sm"
               style={{
@@ -72,6 +75,7 @@ export default function ArticleCard({ article, featured = false, adminEnabled = 
           
           {metadata.featured && (
             <div 
+              id={`article-featured-badge-${slug}`}
               className="absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-medium"
               style={{
                 backgroundColor: 'var(--accent-1)',
@@ -83,6 +87,7 @@ export default function ArticleCard({ article, featured = false, adminEnabled = 
           )}
           
           <div 
+            id={`article-reading-time-${slug}`}
             className="absolute top-4 right-4 px-2 py-1 rounded-lg text-xs font-medium"
             style={{
               backgroundColor: 'color-mix(in srgb, var(--background), transparent 20%)',
@@ -94,9 +99,10 @@ export default function ArticleCard({ article, featured = false, adminEnabled = 
           </div>
         </div>
         
-        <div className="p-6">
-          <div className="flex items-center gap-2 mb-3">
+        <div id={`article-content-${slug}`} className="p-6">
+          <div id={`article-meta-${slug}`} className="flex items-center gap-2 mb-3">
             <span 
+              id={`article-category-${slug}`}
               className="px-2 py-1 rounded-lg text-xs font-medium"
               style={{
                 backgroundColor: 'color-mix(in srgb, var(--accent-2), transparent 70%)',
@@ -105,7 +111,7 @@ export default function ArticleCard({ article, featured = false, adminEnabled = 
             >
               {metadata.category}
             </span>
-            <span className="text-xs" style={{ color: 'var(--muted)' }}>
+            <span id={`article-date-${slug}`} className="text-xs" style={{ color: 'var(--muted)' }}>
               {new Date(metadata.publishDate).toLocaleDateString('en-US', {
                 year: 'numeric',
                 month: 'long',
@@ -115,6 +121,7 @@ export default function ArticleCard({ article, featured = false, adminEnabled = 
           </div>
           
           <h3 
+            id={`article-title-${slug}`}
             className={`font-bold mb-3 group-hover:text-accent-1 transition-colors ${
               featured ? 'text-2xl' : 'text-xl'
             }`}
@@ -124,17 +131,19 @@ export default function ArticleCard({ article, featured = false, adminEnabled = 
           </h3>
           
           <p 
+            id={`article-summary-${slug}`}
             className={`line-clamp-3 mb-4 ${featured ? 'text-base' : 'text-sm'}`}
             style={{ color: 'var(--muted)' }}
           >
             {metadata.summary}
           </p>
           
-          <div className="flex items-center justify-between">
-            <div className="flex flex-wrap gap-2">
-              {metadata.tags.slice(0, 3).map((tag) => (
+          <div id={`article-footer-${slug}`} className="flex items-center justify-between">
+            <div id={`article-tags-${slug}`} className="flex flex-wrap gap-2">
+              {metadata.tags.slice(0, 3).map((tag, index) => (
                 <span
                   key={tag}
+                  id={`article-tag-${slug}-${index}`}
                   className="px-2 py-1 rounded-lg text-xs"
                   style={{
                     backgroundColor: 'color-mix(in srgb, var(--card), transparent 30%)',
@@ -146,6 +155,7 @@ export default function ArticleCard({ article, featured = false, adminEnabled = 
               ))}
               {metadata.tags.length > 3 && (
                 <span 
+                  id={`article-more-tags-${slug}`}
                   className="text-xs"
                   style={{ color: 'var(--muted)' }}
                 >
@@ -155,6 +165,7 @@ export default function ArticleCard({ article, featured = false, adminEnabled = 
             </div>
             
             <div 
+              id={`article-read-more-${slug}`}
               className="text-sm font-medium group-hover:translate-x-1 transition-transform"
               style={{ color: 'var(--accent-1)' }}
             >

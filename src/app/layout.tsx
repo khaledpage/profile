@@ -116,11 +116,11 @@ export default async function RootLayout({
 
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>        
-        <div className="relative min-h-dvh">
+      <body id="app-body" className={`${geistSans.variable} ${geistMono.variable} antialiased`}>        
+        <div id="app-root" className="relative min-h-dvh">
           {/* subtle grid background */}
-          <div className="fixed inset-0 bg-grid pointer-events-none" aria-hidden />
-          <div className="fixed inset-0 animated-gradient -z-10" style={gradientStyle} aria-hidden />
+          <div id="app-grid-background" className="fixed inset-0 bg-grid pointer-events-none" aria-hidden />
+          <div id="app-animated-background" className="fixed inset-0 animated-gradient -z-10" style={gradientStyle} aria-hidden />
           <ThemeController
             palettes={allPalettes}
             colorProfile={config?.colorProfile ?? ''}

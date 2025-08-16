@@ -85,44 +85,45 @@ export default function WorkflowSection({ config }: Props) {
   ];
 
   return (
-    <section id="workflow" className="py-20 relative overflow-hidden">
+    <section id="workflow-section" className="py-20 relative overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 opacity-30">
-        <div className="absolute inset-0" style={{
+      <div id="workflow-background" className="absolute inset-0 opacity-30">
+        <div id="workflow-gradients" className="absolute inset-0" style={{
           background: `radial-gradient(circle at 20% 50%, color-mix(in srgb, var(--accent-1), transparent 95%), transparent 50%),
                        radial-gradient(circle at 80% 20%, color-mix(in srgb, var(--accent-2), transparent 95%), transparent 50%),
                        radial-gradient(circle at 40% 80%, color-mix(in srgb, #00d4aa, transparent 95%), transparent 50%)`
         }} />
       </div>
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div id="workflow-container" className="container mx-auto px-6 relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6" style={{ color: 'var(--foreground)' }}>
+        <div id="workflow-header" className="text-center mb-16">
+          <h2 id="workflow-title" className="text-4xl md:text-5xl font-bold mb-6" style={{ color: 'var(--foreground)' }}>
             {workflowTranslations?.title || 'From Vision to Reality'}
           </h2>
-          <p className="text-xl max-w-3xl mx-auto leading-relaxed" style={{ color: 'var(--muted)' }}>
+          <p id="workflow-subtitle" className="text-xl max-w-3xl mx-auto leading-relaxed" style={{ color: 'var(--muted)' }}>
             {workflowTranslations?.subtitle || 'Every successful project follows a proven path. Let me guide your ideas through a strategic journey from initial concept to thriving business solution.'}
           </p>
         </div>
 
         {/* Workflow Diagram */}
-        <div className="max-w-6xl mx-auto">
+        <div id="workflow-diagram" className="max-w-6xl mx-auto">
           {/* Desktop View - Horizontal Flow */}
-          <div className="hidden lg:block">
-            <div className="relative">
+          <div id="workflow-desktop" className="hidden lg:block">
+            <div id="workflow-desktop-container" className="relative">
               {/* Connection Lines */}
-              <div className="absolute top-1/2 left-0 right-0 h-0.5 transform -translate-y-1/2" 
+              <div id="workflow-connection-line" className="absolute top-1/2 left-0 right-0 h-0.5 transform -translate-y-1/2" 
                    style={{ backgroundColor: 'color-mix(in srgb, var(--foreground), transparent 70%)' }}>
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-current to-transparent opacity-50" />
+                <div id="workflow-line-gradient" className="absolute inset-0 bg-gradient-to-r from-transparent via-current to-transparent opacity-50" />
               </div>
 
               {/* Step Cards */}
-              <div className="grid grid-cols-5 gap-4 relative z-10">
+              <div id="workflow-steps-grid" className="grid grid-cols-5 gap-4 relative z-10">
                 {workflowSteps.map((step, index) => (
-                  <div key={step.id} className="flex flex-col items-center">
+                  <div key={step.id} id={`workflow-step-${step.id}`} className="flex flex-col items-center">
                     {/* Step Card */}
                     <div
+                      id={`workflow-card-${step.id}`}
                       className={`glass rounded-2xl p-6 cursor-pointer transform transition-all duration-300 w-full ${
                         activeStep === step.id ? 'scale-105 -translate-y-2' : 'hover:scale-102 hover:-translate-y-1'
                       }`}
@@ -136,6 +137,7 @@ export default function WorkflowSection({ config }: Props) {
                     >
                       {/* Step Icon */}
                       <div 
+                        id={`workflow-icon-${step.id}`}
                         className="text-4xl mb-4 mx-auto w-16 h-16 rounded-full flex items-center justify-center"
                         style={{
                           backgroundColor: `color-mix(in srgb, ${step.color}, transparent 80%)`,
@@ -146,6 +148,7 @@ export default function WorkflowSection({ config }: Props) {
 
                       {/* Step Content */}
                       <h3 
+                        id={`workflow-title-${step.id}`}
                         className="text-lg font-semibold mb-2 text-center"
                         style={{ color: activeStep === step.id ? step.color : 'var(--foreground)' }}
                       >

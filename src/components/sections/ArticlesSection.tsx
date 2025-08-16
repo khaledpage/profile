@@ -46,25 +46,25 @@ export default function ArticlesSection() {
 
   if (loading) {
     return (
-      <section className="py-20">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4" style={{ color: 'var(--foreground)' }}>
+      <section id="articles-section-loading" className="py-20">
+        <div id="articles-loading-container" className="container mx-auto px-6">
+          <div id="articles-loading-header" className="text-center mb-12">
+            <h2 id="articles-loading-title" className="text-4xl font-bold mb-4" style={{ color: 'var(--foreground)' }}>
               Latest Articles
             </h2>
-            <p style={{ color: 'var(--muted)' }}>
+            <p id="articles-loading-subtitle" style={{ color: 'var(--muted)' }}>
               Insights and tutorials on web development
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div id="articles-loading-grid" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[...Array(6)].map((_, i) => (
-              <div key={i} className="glass rounded-2xl overflow-hidden animate-pulse">
-                <div className="aspect-video" style={{ backgroundColor: 'color-mix(in srgb, var(--card), transparent 50%)' }}></div>
-                <div className="p-6">
-                  <div className="h-4 rounded mb-3" style={{ backgroundColor: 'color-mix(in srgb, var(--card), transparent 50%)' }}></div>
-                  <div className="h-6 rounded mb-3" style={{ backgroundColor: 'color-mix(in srgb, var(--card), transparent 50%)' }}></div>
-                  <div className="h-16 rounded" style={{ backgroundColor: 'color-mix(in srgb, var(--card), transparent 50%)' }}></div>
+              <div key={i} id={`article-skeleton-${i}`} className="glass rounded-2xl overflow-hidden animate-pulse">
+                <div id={`article-skeleton-image-${i}`} className="aspect-video" style={{ backgroundColor: 'color-mix(in srgb, var(--card), transparent 50%)' }}></div>
+                <div id={`article-skeleton-content-${i}`} className="p-6">
+                  <div id={`article-skeleton-line1-${i}`} className="h-4 rounded mb-3" style={{ backgroundColor: 'color-mix(in srgb, var(--card), transparent 50%)' }}></div>
+                  <div id={`article-skeleton-line2-${i}`} className="h-6 rounded mb-3" style={{ backgroundColor: 'color-mix(in srgb, var(--card), transparent 50%)' }}></div>
+                  <div id={`article-skeleton-line3-${i}`} className="h-16 rounded" style={{ backgroundColor: 'color-mix(in srgb, var(--card), transparent 50%)' }}></div>
                 </div>
               </div>
             ))}
@@ -76,12 +76,12 @@ export default function ArticlesSection() {
 
   if (error) {
     return (
-      <section className="py-20">
-        <div className="container mx-auto px-6 text-center">
-          <h2 className="text-4xl font-bold mb-4" style={{ color: 'var(--foreground)' }}>
+      <section id="articles-section-error" className="py-20">
+        <div id="articles-error-container" className="container mx-auto px-6 text-center">
+          <h2 id="articles-error-title" className="text-4xl font-bold mb-4" style={{ color: 'var(--foreground)' }}>
             Latest Articles
           </h2>
-          <p style={{ color: 'var(--muted)' }}>
+          <p id="articles-error-message" style={{ color: 'var(--muted)' }}>
             {error}
           </p>
         </div>
@@ -91,12 +91,12 @@ export default function ArticlesSection() {
 
   if (articles.length === 0) {
     return (
-      <section className="py-20">
-        <div className="container mx-auto px-6 text-center">
-          <h2 className="text-4xl font-bold mb-4" style={{ color: 'var(--foreground)' }}>
+      <section id="articles-section-empty" className="py-20">
+        <div id="articles-empty-container" className="container mx-auto px-6 text-center">
+          <h2 id="articles-empty-title" className="text-4xl font-bold mb-4" style={{ color: 'var(--foreground)' }}>
             Latest Articles
           </h2>
-          <p style={{ color: 'var(--muted)' }}>
+          <p id="articles-empty-message" style={{ color: 'var(--muted)' }}>
             No articles available at the moment.
           </p>
         </div>
@@ -118,41 +118,42 @@ export default function ArticlesSection() {
     sortedArticles;
 
   return (
-    <section id="articles" className="py-20">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold mb-4" style={{ color: 'var(--foreground)' }}>
+    <section id="articles-section" className="py-20">
+      <div id="articles-container" className="container mx-auto px-6">
+        <div id="articles-header" className="text-center mb-12">
+          <h2 id="articles-title" className="text-4xl font-bold mb-4" style={{ color: 'var(--foreground)' }}>
             Latest Articles
           </h2>
-          <p style={{ color: 'var(--muted)' }}>
+          <p id="articles-subtitle" style={{ color: 'var(--muted)' }}>
             Insights and tutorials on web development, design, and technology
           </p>
         </div>
 
         {/* Featured Article - if exists */}
         {featuredArticle && (
-          <div className="mb-12">
-            <div className="text-left mb-6">
-              <h3 className="text-2xl font-semibold" style={{ color: 'var(--foreground)' }}>
+          <div id="featured-article-section" className="mb-12">
+            <div id="featured-article-header" className="text-left mb-6">
+              <h3 id="featured-article-title" className="text-2xl font-semibold" style={{ color: 'var(--foreground)' }}>
                 Featured Article
               </h3>
             </div>
-            <div className="max-w-4xl mx-auto">
+            <div id="featured-article-container" className="max-w-4xl mx-auto">
               <ArticleCard article={featuredArticle} featured />
             </div>
           </div>
         )}
 
         {/* Horizontal Scrollable Articles */}
-        <div className="mb-8">
-          <div className="text-left mb-6">
-            <h3 className="text-2xl font-semibold" style={{ color: 'var(--foreground)' }}>
+        <div id="articles-scroll-section" className="mb-8">
+          <div id="articles-scroll-header" className="text-left mb-6">
+            <h3 id="articles-scroll-title" className="text-2xl font-semibold" style={{ color: 'var(--foreground)' }}>
               {featuredArticle ? 'More Articles' : 'All Articles'}
             </h3>
           </div>
           
-          <div className="relative overflow-hidden">
+          <div id="articles-scroll-container" className="relative overflow-hidden">
             <div 
+              id="articles-scroll-track"
               className="flex gap-6 animate-scroll hover:animate-pause"
               style={{
                 width: 'max-content',
@@ -162,7 +163,7 @@ export default function ArticlesSection() {
               {/* Duplicate articles multiple times for infinite scroll effect */}
               {Array.from({ length: Math.max(3, Math.ceil(12 / Math.max(1, scrollArticles.length))) }, (_, repeatIndex) => 
                 scrollArticles.map((article, index) => (
-                  <div key={`${article.slug}-${repeatIndex}-${index}`} className="flex-shrink-0 w-80">
+                  <div key={`${article.slug}-${repeatIndex}-${index}`} id={`article-scroll-item-${article.slug}-${repeatIndex}-${index}`} className="flex-shrink-0 w-80">
                     <ArticleCard article={article} />
                   </div>
                 ))
@@ -172,8 +173,9 @@ export default function ArticlesSection() {
         </div>
 
         {articles.length > 0 && (
-          <div className="text-center">
+          <div id="articles-view-all" className="text-center">
             <Link
+              id="articles-view-all-button"
               href="/articles"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-medium transition-all"
               style={{
@@ -183,7 +185,7 @@ export default function ArticlesSection() {
               }}
             >
               View All Articles
-              <span className="transform transition-transform group-hover:translate-x-1">→</span>
+              <span id="articles-view-all-arrow" className="transform transition-transform group-hover:translate-x-1">→</span>
             </Link>
           </div>
         )}

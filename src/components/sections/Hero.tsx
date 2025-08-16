@@ -66,25 +66,27 @@ export default function Hero({
     }
   }, [currentLanguage, title, subtitle, description, primaryButton, secondaryButton]);
   return (
-  <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+  <section id="hero-section" className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
       {/* spotlight gradient */}
-      <div className="absolute inset-0 -z-10">
-    <div className="pointer-events-none absolute -top-40 left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(99,102,241,0.25),transparent)] blur-3xl" />
-    <div className="animated-gradient absolute -inset-40 opacity-50" />
+      <div id="hero-background" className="absolute inset-0 -z-10">
+    <div id="hero-spotlight" className="pointer-events-none absolute -top-40 left-1/2 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(99,102,241,0.25),transparent)] blur-3xl" />
+    <div id="hero-animated-gradient" className="animated-gradient absolute -inset-40 opacity-50" />
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center">
+      <div id="hero-container" className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div id="hero-content" className="text-center">
                     <motion.h1
+            id="hero-title"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             className="text-4xl sm:text-6xl font-bold mb-4"
           >
-            <span className="gradient-text">{content.title}</span>
+            <span id="hero-title-text" className="gradient-text">{content.title}</span>
           </motion.h1>
           
           <motion.h2
+            id="hero-subtitle"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
@@ -95,6 +97,7 @@ export default function Hero({
           </motion.h2>
 
           <motion.p
+            id="hero-description"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
@@ -105,18 +108,21 @@ export default function Hero({
           </motion.p>
 
           <motion.div
+            id="hero-buttons"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
             <a
+              id="hero-primary-button"
               href={content.primaryButton.link}
               className="btn-primary inline-flex items-center justify-center"
             >
               {content.primaryButton.text}
             </a>
             <a
+              id="hero-secondary-button"
               href={content.secondaryButton.link}
               className="btn-secondary inline-flex items-center justify-center"
             >

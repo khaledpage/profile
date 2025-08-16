@@ -3,6 +3,9 @@ import { getArticleBySlug } from '@/utils/articles';
 
 import puppeteer from 'puppeteer';
 import katex from 'katex';
+import { remark } from 'remark';
+import remarkHtml from 'remark-html';
+import remarkGfm from 'remark-gfm';
 
 // Enhanced markdown to HTML conversion with LaTeX support
 function resolveAssetUrl(src: string, slug: string): string {

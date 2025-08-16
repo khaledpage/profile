@@ -41,44 +41,46 @@ function GroupMarquee({ group }: { group: SkillGroup }) {
   }, [dir, duration, paused]);
 
   return (
-    <div className="overflow-hidden rounded-2xl glass-dark p-3">
-      <div className="mb-3 flex items-center justify-between">
-        <h3 className="text-lg font-semibold">{group.title}</h3>
-        <span className="text-xs text-gray-400">{group.direction === 'right' ? '→' : '←'}</span>
+    <div id={`skill-group-${group.title.toLowerCase().replace(/\s+/g, '-')}`} className="overflow-hidden rounded-2xl glass-dark p-3">
+      <div id={`skill-header-${group.title.toLowerCase().replace(/\s+/g, '-')}`} className="mb-3 flex items-center justify-between">
+        <h3 id={`skill-title-${group.title.toLowerCase().replace(/\s+/g, '-')}`} className="text-lg font-semibold">{group.title}</h3>
+        <span id={`skill-direction-${group.title.toLowerCase().replace(/\s+/g, '-')}`} className="text-xs text-gray-400">{group.direction === 'right' ? '→' : '←'}</span>
       </div>
       <div
+        id={`skill-container-${group.title.toLowerCase().replace(/\s+/g, '-')}`}
         className="relative"
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => setPaused(false)}
       >
-        <div ref={containerRef} className="flex gap-3 will-change-transform">
+        <div id={`skill-marquee-${group.title.toLowerCase().replace(/\s+/g, '-')}`} ref={containerRef} className="flex gap-3 will-change-transform">
           {items.map((item, idx) => {
             const isActive = active === idx;
             return (
               <button
                 key={`${item.name}-${idx}`}
+                id={`skill-item-${item.name.toLowerCase().replace(/\s+/g, '-')}-${idx}`}
                 onClick={() => setActive(isActive ? null : idx)}
                 className={`relative shrink-0 rounded-xl glass p-3 text-left transition-all ${isActive ? 'scale-105 ring-2 ring-white/20' : 'hover:scale-105'}`}
                 style={{ width: isActive ? 220 : 160 }}
               >
-                <div className="text-sm font-medium">{item.name}</div>
+                <div id={`skill-name-${item.name.toLowerCase().replace(/\s+/g, '-')}-${idx}`} className="text-sm font-medium">{item.name}</div>
                 {(item.level || item.years) && (
-                  <div className="mt-0.5 text-[11px] text-gray-400">
+                  <div id={`skill-meta-${item.name.toLowerCase().replace(/\s+/g, '-')}-${idx}`} className="mt-0.5 text-[11px] text-gray-400">
                     {item.level ? item.level : ''}{item.level && item.years ? ' • ' : ''}{item.years ? `${item.years} yrs` : ''}
                   </div>
                 )}
                 {isActive && (
-                  <div className="mt-2 text-xs text-gray-300 max-w-[30ch]">
+                  <div id={`skill-details-${item.name.toLowerCase().replace(/\s+/g, '-')}-${idx}`} className="mt-2 text-xs text-gray-300 max-w-[30ch]">
                     {item.description}
                     {item.tags && item.tags.length > 0 && (
-                      <div className="mt-2 flex flex-wrap gap-1.5">
-                        {item.tags.map((t) => (
-                          <span key={t} className="px-1.5 py-[2px] rounded-full bg-white/10 text-[10px]">{t}</span>
+                      <div id={`skill-tags-${item.name.toLowerCase().replace(/\s+/g, '-')}-${idx}`} className="mt-2 flex flex-wrap gap-1.5">
+                        {item.tags.map((t, tagIdx) => (
+                          <span key={t} id={`skill-tag-${t.toLowerCase().replace(/\s+/g, '-')}-${idx}-${tagIdx}`} className="px-1.5 py-[2px] rounded-full bg-white/10 text-[10px]">{t}</span>
                         ))}
                       </div>
                     )}
                     {item.link && (
-                      <div className="mt-2">
+                      <div id={`skill-link-${item.name.toLowerCase().replace(/\s+/g, '-')}-${idx}`} className="mt-2">
                         <a href={item.link} target="_blank" rel="noreferrer" className="text-[11px] gradient-text">Learn more →</a>
                       </div>
                     )}
@@ -96,12 +98,12 @@ function GroupMarquee({ group }: { group: SkillGroup }) {
 export default function SkillsShowcase({ skills }: Props) {
   if (!skills || !skills.groups || skills.groups.length === 0) return null;
   return (
-    <section id="skills" className="py-24">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+    <section id="skills-section" className="py-24">
+      <div id="skills-container" className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 id="skills-title" className="text-3xl md:text-4xl font-bold text-center mb-12">
           {skills.title ?? 'Skills & Tooling'}
         </h2>
-        <div className="space-y-6">
+        <div id="skills-groups" className="space-y-6">
           {skills.groups.map((g) => (
             <GroupMarquee key={g.key} group={g} />
           ))}

@@ -53,10 +53,11 @@ export default function Header({ config }: Props) {
   return (
     <>
       {/* Particles Background */}
-  <div className="particles fixed inset-0 z-0" aria-hidden>
+  <div id="header-particles" className="particles fixed inset-0 z-0" aria-hidden>
     {particles.map((p, i) => (
           <div
             key={i}
+            id={`header-particle-${i}`}
             className="particle"
             style={{
       left: p.left,
@@ -68,6 +69,7 @@ export default function Header({ config }: Props) {
       </div>
 
       <motion.header
+        id="main-header"
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -76,17 +78,19 @@ export default function Header({ config }: Props) {
             : 'bg-transparent'
         }`}
       >
-        <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 lg:h-20">
+        <nav id="main-nav" className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div id="nav-container" className="flex items-center justify-between h-16 lg:h-20">
             {/* Logo */}
             <motion.a
+              id="header-logo"
               href="#"
               className="flex items-center space-x-2 group"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <div className="relative">
+              <div id="logo-icon-wrapper" className="relative">
                 <CodeBracketIcon 
+                  id="logo-icon"
                   className="h-8 w-8 transition-colors" 
                   style={{ 
                     color: 'var(--accent-1)', 
@@ -98,18 +102,19 @@ export default function Header({ config }: Props) {
                     e.currentTarget.style.color = 'var(--accent-1)';
                   }}
                 />
-                <div className="absolute inset-0 bg-indigo-400/20 blur-xl rounded-full group-hover:bg-indigo-300/30 transition-all" />
+                <div id="logo-glow" className="absolute inset-0 bg-indigo-400/20 blur-xl rounded-full group-hover:bg-indigo-300/30 transition-all" />
               </div>
-              <span className="font-bold text-xl gradient-text hidden sm:block">
+              <span id="logo-text" className="font-bold text-xl gradient-text hidden sm:block">
                 Portfolio
               </span>
             </motion.a>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-8">
+            <div id="desktop-nav" className="hidden md:flex items-center space-x-8">
               {navItems.map((item, index) => (
                 <motion.a
                   key={item.href}
+                  id={`nav-link-${item.href.replace('#', '')}`}
                   href={item.href}
                   className="relative font-medium transition-colors group"
                   style={{ 
@@ -127,13 +132,14 @@ export default function Header({ config }: Props) {
                   whileHover={{ y: -2 }}
                 >
                   {item.label}
-                  <span className="absolute inset-x-0 -bottom-1 h-0.5 bg-gradient-to-r from-indigo-400 to-purple-400 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
+                  <span id={`nav-underline-${item.href.replace('#', '')}`} className="absolute inset-x-0 -bottom-1 h-0.5 bg-gradient-to-r from-indigo-400 to-purple-400 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
                 </motion.a>
               ))}
             </div>
 
             {/* CTA Button */}
             <motion.a
+              id="header-cta-button"
               href="#contact"
               className="hidden md:block relative px-6 py-2 font-medium rounded-full transition-all interactive-border pulse-glow"
               style={{
@@ -157,6 +163,7 @@ export default function Header({ config }: Props) {
 
             {/* Mobile Menu Button */}
             <motion.button
+              id="mobile-menu-button"
               className="md:hidden relative z-50 p-2 rounded-lg glass"
               onClick={() => setIsOpen(!isOpen)}
               whileTap={{ scale: 0.9 }}
@@ -165,22 +172,24 @@ export default function Header({ config }: Props) {
                 {isOpen ? (
                   <motion.div
                     key="close"
+                    id="mobile-close-icon"
                     initial={{ rotate: -180, opacity: 0 }}
                     animate={{ rotate: 0, opacity: 1 }}
                     exit={{ rotate: 180, opacity: 0 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <XMarkIcon className="h-6 w-6" style={{ color: 'var(--foreground)' }} />
+                    <XMarkIcon id="close-icon" className="h-6 w-6" style={{ color: 'var(--foreground)' }} />
                   </motion.div>
                 ) : (
                   <motion.div
                     key="open"
+                    id="mobile-open-icon"
                     initial={{ rotate: 180, opacity: 0 }}
                     animate={{ rotate: 0, opacity: 1 }}
                     exit={{ rotate: -180, opacity: 0 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <Bars3Icon className="h-6 w-6" style={{ color: 'var(--foreground)' }} />
+                    <Bars3Icon id="hamburger-icon" className="h-6 w-6" style={{ color: 'var(--foreground)' }} />
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -192,6 +201,7 @@ export default function Header({ config }: Props) {
         <AnimatePresence>
           {isOpen && (
             <motion.div
+              id="mobile-menu"
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
@@ -200,11 +210,12 @@ export default function Header({ config }: Props) {
                 borderTop: `1px solid color-mix(in srgb, var(--foreground), transparent 90%)`,
               }}
             >
-              <div className="container mx-auto px-4 py-6">
-                <div className="flex flex-col space-y-4">
+              <div id="mobile-menu-container" className="container mx-auto px-4 py-6">
+                <div id="mobile-nav-links" className="flex flex-col space-y-4">
                   {navItems.map((item, index) => (
                     <motion.a
                       key={item.href}
+                      id={`mobile-nav-link-${item.href.replace('#', '')}`}
                       href={item.href}
                       className="font-medium py-2 px-4 rounded-lg transition-all"
                       style={{ 
@@ -227,6 +238,7 @@ export default function Header({ config }: Props) {
                     </motion.a>
                   ))}
                   <motion.a
+                    id="mobile-cta-button"
                     href="#contact"
                     className="mt-4 px-6 py-3 font-medium rounded-full text-center"
                     style={{

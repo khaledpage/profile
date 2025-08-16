@@ -18,11 +18,11 @@ export default async function Home() {
   const { hero, projects, contact } = content;
 
     return (
-      <div className="min-h-dvh text-foreground">
+      <div id="home-page" className="min-h-dvh text-foreground">
         <Header config={config} />
         <HomeSectionsController content={content} config={config} />
 
-        <footer className="py-10 text-center text-sm" style={{ color: 'var(--muted)' }}>
+        <footer id="main-footer" className="py-10 text-center text-sm" style={{ color: 'var(--muted)' }}>
           © {new Date().getFullYear()} Khaled Alabsi. Built with Next.js.
         </footer>
       </div>
@@ -30,10 +30,10 @@ export default async function Home() {
   } catch (error) {
     console.error('Error loading content:', error);
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-2xl font-bold text-red-600 mb-4">Error Loading Content</h1>
-          <p style={{ color: 'var(--muted)' }}>Please make sure all content files are properly formatted.</p>
+      <div id="error-page" className="min-h-screen flex items-center justify-center">
+        <div id="error-content" className="text-center">
+          <h1 id="error-title" className="text-2xl font-bold text-red-600 mb-4">Error Loading Content</h1>
+          <p id="error-message" style={{ color: 'var(--muted)' }}>Please make sure all content files are properly formatted.</p>
         </div>
       </div>
     );
