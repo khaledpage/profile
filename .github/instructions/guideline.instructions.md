@@ -8,6 +8,14 @@ applyTo: '**'
 
 Before making any changes, ensure you follow these steps:
 
+### Feature to implement
+- Read the file FEATURES_AS_STORIES.md where the user write his wishes.
+- refactore and fix the user wisches in FEATURES_AS_STORIES.md
+- Add id to it and implement the feature.
+- Add implementation date and mark it as done.
+- Only implement one feature that is not done yet.
+
+
 ### 🔍 Context Gathering
 
 - [ ] Read current file contents before editing
