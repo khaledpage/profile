@@ -2,12 +2,59 @@
 
 ## 📊 Summary Statistics
 
-- **Total Issues Tracked**: 23
-- **Resolved Issues**: 22
+- **Total Issues Tracked**: 26
+- **Resolved Issues**: 25
 - **Active Issues**: 1  
 - **Success Rate**: 96%
 
 ## 🚨 Active Issues
+
+### Issue #024 - Articles Scroll Container Height and Speed Issues
+
+- **Status**: ✅ Fixed
+- **Priority**: Medium  
+- **Reported**: August 16, 2025
+- **Description**: Article scroll container height too small causing content to be cut off, and animation too fast
+- **Root Cause**: Fixed height container and insufficient animation duration
+- **Fix Applied**:
+  - Added min-height of 400px to articles scroll container
+  - Increased scroll duration from 40s base to 60s base + 15s per article
+  - Added items-stretch and h-full classes for consistent height
+  - Improved animation timing for better readability
+- **Files Changed**:
+  - `src/components/sections/ArticlesSection.tsx` (enhanced scroll container and timing)
+- **Impact**: Better visual presentation and readability of scrolling articles
+
+### Issue #025 - CTA Button Heartbeat Animation Not Working
+
+- **Status**: ✅ Fixed
+- **Priority**: Low
+- **Reported**: August 16, 2025
+- **Description**: "Let's Talk" CTA button heartbeat animation not functioning properly
+- **Root Cause**: TypeScript warning on line 36 in Header.tsx causing animation issues
+- **Fix Applied**:
+  - Fixed TypeScript warning by using void operator for element.offsetHeight
+  - Verified heartbeat animation triggers work correctly
+  - Ensured both desktop and mobile CTA buttons receive animations
+- **Files Changed**:
+  - `src/components/layout/Header.tsx` (fixed TypeScript warning)
+- **Impact**: Restored heartbeat animation functionality for CTA buttons
+
+### Issue #026 - Article Deletion Authentication Error
+
+- **Status**: ✅ Fixed
+- **Priority**: High
+- **Reported**: August 16, 2025
+- **Description**: Article deletion failing due to authentication issues
+- **Root Cause**: Client-side code trying to access server environment variables
+- **Fix Applied**:
+  - Removed client-side access to process.env.ADMIN_PASSWORD
+  - Added proper check for stored admin password in localStorage
+  - Enhanced error handling with redirect to login if not authenticated
+  - Improved user feedback for authentication failures
+- **Files Changed**:
+  - `src/components/ui/ArticleCard.tsx` (fixed authentication logic)
+- **Impact**: Restored article deletion functionality with proper authentication
 
 ### Issue #022 - Navigation Links Not Working for Articles and Skills
 
@@ -227,16 +274,16 @@
 - **Fix Applied**:
   - Added comprehensive workflow translations to config.json (EN/DE)
   - Updated WorkflowSection component to use translation system
-  - Added new requirements to Requirements-Tabelle.md
+  - Added new requirements to REQUIREMENTS_TABELLE.md
   - Updated TypeScript types to support workflow translations
 - **Files Changed**:
   - `src/content/config.json` (added workflow translations)
   - `src/components/sections/WorkflowSection.tsx` (i18n integration)
   - `src/types/content.ts` (workflow translation types)
-  - `Requirements-Tabelle.md` (added WORK-*, BACK-*, IMG-*, DEV-* requirements)
+  - `REQUIREMENTS_TABELLE.md` (added WORK-*, BACK-*, IMG-*, DEV-* requirements)
 - **Guidelines Followed**:
   - ✅ Extracted all UI text to translations
-  - ✅ Updated Requirements-Tabelle with new features
+  - ✅ Updated REQUIREMENTS_TABELLE with new features
   - ✅ Added proper TypeScript types
   - ✅ Tested build process
 

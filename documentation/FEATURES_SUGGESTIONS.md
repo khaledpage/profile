@@ -20,7 +20,7 @@ This file contains suggested features and improvements based on recent implement
 - Checkbox selection on article cards in admin mode
 - Bulk action toolbar when articles are selected
 - Confirmation dialogs for bulk operations
-**Status**: approved
+**Status**: ✅ Moved to FEATURES_AS_STORYS.md as FEAT-005
 
 ### SUGGESTION-003: Article Upload Progress Indicator
 **Description**: Show progress bar during ZIP file uploads and processing
@@ -29,7 +29,7 @@ This file contains suggested features and improvements based on recent implement
 - Progress bar during file processing
 - Processing status for each uploaded file
 - Success/error indicators per file
-**Status**: approved
+**Status**: ✅ Moved to FEATURES_AS_STORYS.md as FEAT-006
 
 ### SUGGESTION-004: Navigation Smooth Scrolling Enhancement
 **Description**: Add smooth scrolling behavior to navigation links
@@ -47,6 +47,51 @@ This file contains suggested features and improvements based on recent implement
 - `/admin` route with authentication check
 - Article management, settings, and analytics
 - Quick actions and recent activity
+**Status**: Pending approval
+
+### SUGGESTION-006: Multi-Backend Article Support
+**Description**: Extend the ArticleService interface to support multiple backends (database, CMS, API)
+**Rationale**: The new modular architecture makes it easy to add database or CMS backends
+**Implementation**: 
+- Create DatabaseArticleService, CMSArticleService implementations
+- Backend configuration in settings
+- Migration tools between backends
+**Status**: Pending approval
+
+### SUGGESTION-007: Article Analytics Integration  
+**Description**: Add article view tracking and analytics using the hook system
+**Rationale**: Understand content performance and user engagement
+**Implementation**:
+- useArticleAnalytics hook with view tracking
+- Reading time, scroll depth metrics
+- Analytics dashboard in admin
+**Status**: Pending approval
+
+### SUGGESTION-008: Real-time Article Collaboration
+**Description**: Enable multiple admin users to edit articles simultaneously
+**Rationale**: Team content creation with live collaboration
+**Implementation**:
+- WebSocket integration for real-time updates
+- Conflict resolution system
+- Live cursor indicators
+**Status**: Pending approval
+
+### SUGGESTION-009: Article Template System
+**Description**: Create reusable article templates (tutorial, review, case study, etc.)
+**Rationale**: Consistent content structure and faster article creation
+**Implementation**:
+- Template service with predefined structures
+- Form-based article creation from templates
+- Custom template creation
+**Status**: Pending approval
+
+### SUGGESTION-010: Enhanced Article Search
+**Description**: Full-text search with advanced filters (date range, author, reading time)
+**Rationale**: Better content discovery with professional search experience
+**Implementation**:
+- Search service with indexing
+- Faceted search with multiple filters
+- Search suggestions and autocomplete
 **Status**: Pending approval
 
 ---

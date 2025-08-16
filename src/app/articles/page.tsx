@@ -58,7 +58,7 @@ export default async function ArticlesPage() {
       {/* Articles Explorer with search & filters */}
       <section className="py-12">
         <div className="container mx-auto px-6">
-          <ArticlesExplorer initial={[...featuredArticles, ...regularArticles]} config={config} />
+          <ArticlesExplorer config={config} />
         </div>
       </section>
 

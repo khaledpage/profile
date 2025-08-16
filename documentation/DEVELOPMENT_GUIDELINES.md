@@ -47,7 +47,7 @@ After implementing any feature or fix:
 ### 📚 Documentation Updates
 Always update these files when relevant:
 
-1. **Requirements-Tabelle.md**
+1. **REQUIREMENTS_TABELLE.md**
    - Add new requirement entries for features
    - Update acceptance criteria
    - Mark completed requirements

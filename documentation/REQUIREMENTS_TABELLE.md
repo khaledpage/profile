@@ -115,12 +115,13 @@
 | DOC-04   | Documentation Structure  | Organized documentation folder                  | High     | Dedicated docs folder; README references; proper file organization; easy navigation                       |
 | BUILD-01 | Build Process Fix        | Fixed stuck deployment command                  | High     | Process cleanup; image URL fixes; timeout handling; improved error reporting                              |
 | BUILD-02 | Article Image Loading    | Fixed broken article images                     | High     | Corrected malformed URLs; proper asset paths; updated articles.json; responsive image loading             |
-
 | ART-21   | Articles Search          | Search articles by title/summary/tags           | High     | Search input filters client-side; case-insensitive; instant updates; empty state message                  |
 | ART-22   | Tag Filtering            | Filter articles by tags                         | High     | Clickable tag chips; multi-select; clear-all; combined with search query                                  |
 | ADMIN-01 | Admin Role Toggle        | Admin mode with feature gating                  | High     | Admin default enabled; toggle in settings (if allowed); event-driven UI updates                           |
 | ADMIN-02 | ZIP Download             | Per-article ZIP download (admin-only)           | High     | Button on cards in admin mode; includes article.md, metadata.json, assets/                                |
 | ADMIN-03 | ZIP Upload               | Upload article ZIPs and merge for import        | Medium   | Upload control in Articles page (admin); produces imported-articles.zip; doc updated                      |
 | ADMIN-04 | Article Deletion         | Admin can delete articles via web interface     | High     | ✅ COMPLETED (Dec 27, 2024) - Delete button on article cards; confirmation dialog; API authentication; file cleanup |
+| ADMIN-05 | Bulk Article Operations  | Admin can select/delete multiple articles       | Medium   | ✅ COMPLETED (Aug 16, 2025) - Bulk mode toggle; checkbox selection; bulk delete with progress feedback               |
+| ADMIN-06 | Upload Progress Display  | Progress indicator for ZIP file uploads         | Low      | ✅ COMPLETED (Aug 16, 2025) - Progress bars per file; success/error indicators; enhanced upload feedback             |
+| FEAT-004 | Modular Article System  | Modular, reusable article management architecture | High     | ✅ COMPLETED (Dec 28, 2024) - ArticleService interface; React hooks; refactored components; maintained functionality |
 | SET-23   | Home Sections Control    | Admin can arrange/hide homepage sections        | Medium   | New Settings tab placeholder; order/hidden stored in preferences and respected by home controller          |
-

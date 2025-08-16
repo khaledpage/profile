@@ -1,1 +1,1 @@
-- update Requirements-Tabelle, TECHNICAL_DOCUMENTATION, content manger manuel, bugs logs and and translations config readme files if needed.
+- update REQUIREMENTS_TABELLE, TECHNICAL_DOCUMENTATION, content manger manuel, bugs logs and and translations config readme files if needed.

@@ -13,12 +13,32 @@ interface ArticleCardProps {
   adminEnabled?: boolean;
   allowZipDownload?: boolean;
   onDelete?: (slug: string) => void;
+  selectable?: boolean;
+  selected?: boolean;
+  onSelectionChange?: (slug: string, selected: boolean) => void;
 }
 
-export default function ArticleCard({ article, featured = false, adminEnabled = false, allowZipDownload = false, onDelete }: ArticleCardProps) {
+export default function ArticleCard({ 
+  article, 
+  featured = false, 
+  adminEnabled = false, 
+  allowZipDownload = false, 
+  onDelete,
+  selectable = false,
+  selected = false,
+  onSelectionChange
+}: ArticleCardProps) {
   const { metadata, slug } = article;
   const base = process.env.NEXT_PUBLIC_BASE_PATH || '';
   const [isDeleting, setIsDeleting] = useState(false);
+
+  const handleSelectionChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (onSelectionChange) {
+      onSelectionChange(slug, e.target.checked);
+    }
+  };
 
   const handleDownloadZip = async (e: React.MouseEvent) => {
     e.preventDefault();
@@ -55,11 +75,17 @@ export default function ArticleCard({ article, featured = false, adminEnabled = 
 
     setIsDeleting(true);
     try {
-      const adminKey = localStorage.getItem('admin-password') || process.env.ADMIN_PASSWORD;
+      const adminKey = localStorage.getItem('admin-password');
+      if (!adminKey) {
+        alert('Admin authentication required. Please log in again.');
+        window.location.href = '/login';
+        return;
+      }
+      
       const response = await fetch(`/api/articles?slug=${slug}`, {
         method: 'DELETE',
         headers: {
-          'x-admin-key': adminKey || '',
+          'x-admin-key': adminKey,
         }
       });
 
@@ -88,8 +114,22 @@ export default function ArticleCard({ article, featured = false, adminEnabled = 
         id={`article-card-${slug}`}
         className={`glass rounded-2xl overflow-hidden transition-all duration-300 lift ${
           featured ? 'col-span-full lg:col-span-2' : ''
-        }`}
+        } ${selected ? 'ring-2 ring-blue-500' : ''}`}
       >
+        {selectable && adminEnabled && (
+          <div className="absolute top-3 left-3 z-10">
+            <input
+              type="checkbox"
+              checked={selected}
+              onChange={handleSelectionChange}
+              className="w-5 h-5 rounded border-2 focus:ring-2 focus:ring-blue-500"
+              style={{
+                backgroundColor: selected ? 'var(--accent-1)' : 'var(--card)',
+                borderColor: 'var(--accent-1)'
+              }}
+            />
+          </div>
+        )}
         <div id={`article-image-container-${slug}`} className="relative aspect-video overflow-hidden">
           <Image
             id={`article-image-${slug}`}

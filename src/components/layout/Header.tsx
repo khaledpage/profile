@@ -33,7 +33,7 @@ export default function Header({ config }: Props) {
         // Remove animation class
         element.classList.remove('heartbeat');
         // Trigger reflow to restart animation
-        element.offsetHeight;
+        void element.offsetHeight;
         // Add animation class with random delay
         const randomDelay = Math.random() * 3; // 0-3 seconds delay
         element.style.setProperty('--heartbeat-delay', `${randomDelay}s`);

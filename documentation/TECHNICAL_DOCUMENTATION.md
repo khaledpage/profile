@@ -58,6 +58,41 @@ my-portfolio/
 
 ### 📄 **Articles System (`src/app/articles/`)**
 
+#### **Modular Architecture Overview**
+
+The article system uses a service-oriented architecture for maximum reusability:
+
+**Core Components:**
+1. **ArticleService Interface** (`src/services/articleService.ts`)
+   - Abstract interface defining all article operations
+   - CRUD operations, search, filtering, bulk operations
+   - File management (upload, download, ZIP operations)
+   - Easily implementable for different backends
+
+2. **FileSystemArticleService** 
+   - Concrete implementation using Next.js filesystem
+   - Direct file operations with JSON metadata
+   - ZIP file processing with JSZip library
+   - Production-ready implementation
+
+3. **React Hooks** (`src/hooks/useArticles.ts`)
+   - `useArticles`: Article listing with search/filter
+   - `useArticleActions`: Admin operations (CRUD, bulk)
+   - `useArticleUpload`: File upload with progress tracking
+   - Reusable across multiple components
+
+**Data Flow:**
+```
+Component → Hook → Service → API/Filesystem → Database/Files
+```
+
+**Reusability Features:**
+- Service interface allows easy backend swapping
+- Hooks encapsulate state management and business logic
+- Components focus purely on UI concerns
+- All operations are type-safe with TypeScript
+- Error handling and loading states built-in
+
 #### **`src/app/articles/page.tsx`**
 - **Purpose**: Articles listing page
 - **Functionality**:

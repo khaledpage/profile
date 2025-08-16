@@ -180,19 +180,19 @@ export default function ArticlesSection() {
             </h3>
           </div>
           
-          <div id="articles-scroll-container" className="relative overflow-hidden">
+          <div id="articles-scroll-container" className="relative overflow-hidden h-auto min-h-[400px]">
             <div
               id="articles-scroll-track"
-              className="flex gap-6 animate-scroll hover:animate-pause"
+              className="flex gap-6 animate-scroll hover:animate-pause items-stretch"
               style={{
                 width: 'max-content',
-                '--scroll-duration': `${Math.max(40, fallbackArticles.length * 10)}s`
+                '--scroll-duration': `${Math.max(60, fallbackArticles.length * 15)}s`
               } as React.CSSProperties}
             >
               {/* Duplicate articles enough times for smooth infinite scroll */}
               {Array.from({ length: Math.max(6, Math.ceil(20 / Math.max(1, fallbackArticles.length))) }, (_, repeatIndex) => 
                 fallbackArticles.map((article, index) => (
-                  <div key={`${article.slug}-${repeatIndex}-${index}`} id={`article-scroll-item-${article.slug}-${repeatIndex}-${index}`} className="flex-shrink-0 w-80">
+                  <div key={`${article.slug}-${repeatIndex}-${index}`} id={`article-scroll-item-${article.slug}-${repeatIndex}-${index}`} className="flex-shrink-0 w-80 h-full">
                     <ArticleCard article={article} />
                   </div>
                 ))
