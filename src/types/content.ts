@@ -184,6 +184,28 @@ export interface SiteConfig {
         topArticles: string;
         deviceBreakdown: string;
       };
+      admin?: {
+        backendSelector?: {
+          title: string;
+          configure: string;
+          currentBackend: string;
+          testConnection: string;
+          selectBackend: string;
+          databaseType: string;
+          host: string;
+          port: string;
+          database: string;
+          username: string;
+          filename: string;
+          cmsType: string;
+          apiUrl: string;
+          apiKey: string;
+          advancedOptions: string;
+          enableSync: string;
+          saveConfig: string;
+          testNewBackend: string;
+        };
+      };
     }>;
   };
   interactiveEffects?: {

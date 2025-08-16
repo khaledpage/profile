@@ -10,7 +10,7 @@ A modern, customizable Next.js portfolio featuring dynamic theming, multilingual
 | **[Deployment Guide](documentation/DEPLOYMENT_GUIDE.md)** | Deployment instructions |
 | **[Technical Documentation](documentation/TECHNICAL_DOCUMENTATION.md)** | Technical architecture and implementation details |
 | **[Requirements Table](documentation/REQUIREMENTS_TABELLE.md)** | Project requirements and acceptance criteria |
-| **[Bug Fix Log](documentation/BUG_FIX_LOG.md)** | Issue tracking and resolution history |
+| **[Bug Fix Log](documentation/bug_fix_log.md.md)** | Issue tracking and resolution history |
 | **[Content Manager Manual](documentation/CONTENT_MANAGER_MANUAL.md)** | Content management and editing guide |
 
 ## ✨ Key Features

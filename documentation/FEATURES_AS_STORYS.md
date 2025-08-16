@@ -306,3 +306,79 @@ As a content creator, I want to track article performance and user engagement, s
 - ✅ Integration with existing admin dashboard and navigation
 
 ---
+
+### FEAT-011: Multi-Backend Article Support
+
+**ID**: FEAT-011
+**Date**: August 16, 2025
+**Status**: ✅ DONE
+**Implementation Date**: August 16, 2025
+
+#### User Story
+
+As an admin user, I want to configure different backend storage options for articles (filesystem, database, CMS), so that I can choose the most appropriate storage solution for my needs and migrate between them as required.
+
+#### Implementation Details
+
+This feature extends the existing modular ArticleService architecture to support multiple storage backends:
+
+- **Database Backend**: Support for PostgreSQL, MySQL, and SQLite with structured article storage
+- **CMS Backend**: Integration with popular headless CMS platforms (Strapi, Contentful, Sanity, Ghost)
+- **Configuration Management**: Backend selector interface in admin panel with connection testing
+- **Migration Tools**: Utilities to migrate articles between different backend types
+- **Fallback Support**: Secondary backend configuration for redundancy and sync
+
+#### Technical Changes
+
+- `src/services/databaseArticleService.ts`: New database backend implementation
+- `src/services/cmsArticleService.ts`: New CMS backend implementation  
+- `src/services/backendConfigManager.ts`: Backend configuration and management service
+- `src/components/admin/BackendSelector.tsx`: Admin UI for backend configuration
+- `src/app/admin/page.tsx`: Added Backend tab to admin dashboard
+- `src/content/config.json`: Added admin.backendSelector translations (EN/DE)
+
+#### Backend Features
+
+**Database Backend**:
+- Support for PostgreSQL, MySQL, SQLite databases
+- Structured schema with articles table and JSON fields for metadata
+- Connection configuration with host, port, credentials
+- Full CRUD operations with proper error handling
+
+**CMS Backend**:
+- Support for Strapi, Contentful, Sanity, Ghost, and custom APIs
+- Automatic data transformation between CMS schemas and Article type
+- Authentication via API keys and tokens
+- Platform-specific optimizations for each CMS type
+
+**Configuration Manager**:
+- Primary and fallback backend configuration
+- Connection testing and validation
+- Migration utilities with batch processing
+- Automatic sync between backends when enabled
+
+#### Admin Interface
+
+- **Backend Selector**: Intuitive UI for choosing and configuring backends
+- **Connection Testing**: Real-time connection validation with status indicators
+- **Migration Tools**: Safe migration between backends with progress tracking
+- **Advanced Options**: Sync configuration and fallback backend setup
+
+#### Acceptance Criteria
+
+- ✅ Admin can select between filesystem, database, and CMS backends
+- ✅ Database backend supports PostgreSQL, MySQL, and SQLite
+- ✅ CMS backend supports Strapi, Contentful, Sanity, Ghost, and custom APIs
+- ✅ Connection testing validates backend configurations before saving
+- ✅ Migration tools allow safe transfer of articles between backends
+- ✅ Backend configuration persists in local storage
+- ✅ Fallback backend support for redundancy
+- ✅ Automatic sync between primary and fallback backends when enabled
+- ✅ Comprehensive error handling and user feedback
+- ✅ Multilingual interface with German and English translations
+- ✅ Integration with existing admin dashboard
+- ✅ Backend status indicators show connection health
+
+---
+
+### feature: if the admin log in the login save to the cookie in the browser or session. if it in cookie the user should be ask to accept cookie again if he didnt accpet it befor. 

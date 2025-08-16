@@ -113,7 +113,7 @@ src/content/articles/tailwind-css-guide/article.md
 README.md - Added documentation references
 public/data/articles.json - Fixed URLs, added new articles
 src/components/ui/SettingsPanel.tsx - Added tab system
-documentation/BUG_FIX_LOG.md - Updated tracking
+documentation/bug_fix_log.md.md - Updated tracking
 documentation/REQUIREMENTS_TABELLE.md - Added new requirements
 ```
 
@@ -121,7 +121,7 @@ documentation/REQUIREMENTS_TABELLE.md - Added new requirements
 ```
 DEVELOPMENT_GUIDELINES.md → documentation/
 TECHNICAL_DOCUMENTATION.md → documentation/
-BUG_FIX_LOG.md → documentation/
+bug_fix_log.md.md → documentation/
 REQUIREMENTS_TABELLE.md → documentation/
 CONTENT_MANAGER_MANUAL.md → documentation/
 ```

@@ -1,25 +1,43 @@
 **the user have to confirm the bug is fixed after testing it**
 
 
-bug: uploading zip file to articles, is not bieng displayed
-- Fixed: Enhanced upload UI with visible button styling and improved feedback display
-- Fixed: Added better visual feedback for successful imports with proper styling
+bug/new feature: upload some article to articles page, expected to see the article appears beside the other article in the page http://localhost:3000/articles, with some indectation icon, that is new uploaded, but i see no new article, fix that and make some e2e test. you can create some test articl and zip it for testing. write another test that delete it.
 
 
+--
 
-bug: the hight of the row where the article are anmimated to move, is not high enough, which make the story look cut inside it . and the row animation is too fast.
+bug: the hight of the row where the article are anmimated to move, is not high enough, which make the article look cut out inside it . and the row animation is too fast.
 
+--
 
 Bug: the let talks btn in navigation is not Animated.
 
 
-Bug: when try to delet an article, the user is asked to log in as admin first, this dont make since, since in admin role they shouldnt be upload or delete for article , not even setting pannel. admin role or mode is active by default for now on dev env. define the admin role in docs and fix the code.
-- Fixed: Updated ArticleCard to use default admin password ('admin') when admin mode is enabled by default
-- Fixed: Both delete and edit operations now work without requiring explicit login when admin is enabled by default
-- **USER CONFIRMATION NEEDED**: Please test article deletion and editing
+---
 
 bug: i cant edit articles in real time or i dont know how
-- Fixed: Implemented comprehensive article edit functionality with ArticleEditModal
-- Fixed: Added edit button on article cards (blue button next to delete button)
-- Fixed: Modal editor includes markdown preview, auto-save, and real-time editing
-- **USER CONFIRMATION NEEDED**: Please test the edit functionality by clicking the blue "Edit" button on any article card
+
+---
+
+bug: the "Filter by Category:" should have own row and never move to fill empty space, if some tags in the row above are becomed less, because of filtering. 
+
+---
+
+bug: editing article is not activiting the save btn after changing the text in Content Editor. but it do get active after changeing some field from "Article Metadata" but after clicking it, error is caused. fix it and run e2e test that cover everthing.
+
+---
+
+bug: the show review btn in editing article does not render markdown 
+
+
+---
+
+CR: change the defualt mode to none admin
+
+
+- bug: the selector page.waitForSelector('#admin-dashboard') sometimes you changed it to page.waitForSelector('#admin-dashboard-container') and sometime you chnage it back, you need to finde another solutaion and add comments to explain the changes to the code in the test, so you dont do that again.
+
+
+--
+
+bug: in the test you have to accept that some styling (color, opacity) can change depending on theme, dont be harsh in such test cases and avoid them.

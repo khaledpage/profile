@@ -8,6 +8,7 @@ import { useArticles } from '@/hooks/useArticles';
 import { SiteConfig } from '@/types/content';
 import { Article } from '@/types/article';
 import AnalyticsDashboard from '@/components/ui/AnalyticsDashboard';
+import BackendSelector from '@/components/admin/BackendSelector';
 
 export default function AdminDashboard() {
   const router = useRouter();
@@ -145,6 +146,21 @@ export default function AdminDashboard() {
               }}
             >
               Analytics
+            </button>
+            <button
+              id="backend-tab"
+              onClick={() => setActiveTab('backend')}
+              className={`py-4 px-2 border-b-2 font-medium text-sm transition-colors ${
+                activeTab === 'backend'
+                  ? 'border-accent-1 text-accent-1'
+                  : 'border-transparent hover:text-accent-1'
+              }`}
+              style={{ 
+                color: activeTab === 'backend' ? 'var(--accent-1)' : 'var(--muted)',
+                borderColor: activeTab === 'backend' ? 'var(--accent-1)' : 'transparent'
+              }}
+            >
+              Backend
             </button>
           </nav>
         </div>
@@ -335,6 +351,11 @@ export default function AdminDashboard() {
         {/* Analytics Tab Content */}
         {activeTab === 'analytics' && config && (
           <AnalyticsDashboard config={config} />
+        )}
+
+        {/* Backend Configuration Tab Content */}
+        {activeTab === 'backend' && config && (
+          <BackendSelector config={config} />
         )}
       </div>
     </div>

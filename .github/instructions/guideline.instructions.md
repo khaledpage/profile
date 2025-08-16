@@ -6,6 +6,9 @@ applyTo: '**'
 
 **Hint:** If a file mentioned here does not exist, create it.
 **Hint:** dont ever close the server that i run on port 3000, i run it for you, so you can run e2e tests in another terminal.
+**Hint:** always make sure that the article code in own module and ready to be used in another projects. this for the backend and the ui parts.
+**Hint:** when you writing test for the ui, dont forget there will cookie banner ask you accept cookies, if not approved, it may cause some tests to fail.
+
 
 ---
 
@@ -26,7 +29,7 @@ When the user types **"start"**, follow this exact workflow:
    * Reformulate the bug descriptions, that is written form the user and make it more clear and concise.
    * Always leave placeholders so the user can confirm fixes where successful, then the issue can be closed and moved to `CLOSED_BUGS.md`.
    * if the user mark the fix as not successful, try to fix it again when you read it. and write the number of the fix attempt.
-   * Document fixes in `BUG_FIX_LOG.md`.
+   * Document fixes in `bug_fix_log.md.md`.
 4. Update `REQUIREMENTS_TABELLE.md` with implemented features.
 5. Maintain **FEATURES Suggestions Workflow**:
 
@@ -281,7 +284,7 @@ export default function ComponentName({ config }: Props) {
 ## Bug Fix Protocol
 
 1. Identify – Reproduce & understand the bug
-2. Investigate – Document root cause in `BUG_FIX_LOG.md`
+2. Investigate – Document root cause in `bug_fix_log.md.md`
 3. Fix – Apply minimal, targeted change
 4. Test – Ensure no regressions introduced
 5. Document – Log resolution details

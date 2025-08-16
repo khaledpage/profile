@@ -464,6 +464,28 @@
           "weeklyViews": "Wöchentliche Aufrufe",
           "topArticles": "Top Artikel",
           "deviceBreakdown": "Geräte-Verteilung"
+        },
+        "admin": {
+          "backendSelector": {
+            "title": "Artikel-Backend-Konfiguration",
+            "configure": "Konfigurieren",
+            "currentBackend": "Aktuelles Backend",
+            "testConnection": "Verbindung testen",
+            "selectBackend": "Backend-Typ auswählen",
+            "databaseType": "Datenbank-Typ",
+            "host": "Host",
+            "port": "Port",
+            "database": "Datenbank",
+            "username": "Benutzername",
+            "filename": "Datenbankdatei",
+            "cmsType": "CMS-Typ",
+            "apiUrl": "API-URL",
+            "apiKey": "API-Schlüssel",
+            "advancedOptions": "Erweiterte Optionen",
+            "enableSync": "Automatische Synchronisation mit Backup-Backend aktivieren",
+            "saveConfig": "Konfiguration speichern",
+            "testNewBackend": "Neues Backend testen"
+          }
         }
       },
       "en": {
@@ -568,6 +590,28 @@
           "weeklyViews": "Weekly Views",
           "topArticles": "Top Articles",
           "deviceBreakdown": "Device Breakdown"
+        },
+        "admin": {
+          "backendSelector": {
+            "title": "Article Backend Configuration",
+            "configure": "Configure",
+            "currentBackend": "Current Backend",
+            "testConnection": "Test Connection",
+            "selectBackend": "Select Backend Type",
+            "databaseType": "Database Type",
+            "host": "Host",
+            "port": "Port",
+            "database": "Database",
+            "username": "Username",
+            "filename": "Database File",
+            "cmsType": "CMS Type",
+            "apiUrl": "API URL",
+            "apiKey": "API Key",
+            "advancedOptions": "Advanced Options",
+            "enableSync": "Enable automatic sync with fallback backend",
+            "saveConfig": "Save Configuration",
+            "testNewBackend": "Test New Backend"
+          }
         }
       }
     }

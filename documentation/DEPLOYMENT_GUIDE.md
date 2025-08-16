@@ -314,7 +314,7 @@ npm run analyze
 For deployment issues:
 
 1. Check the [troubleshooting section](#troubleshooting)
-2. Review the [bug fix log](BUG_FIX_LOG.md)
+2. Review the [bug fix log](bug_fix_log.md.md)
 3. Check GitHub Actions logs for CI/CD issues
 4. Verify environment variables are set correctly
 

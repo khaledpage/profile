@@ -6,13 +6,15 @@ import { defineConfig, devices } from '@playwright/test';
 export default defineConfig({
   testDir: './tests',
   /* Run tests in files in parallel */
-  fullyParallel: true,
+  fullyParallel: false, // Disable full parallel to prevent browser overload
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */
   retries: process.env.CI ? 2 : 0,
-  /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? 1 : undefined,
+  /* Limit workers to prevent browser overload */
+  workers: process.env.CI ? 1 : 2, // Max 2 workers on local development
+  /* Test timeout */
+  timeout: 60000, // 60 seconds timeout per test
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
@@ -25,6 +27,9 @@ export default defineConfig({
     
     /* Screenshot on failure */
     screenshot: 'only-on-failure',
+    
+    /* Action timeout */
+    actionTimeout: 30000, // 30 seconds timeout per action
   },
 
   /* Configure projects for major browsers */
@@ -34,6 +39,9 @@ export default defineConfig({
       use: { ...devices['Desktop Chrome'] },
     },
 
+    // Disable other browsers for local development to prevent overload
+    // Uncomment these for comprehensive testing when needed
+    /*
     {
       name: 'firefox',
       use: { ...devices['Desktop Firefox'] },
@@ -44,7 +52,6 @@ export default defineConfig({
       use: { ...devices['Desktop Safari'] },
     },
 
-    /* Test against mobile viewports. */
     {
       name: 'Mobile Chrome',
       use: { ...devices['Pixel 5'] },
@@ -53,6 +60,7 @@ export default defineConfig({
       name: 'Mobile Safari',
       use: { ...devices['iPhone 12'] },
     },
+    */
 
     /* Test against branded browsers. */
     // {

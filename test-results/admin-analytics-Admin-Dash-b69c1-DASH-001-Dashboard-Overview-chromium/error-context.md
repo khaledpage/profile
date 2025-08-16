@@ -1,0 +1,68 @@
+# Page snapshot
+
+```yaml
+- button "Open settings"
+- heading "Cookie Consent" [level=3]
+- paragraph: We use browser storage to save your theme preferences and settings. No tracking or analytics cookies are used.
+- button "Decline"
+- button "Accept"
+- heading "Cookie Preferences" [level=3]
+- paragraph: We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic. By clicking “Accept All”, you consent to our use of cookies.
+- button "Accept All"
+- button "Customize"
+- banner:
+  - heading "Admin Dashboard" [level=1]
+  - paragraph: Manage your content and settings
+  - button "← Back to Site"
+- navigation:
+  - button "Dashboard"
+  - button "Analytics"
+  - button "Backend"
+- img
+- paragraph: Total Articles
+- paragraph: "5"
+- img
+- paragraph: Featured Articles
+- paragraph: "4"
+- img
+- paragraph: Categories
+- paragraph: "4"
+- img
+- paragraph: Total Tags
+- paragraph: "17"
+- heading "Quick Actions" [level=2]
+- button "Manage Articles":
+  - img
+  - text: Manage Articles
+  - img
+- button "Analytics (Coming Soon)" [disabled]:
+  - img
+  - text: Analytics (Coming Soon)
+- button "Settings (Coming Soon)" [disabled]:
+  - img
+  - text: Settings (Coming Soon)
+- heading "Recent Activity" [level=2]
+- paragraph: "Next.js vs React: A Developer's Guide to Making the Right Choice"
+- paragraph: Web Development • Next.js, React
+- button "View"
+- paragraph: "Tailwind CSS: The Ultimate Guide to Utility-First Styling"
+- paragraph: CSS & Styling • Tailwind CSS, CSS
+- button "View"
+- paragraph: "Advanced CSS Layouts: Flexbox & Grid Combined"
+- paragraph: Advanced CSS • CSS, Flexbox
+- button "View"
+- paragraph: Matrix Multiplication
+- paragraph: Mathematics • matrix multiplication, mathematics
+- button "View"
+- paragraph: "Understanding React Hooks: A Complete Guide"
+- paragraph: Web Development • React, JavaScript
+- button "View"
+- heading "System Information" [level=2]
+- paragraph: Admin Mode
+- paragraph: Enabled
+- paragraph: Last Backup
+- paragraph: Not Available
+- paragraph: Storage
+- paragraph: Local Files
+- alert
+```

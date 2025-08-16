@@ -1,0 +1,45 @@
+# Page snapshot
+
+```yaml
+- button "Open settings"
+- heading "Cookie Consent" [level=3]
+- paragraph: We use browser storage to save your theme preferences and settings. No tracking or analytics cookies are used.
+- button "Decline"
+- button "Accept"
+- heading "Cookie Preferences" [level=3]
+- paragraph: We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic. By clicking “Accept All”, you consent to our use of cookies.
+- button "Accept All"
+- button "Customize"
+- banner:
+  - heading "Admin Dashboard" [level=1]
+  - paragraph: Manage your content and settings
+  - button "← Back to Site"
+- navigation:
+  - button "Dashboard"
+  - button "Analytics"
+  - button "Backend"
+- heading "Analytics Dashboard" [level=2]
+- paragraph: Track your content performance and engagement
+- button "Clear Data"
+- img
+- paragraph: Total Views
+- paragraph: "1"
+- img
+- paragraph: Unique Visitors
+- paragraph: "1"
+- img
+- paragraph: Avg. Reading Time
+- paragraph: 0s
+- img
+- paragraph: Tracked Articles
+- paragraph: "1"
+- heading "Weekly Views" [level=3]
+- text: Sun 0 Mon 0 Tue 0 Wed 0 Thu 0 Fri 0 Sat 1
+- heading "Top Articles" [level=3]
+- heading "Nextjs Vs React" [level=4]
+- paragraph: 0s avg. reading time
+- text: 1 views
+- heading "Device Breakdown" [level=3]
+- text: 📱 Mobile 0% 📟 Tablet 0% 🖥️ Desktop 100%
+- alert
+```

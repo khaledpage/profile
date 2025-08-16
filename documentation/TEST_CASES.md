@@ -854,7 +854,240 @@ This document contains all test cases for the portfolio application, covering ev
 
 ---
 
-*This test suite covers all implemented features and ensures comprehensive quality assurance for the portfolio application, with special emphasis on article management and file upload/download functionality as requested.*
+## 🔧 Backend Configuration & Multi-Backend Support
+
+### BACKEND-001: Backend Selector Interface (P1 - E2E)
+
+**Description**: Test backend configuration interface in admin panel
+
+**Steps**:
+
+1. Navigate to admin dashboard
+2. Click on "Backend" tab
+3. Verify backend selector interface loads
+4. Check current backend status shows "filesystem"
+5. Test "Configure" button toggles configuration panel
+6. Verify backend type selector shows filesystem, database, CMS options
+7. Test cancel functionality returns to previous state
+
+**Expected Result**: Backend selector interface is accessible and functional
+
+### BACKEND-002: Database Backend Configuration (P1 - INTEGRATION)
+
+**Description**: Test database backend configuration with different database types
+
+**Steps**:
+
+1. Open backend configuration panel
+2. Select "Database" backend type
+3. Test PostgreSQL configuration:
+   - Select PostgreSQL from dropdown
+   - Enter host, port, database name, username
+   - Verify all fields are properly validated
+4. Test MySQL configuration:
+   - Switch to MySQL
+   - Verify port defaults to 3306
+   - Test required field validation
+5. Test SQLite configuration:
+   - Switch to SQLite
+   - Verify filename field appears
+   - Verify host/port fields are hidden
+6. Test "Test Connection" button (mock response)
+7. Save configuration and verify persistence
+
+**Expected Result**: Database configuration supports all three database types with proper validation
+
+### BACKEND-003: CMS Backend Configuration (P1 - INTEGRATION)
+
+**Description**: Test CMS backend configuration for different CMS platforms
+
+**Steps**:
+
+1. Select "CMS" backend type
+2. Test Strapi configuration:
+   - Select Strapi from dropdown
+   - Enter API URL and API key
+   - Verify configuration format
+3. Test Contentful configuration:
+   - Switch to Contentful
+   - Verify Space ID and Environment fields appear
+   - Test field validation
+4. Test Sanity configuration:
+   - Switch to Sanity
+   - Verify Project ID and Dataset fields appear
+5. Test Ghost configuration:
+   - Switch to Ghost
+   - Verify standard API URL/key fields
+6. Test custom API configuration:
+   - Select Custom API
+   - Verify custom headers option
+7. Test connection validation
+8. Save and verify persistence
+
+**Expected Result**: CMS configuration supports all platforms with platform-specific fields
+
+### BACKEND-004: Backend Connection Testing (P1 - UNIT)
+
+**Description**: Test backend connection validation functionality
+
+**Steps**:
+
+1. Configure a database backend with invalid credentials
+2. Click "Test Connection" button
+3. Verify loading state displays
+4. Verify error state displays for invalid config
+5. Configure valid credentials (mocked)
+6. Test connection again
+7. Verify success state displays
+8. Test connection testing for CMS backends
+9. Verify appropriate error messages for different failure types
+
+**Expected Result**: Connection testing provides clear feedback for success/failure states
+
+### BACKEND-005: Backend Migration Tools (P2 - INTEGRATION)
+
+**Description**: Test article migration between different backends
+
+**Steps**:
+
+1. Set up source backend with test articles
+2. Configure target backend
+3. Access migration tools interface
+4. Test dry-run migration:
+   - Enable dry-run mode
+   - Start migration
+   - Verify progress reporting
+   - Check migration summary
+5. Test actual migration:
+   - Disable dry-run mode
+   - Configure batch size
+   - Start migration
+   - Monitor progress
+6. Verify migration results:
+   - Check success/failure counts
+   - Review error messages
+   - Validate migrated articles
+
+**Expected Result**: Migration tools safely transfer articles between backends with progress tracking
+
+### BACKEND-006: Fallback Backend Configuration (P2 - INTEGRATION)
+
+**Description**: Test fallback backend setup and sync functionality
+
+**Steps**:
+
+1. Configure primary backend (filesystem)
+2. Enable "Advanced Options"
+3. Configure fallback backend (database)
+4. Enable automatic sync
+5. Test sync functionality:
+   - Add article to primary backend
+   - Trigger sync operation
+   - Verify article appears in fallback backend
+6. Test sync conflict resolution:
+   - Modify article in both backends
+   - Trigger sync
+   - Verify conflict handling
+7. Test fallback failover:
+   - Simulate primary backend failure
+   - Verify automatic fallback
+
+**Expected Result**: Fallback backend provides redundancy with automatic sync capabilities
+
+### BACKEND-007: Backend Persistence and State Management (P1 - UNIT)
+
+**Description**: Test backend configuration persistence and state management
+
+**Steps**:
+
+1. Configure a database backend with all settings
+2. Save configuration
+3. Refresh page
+4. Verify configuration persists in localStorage
+5. Switch to different backend type
+6. Save new configuration
+7. Verify old configuration is replaced
+8. Test configuration validation on load
+9. Test handling of corrupted configuration data
+
+**Expected Result**: Backend configuration persists correctly across sessions
+
+### BACKEND-008: Multi-Backend Service Integration (P0 - INTEGRATION)
+
+**Description**: Test integration between backend services and existing article features
+
+**Steps**:
+
+1. Configure database backend
+2. Test article CRUD operations:
+   - Create new article via admin interface
+   - Verify article saved to database
+   - Edit article content
+   - Delete article
+3. Test bulk operations:
+   - Select multiple articles
+   - Perform bulk delete
+   - Verify database consistency
+4. Test file operations:
+   - Upload ZIP file with articles
+   - Verify articles processed correctly
+   - Export articles as ZIP
+   - Generate PDF for article
+5. Test search functionality:
+   - Search for articles
+   - Verify database queries work
+6. Switch to CMS backend and repeat tests
+
+**Expected Result**: All existing article features work seamlessly with new backend services
+
+### BACKEND-009: Backend Error Handling (P1 - UNIT)
+
+**Description**: Test error handling for backend operations
+
+**Steps**:
+
+1. Configure backend with network connectivity issues
+2. Test various operations:
+   - Get all articles
+   - Create article
+   - Update article
+   - Delete article
+3. Verify appropriate error messages display
+4. Test timeout handling
+5. Test invalid response handling
+6. Test authentication failure handling
+7. Verify graceful degradation to fallback backend
+8. Test error recovery after connectivity restored
+
+**Expected Result**: Backend errors are handled gracefully with informative user feedback
+
+### BACKEND-010: Backend Security and Authentication (P0 - SECURITY)
+
+**Description**: Test backend security measures and authentication
+
+**Steps**:
+
+1. Test database backend:
+   - Verify SQL injection protection
+   - Test connection string validation
+   - Check credential encryption in storage
+2. Test CMS backend:
+   - Verify API key security
+   - Test token refresh mechanisms
+   - Check unauthorized access handling
+3. Test configuration security:
+   - Verify sensitive data not logged
+   - Check localStorage data encryption
+   - Test configuration export/import security
+4. Test admin access controls:
+   - Verify backend config requires admin auth
+   - Test unauthorized access prevention
+
+**Expected Result**: Backend configurations and operations maintain security standards
+
+---
+
+*This test suite covers all implemented features and ensures comprehensive quality assurance for the portfolio application, with special emphasis on article management, file upload/download functionality, and the new multi-backend architecture.*
 - Clean up test artifacts after execution
 - Mock external dependencies where appropriate
 

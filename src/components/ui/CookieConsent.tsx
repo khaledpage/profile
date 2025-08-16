@@ -51,7 +51,7 @@ export default function CookieConsent() {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 p-4">
+    <div id="cookie-banner" className="fixed bottom-0 left-0 right-0 z-50 p-4">
       <div className="glass rounded-2xl p-6 max-w-4xl mx-auto">
         <div className="flex flex-col lg:flex-row gap-4 items-start">
           <div className="flex-1">
@@ -134,6 +134,7 @@ export default function CookieConsent() {
           
           <div className="flex flex-col sm:flex-row gap-2 lg:flex-col lg:w-auto w-full">
             <button
+              id="accept-all-cookies"
               onClick={handleAcceptAll}
               className="px-4 py-2 rounded-lg font-medium text-sm transition-colors"
               style={{

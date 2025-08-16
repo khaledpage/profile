@@ -62,7 +62,7 @@ Always update these files when relevant:
    - Update configuration examples
    - Document new customization options
 
-4. **BUG_FIX_LOG.md**
+4. **bug_fix_log.md.md**
    - Log all bugs with proper IDs
    - Document root causes and fixes
    - Update statistics
@@ -217,7 +217,7 @@ export default function ComponentName({ config }: Props) {
 ## 🐛 Bug Fix Protocol
 
 1. **Identify**: Reproduce and understand the bug
-2. **Investigate**: Find root cause and document in BUG_FIX_LOG.md
+2. **Investigate**: Find root cause and document in bug_fix_log.md.md
 3. **Fix**: Implement minimal, targeted solution
 4. **Test**: Verify fix doesn't break existing functionality
 5. **Document**: Update bug log with resolution details

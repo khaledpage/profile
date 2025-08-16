@@ -129,3 +129,10 @@
 | ADMIN-09 | Article Analytics System  | Track article performance and user engagement | High     | ✅ COMPLETED (Dec 19, 2024) - View tracking; reading time; scroll depth; analytics dashboard; device breakdown |
 | FEAT-004 | Modular Article System  | Modular, reusable article management architecture | High     | ✅ COMPLETED (Dec 28, 2024) - ArticleService interface; React hooks; refactored components; maintained functionality |
 | SET-23   | Home Sections Control    | Admin can arrange/hide homepage sections        | Medium   | New Settings tab placeholder; order/hidden stored in preferences and respected by home controller          |
+| BACK-01  | Multi-Backend Support    | Support filesystem, database, and CMS backends  | High     | ✅ COMPLETED (Aug 16, 2025) - ArticleService implementations for file/DB/CMS; backend selector UI; migration tools |
+| BACK-02  | Database Backend         | PostgreSQL, MySQL, SQLite support              | High     | ✅ COMPLETED (Aug 16, 2025) - Database service with schema creation; connection config; CRUD operations    |
+| BACK-03  | CMS Backend              | Strapi, Contentful, Sanity, Ghost integration  | High     | ✅ COMPLETED (Aug 16, 2025) - CMS service with platform adapters; data transformation; API authentication |
+| BACK-04  | Backend Configuration    | Admin UI for backend setup and testing         | High     | ✅ COMPLETED (Aug 16, 2025) - Configuration panel; connection testing; persistence; validation            |
+| BACK-05  | Backend Migration        | Tools to migrate articles between backends      | Medium   | ✅ COMPLETED (Aug 16, 2025) - Migration service; progress tracking; batch processing; error handling      |
+| BACK-06  | Fallback Backend         | Secondary backend for redundancy and sync      | Medium   | ✅ COMPLETED (Aug 16, 2025) - Fallback configuration; automatic sync; conflict resolution; failover      |
+| BACK-07  | Backend Security         | Secure credential handling and authentication   | High     | ✅ COMPLETED (Aug 16, 2025) - Encrypted storage; input validation; secure API requests; access controls   |
