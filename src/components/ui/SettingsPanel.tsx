@@ -18,8 +18,11 @@ type UserPreferences = {
   language?: string;
 };
 
+type TabId = 'appearance' | 'behavior' | 'advanced';
+
 export default function SettingsPanel({ config }: Props) {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState<TabId>('appearance');
   const [showCookieConsent, setShowCookieConsent] = useState(false);
   const [preferences, setPreferences] = useState<UserPreferences>({});
   const [hasConsent, setHasConsent] = useState(false);
@@ -281,192 +284,231 @@ export default function SettingsPanel({ config }: Props) {
               </button>
             </div>
 
+            {/* Tab Navigation */}
+            <div className="flex border-b border-white/10 mb-6">
+              {[
+                { id: 'appearance' as TabId, label: 'Appearance', icon: '🎨' },
+                { id: 'behavior' as TabId, label: 'Behavior', icon: '⚙️' },
+                { id: 'advanced' as TabId, label: 'Advanced', icon: '🔧' }
+              ].map((tab) => (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveTab(tab.id)}
+                  className={`flex items-center gap-2 px-4 py-3 text-sm font-medium border-b-2 transition-colors ${
+                    activeTab === tab.id
+                      ? 'border-accent-1 text-accent-1'
+                      : 'border-transparent hover:text-accent-1'
+                  }`}
+                >
+                  <span>{tab.icon}</span>
+                  {tab.label}
+                </button>
+              ))}
+            </div>
+
             <div className="flex-1 overflow-y-auto scrollbar-hide">
-            {/* Theme Selection */}
-            {settingsConfig?.allowThemeChange && (
-              <div className="mb-6">
-                <h3 className="text-sm font-medium mb-3">
-                  {translations?.common && 'colorThemes' in translations.common 
-                    ? String(translations.common.colorThemes)
-                    : 'Color Themes'}
-                </h3>
-                <div className="space-y-4">
-                  {Object.entries(allPaletteGroups).map(([groupKey, group]) => (
-                    <div key={groupKey}>
-                      <h4 className="text-xs font-medium mb-2 uppercase tracking-wide" style={{ color: 'var(--muted)' }}>
-                        {group.name}
-                      </h4>
-                      <div className="grid grid-cols-3 gap-2">
-                        {Object.entries(group.palettes).map(([key, palette]) => (
+              {/* Appearance Tab */}
+              {activeTab === 'appearance' && (
+                <div className="space-y-6">
+                  {/* Theme Selection */}
+                  {settingsConfig?.allowThemeChange && (
+                    <div>
+                      <h3 className="text-sm font-medium mb-3">
+                        {translations?.common && 'colorThemes' in translations.common 
+                          ? String(translations.common.colorThemes)
+                          : 'Color Themes'}
+                      </h3>
+                      <div className="space-y-4">
+                        {Object.entries(allPaletteGroups).map(([groupKey, group]) => (
+                          <div key={groupKey}>
+                            <h4 className="text-xs font-medium mb-2 uppercase tracking-wide" style={{ color: 'var(--muted)' }}>
+                              {group.name}
+                            </h4>
+                            <div className="grid grid-cols-3 gap-2">
+                              {Object.entries(group.palettes).map(([key, palette]) => (
+                                <button
+                                  key={key}
+                                  onClick={() => handleThemeChange(key)}
+                                  className={`p-2.5 rounded-lg text-left transition-all ${
+                                    (preferences.colorProfile || config.colorProfile) === key
+                                      ? 'ring-2 ring-accent-1 scale-105'
+                                      : 'hover:scale-105'
+                                  }`}
+                                  style={{
+                                    backgroundColor: palette.card,
+                                    color: palette.foreground,
+                                    border: `1px solid ${palette.cardContrast}`,
+                                  }}
+                                >
+                                  <div className="text-xs font-medium mb-1">{palette.name}</div>
+                                  <div className="flex gap-1">
+                                    <div
+                                      className="w-2.5 h-2.5 rounded-full"
+                                      style={{ backgroundColor: palette.accent1 }}
+                                    />
+                                    <div
+                                      className="w-2.5 h-2.5 rounded-full"
+                                      style={{ backgroundColor: palette.accent2 }}
+                                    />
+                                  </div>
+                                </button>
+                              ))}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Skills Design Selection */}
+                  {config.skillsDisplay?.allowDesignChange && (
+                    <div>
+                      <h3 className="text-sm font-medium mb-3">
+                        {translations?.common && 'skillsLayout' in translations.common 
+                          ? String(translations.common.skillsLayout)
+                          : 'Skills Layout'}
+                      </h3>
+                      <div className="grid grid-cols-1 gap-2">
+                        {config.skillsDisplay.availableDesigns?.map((design) => (
                           <button
-                            key={key}
-                            onClick={() => handleThemeChange(key)}
-                            className={`p-2.5 rounded-lg text-left transition-all ${
-                              (preferences.colorProfile || config.colorProfile) === key
-                                ? 'ring-2 ring-accent-1 scale-105'
-                                : 'hover:scale-105'
+                            key={design}
+                            onClick={() => handleSkillsDesignChange(design)}
+                            className={`p-3 rounded-lg text-left transition-all text-sm ${
+                              (preferences.skillsDesign || config.skillsDisplay?.design) === design
+                                ? 'ring-2 ring-accent-1 bg-white/10'
+                                : 'bg-white/5 hover:bg-white/10'
                             }`}
-                            style={{
-                              backgroundColor: palette.card,
-                              color: palette.foreground,
-                              border: `1px solid ${palette.cardContrast}`,
-                            }}
                           >
-                            <div className="text-xs font-medium mb-1">{palette.name}</div>
-                            <div className="flex gap-1">
-                              <div
-                                className="w-2.5 h-2.5 rounded-full"
-                                style={{ backgroundColor: palette.accent1 }}
-                              />
-                              <div
-                                className="w-2.5 h-2.5 rounded-full"
-                                style={{ backgroundColor: palette.accent2 }}
-                              />
+                            <div className="font-medium capitalize">{design}</div>
+                            <div className="text-xs text-gray-400 mt-1">
+                              {design === 'marquee' && 'Scrolling animation with hover controls'}
+                              {design === 'grid' && 'Clean organized grid layout'}
+                              {design === 'carousel' && 'Interactive slideshow format'}
+                              {design === 'masonry' && 'Pinterest-style varied heights'}
+                              {design === 'timeline' && 'Chronological flow design'}
                             </div>
                           </button>
                         ))}
                       </div>
                     </div>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {/* Animation Toggle */}
-            {settingsConfig?.allowAnimationToggle && (
-              <div className="mb-6">
-                <h3 className="text-sm font-medium mb-3">Animations</h3>
-                <label className="flex items-center gap-3 cursor-pointer">
-                  <input
-                    type="checkbox"
-                    checked={preferences.animationsEnabled ?? config.animation?.enabled ?? true}
-                    onChange={(e) => handleAnimationToggle(e.target.checked)}
-                    className="w-4 h-4 rounded"
-                  />
-                  <span className="text-sm">
-                    {translations?.common && 'enableAnimations' in translations.common 
-                      ? String(translations.common.enableAnimations)
-                      : 'Enable background animations'}
-                  </span>
-                </label>
-              </div>
-            )}
-
-            {/* Language Selection */}
-            {settingsConfig?.allowLanguageChange && config.i18n?.languages && Object.keys(config.i18n.languages).length > 1 && (
-              <div className="mb-6">
-                <h3 className="text-sm font-medium mb-3">
-                  {translations?.common && 'language' in translations.common 
-                    ? String(translations.common.language)
-                    : 'Language'}
-                </h3>
-                <div className="grid grid-cols-2 gap-3">
-                  {Object.entries(config.i18n.languages).map(([key, lang]) => (
-                    <button
-                      key={key}
-                      onClick={() => handleLanguageChange(key)}
-                      className="p-3 rounded-lg text-left transition-all text-sm"
-                      style={{
-                        backgroundColor: (preferences.language || config.i18n?.defaultLocale) === key
-                          ? 'color-mix(in srgb, var(--card), transparent 40%)'
-                          : 'color-mix(in srgb, var(--card), transparent 70%)',
-                        borderWidth: (preferences.language || config.i18n?.defaultLocale) === key ? '2px' : '0px',
-                        borderColor: (preferences.language || config.i18n?.defaultLocale) === key ? 'var(--accent-1)' : 'transparent',
-                      }}
-                      onMouseEnter={(e) => {
-                        if ((preferences.language || config.i18n?.defaultLocale) !== key) {
-                          e.currentTarget.style.backgroundColor = 'color-mix(in srgb, var(--card), transparent 40%)';
-                        }
-                      }}
-                      onMouseLeave={(e) => {
-                        if ((preferences.language || config.i18n?.defaultLocale) !== key) {
-                          e.currentTarget.style.backgroundColor = 'color-mix(in srgb, var(--card), transparent 70%)';
-                        }
-                      }}
-                    >
-                      <div className="font-medium">
-                        {key === 'de' ? '🇩🇪 Deutsch' : key === 'en' ? '🇺🇸 English' : key.toUpperCase()}
-                      </div>
-                      <div className="text-xs mt-1" style={{ color: 'var(--muted)' }}>
-                        {lang.nav.about} • {lang.nav.projects}
-                      </div>
-                    </button>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {/* Skills Design Selection */}
-            {config.skillsDisplay?.allowDesignChange && (
-              <div className="mb-6">
-                <h3 className="text-sm font-medium mb-3">
-                  {translations?.common && 'skillsLayout' in translations.common 
-                    ? String(translations.common.skillsLayout)
-                    : 'Skills Layout'}
-                </h3>
-                <div className="grid grid-cols-1 gap-2">
-                  {config.skillsDisplay.availableDesigns?.map((design) => (
-                    <button
-                      key={design}
-                      onClick={() => handleSkillsDesignChange(design)}
-                      className={`p-3 rounded-lg text-left transition-all text-sm ${
-                        (preferences.skillsDesign || config.skillsDisplay?.design) === design
-                          ? 'ring-2 ring-accent-1 bg-white/10'
-                          : 'bg-white/5 hover:bg-white/10'
-                      }`}
-                    >
-                      <div className="font-medium capitalize">{design}</div>
-                      <div className="text-xs text-gray-400 mt-1">
-                        {design === 'marquee' && 'Scrolling animation with hover controls'}
-                        {design === 'grid' && 'Clean organized grid layout'}
-                        {design === 'carousel' && 'Interactive slideshow format'}
-                        {design === 'masonry' && 'Pinterest-style varied heights'}
-                        {design === 'timeline' && 'Chronological flow design'}
-                      </div>
-                    </button>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {/* Storage Info & Download */}
-            {settingsConfig?.cookieConsent && (
-              <div className="space-y-3">
-                <div className="text-xs text-gray-400 p-3 rounded-lg bg-white/5">
-                  {hasConsent ? (
-                    <>✓ Settings are saved in your browser</>
-                  ) : (
-                    <>Settings are temporary (cookies declined)</>
                   )}
                 </div>
-                
-                {/* Download Configuration Button */}
-                <button
-                  onClick={downloadConfiguration}
-                  className="w-full flex items-center justify-center gap-2 p-3 rounded-lg text-sm font-medium transition-all"
-                  style={{
-                    backgroundColor: 'color-mix(in srgb, var(--accent-1), transparent 80%)',
-                    color: 'var(--foreground)',
-                    border: '1px solid color-mix(in srgb, var(--accent-1), transparent 50%)'
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = 'color-mix(in srgb, var(--accent-1), transparent 70%)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = 'color-mix(in srgb, var(--accent-1), transparent 80%)';
-                  }}
-                >
-                  <ArrowDownTrayIcon className="h-4 w-4" />
-                  {translations?.common && 'downloadSettings' in translations.common 
-                    ? String(translations.common.downloadSettings)
-                    : 'Download Settings as JSON'}
-                </button>
-                
-                <div className="text-xs text-gray-500 px-2">
-                  Save this file as <code className="px-1 py-0.5 rounded bg-black/20">custom-defaults.json</code> in your project to set these as default values.
+              )}
+
+              {/* Behavior Tab */}
+              {activeTab === 'behavior' && (
+                <div className="space-y-6">
+                  {/* Animation Toggle */}
+                  {settingsConfig?.allowAnimationToggle && (
+                    <div>
+                      <h3 className="text-sm font-medium mb-3">Animations</h3>
+                      <label className="flex items-center gap-3 cursor-pointer">
+                        <input
+                          type="checkbox"
+                          checked={preferences.animationsEnabled ?? config.animation?.enabled ?? true}
+                          onChange={(e) => handleAnimationToggle(e.target.checked)}
+                          className="w-4 h-4 rounded"
+                        />
+                        <span className="text-sm">
+                          {translations?.common && 'enableAnimations' in translations.common 
+                            ? String(translations.common.enableAnimations)
+                            : 'Enable background animations'}
+                        </span>
+                      </label>
+                    </div>
+                  )}
+
+                  {/* Language Selection */}
+                  {settingsConfig?.allowLanguageChange && config.i18n?.languages && Object.keys(config.i18n.languages).length > 1 && (
+                    <div>
+                      <h3 className="text-sm font-medium mb-3">
+                        {translations?.common && 'language' in translations.common 
+                          ? String(translations.common.language)
+                          : 'Language'}
+                      </h3>
+                      <div className="grid grid-cols-2 gap-3">
+                        {Object.entries(config.i18n.languages).map(([key, lang]) => (
+                          <button
+                            key={key}
+                            onClick={() => handleLanguageChange(key)}
+                            className="p-3 rounded-lg text-left transition-all text-sm"
+                            style={{
+                              backgroundColor: (preferences.language || config.i18n?.defaultLocale) === key
+                                ? 'color-mix(in srgb, var(--card), transparent 40%)'
+                                : 'color-mix(in srgb, var(--card), transparent 70%)',
+                              borderWidth: (preferences.language || config.i18n?.defaultLocale) === key ? '2px' : '0px',
+                              borderColor: (preferences.language || config.i18n?.defaultLocale) === key ? 'var(--accent-1)' : 'transparent',
+                            }}
+                            onMouseEnter={(e) => {
+                              if ((preferences.language || config.i18n?.defaultLocale) !== key) {
+                                e.currentTarget.style.backgroundColor = 'color-mix(in srgb, var(--card), transparent 40%)';
+                              }
+                            }}
+                            onMouseLeave={(e) => {
+                              if ((preferences.language || config.i18n?.defaultLocale) !== key) {
+                                e.currentTarget.style.backgroundColor = 'color-mix(in srgb, var(--card), transparent 70%)';
+                              }
+                            }}
+                          >
+                            <div className="font-medium">
+                              {key === 'de' ? '🇩🇪 Deutsch' : key === 'en' ? '🇺🇸 English' : key.toUpperCase()}
+                            </div>
+                            <div className="text-xs mt-1" style={{ color: 'var(--muted)' }}>
+                              {lang.nav.about} • {lang.nav.projects}
+                            </div>
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
-              </div>
-            )}
+              )}
+
+              {/* Advanced Tab */}
+              {activeTab === 'advanced' && (
+                <div className="space-y-6">
+                  {/* Storage Info & Download */}
+                  {settingsConfig?.cookieConsent && (
+                    <div className="space-y-3">
+                      <h3 className="text-sm font-medium mb-3">Configuration</h3>
+                      
+                      <div className="text-xs text-gray-400 p-3 rounded-lg bg-white/5">
+                        {hasConsent ? (
+                          <>✓ Settings are saved in your browser</>
+                        ) : (
+                          <>Settings are temporary (cookies declined)</>
+                        )}
+                      </div>
+                      
+                      {/* Download Configuration Button */}
+                      <button
+                        onClick={downloadConfiguration}
+                        className="w-full flex items-center justify-center gap-2 p-3 rounded-lg text-sm font-medium transition-all"
+                        style={{
+                          backgroundColor: 'color-mix(in srgb, var(--accent-1), transparent 80%)',
+                          color: 'var(--foreground)',
+                          border: '1px solid color-mix(in srgb, var(--accent-1), transparent 50%)'
+                        }}
+                        onMouseEnter={(e) => {
+                          e.currentTarget.style.backgroundColor = 'color-mix(in srgb, var(--accent-1), transparent 70%)';
+                        }}
+                        onMouseLeave={(e) => {
+                          e.currentTarget.style.backgroundColor = 'color-mix(in srgb, var(--accent-1), transparent 80%)';
+                        }}
+                      >
+                        <ArrowDownTrayIcon className="h-4 w-4" />
+                        {translations?.common && 'downloadSettings' in translations.common 
+                          ? String(translations.common.downloadSettings)
+                          : 'Download Settings as JSON'}
+                      </button>
+                      
+                      <div className="text-xs text-gray-500 px-2">
+                        Save this file as <code className="px-1 py-0.5 rounded bg-black/20">custom-defaults.json</code> in your project to set these as default values.
+                      </div>
+                    </div>
+                  )}
+                </div>
+              )}
             </div>
           </div>
         </div>

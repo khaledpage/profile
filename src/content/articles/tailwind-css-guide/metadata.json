@@ -1,0 +1,17 @@
+{
+  "title": "Tailwind CSS: The Ultimate Guide to Utility-First Styling",
+  "summary": "Master Tailwind CSS from basics to advanced techniques. Learn utility-first methodology, responsive design, customization, and best practices for modern web development.",
+  "author": "Khaled Alabsi",
+  "publishDate": "2025-01-16",
+  "lastModified": "2025-01-16",
+  "tags": ["Tailwind CSS", "CSS", "Utility-First", "Responsive Design", "Web Development"],
+  "category": "CSS & Styling",
+  "coverImage": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=400&fit=crop&crop=entropy&auto=format",
+  "readingTime": 15,
+  "featured": true,
+  "published": true,
+  "seo": {
+    "metaDescription": "Complete Tailwind CSS guide - learn utility-first styling, responsive design, customization, and best practices for modern web development.",
+    "keywords": ["Tailwind CSS", "Utility-first CSS", "CSS Framework", "Responsive Design", "Web Styling"]
+  }
+}

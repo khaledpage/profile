@@ -106,4 +106,12 @@
 | DEV-03   | Development Guidelines    | Comprehensive development standards              | High     | Pre/post-development checklists; component templates; quality gates; documentation requirements            |
 | DEV-04   | Translation Extraction    | All component text extracted to config         | High     | No hardcoded UI text; translation keys in config.json; proper fallbacks; i18n best practices             |
 | DEV-05   | Requirements Tracking     | Updated requirements documentation              | Medium   | New features documented; acceptance criteria defined; status tracking; priority assessment                 |
+| SETT-01  | Settings Panel Tabs       | Settings panel must have organized tabs         | High     | Tab system with Appearance, Behavior, Advanced sections; visual indicators; smooth transitions              |
+| SETT-02  | Tab Navigation           | Intuitive tab interface for settings categories | Medium   | Click navigation between tabs; active state indicators; organized settings groups                          |
+| ART-19   | Next.js vs React Article | Educational article comparing frameworks        | Medium   | Comprehensive comparison with code examples; decision matrix; migration guide; best practices              |
+| ART-20   | Tailwind CSS Guide       | Complete Tailwind CSS documentation            | Medium   | Utility-first methodology; responsive design; customization; practical examples; advanced techniques       |
+| DOC-03   | Deployment Guide         | Comprehensive deployment documentation          | High     | Local, Docker, GitHub Pages, CI/CD deployment options; troubleshooting; environment variables             |
+| DOC-04   | Documentation Structure  | Organized documentation folder                  | High     | Dedicated docs folder; README references; proper file organization; easy navigation                       |
+| BUILD-01 | Build Process Fix        | Fixed stuck deployment command                  | High     | Process cleanup; image URL fixes; timeout handling; improved error reporting                              |
+| BUILD-02 | Article Image Loading    | Fixed broken article images                     | High     | Corrected malformed URLs; proper asset paths; updated articles.json; responsive image loading             |
 

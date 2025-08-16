@@ -2,6 +2,17 @@
 
 A modern, customizable Next.js portfolio featuring dynamic theming, multilingual support, articles with LaTeX rendering, project showcases, and comprehensive settings management. Includes browser language detection, custom configuration downloads, and both development and static deployment options.
 
+## 📚 Documentation
+
+| Document | Description |
+|----------|-------------|
+| **[Deployment Guide](documentation/DEPLOYMENT_GUIDE.md)** | Complete deployment instructions for all environments |
+| **[Development Guidelines](documentation/DEVELOPMENT_GUIDELINES.md)** | Development standards and best practices |
+| **[Technical Documentation](documentation/TECHNICAL_DOCUMENTATION.md)** | Technical architecture and implementation details |
+| **[Requirements Table](documentation/Requirements-Tabelle.md)** | Project requirements and acceptance criteria |
+| **[Bug Fix Log](documentation/BUG_FIX_LOG.md)** | Issue tracking and resolution history |
+| **[Content Manager Manual](documentation/CONTENT_MANAGER_MANUAL.md)** | Content management and editing guide |
+
 ## ✨ Key Features
 
 - **🎨 Advanced Theming**: 16+ color themes with real-time switching and automatic rotation

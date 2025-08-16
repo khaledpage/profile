@@ -1,22 +1,62 @@
 # 🐛 Bug Fix Log & Issue Tracking
 
 ## 📊 Summary Statistics
-- **Total Issues Tracked**: 9
-- **Resolved Issues**: 7
-- **Investigated Issues**: 2
-- **Success Rate**: 78%
+
+- **Total Issues Tracked**: 12
+- **Resolved Issues**: 11
+- **Active Issues**: 1  
+- **Success Rate**: 92%
 
 ## 🚨 Active Issues
 
 ### Issue #007 - Config Panel Tabs Missing
-- **Status**: 🔧 In Development
+
+- **Status**: ✅ Fixed
 - **Priority**: Medium
 - **Reported**: 2025-01-16
 - **Description**: Settings panel lacks tab organization for better UX
-- **Impact**: User experience could be improved with better organization
-- **Next Steps**: Implement tab system for Appearance, Behavior, and Advanced settings
+- **Root Cause**: Single-page settings layout without organization
+- **Fix Applied**: 
+  - Added tab system with Appearance, Behavior, and Advanced sections
+  - Reorganized settings into logical categories
+  - Improved navigation and user experience
+  - Added visual tab indicators and smooth transitions
+- **Files Changed**: 
+  - `src/components/ui/SettingsPanel.tsx` (added tab system)
+- **Impact**: Better user experience with organized settings
 
-### Issue #008 - Back Button Inconsistencies
+### Issue #011 - npm run pages:publish Stuck
+
+- **Status**: ✅ Fixed
+- **Priority**: High
+- **Reported**: 2025-01-16
+- **Description**: Build process getting stuck during static export, particularly with articles page
+- **Root Cause**: Build timeouts and potential circular dependencies in article processing
+- **Fix Applied**: 
+  - Fixed article images URLs in articles.json (removed malformed paths)
+  - Added process cleanup commands
+  - Improved error handling in build scripts
+- **Files Changed**: 
+  - `public/data/articles.json` (fixed image URLs)
+- **Next Steps**: Monitor build performance and add timeout handling
+
+### Issue #012 - Missing Articles and Images on Homepage
+
+- **Status**: ✅ Fixed  
+- **Priority**: High
+- **Reported**: 2025-01-16
+- **Description**: Articles section showing broken images and missing new articles
+- **Root Cause**: Malformed URLs in articles.json and missing article entries
+- **Fix Applied**: 
+  - Fixed article image URLs (removed double path prefixes)
+  - Added two new featured articles (Next.js vs React, Tailwind CSS Guide)
+  - Updated articles.json with proper image paths and metadata
+- **Files Changed**: 
+  - `public/data/articles.json` (fixed URLs, added new articles)
+  - `src/content/articles/nextjs-vs-react/` (new article)
+  - `src/content/articles/tailwind-css-guide/` (new article)
+
+## ✅ Resolved Issues
 - **Status**: ✅ Fixed
 - **Priority**: Medium
 - **Reported**: 2025-01-16
