@@ -67,43 +67,40 @@ function HomeSectionsEditor({
   };
 
   return (
-    <div className="space-y-3">
-      <div className="text-xs" style={{ color: 'var(--muted)' }}>
-        {translations?.common && 'reorderSectionsHelp' in translations.common
-          ? String(translations.common.reorderSectionsHelp)
-          : 'Reorder sections and toggle their visibility. Changes are saved to your preferences.'}
+    <div id="home-sections-editor" className="space-y-3">
+      <div id="home-sections-description" className="text-xs" style={{ color: 'var(--muted)' }}>
+        {translations?.settingsPanel?.homeSectionsDescription || 'Customize the order and visibility of home page sections'}
       </div>
-      <ul className="space-y-2">
-        {order.map((key, idx) => (
-          <li key={key} className="flex items-center justify-between p-2 rounded-lg" style={{ backgroundColor: 'color-mix(in srgb, var(--card), transparent 70%)', border: '1px solid color-mix(in srgb, var(--card), transparent 50%)' }}>
-            <div className="flex items-center gap-3">
-              <span className="text-sm font-medium">{labelMap[key]}</span>
-              <label className="flex items-center gap-2 text-xs">
-                <input type="checkbox" checked={!hidden.includes(key)} onChange={() => toggle(key)} />
-                <span>
-                  {hidden.includes(key)
-                    ? (translations?.common && 'hidden' in translations.common ? String(translations.common.hidden) : 'Hidden')
-                    : (translations?.common && 'visible' in translations.common ? String(translations.common.visible) : 'Visible')}
-                </span>
-              </label>
-            </div>
-            <div className="flex items-center gap-2">
+      {order.map((key, idx) => {
+        const isHidden = hidden.includes(key);
+        return (
+          <div id={`section-item-${key}`} key={key} className={`p-3 rounded-lg border ${isHidden ? 'opacity-50' : ''}`} style={{ borderColor: 'color-mix(in srgb, var(--card), transparent 70%)' }}>
+            <div id={`section-item-content-${key}`} className="flex items-center gap-3">
+              <div id={`section-item-checkbox-container-${key}`} className="flex items-center">
+                <input id={`section-checkbox-${key}`} type="checkbox" checked={!hidden.includes(key)} onChange={() => toggle(key)} />
+              </div>
+              <div id={`section-item-info-${key}`} className="flex-1">
+                <div id={`section-item-name-${key}`} className="text-sm font-medium">{labelMap[key]}</div>
+                <div id={`section-item-key-${key}`} className="text-xs" style={{ color: 'var(--muted)' }}>{key}</div>
+              </div>
+            <div id={`section-item-controls-${key}`} className="flex items-center gap-2">
               <button
-                className="px-2 py-1 rounded border text-xs"
-                style={{ borderColor: 'color-mix(in srgb, var(--card), transparent 60%)' }}
+                id={`section-move-up-${key}`}
                 onClick={() => move(idx, -1)}
                 disabled={idx === 0}
+                className="p-1 rounded disabled:opacity-30"
               >↑</button>
               <button
-                className="px-2 py-1 rounded border text-xs"
-                style={{ borderColor: 'color-mix(in srgb, var(--card), transparent 60%)' }}
+                id={`section-move-down-${key}`}
                 onClick={() => move(idx, 1)}
                 disabled={idx === order.length - 1}
+                className="p-1 rounded disabled:opacity-30"
               >↓</button>
             </div>
-          </li>
-        ))}
-      </ul>
+            </div>
+          </div>
+        );
+      })}
     </div>
   );
 }
@@ -331,33 +328,37 @@ export default function SettingsPanel({ config }: Props) {
     <>
       {/* Settings Icon */}
       <button
+        id="settings-button"
         onClick={() => setIsOpen(true)}
         className="fixed bottom-4 right-4 z-40 p-3 rounded-full glass hover:scale-105 transition-transform"
         aria-label="Open settings"
       >
-        <Cog6ToothIcon className="h-5 w-5" />
+        <Cog6ToothIcon id="settings-icon" className="h-5 w-5" />
       </button>
 
       {/* Settings Panel */}
       {isOpen && (
         <div 
+          id="settings-overlay"
           className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm"
           onClick={() => setIsOpen(false)}
         >
           <div 
+            id="settings-panel"
             className="w-full max-w-2xl glass rounded-2xl p-6 max-h-[80vh] overflow-hidden flex flex-col"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex items-center justify-between mb-6">
-              <div>
-                <h2 className="text-xl font-semibold">Settings</h2>
+            <div id="settings-header" className="flex items-center justify-between mb-6">
+              <div id="settings-title-section">
+                <h2 id="settings-title" className="text-xl font-semibold">Settings</h2>
                 {config.admin?.allowToggle && (
-                  <div className="mt-2 text-xs flex items-center gap-2">
-                    <label className="flex items-center gap-2">
-                      <input type="checkbox" checked={adminEnabled} onChange={(e)=> setAdminEnabled(e.target.checked)} />
+                  <div id="admin-toggle-section" className="mt-2 text-xs flex items-center gap-2">
+                    <label id="admin-toggle-label" className="flex items-center gap-2">
+                      <input id="admin-toggle-checkbox" type="checkbox" checked={adminEnabled} onChange={(e)=> setAdminEnabled(e.target.checked)} />
                       <span style={{ color: 'var(--muted)' }}>Admin mode</span>
                     </label>
                     <button
+                      id="admin-apply-button"
                       onClick={()=> { setAdmin(adminEnabled); setAdminEnabled(adminEnabled); }}
                       className="px-2 py-1 rounded border text-xs"
                       style={{ borderColor: 'color-mix(in srgb, var(--card), transparent 60%)' }}
@@ -365,11 +366,12 @@ export default function SettingsPanel({ config }: Props) {
                   </div>
                 )}
                 {!hasConsent && settingsConfig?.cookieConsent && (
-                  <div className="flex items-center gap-3 mt-2">
-                    <p className="text-sm text-orange-400">
+                  <div id="cookie-consent-warning" className="flex items-center gap-3 mt-2">
+                    <p id="cookie-warning-text" className="text-sm text-orange-400">
                       ⚠️ Settings cannot be saved without cookie consent
                     </p>
                     <button
+                      id="accept-cookies-button"
                       onClick={handleAcceptCookies}
                       className="px-3 py-1 text-xs rounded-lg font-medium transition-all"
                       style={{
@@ -383,6 +385,7 @@ export default function SettingsPanel({ config }: Props) {
                 )}
               </div>
               <button
+                id="settings-close-button"
                 onClick={() => setIsOpen(false)}
                 className="p-1 rounded-lg transition-colors"
                 style={{
@@ -396,12 +399,12 @@ export default function SettingsPanel({ config }: Props) {
                 }}
                 aria-label="Close settings"
               >
-                <XMarkIcon className="h-5 w-5" />
+                <XMarkIcon id="settings-close-icon" className="h-5 w-5" />
               </button>
             </div>
 
             {/* Tab Navigation */}
-      <div className="flex border-b border-white/10 mb-6">
+      <div id="settings-tab-navigation" className="flex border-b border-white/10 mb-6">
               {[
         { id: 'appearance' as TabId, label: 'Appearance', icon: '🎨' },
         { id: 'behavior' as TabId, label: 'Behavior', icon: '⚙️' },
@@ -409,6 +412,7 @@ export default function SettingsPanel({ config }: Props) {
         { id: 'advanced' as TabId, label: 'Advanced', icon: '🔧' }
               ].map((tab) => (
                 <button
+                  id={`settings-tab-${tab.id}`}
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
                   className={`flex items-center gap-2 px-4 py-3 text-sm font-medium border-b-2 transition-colors ${
@@ -417,33 +421,34 @@ export default function SettingsPanel({ config }: Props) {
                       : 'border-transparent hover:text-accent-1'
                   }`}
                 >
-                  <span>{tab.icon}</span>
+                  <span id={`settings-tab-icon-${tab.id}`}>{tab.icon}</span>
                   {tab.label}
                 </button>
               ))}
             </div>
 
-      <div className="flex-1 overflow-y-auto scrollbar-hide">
+      <div id="settings-content" className="flex-1 overflow-y-auto scrollbar-hide">
               {/* Appearance Tab */}
               {activeTab === 'appearance' && (
-                <div className="space-y-6">
+                <div id="appearance-tab-content" className="space-y-6">
                   {/* Theme Selection */}
                   {settingsConfig?.allowThemeChange && (
-                    <div>
-                      <h3 className="text-sm font-medium mb-3">
+                    <div id="theme-selection-section">
+                      <h3 id="theme-selection-title" className="text-sm font-medium mb-3">
                         {translations?.common && 'colorThemes' in translations.common 
                           ? String(translations.common.colorThemes)
                           : 'Color Themes'}
                       </h3>
-                      <div className="space-y-4">
+                      <div id="theme-groups-container" className="space-y-4">
                         {Object.entries(allPaletteGroups).map(([groupKey, group]) => (
-                          <div key={groupKey}>
-                            <h4 className="text-xs font-medium mb-2 uppercase tracking-wide" style={{ color: 'var(--muted)' }}>
+                          <div id={`theme-group-${groupKey}`} key={groupKey}>
+                            <h4 id={`theme-group-title-${groupKey}`} className="text-xs font-medium mb-2 uppercase tracking-wide" style={{ color: 'var(--muted)' }}>
                               {group.name}
                             </h4>
-                            <div className="grid grid-cols-3 gap-2">
+                            <div id={`theme-grid-${groupKey}`} className="grid grid-cols-3 gap-2">
                               {Object.entries(group.palettes).map(([key, palette]) => (
                                 <button
+                                  id={`theme-option-${key}`}
                                   key={key}
                                   onClick={() => handleThemeChange(key)}
                                   className={`p-2.5 rounded-lg text-left transition-all ${

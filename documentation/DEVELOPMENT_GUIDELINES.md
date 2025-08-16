@@ -86,7 +86,49 @@ Always update these files when relevant:
 
 ## 🎯 Component Development Standards
 
+### Unique Element IDs (Required)
+
+**Every HTML element MUST have a unique, hardcoded ID for code searchability:**
+
+```tsx
+// ✅ Good: Static, searchable IDs
+<header id="main-header">
+  <div id="header-logo">Logo</div>
+  <nav id="desktop-nav">
+    <a id="nav-link-about" href="/about">About</a>
+    <a id="nav-link-projects" href="/projects">Projects</a>
+  </nav>
+  <button id="header-cta-button">Get Started</button>
+</header>
+
+// ✅ Good: Dynamic but predictable IDs based on content
+<div id="skill-group-frontend">
+  <div id="skill-item-frontend-0">React</div>
+  <div id="skill-item-frontend-1">TypeScript</div>
+</div>
+
+// ❌ Bad: No IDs
+<header>
+  <div>Logo</div>
+  <nav>
+    <a href="/about">About</a>
+  </nav>
+</header>
+
+// ❌ Bad: Random or completely dynamic IDs
+<div id={Math.random().toString()}>
+<div id={`dynamic-${Date.now()}`}>
+```
+
+**ID Naming Convention:**
+
+- Use kebab-case (lowercase with hyphens)
+- Include semantic context: `component-section-element`
+- For dynamic content: `component-contentname-index`
+- Examples: `hero-section`, `article-card-react-guide`, `skill-item-react-0`
+
 ### React Components
+
 ```tsx
 // Template for new components
 'use client';
@@ -106,14 +148,20 @@ export default function ComponentName({ config }: Props) {
   // Component logic
   
   return (
-    <div style={{ color: 'var(--foreground)' }}>
-      {translations?.section?.key || 'Fallback Text'}
+    <div id="component-name-container" style={{ color: 'var(--foreground)' }}>
+      <h2 id="component-name-title">
+        {translations?.section?.key || 'Fallback Text'}
+      </h2>
+      <button id="component-name-action-button">
+        {translations?.section?.button || 'Action'}
+      </button>
     </div>
   );
 }
 ```
 
 ### Translation Integration
+
 ```typescript
 // Always add to config.json
 "languages": {
@@ -135,6 +183,7 @@ export default function ComponentName({ config }: Props) {
 ```
 
 ### CSS Classes & Styling
+
 ```css
 /* Use existing patterns */
 .fab-nav {
@@ -176,18 +225,21 @@ export default function ComponentName({ config }: Props) {
 ## 📊 Quality Gates
 
 ### Code Quality
+
 - [ ] No TypeScript errors or warnings
 - [ ] ESLint passes without errors
 - [ ] Proper error handling and edge cases
 - [ ] Performance considerations (lazy loading, memoization)
 
 ### User Experience
+
 - [ ] Consistent visual design
 - [ ] Accessible to screen readers
 - [ ] Mobile-responsive
 - [ ] Fast loading and smooth animations
 
 ### Maintainability
+
 - [ ] Clear component and function names
 - [ ] Proper code organization
 - [ ] Comprehensive documentation
