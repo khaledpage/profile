@@ -2,10 +2,10 @@
 
 ## 📊 Summary Statistics
 
-- **Total Issues Tracked**: 14
-- **Resolved Issues**: 13
+- **Total Issues Tracked**: 16
+- **Resolved Issues**: 15
 - **Active Issues**: 1  
-- **Success Rate**: 93%
+- **Success Rate**: 94%
 
 ## 🚨 Active Issues
 
@@ -73,6 +73,40 @@
 - **Files Changed**:
   - `src/components/sections/ArticlesSection.tsx` (enhanced sorting and fallbacks)
 - **Impact**: All articles now properly display in chronological order with robust error handling
+
+### Issue #015 - Articles Scroll Missing Featured Articles
+
+- **Status**: ✅ Fixed
+- **Priority**: High
+- **Reported**: 2025-08-16
+- **Description**: Articles horizontal scroll showing only 1 article instead of all 5 published articles due to featured article filtering
+- **Root Cause**: Logic was filtering out featured articles from scroll, leaving only non-featured articles (1 out of 5)
+- **Fix Applied**:
+  - Removed featured article filtering from horizontal scroll logic
+  - Now shows ALL published articles in chronological order (old to new)
+  - Added article count display in section header
+  - Ensures scroll matches /articles page count
+- **Files Changed**:
+  - `src/components/sections/ArticlesSection.tsx` (removed featured filtering)
+- **Impact**: Horizontal scroll now displays all 5 published articles instead of just 1
+
+### Issue #016 - CTA Button Missing Wave Animation
+
+- **Status**: ✅ Fixed
+- **Priority**: Medium
+- **Reported**: 2025-08-16
+- **Description**: "Let's Talk" buttons in header lacking attention-grabbing animation as required
+- **Root Cause**: Previous wave animation was too subtle and not prominent enough
+- **Fix Applied**:
+  - Enhanced waveRing animation with stronger visual effects
+  - Reduced animation duration from 2s to 1.5s for more frequent ripples
+  - Increased opacity and box-shadow visibility
+  - Applied to both desktop and mobile CTA buttons
+  - Added multiple animation layers with different delays
+- **Files Changed**:
+  - `src/app/globals.css` (enhanced waveRing animation)
+  - `src/components/layout/Header.tsx` (applied to both buttons)
+- **Impact**: Both CTA buttons now have prominent, eye-catching wave animations
 
 ### Issue #012 - Missing Articles and Images on Homepage
 

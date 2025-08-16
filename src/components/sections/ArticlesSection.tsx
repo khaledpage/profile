@@ -113,18 +113,13 @@ export default function ArticlesSection() {
 
   const featuredArticle = sortedArticles.find(article => article.metadata.featured);
   
-  // For horizontal scroll: sort from old to new (chronological order) and exclude featured
-  const scrollArticles = featuredArticle ? 
-    sortedArticles.filter(article => !article.metadata.featured).sort((a, b) => {
-      const dateA = new Date(a.metadata.publishDate);
-      const dateB = new Date(b.metadata.publishDate);
-      return dateA.getTime() - dateB.getTime(); // Oldest first for scroll
-    }) : 
-    [...sortedArticles].sort((a, b) => {
-      const dateA = new Date(a.metadata.publishDate);
-      const dateB = new Date(b.metadata.publishDate);
-      return dateA.getTime() - dateB.getTime(); // Oldest first for scroll
-    });
+  // For horizontal scroll: show ALL articles sorted from old to new (chronological order)
+  // This ensures the scroll shows the same articles as the /articles page
+  const scrollArticles = [...sortedArticles].sort((a, b) => {
+    const dateA = new Date(a.metadata.publishDate);
+    const dateB = new Date(b.metadata.publishDate);
+    return dateA.getTime() - dateB.getTime(); // Oldest first for scroll
+  });
 
   // Fallback: ensure we always have some articles to display
   const fallbackArticles = scrollArticles.length === 0 ? [
@@ -181,7 +176,7 @@ export default function ArticlesSection() {
         <div id="articles-scroll-section" className="mb-8">
           <div id="articles-scroll-header" className="text-left mb-6">
             <h3 id="articles-scroll-title" className="text-2xl font-semibold" style={{ color: 'var(--foreground)' }}>
-              {featuredArticle ? 'More Articles' : 'All Articles'}
+              All Articles ({fallbackArticles.length})
             </h3>
           </div>
           

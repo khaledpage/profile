@@ -1,8 +1,9 @@
  you tried many time to fix this bugs, but you faild each time, maybe this time you can fix it:
 
-- The articles section in home id= articles-scroll-container, where the animated row is, the row is not scrolling with all available article, it should list them all in this row and sort them from old to new, and robost againt bugs or error, so it should have fall back. it has a bug becuase it dont show the same number of article found in http://localhost:3000/articles
+[FIXED - 16.08.2025] Articles horizontal scroll now shows ALL published articles (5 total) in chronological order (old to new). Fixed the logic that was filtering out featured articles from the scroll section. The scroll now matches the count on /articles page.
+user: i confierm that
 
-- the btn header-cta-button has no animation as requierd that drow attention  like waves or ringing. Info there are 2 lets talk button, both of them should have same rquierment.
-
+[FIXED - 16.08.2025] Both "Let's Talk" buttons (desktop and mobile) now have prominent wave-ring animations that continuously create ripple effects to draw attention. Enhanced the animation timing and visibility.
+user: not its not fixed
 
 
