@@ -2,12 +2,44 @@
 
 ## 📊 Summary Statistics
 
-- **Total Issues Tracked**: 18
-- **Resolved Issues**: 17
+- **Total Issues Tracked**: 23
+- **Resolved Issues**: 22
 - **Active Issues**: 1  
-- **Success Rate**: 94%
+- **Success Rate**: 96%
 
 ## 🚨 Active Issues
+
+### Issue #022 - Navigation Links Not Working for Articles and Skills
+
+- **Status**: ✅ Fixed
+- **Priority**: Medium  
+- **Reported**: 2024-12-27
+- **Description**: Navigation buttons for #articles and #skills sections not working after section rearrangement
+- **Root Cause**: Missing or incorrect IDs on target sections after component refactoring
+- **Fix Applied**:
+  - Added missing `id="skills"` to SkillsShowcaseMultiDesign component
+  - Fixed ArticlesSection to use `id="articles"` instead of `id="articles-section"`
+  - Ensured navigation hash targets match section IDs exactly
+- **Files Changed**:
+  - `src/components/sections/SkillsShowcaseMultiDesign.tsx` (added id="skills")
+  - `src/components/sections/ArticlesSection.tsx` (updated to id="articles")
+- **Impact**: Restored smooth anchor navigation to all sections
+
+### Issue #023 - Zip Upload Button Not Visible in Articles Explorer
+
+- **Status**: ✅ Fixed  
+- **Priority**: Low
+- **Reported**: 2024-12-27
+- **Description**: ZIP file upload functionality for articles not clearly visible to admin users
+- **Root Cause**: Poor styling and visibility of file input element, unclear feedback
+- **Fix Applied**:
+  - Enhanced upload UI with prominent button styling using accent colors
+  - Replaced hidden file input with styled button trigger
+  - Improved upload feedback with prominent success notifications
+  - Added better visual styling for import status messages
+- **Files Changed**:
+  - `src/components/articles/ArticlesExplorer.tsx` (enhanced upload UI and feedback)
+- **Impact**: Better admin user experience for content management
 
 ### Issue #007 - Config Panel Tabs Missing
 
@@ -207,6 +239,55 @@
   - ✅ Updated Requirements-Tabelle with new features
   - ✅ Added proper TypeScript types
   - ✅ Tested build process
+
+### Issue #019 - CTA Button Animation Too Intrusive
+
+- **Status**: ✅ Fixed
+- **Priority**: Medium
+- **Reported**: 2025-08-16
+- **Description**: Header CTA button heartbeat animation running constantly is annoying and distracting
+- **Root Cause**: Animation was set to infinite loop without any timing control
+- **Fix Applied**:
+  - Converted animation to random trigger system (8-15 second intervals)
+  - Added wave/echo effects with box-shadow animation
+  - Created dual-layer animation with ::before and ::after pseudo-elements
+  - Added CSS custom property for random delay control
+- **Files Changed**:
+  - `src/app/globals.css` (updated heartbeat animation with wave effects)
+  - `src/components/layout/Header.tsx` (added random trigger logic)
+- **Impact**: Less intrusive, attention-grabbing when needed, better UX
+
+### Issue #020 - Articles Section Scrolling Too Fast
+
+- **Status**: ✅ Fixed
+- **Priority**: Low
+- **Reported**: 2025-08-16
+- **Description**: Articles horizontal scroll animation moves too quickly for comfortable reading
+- **Root Cause**: Scroll duration calculation was too aggressive (5s multiplier, 20s minimum)
+- **Fix Applied**:
+  - Increased scroll duration multiplier from 5 to 10 seconds per article
+  - Raised minimum duration from 20 to 40 seconds
+  - Formula now: `Math.max(40, articles.length * 10)s`
+- **Files Changed**:
+  - `src/components/sections/ArticlesSection.tsx` (adjusted scroll timing)
+- **Impact**: More readable, comfortable scrolling speed
+
+### Issue #021 - Client-Side fs Module Import Error
+
+- **Status**: ✅ Fixed
+- **Priority**: High
+- **Reported**: 2025-08-16
+- **Description**: Build failing with "Module not found: Can't resolve 'fs'" in login page
+- **Root Cause**: Login page was client component trying to use server-side getSiteConfig() function
+- **Fix Applied**:
+  - Split login into server component (page) and client component (form)
+  - Created LoginForm.tsx as pure client component
+  - Updated login page to be async server component that loads config
+  - Fixed Link component usage (replaced `<a>` with `<Link>`)
+- **Files Changed**:
+  - `src/app/login/page.tsx` (converted to server component)
+  - `src/components/LoginForm.tsx` (new client component)
+- **Impact**: Successful builds, proper SSR/CSR separation
 
 ## ✅ Resolved Issues
 

@@ -48,6 +48,8 @@
 | REL-01   | Hydration Safety          | No SSR/CSR divergence                               | High     | Avoid `Math.random` / `Date.now` in SSR; deterministic particle values                                        |
 | DEV-01   | Configuration Docs        | Documentation for `config.json`                     | High     | `CONFIGURATION.md` explains all fields; README covers setup and customization                                 |
 | DEV-02   | Optional Fields Docs      | Document optional `project` fields                  | High     | README lists required/optional fields; describes behavior for missing values                                  |
+| AUTH-01  | Admin Login System        | Admin authentication via /login page                | High     | ✅ COMPLETED (Aug 16, 2025) - Login page with credentials; environment variables; API authentication; i18n support |
+| UI-01    | CTA Button Animation      | Header CTA button with heartbeat animation          | Medium   | ✅ COMPLETED (Aug 16, 2025) - Heartbeat CSS animation applied to desktop and mobile CTA buttons               |
 | COOK-01  | Cookie Consent Banner     | GDPR-compliant cookie consent with categories       | High     | Banner shows on first visit; Accept All/Customize/Reject options; category explanations                       |
 | COOK-02  | Cookie Categories         | Granular consent for different cookie types         | High     | Necessary, Analytics, Preferences, Marketing categories; toggle controls for each                             |
 | COOK-03  | Settings Integration      | Cookie consent prevents unauthorized data storage    | High     | Settings changes blocked without consent; re-prompt appears when needed                                       |
@@ -119,5 +121,6 @@
 | ADMIN-01 | Admin Role Toggle        | Admin mode with feature gating                  | High     | Admin default enabled; toggle in settings (if allowed); event-driven UI updates                           |
 | ADMIN-02 | ZIP Download             | Per-article ZIP download (admin-only)           | High     | Button on cards in admin mode; includes article.md, metadata.json, assets/                                |
 | ADMIN-03 | ZIP Upload               | Upload article ZIPs and merge for import        | Medium   | Upload control in Articles page (admin); produces imported-articles.zip; doc updated                      |
+| ADMIN-04 | Article Deletion         | Admin can delete articles via web interface     | High     | ✅ COMPLETED (Dec 27, 2024) - Delete button on article cards; confirmation dialog; API authentication; file cleanup |
 | SET-23   | Home Sections Control    | Admin can arrange/hide homepage sections        | Medium   | New Settings tab placeholder; order/hidden stored in preferences and respected by home controller          |
 

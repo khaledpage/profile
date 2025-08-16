@@ -40,6 +40,9 @@ export default function LoginForm({ config }: Props) {
         // Enable admin mode
         setAdminEnabled(true);
         
+        // Store password for API authentication
+        localStorage.setItem('admin-password', password);
+        
         // Redirect to home page
         router.push('/');
       } else {

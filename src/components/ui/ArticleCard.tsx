@@ -5,17 +5,20 @@ import Image from 'next/image';
 import { Article } from '@/types/article';
 import JSZip from 'jszip';
 import { saveAs } from 'file-saver';
+import { useState } from 'react';
 
 interface ArticleCardProps {
   article: Article;
   featured?: boolean;
   adminEnabled?: boolean;
   allowZipDownload?: boolean;
+  onDelete?: (slug: string) => void;
 }
 
-export default function ArticleCard({ article, featured = false, adminEnabled = false, allowZipDownload = false }: ArticleCardProps) {
+export default function ArticleCard({ article, featured = false, adminEnabled = false, allowZipDownload = false, onDelete }: ArticleCardProps) {
   const { metadata, slug } = article;
   const base = process.env.NEXT_PUBLIC_BASE_PATH || '';
+  const [isDeleting, setIsDeleting] = useState(false);
 
   const handleDownloadZip = async (e: React.MouseEvent) => {
     e.preventDefault();
@@ -41,6 +44,43 @@ export default function ArticleCard({ article, featured = false, adminEnabled = 
       console.error('ZIP download failed', err);
     }
   };
+
+  const handleDelete = async (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    if (!confirm(`Are you sure you want to delete the article "${metadata.title}"? This action cannot be undone.`)) {
+      return;
+    }
+
+    setIsDeleting(true);
+    try {
+      const adminKey = localStorage.getItem('admin-password') || process.env.ADMIN_PASSWORD;
+      const response = await fetch(`/api/articles?slug=${slug}`, {
+        method: 'DELETE',
+        headers: {
+          'x-admin-key': adminKey || '',
+        }
+      });
+
+      if (response.ok) {
+        alert('Article deleted successfully');
+        if (onDelete) {
+          onDelete(slug);
+        }
+        // Reload the page to refresh the article list
+        window.location.reload();
+      } else {
+        const error = await response.json();
+        alert(`Failed to delete article: ${error.error}`);
+      }
+    } catch (error) {
+      console.error('Delete error:', error);
+      alert('An error occurred while deleting the article');
+    } finally {
+      setIsDeleting(false);
+    }
+  };
   
   return (
     <Link href={`/articles/${slug}`} id={`article-card-link-${slug}`} className="group block">
@@ -58,19 +98,36 @@ export default function ArticleCard({ article, featured = false, adminEnabled = 
             fill
             className="object-cover group-hover:scale-105 transition-transform duration-300"
           />
-          {adminEnabled && allowZipDownload && (
-            <button
-              id={`article-download-button-${slug}`}
-              onClick={handleDownloadZip}
-              className="absolute bottom-3 right-3 px-3 py-1.5 rounded-lg text-xs font-medium border backdrop-blur-sm"
-              style={{
-                backgroundColor: 'color-mix(in srgb, var(--background), transparent 20%)',
-                color: 'var(--foreground)',
-                borderColor: 'color-mix(in srgb, var(--card), transparent 60%)'
-              }}
-            >
-              Download ZIP
-            </button>
+          {adminEnabled && (
+            <div id={`article-admin-controls-${slug}`} className="absolute bottom-3 right-3 flex gap-2">
+              {allowZipDownload && (
+                <button
+                  id={`article-download-button-${slug}`}
+                  onClick={handleDownloadZip}
+                  className="px-3 py-1.5 rounded-lg text-xs font-medium border backdrop-blur-sm hover:opacity-80 transition-opacity"
+                  style={{
+                    backgroundColor: 'color-mix(in srgb, var(--background), transparent 20%)',
+                    color: 'var(--foreground)',
+                    borderColor: 'color-mix(in srgb, var(--card), transparent 60%)'
+                  }}
+                >
+                  Download ZIP
+                </button>
+              )}
+              <button
+                id={`article-delete-button-${slug}`}
+                onClick={handleDelete}
+                disabled={isDeleting}
+                className="px-3 py-1.5 rounded-lg text-xs font-medium border backdrop-blur-sm hover:opacity-80 transition-opacity disabled:opacity-50"
+                style={{
+                  backgroundColor: 'color-mix(in srgb, var(--background), transparent 20%)',
+                  color: '#ef4444',
+                  borderColor: '#ef4444'
+                }}
+              >
+                {isDeleting ? 'Deleting...' : 'Delete'}
+              </button>
+            </div>
           )}
           
           {metadata.featured && (

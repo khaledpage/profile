@@ -105,10 +105,27 @@ export default function ArticlesExplorer({ initial, config }: Props) {
             style={{ borderColor: 'color-mix(in srgb, var(--card), transparent 60%)', color: 'var(--foreground)' }}
           />
           {admin && allowUpload && (
-            <label className="text-sm">
-              <span className="mr-2" style={{ color: 'var(--muted)' }}>Upload article ZIPs</span>
-              <input type="file" accept=".zip" multiple onChange={e=>onUpload(e.target.files)} />
-            </label>
+            <div className="flex items-center gap-3">
+              <label className="cursor-pointer">
+                <span 
+                  className="px-4 py-2 rounded-lg text-sm font-medium border transition-all duration-200 hover:opacity-80"
+                  style={{ 
+                    backgroundColor: 'color-mix(in srgb, var(--accent-1), transparent 85%)',
+                    color: 'var(--accent-1)',
+                    borderColor: 'var(--accent-1)'
+                  }}
+                >
+                  Upload Article ZIPs
+                </span>
+                <input 
+                  type="file" 
+                  accept=".zip" 
+                  multiple 
+                  onChange={e=>onUpload(e.target.files)} 
+                  className="hidden"
+                />
+              </label>
+            </div>
           )}
         </div>
         {tags.length > 0 && (
@@ -143,8 +160,22 @@ export default function ArticlesExplorer({ initial, config }: Props) {
         )}
 
         {admin && importsInfo.length > 0 && (
-          <div className="mt-3 text-xs" style={{ color: 'var(--muted)' }}>
-            Imported: {importsInfo.map(i=>i.slug).join(', ')}. A ZIP named imported-articles.zip was downloaded. Extract into src/content/articles/ then rebuild.
+          <div 
+            className="mt-4 p-4 rounded-lg border"
+            style={{ 
+              backgroundColor: 'color-mix(in srgb, var(--accent-1), transparent 90%)',
+              borderColor: 'var(--accent-1)',
+              color: 'var(--foreground)'
+            }}
+          >
+            <h4 className="font-medium mb-2">Import Successful!</h4>
+            <p className="text-sm" style={{ color: 'var(--muted)' }}>
+              Imported articles: <strong>{importsInfo.map(i=>i.title || i.slug).join(', ')}</strong>
+            </p>
+            <p className="text-sm mt-1" style={{ color: 'var(--muted)' }}>
+              A ZIP file named <code className="px-1 py-0.5 rounded text-xs" style={{ backgroundColor: 'color-mix(in srgb, var(--card), transparent 50%)' }}>imported-articles.zip</code> was downloaded. 
+              Extract it into <code className="px-1 py-0.5 rounded text-xs" style={{ backgroundColor: 'color-mix(in srgb, var(--card), transparent 50%)' }}>src/content/articles/</code> then rebuild the project.
+            </p>
           </div>
         )}
       </div>

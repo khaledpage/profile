@@ -166,8 +166,54 @@ body {
   }
 }
 
+@keyframes heartbeatWave {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent-1), transparent 30%);
+  }
+  40% {
+    transform: scale(1.08);
+    box-shadow: 0 0 0 8px color-mix(in srgb, var(--accent-1), transparent 50%);
+  }
+  60% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 15px color-mix(in srgb, var(--accent-1), transparent 70%);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 25px color-mix(in srgb, var(--accent-1), transparent 100%);
+  }
+}
+
 .heartbeat {
-  animation: heartbeat 1.5s ease-in-out infinite;
+  position: relative;
+  animation: heartbeatWave 2.5s ease-in-out;
+  animation-delay: var(--heartbeat-delay, 0s);
+  overflow: visible;
+}
+
+.heartbeat::before,
+.heartbeat::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  transform: translate(-50%, -50%);
+  background: transparent;
+  border: 2px solid color-mix(in srgb, var(--accent-1), transparent 40%);
+  opacity: 0;
+  pointer-events: none;
+  animation: heartbeatWave 2.5s ease-in-out;
+  animation-delay: var(--heartbeat-delay, 0s);
+  z-index: -1;
+}
+
+.heartbeat::after {
+  animation-delay: calc(var(--heartbeat-delay, 0s) + 0.3s);
+  border: 1px solid color-mix(in srgb, var(--accent-2), transparent 50%);
 }
 
 .wave-ring {

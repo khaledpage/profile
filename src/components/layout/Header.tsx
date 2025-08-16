@@ -24,6 +24,44 @@ export default function Header({ config }: Props) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Random heartbeat animation trigger
+  useEffect(() => {
+    const triggerRandomHeartbeat = () => {
+      const ctaButtons = document.querySelectorAll('[data-heartbeat="true"]');
+      ctaButtons.forEach((button) => {
+        const element = button as HTMLElement;
+        // Remove animation class
+        element.classList.remove('heartbeat');
+        // Trigger reflow to restart animation
+        element.offsetHeight;
+        // Add animation class with random delay
+        const randomDelay = Math.random() * 3; // 0-3 seconds delay
+        element.style.setProperty('--heartbeat-delay', `${randomDelay}s`);
+        element.classList.add('heartbeat');
+      });
+    };
+
+    // Trigger heartbeat every 8-15 seconds randomly
+    const scheduleNextHeartbeat = () => {
+      const delay = (8 + Math.random() * 7) * 1000; // 8-15 seconds
+      setTimeout(() => {
+        triggerRandomHeartbeat();
+        scheduleNextHeartbeat();
+      }, delay);
+    };
+
+    // Initial heartbeat after 3-5 seconds
+    const initialDelay = (3 + Math.random() * 2) * 1000;
+    setTimeout(() => {
+      triggerRandomHeartbeat();
+      scheduleNextHeartbeat();
+    }, initialDelay);
+
+    return () => {
+      // Cleanup is handled by component unmount
+    };
+  }, []);
+
   const navItems = [
     { href: '#about', label: translations?.nav.about || 'About' },
     { href: '#projects', label: translations?.nav.projects || 'Projects' },
@@ -141,7 +179,8 @@ export default function Header({ config }: Props) {
             <motion.a
               id="header-cta-button"
               href="#contact"
-              className="hidden md:block relative px-6 py-2 font-medium rounded-full transition-all duration-300 interactive-border heartbeat hover:shadow-lg"
+              data-heartbeat="true"
+              className="hidden md:block relative px-6 py-2 font-medium rounded-full transition-all duration-300 interactive-border hover:shadow-lg"
               style={{
                 background: `linear-gradient(to right, var(--accent-1), var(--accent-2))`,
                 color: 'var(--card-contrast)',
@@ -242,7 +281,8 @@ export default function Header({ config }: Props) {
                   <motion.a
                     id="mobile-cta-button"
                     href="#contact"
-                    className="mt-4 px-6 py-3 font-medium rounded-full text-center heartbeat"
+                    data-heartbeat="true"
+                    className="mt-4 px-6 py-3 font-medium rounded-full text-center"
                     style={{
                       background: `linear-gradient(to right, var(--accent-1), var(--accent-2))`,
                       color: 'var(--card-contrast)',

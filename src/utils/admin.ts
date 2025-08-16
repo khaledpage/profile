@@ -16,6 +16,10 @@ export function getInitialAdminEnabled(config: SiteConfig): boolean {
 export function setAdminEnabled(enabled: boolean) {
   try {
     localStorage.setItem(ADMIN_KEY, String(enabled));
+    if (!enabled) {
+      // Clear stored password on logout
+      localStorage.removeItem('admin-password');
+    }
     window.dispatchEvent(new CustomEvent('adminModeChanged', { detail: { enabled } }));
   } catch {}
 }

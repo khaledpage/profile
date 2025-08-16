@@ -147,7 +147,7 @@ export default function ArticlesSection() {
   ] : scrollArticles;
 
   return (
-    <section id="articles-section" className="py-20">
+    <section id="articles" className="py-20">
       <div id="articles-container" className="container mx-auto px-6">
         <div id="articles-header" className="text-center mb-12">
           <h2 id="articles-title" className="text-4xl font-bold mb-4" style={{ color: 'var(--foreground)' }}>
@@ -181,12 +181,12 @@ export default function ArticlesSection() {
           </div>
           
           <div id="articles-scroll-container" className="relative overflow-hidden">
-            <div 
+            <div
               id="articles-scroll-track"
               className="flex gap-6 animate-scroll hover:animate-pause"
               style={{
                 width: 'max-content',
-                '--scroll-duration': `${Math.max(20, fallbackArticles.length * 5)}s`
+                '--scroll-duration': `${Math.max(40, fallbackArticles.length * 10)}s`
               } as React.CSSProperties}
             >
               {/* Duplicate articles enough times for smooth infinite scroll */}
