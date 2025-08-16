@@ -141,22 +141,24 @@ export default function Header({ config }: Props) {
             <motion.a
               id="header-cta-button"
               href="#contact"
-              className="hidden md:block relative px-6 py-2 font-medium rounded-full transition-all interactive-border pulse-glow"
+              className="hidden md:block relative px-6 py-2 font-medium rounded-full transition-all duration-300 interactive-border wave-ring hover:shadow-lg"
               style={{
                 background: `linear-gradient(to right, var(--accent-1), var(--accent-2))`,
                 color: 'var(--card-contrast)',
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.background = `linear-gradient(to right, color-mix(in srgb, var(--accent-1), white 20%), color-mix(in srgb, var(--accent-2), white 20%))`;
+                e.currentTarget.style.transform = 'scale(1.05)';
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.background = `linear-gradient(to right, var(--accent-1), var(--accent-2))`;
+                e.currentTarget.style.transform = 'scale(1)';
               }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.5 }}
+              transition={{ delay: 0.5, duration: 0.3 }}
             >
               {translations?.cta?.talk || "Let's Talk"}
             </motion.a>
@@ -240,7 +242,7 @@ export default function Header({ config }: Props) {
                   <motion.a
                     id="mobile-cta-button"
                     href="#contact"
-                    className="mt-4 px-6 py-3 font-medium rounded-full text-center"
+                    className="mt-4 px-6 py-3 font-medium rounded-full text-center wave-ring"
                     style={{
                       background: `linear-gradient(to right, var(--accent-1), var(--accent-2))`,
                       color: 'var(--card-contrast)',

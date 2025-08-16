@@ -2,10 +2,10 @@
 
 ## 📊 Summary Statistics
 
-- **Total Issues Tracked**: 12
-- **Resolved Issues**: 11
+- **Total Issues Tracked**: 14
+- **Resolved Issues**: 13
 - **Active Issues**: 1  
-- **Success Rate**: 92%
+- **Success Rate**: 93%
 
 ## 🚨 Active Issues
 
@@ -39,6 +39,40 @@
 - **Files Changed**:
   - `public/data/articles.json` (fixed image URLs)
 - **Next Steps**: Monitor build performance and add timeout handling
+
+### Issue #013 - JSON Parsing Error in Articles Utility
+
+- **Status**: ✅ Fixed
+- **Priority**: High  
+- **Reported**: 2025-08-16
+- **Description**: "Unexpected end of JSON input" error in src/utils/articles.ts when parsing empty metadata.json files
+- **Root Cause**: Empty metadata.json file in new-sample-article directory causing JSON.parse() to fail
+- **Fix Applied**:
+  - Added robust error handling in articles utility with empty file detection
+  - Added JSON parsing validation with proper error messages  
+  - Populated empty metadata.json with proper sample content
+  - Added required field validation for article metadata
+- **Files Changed**:
+  - `src/utils/articles.ts` (enhanced error handling)
+  - `src/content/articles/new-sample-article/metadata.json` (added proper content)
+  - `src/content/articles/new-sample-article/article.md` (added sample content)
+- **Impact**: Eliminated JSON parsing errors and improved application stability
+
+### Issue #014 - Articles Horizontal Scroll Not Showing All Articles
+
+- **Status**: ✅ Fixed
+- **Priority**: Medium
+- **Reported**: 2025-08-16  
+- **Description**: Home page animated articles row not displaying all available articles and incorrect sorting order
+- **Root Cause**: Missing proper sorting logic for horizontal scroll and lack of fallback handling
+- **Fix Applied**:
+  - Implemented chronological sorting (old to new) for horizontal scroll section
+  - Added robust fallback system with sample article when no articles available
+  - Enhanced duplication logic for smooth infinite scroll animation
+  - Separated sorting logic: newest first for main display, oldest first for scroll
+- **Files Changed**:
+  - `src/components/sections/ArticlesSection.tsx` (enhanced sorting and fallbacks)
+- **Impact**: All articles now properly display in chronological order with robust error handling
 
 ### Issue #012 - Missing Articles and Images on Homepage
 

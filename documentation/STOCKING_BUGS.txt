@@ -1,17 +1,8 @@
  you tried many time to fix this bugs, but you faild each time, maybe this time you can fix it:
 
-- The articles section in home, where the animated row is, the row is only showing 2 article that keep moving left. i have more article, but some how they are not displayed
+- The articles section in home id= articles-scroll-container, where the animated row is, the row is not scrolling with all available article, it should list them all in this row and sort them from old to new, and robost againt bugs or error, so it should have fall back. it has a bug becuase it dont show the same number of article found in http://localhost:3000/articles
 
-- there are 2 "lets talk" button, one of them has broken text (in Ready to Transform Your Idea section id= uid-html-1_body-1_div-2_div-3_main-1_section-6_div-2_div-3_div-1_a-1_span-1__2), the other (in header id = uid-html-1_body-1_div-2_div-3_header-1_nav-1_div-1_a-2__2) has broken animation 
-
-- the setting pannel in the ui, has background color that dont change with the general theme of the site. which make reading sometime hard if the background color and text color dosent fit together.
-
-- the setting pannel in the ui hight, change depending on the element in the tabs, which it bad, it should not change, and only have scroll.
+- the btn header-cta-button has no animation as requierd that drow attention  like waves or ringing. Info there are 2 lets talk button, both of them should have same rquierment.
 
 
 
-same issue:
-
-you fixed the pdf for one articl Next.js vs React” but you broke it for the other one : Matrix Multiplication
-
-- the btn (in header id = header-cta-button) has broken or none animation 

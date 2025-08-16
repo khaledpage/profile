@@ -104,7 +104,7 @@ export default function ArticlesSection() {
     );
   }
 
-  // Sort articles by date (newest first)
+  // Sort articles by date (newest first) for main display
   const sortedArticles = [...articles].sort((a, b) => {
     const dateA = new Date(a.metadata.publishDate);
     const dateB = new Date(b.metadata.publishDate);
@@ -112,10 +112,44 @@ export default function ArticlesSection() {
   });
 
   const featuredArticle = sortedArticles.find(article => article.metadata.featured);
-  // Show all articles in the scroll except the featured one (if it exists and is shown separately)
+  
+  // For horizontal scroll: sort from old to new (chronological order) and exclude featured
   const scrollArticles = featuredArticle ? 
-    sortedArticles.filter(article => !article.metadata.featured) : 
-    sortedArticles;
+    sortedArticles.filter(article => !article.metadata.featured).sort((a, b) => {
+      const dateA = new Date(a.metadata.publishDate);
+      const dateB = new Date(b.metadata.publishDate);
+      return dateA.getTime() - dateB.getTime(); // Oldest first for scroll
+    }) : 
+    [...sortedArticles].sort((a, b) => {
+      const dateA = new Date(a.metadata.publishDate);
+      const dateB = new Date(b.metadata.publishDate);
+      return dateA.getTime() - dateB.getTime(); // Oldest first for scroll
+    });
+
+  // Fallback: ensure we always have some articles to display
+  const fallbackArticles = scrollArticles.length === 0 ? [
+    {
+      slug: 'coming-soon',
+      metadata: {
+        title: 'More Articles Coming Soon',
+        summary: 'Stay tuned for more exciting content',
+        author: 'Khaled Alabsi',
+        publishDate: new Date().toISOString(),
+        tags: ['Updates'],
+        category: 'General',
+        coverImage: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800&h=400&fit=crop&crop=entropy&auto=format',
+        readingTime: 1,
+        featured: false,
+        published: true,
+        seo: {
+          metaDescription: 'More articles coming soon',
+          keywords: ['updates', 'coming soon']
+        }
+      },
+      content: '',
+      assets: []
+    }
+  ] : scrollArticles;
 
   return (
     <section id="articles-section" className="py-20">
@@ -157,12 +191,12 @@ export default function ArticlesSection() {
               className="flex gap-6 animate-scroll hover:animate-pause"
               style={{
                 width: 'max-content',
-                '--scroll-duration': '30s'
+                '--scroll-duration': `${Math.max(20, fallbackArticles.length * 5)}s`
               } as React.CSSProperties}
             >
-              {/* Duplicate articles multiple times for infinite scroll effect */}
-              {Array.from({ length: Math.max(3, Math.ceil(12 / Math.max(1, scrollArticles.length))) }, (_, repeatIndex) => 
-                scrollArticles.map((article, index) => (
+              {/* Duplicate articles enough times for smooth infinite scroll */}
+              {Array.from({ length: Math.max(6, Math.ceil(20 / Math.max(1, fallbackArticles.length))) }, (_, repeatIndex) => 
+                fallbackArticles.map((article, index) => (
                   <div key={`${article.slug}-${repeatIndex}-${index}`} id={`article-scroll-item-${article.slug}-${repeatIndex}-${index}`} className="flex-shrink-0 w-80">
                     <ArticleCard article={article} />
                   </div>

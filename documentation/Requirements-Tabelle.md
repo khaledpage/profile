@@ -82,7 +82,6 @@
 | UI-03    | Project Page Readability  | Project detail text uses theme variables           | High     | No Tailwind gray classes; text uses `var(--foreground)`/`--muted`; passes contrast on dark and light       |
 | NAV-01   | Project Breadcrumbs       | Project pages show breadcrumbs like articles       | Medium   | Breadcrumbs: Home / Projects / {title}; links styled with theme colors; keyboard accessible                |
 | OPS-02   | Lint / Types              | Clean type and lint checks                          | Medium   | `npm run lint/typecheck` runs without errors                                                                  |
-| OPS-03   | Vite Widgets Bundling     | Optional Vite build for standalone widgets          | Low      | `npm run build:widgets` outputs `public/widgets/widgets.{es,iife}.js`; simple greeting widget mounts       |
 | DOC-01   | Technical Documentation   | Comprehensive architecture documentation           | Medium   | File structure explained; component responsibilities; data flow; deployment guide; development workflow     |
 | DOC-02   | Code Architecture Guide   | Detailed code organization documentation           | Medium   | TypeScript patterns; component hierarchies; utility functions; API design; configuration management        |
 | SET-19   | Configuration Download    | Download current settings as JSON file            | High     | Settings panel provides download button; exports custom-defaults.json; all user preferences included        |

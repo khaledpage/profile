@@ -111,12 +111,6 @@ export default function WorkflowSection({ config }: Props) {
           {/* Desktop View - Horizontal Flow */}
           <div id="workflow-desktop" className="hidden lg:block">
             <div id="workflow-desktop-container" className="relative">
-              {/* Connection Lines */}
-              <div id="workflow-connection-line" className="absolute top-1/2 left-0 right-0 h-0.5 transform -translate-y-1/2" 
-                   style={{ backgroundColor: 'color-mix(in srgb, var(--foreground), transparent 70%)' }}>
-                <div id="workflow-line-gradient" className="absolute inset-0 bg-gradient-to-r from-transparent via-current to-transparent opacity-50" />
-              </div>
-
               {/* Step Cards */}
               <div id="workflow-steps-grid" className="grid grid-cols-5 gap-4 relative z-10">
                 {workflowSteps.map((step, index) => (
@@ -202,14 +196,6 @@ export default function WorkflowSection({ config }: Props) {
           <div className="lg:hidden space-y-6">
             {workflowSteps.map((step, index) => (
               <div key={step.id} className="relative">
-                {/* Connection Line */}
-                {index < workflowSteps.length - 1 && (
-                  <div 
-                    className="absolute left-8 top-20 w-0.5 h-6 z-0"
-                    style={{ backgroundColor: 'color-mix(in srgb, var(--foreground), transparent 70%)' }}
-                  />
-                )}
-
                 <div
                   className={`glass rounded-2xl p-6 cursor-pointer transform transition-all duration-300 relative z-10 ${
                     activeStep === step.id ? 'scale-102' : 'hover:scale-101'

@@ -345,7 +345,14 @@ export default function SettingsPanel({ config }: Props) {
         >
           <div 
             id="settings-panel"
-            className="w-full max-w-2xl glass rounded-2xl p-6 max-h-[80vh] overflow-hidden flex flex-col"
+            className="w-full max-w-2xl rounded-2xl p-6 h-[80vh] flex flex-col"
+            style={{
+              background: 'var(--card)',
+              color: 'var(--foreground)',
+              border: '1px solid color-mix(in srgb, var(--foreground), transparent 90%)',
+              boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
+              backdropFilter: 'blur(12px)',
+            }}
             onClick={(e) => e.stopPropagation()}
           >
             <div id="settings-header" className="flex items-center justify-between mb-6">
@@ -404,7 +411,7 @@ export default function SettingsPanel({ config }: Props) {
             </div>
 
             {/* Tab Navigation */}
-      <div id="settings-tab-navigation" className="flex border-b border-white/10 mb-6">
+      <div id="settings-tab-navigation" className="flex mb-6" style={{ borderBottom: '1px solid color-mix(in srgb, var(--foreground), transparent 90%)' }}>
               {[
         { id: 'appearance' as TabId, label: 'Appearance', icon: '🎨' },
         { id: 'behavior' as TabId, label: 'Behavior', icon: '⚙️' },
@@ -415,11 +422,25 @@ export default function SettingsPanel({ config }: Props) {
                   id={`settings-tab-${tab.id}`}
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`flex items-center gap-2 px-4 py-3 text-sm font-medium border-b-2 transition-colors ${
-                    activeTab === tab.id
-                      ? 'border-accent-1 text-accent-1'
-                      : 'border-transparent hover:text-accent-1'
-                  }`}
+                  className={`flex items-center gap-2 px-4 py-3 text-sm font-medium transition-colors`}
+                  style={{
+                    borderBottom: activeTab === tab.id 
+                      ? '2px solid var(--accent-1)' 
+                      : '2px solid transparent',
+                    color: activeTab === tab.id 
+                      ? 'var(--accent-1)' 
+                      : 'var(--muted)'
+                  }}
+                  onMouseEnter={(e) => {
+                    if (activeTab !== tab.id) {
+                      e.currentTarget.style.color = 'var(--accent-1)';
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (activeTab !== tab.id) {
+                      e.currentTarget.style.color = 'var(--muted)';
+                    }
+                  }}
                 >
                   <span id={`settings-tab-icon-${tab.id}`}>{tab.icon}</span>
                   {tab.label}
@@ -502,7 +523,7 @@ export default function SettingsPanel({ config }: Props) {
                             }`}
                           >
                             <div className="font-medium capitalize">{design}</div>
-                            <div className="text-xs text-gray-400 mt-1">
+                            <div className="text-xs mt-1" style={{ color: 'var(--muted)' }}>
                               {design === 'marquee' && 'Scrolling animation with hover controls'}
                               {design === 'grid' && 'Clean organized grid layout'}
                               {design === 'carousel' && 'Interactive slideshow format'}
@@ -614,7 +635,7 @@ export default function SettingsPanel({ config }: Props) {
                     <div className="space-y-3">
                       <h3 className="text-sm font-medium mb-3">Configuration</h3>
                       
-                      <div className="text-xs text-gray-400 p-3 rounded-lg bg-white/5">
+                      <div className="text-xs p-3 rounded-lg" style={{ color: 'var(--muted)', backgroundColor: 'color-mix(in srgb, var(--card), transparent 50%)' }}>
                         {hasConsent ? (
                           <>✓ Settings are saved in your browser</>
                         ) : (
@@ -644,8 +665,8 @@ export default function SettingsPanel({ config }: Props) {
                           : 'Download Settings as JSON'}
                       </button>
                       
-                      <div className="text-xs text-gray-500 px-2">
-                        Save this file as <code className="px-1 py-0.5 rounded bg-black/20">custom-defaults.json</code> in your project to set these as default values.
+                      <div className="text-xs px-2" style={{ color: 'var(--muted)' }}>
+                        Save this file as <code className="px-1 py-0.5 rounded" style={{ backgroundColor: 'color-mix(in srgb, var(--card), transparent 20%)' }}>custom-defaults.json</code> in your project to set these as default values.
                       </div>
                     </div>
                   )}
@@ -663,7 +684,7 @@ export default function SettingsPanel({ config }: Props) {
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <div className="flex-1">
                 <h3 className="text-sm font-medium mb-1">Cookie Consent</h3>
-                <p className="text-xs text-gray-300">
+                <p className="text-xs" style={{ color: 'var(--muted)' }}>
                   We use browser storage to save your theme preferences and settings. 
                   No tracking or analytics cookies are used.
                 </p>

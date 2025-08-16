@@ -1,0 +1,17 @@
+{
+  "title": "New Sample Article",
+  "summary": "This is a sample article template for future content.",
+  "author": "Khaled Alabsi",
+  "publishDate": "2024-01-01",
+  "lastModified": "2024-01-01",
+  "tags": ["Sample", "Template"],
+  "category": "Template",
+  "coverImage": "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800&h=400&fit=crop&crop=entropy&auto=format",
+  "readingTime": 1,
+  "featured": false,
+  "published": false,
+  "seo": {
+    "metaDescription": "Sample article template for future content creation.",
+    "keywords": ["sample", "template", "article"]
+  }
+}

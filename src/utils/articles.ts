@@ -49,8 +49,27 @@ export async function getArticleBySlug(slug: string): Promise<Article | null> {
 
   try {
     // Read metadata
-    const metadataContent = fs.readFileSync(metadataFile, 'utf8');
-    const metadata: ArticleMetadata = JSON.parse(metadataContent);
+    const metadataContent = fs.readFileSync(metadataFile, 'utf8').trim();
+    
+    // Check for empty or invalid JSON content
+    if (!metadataContent) {
+      console.warn(`Empty metadata file for article: ${slug}`);
+      return null;
+    }
+    
+    let metadata: ArticleMetadata;
+    try {
+      metadata = JSON.parse(metadataContent);
+    } catch (jsonError) {
+      console.error(`Invalid JSON in metadata file for article: ${slug}`, jsonError);
+      return null;
+    }
+    
+    // Validate required metadata fields
+    if (!metadata.title || !metadata.publishDate) {
+      console.warn(`Missing required metadata fields for article: ${slug}`);
+      return null;
+    }
 
     // Process coverImage path - prefer static path when exporting for GitHub Pages
     const isStatic = process.env.NEXT_PUBLIC_STATIC_EXPORT === 'true';
