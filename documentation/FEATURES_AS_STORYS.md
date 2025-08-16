@@ -1,1 +1,1 @@
-- feat: 
+- feat: the admin can log in using /login and enter user and password, make them admin admin. create some env file for changing that. if the admin logged in admin role is activated. for now the admin mode is alway activate by defualt, and should stay like that, but if the defualt admin mode is deactivated, it should be enabled after log in.

@@ -119,9 +119,9 @@ function GridDesign({ skills }: { skills: SkillsContent }) {
             <button
               onClick={() => setExpandedGroup(expandedGroup === group.key ? null : group.key)}
               className="mt-4 text-sm transition-colors"
-              style={{color: 'var(--accent-1)'}}
-              onMouseEnter={(e) => e.currentTarget.style.color = 'var(--accent-2)'}
-              onMouseLeave={(e) => e.currentTarget.style.color = 'var(--accent-1)'}
+              style={{color: 'var(--muted)'}}
+              onMouseEnter={(e) => e.currentTarget.style.color = 'var(--foreground)'}
+              onMouseLeave={(e) => e.currentTarget.style.color = 'var(--muted)'}
             >
               {expandedGroup === group.key ? 'Show Less' : `+${group.items.length - 4} more`}
             </button>
@@ -195,7 +195,7 @@ function CarouselDesign({ skills }: { skills: SkillsContent }) {
             }}
           >
             <div className="text-sm font-medium mb-2" style={{ color: 'var(--foreground)' }}>{skill.name}</div>
-            <div className="text-xs mb-2" style={{ color: 'var(--accent-1)' }}>{skill.group}</div>
+            <div className="text-xs mb-2" style={{ color: 'var(--muted)' }}>{skill.group}</div>
             {skill.level && <div className="text-xs" style={{ color: 'var(--muted)' }}>{skill.level}</div>}
             {skill.description && <div className="text-xs mt-2" style={{ color: 'var(--muted)' }}>{skill.description}</div>}
           </div>
@@ -344,7 +344,7 @@ export default function SkillsShowcaseMultiDesign({ skills, config }: Props) {
   }, []);
 
   if (!skills || skills.groups.length === 0) {
-    return <div className="text-center text-gray-400">No skills data available</div>;
+    return <div className="text-center" style={{ color: 'var(--muted)' }}>No skills data available</div>;
   }
 
   const renderDesign = () => {
@@ -370,7 +370,7 @@ export default function SkillsShowcaseMultiDesign({ skills, config }: Props) {
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             {skills.title || 'Skills & Tooling'}
           </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
+          <p className="max-w-2xl mx-auto" style={{ color: 'var(--muted)' }}>
             Technologies and tools I work with, organized by expertise and experience.
           </p>
         </div>

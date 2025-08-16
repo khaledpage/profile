@@ -209,7 +209,7 @@ export default function ArticlesSection() {
               className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-medium transition-all"
               style={{
                 backgroundColor: 'color-mix(in srgb, var(--accent-1), transparent 10%)',
-                color: 'var(--accent-1)',
+                color: 'var(--foreground)',
                 border: '1px solid color-mix(in srgb, var(--accent-1), transparent 70%)',
               }}
             >

@@ -44,7 +44,7 @@ function GroupMarquee({ group }: { group: SkillGroup }) {
     <div id={`skill-group-${group.title.toLowerCase().replace(/\s+/g, '-')}`} className="overflow-hidden rounded-2xl glass-dark p-3">
       <div id={`skill-header-${group.title.toLowerCase().replace(/\s+/g, '-')}`} className="mb-3 flex items-center justify-between">
         <h3 id={`skill-title-${group.title.toLowerCase().replace(/\s+/g, '-')}`} className="text-lg font-semibold">{group.title}</h3>
-        <span id={`skill-direction-${group.title.toLowerCase().replace(/\s+/g, '-')}`} className="text-xs text-gray-400">{group.direction === 'right' ? '→' : '←'}</span>
+        <span id={`skill-direction-${group.title.toLowerCase().replace(/\s+/g, '-')}`} className="text-xs" style={{ color: 'var(--muted)' }}>{group.direction === 'right' ? '→' : '←'}</span>
       </div>
       <div
         id={`skill-container-${group.title.toLowerCase().replace(/\s+/g, '-')}`}
@@ -65,12 +65,12 @@ function GroupMarquee({ group }: { group: SkillGroup }) {
               >
                 <div id={`skill-name-${item.name.toLowerCase().replace(/\s+/g, '-')}-${idx}`} className="text-sm font-medium">{item.name}</div>
                 {(item.level || item.years) && (
-                  <div id={`skill-meta-${item.name.toLowerCase().replace(/\s+/g, '-')}-${idx}`} className="mt-0.5 text-[11px] text-gray-400">
-                    {item.level ? item.level : ''}{item.level && item.years ? ' • ' : ''}{item.years ? `${item.years} yrs` : ''}
+                                    <div id={`skill-meta-${item.name.toLowerCase().replace(/\s+/g, '-')}-${idx}`} className="mt-0.5 text-[11px]" style={{ color: 'var(--muted)' }}>
+                    {item.level} | {item.group}
                   </div>
                 )}
                 {isActive && (
-                  <div id={`skill-details-${item.name.toLowerCase().replace(/\s+/g, '-')}-${idx}`} className="mt-2 text-xs text-gray-300 max-w-[30ch]">
+                  <div id={`skill-details-${item.name.toLowerCase().replace(/\s+/g, '-')}-${idx}`} className="mt-2 text-xs max-w-[30ch]" style={{ color: 'var(--muted)' }}>
                     {item.description}
                     {item.tags && item.tags.length > 0 && (
                       <div id={`skill-tags-${item.name.toLowerCase().replace(/\s+/g, '-')}-${idx}`} className="mt-2 flex flex-wrap gap-1.5">

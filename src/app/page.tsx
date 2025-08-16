@@ -32,7 +32,7 @@ export default async function Home() {
     return (
       <div id="error-page" className="min-h-screen flex items-center justify-center">
         <div id="error-content" className="text-center">
-          <h1 id="error-title" className="text-2xl font-bold text-red-600 mb-4">Error Loading Content</h1>
+          <h1 id="error-title" className="text-2xl font-bold mb-4" style={{ color: 'var(--foreground)' }}>Error Loading Content</h1>
           <p id="error-message" style={{ color: 'var(--muted)' }}>Please make sure all content files are properly formatted.</p>
         </div>
       </div>

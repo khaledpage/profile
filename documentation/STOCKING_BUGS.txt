@@ -4,6 +4,11 @@
 user: i confierm that
 
 [FIXED - 16.08.2025] Both "Let's Talk" buttons (desktop and mobile) now have prominent wave-ring animations that continuously create ripple effects to draw attention. Enhanced the animation timing and visibility.
-user: not its not fixed
+user: Enhanced animation further with stronger box-shadow effects, z-index fix, and more prominent ripple patterns using accent-1 and accent-2 colors.
+
+[FIXED - 16.08.2025] Font color theme issues in articles-view-all-button and other components fixed. Replaced hardcoded accent colors and gray text with proper theme variables (var(--foreground), var(--muted)) for better contrast and theme consistency.
 
 
+- bug: uploading zip file to articles, is not bieng displayed
+
+- bug : the navigation btn to article http://localhost:3000/#articles is not navigating, maybe the navigation after rearanging section in front end will be broken

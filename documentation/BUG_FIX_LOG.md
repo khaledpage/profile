@@ -2,8 +2,8 @@
 
 ## 📊 Summary Statistics
 
-- **Total Issues Tracked**: 16
-- **Resolved Issues**: 15
+- **Total Issues Tracked**: 18
+- **Resolved Issues**: 17
 - **Active Issues**: 1  
 - **Success Rate**: 94%
 
@@ -107,6 +107,41 @@
   - `src/app/globals.css` (enhanced waveRing animation)
   - `src/components/layout/Header.tsx` (applied to both buttons)
 - **Impact**: Both CTA buttons now have prominent, eye-catching wave animations
+
+### Issue #017 - Font Color Theme Inconsistencies
+
+- **Status**: ✅ Fixed
+- **Priority**: Medium
+- **Reported**: 2025-08-16
+- **Description**: articles-view-all-button and other components using accent colors for text causing poor contrast and theme inconsistency
+- **Root Cause**: Hardcoded accent colors and gray classes used for text instead of proper theme variables
+- **Fix Applied**:
+  - Changed articles-view-all-button text color from var(--accent-1) to var(--foreground)
+  - Replaced hardcoded text-gray classes with theme-aware var(--muted) styling
+  - Fixed skills showcase components to use proper theme variables
+  - Updated hover states to use appropriate theme colors
+- **Files Changed**:
+  - `src/components/sections/ArticlesSection.tsx` (fixed button text color)
+  - `src/components/sections/SkillsShowcaseMultiDesign.tsx` (fixed gray text classes)
+  - `src/components/sections/SkillsShowcase.tsx` (fixed gray text classes)
+- **Impact**: Better text contrast and consistent theming across all color schemes
+
+### Issue #018 - CTA Button Animation Enhancement
+
+- **Status**: ✅ Fixed
+- **Priority**: Medium
+- **Reported**: 2025-08-16
+- **Description**: User confirmed Let's Talk button animation still not prominent enough after initial fix
+- **Root Cause**: Animation effects were too subtle and lacked visual impact
+- **Fix Applied**:
+  - Enhanced waveRing animation with stronger box-shadow effects
+  - Added z-index management for proper layering
+  - Increased opacity range and color visibility
+  - Added multi-colored ripple effects using both accent-1 and accent-2
+  - Improved animation timing and easing
+- **Files Changed**:
+  - `src/app/globals.css` (enhanced animation with stronger effects)
+- **Impact**: More prominent and eye-catching wave animations on CTA buttons
 
 ### Issue #012 - Missing Articles and Images on Homepage
 
