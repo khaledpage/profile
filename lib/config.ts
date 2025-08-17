@@ -1,59 +1,61 @@
-import configData from '../config.json';
+import uiConfigData from '../ui.config.json';
+import contentConfigData from '../content.config.json';
 
-export interface Config {
-  ui: {
-    language: string;
-    theme: {
-      active: string;
-      layout: string;
-    };
-    sections: {
-      hero: {
-        enabled: boolean;
-        showSocialLinks: boolean;
-        showScrollIndicator: boolean;
-        showCTAButtons: boolean;
-      };
-      about: {
-        enabled: boolean;
-        showSkills: boolean;
-        showHighlights: boolean;
-      };
-      experience: {
-        enabled: boolean;
-        showProjects: boolean;
-        showTechnologies: boolean;
-      };
-      motivation: {
-        enabled: boolean;
-        showCTA: boolean;
-      };
-      process: {
-        enabled: boolean;
-        showTimeline: boolean;
-      };
-      contact: {
-        enabled: boolean;
-        showForm: boolean;
-        showContactInfo: boolean;
-        showSocialLinks: boolean;
-        showDownloadCV: boolean;
-      };
-    };
-    animations: {
+export interface UIConfig {
+  language: string;
+  theme: {
+    active: string;
+    layout: string;
+  };
+  sections: {
+    hero: {
       enabled: boolean;
-      backgroundParticles: boolean;
-      textAnimations: boolean;
-      hoverEffects: boolean;
-      scrollAnimations: boolean;
+      showSocialLinks: boolean;
+      showScrollIndicator: boolean;
+      showCTAButtons: boolean;
     };
-    layout: {
-      showNavigation: boolean;
-      stickyNav: boolean;
-      showFooter: boolean;
-      containerMaxWidth: string;
+    about: {
+      enabled: boolean;
+      showSkills: boolean;
+      showHighlights: boolean;
+    };
+    experience: {
+      enabled: boolean;
+      showProjects: boolean;
+      showTechnologies: boolean;
+    };
+    motivation: {
+      enabled: boolean;
+      showCTA: boolean;
+    };
+    process: {
+      enabled: boolean;
+      showTimeline: boolean;
+    };
+    contact: {
+      enabled: boolean;
+      showForm: boolean;
+      showContactInfo: boolean;
+      showSocialLinks: boolean;
+      showDownloadCV: boolean;
     };
   };
+  animations: {
+    enabled: boolean;
+    backgroundParticles: boolean;
+    textAnimations: boolean;
+    hoverEffects: boolean;
+    scrollAnimations: boolean;
+  };
+  layout: {
+    showNavigation: boolean;
+    stickyNav: boolean;
+    showFooter: boolean;
+    containerMaxWidth: string;
+  };
+}
+
+export interface ContentConfig {
   site: {
     title: string;
     description: string;
@@ -182,11 +184,28 @@ export interface Config {
   };
 }
 
-export const config: Config = configData as Config;
+// Legacy Config interface for backward compatibility
+export interface Config {
+  ui: UIConfig;
+  site: ContentConfig['site'];
+  personal: ContentConfig['personal'];
+  content: ContentConfig['content'];
+}
+
+export const uiConfig: UIConfig = uiConfigData as UIConfig;
+export const contentConfig: ContentConfig = contentConfigData as ContentConfig;
+
+// Combined config for backward compatibility
+export const config: Config = {
+  ui: uiConfig,
+  site: contentConfig.site,
+  personal: contentConfig.personal,
+  content: contentConfig.content,
+};
 
 // Helper function to get content for current language
 export const getContent = (language: string = 'en') => {
-  return config.content[language] || config.content.en;
+  return contentConfig.content[language] || contentConfig.content.en;
 };
 
 export default config;
