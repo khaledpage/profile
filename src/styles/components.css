@@ -1,3 +1,53 @@
+/* Grid and Layout Utilities */
+.grid-with-ring-padding {
+  padding: 0.25rem; /* p-1 equivalent - prevents ring borders from being cut off */
+}
+
+.theme-selection-button {
+  padding: 0.625rem; /* p-2.5 equivalent */
+  border-radius: 0.5rem;
+  text-align: left;
+  transition: all 0.2s ease;
+}
+
+.theme-selection-button:hover {
+  transform: scale(1.05);
+}
+
+.theme-selection-button.selected {
+  transform: scale(1.05);
+  border: 2px solid var(--accent-1);
+}
+
+.skills-layout-button {
+  padding: 0.75rem; /* p-3 equivalent */
+  border-radius: 0.5rem;
+  text-align: left;
+  transition: all 0.2s ease;
+  font-size: 0.875rem;
+}
+
+.skills-layout-button.selected {
+  border: 2px solid var(--accent-1);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.skills-layout-button:not(.selected) {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.skills-layout-button:not(.selected):hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.language-selection-button {
+  padding: 0.75rem; /* p-3 equivalent */
+  border-radius: 0.5rem;
+  text-align: left;
+  transition: all 0.2s ease;
+  font-size: 0.875rem;
+}
+
 /* ===== SHARED COMPONENT STYLES ===== */
 /* Organize styles that were previously hardcoded for better maintainability */
 

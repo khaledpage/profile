@@ -486,3 +486,8 @@ As an admin, I want to create reusable article templates (tutorial, review, case
 ## feature: the setting pannel for not admin user, dont show advance option setting tab and not "Admin" checkbox
 
 ## feature : in the "Customize the order and visibility of home page sections" in setting pannel, dosent look nice, it should be look more like element that can be dragged and reordered easily.
+
+
+## feature: add new section for "about me" or "Über mich" that have a picture and text content, the picture will be my picture, and the text will be about me, like study degree, work experience, ..., my picture is in ../src/content/assets/csm_Khaled_Alabsi_Portraet_6d491f1c81.jpg .i can choose between the old and the new section layout in config.json or in setting pannel in the ui.
+
+## feature: new section for static-article, this will be same as the old section for articles , but only use htm articles, so no md support, or upload/delete/edite, just static content, with no use for backend or api at all, the gaol is, in the future to build a copy of this app without backend or api, just static content that run on githup page.

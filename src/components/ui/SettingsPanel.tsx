@@ -466,7 +466,7 @@ export default function SettingsPanel({ config }: Props) {
                             <h4 id={`theme-group-title-${groupKey}`} className="text-xs font-medium mb-2 uppercase tracking-wide" style={{ color: 'var(--muted)' }}>
                               {group.name}
                             </h4>
-                            <div id={`theme-grid-${groupKey}`} className="grid grid-cols-3 gap-2">
+                            <div id={`theme-grid-${groupKey}`} className="grid grid-cols-3 gap-3 p-1">
                               {Object.entries(group.palettes).map(([key, palette]) => (
                                 <button
                                   id={`theme-option-${key}`}
@@ -511,7 +511,7 @@ export default function SettingsPanel({ config }: Props) {
                           ? String(translations.common.skillsLayout)
                           : 'Skills Layout'}
                       </h3>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 p-1">
                         {config.skillsDisplay.availableDesigns?.map((design) => (
                           <button
                             key={design}
@@ -569,7 +569,7 @@ export default function SettingsPanel({ config }: Props) {
                           ? String(translations.common.language)
                           : 'Language'}
                       </h3>
-                      <div className="grid grid-cols-2 gap-3">
+                      <div className="grid grid-cols-2 gap-3 p-1">
                         {Object.entries(config.i18n.languages).map(([key, lang]) => (
                           <button
                             key={key}
