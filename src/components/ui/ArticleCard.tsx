@@ -56,8 +56,8 @@ export default function ArticleCard({
       for (const name of data.assets || []) {
         const ares = await fetch(`${base}/articles/${slug}/assets/${name}`);
         if (ares.ok) {
-          const blob = await ares.blob();
-          zip.file(`assets/${name}`, blob as Blob);
+          const arrayBuffer = await ares.arrayBuffer();
+          zip.file(`assets/${name}`, arrayBuffer);
         }
       }
       const blob = await zip.generateAsync({ type: 'blob' });

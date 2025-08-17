@@ -58,7 +58,10 @@ export default function ArticleEditModal({ article, isOpen, onClose, onSave }: A
 
   // Track changes
   useEffect(() => {
-    if (isOpen) {
+    if (isOpen && article) {
+      const currentContent = content || '';
+      const originalContent = article.content || '';
+      
       setHasUnsavedChanges(
         title !== article.metadata.title ||
         summary !== article.metadata.summary ||
@@ -66,7 +69,7 @@ export default function ArticleEditModal({ article, isOpen, onClose, onSave }: A
         category !== article.metadata.category ||
         featured !== article.metadata.featured ||
         coverImage !== (article.metadata.coverImage || '') ||
-        content !== (article.content || '')
+        currentContent !== originalContent
       );
     }
   }, [title, summary, tags, category, featured, coverImage, content, isOpen, article]);
@@ -75,8 +78,36 @@ export default function ArticleEditModal({ article, isOpen, onClose, onSave }: A
   const autoSave = useCallback(async () => {
     if (!hasUnsavedChanges || isSaving) return;
     
-    await handleSave(true);
-  }, [hasUnsavedChanges, isSaving]);
+    // Inline save logic to avoid circular dependency
+    setIsSaving(true);
+    
+    try {
+      const updatedArticle: Article = {
+        ...article,
+        metadata: {
+          ...article.metadata,
+          title,
+          summary,
+          tags: tags.split(',').map(tag => tag.trim()).filter(tag => tag),
+          category,
+          featured,
+          ...(coverImage && { coverImage }),
+        },
+        content
+      };
+
+      const success = await onSave(updatedArticle);
+      
+      if (success) {
+        setLastSaved(new Date());
+        setHasUnsavedChanges(false);
+      }
+    } catch (error) {
+      console.error('Failed to auto-save article:', error);
+    } finally {
+      setIsSaving(false);
+    }
+  }, [hasUnsavedChanges, isSaving, article, title, summary, tags, category, featured, coverImage, content, onSave]);
 
   useEffect(() => {
     if (!isOpen || !hasUnsavedChanges) return;
@@ -186,8 +217,12 @@ export default function ArticleEditModal({ article, isOpen, onClose, onSave }: A
               id="save-button"
               onClick={() => handleSave()}
               disabled={!hasUnsavedChanges || isSaving}
-              className="px-4 py-2 rounded text-white disabled:opacity-50"
-              style={{ backgroundColor: 'var(--accent-1)' }}
+              className="px-4 py-2 rounded text-white disabled:opacity-50 disabled:cursor-not-allowed"
+              style={{ 
+                backgroundColor: (!hasUnsavedChanges || isSaving) ? 'var(--muted)' : 'var(--accent-1)',
+                transition: 'all 0.2s ease'
+              }}
+              title={!hasUnsavedChanges ? 'No changes to save' : isSaving ? 'Saving...' : 'Save changes'}
             >
               {isSaving ? 'Saving...' : 'Save'}
             </button>

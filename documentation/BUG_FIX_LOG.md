@@ -2,12 +2,69 @@
 
 ## 📊 Summary Statistics
 
-- **Total Issues Tracked**: 30
+- **Total Issues Tracked**: 33
 - **Resolved Issues**: 29
-- **Active Issues**: 1  
-- **Success Rate**: 97%
+- **Active Issues**: 4  
+- **Success Rate**: 88%
 
 ## 🚨 Recent Fixes
+
+### Issue #033 - Article Editing Functionality Issues (IN PROGRESS)
+
+- **Status**: 🔄 Fixing  
+- **Priority**: Critical
+- **Reported**: January 17, 2025
+- **Description**: Save button not activating when editing content in Content Editor, and view mode not rendering markdown properly.
+
+- **Root Cause**: 
+  1. Change detection logic not properly tracking content modifications due to string comparison issues
+  2. Circular dependency in autoSave callback causing React hooks issues
+  3. Insufficient visual feedback for save button state
+
+- **Solution Applied**:
+  1. Enhanced change detection logic to properly compare current vs original content with null safety
+  2. Fixed circular dependency by inlining autoSave logic to avoid dependency loops
+  3. Improved save button styling with visual feedback, tooltips, and better disabled states
+  4. Added comprehensive test coverage for all edit modal functionality
+
+- **Technical Changes**:
+  - `/src/components/articles/ArticleEditModal.tsx`: Fixed change detection, autoSave dependency issues, enhanced save button styling
+  - `/tests/article-editing-functionality.spec.ts`: Created comprehensive test suite (4 test cases)
+  - Enhanced state management for unsaved changes detection with proper string handling
+
+- **Testing**: ✅ Test coverage created
+  - Save button activation on content changes
+  - Markdown preview rendering verification  
+  - Unsaved changes indicator functionality
+  - Close confirmation dialog with unsaved changes
+
+- **Status**: NEEDS USER VERIFICATION - Technical fixes applied, awaiting user testing confirmation
+
+### Issue #032 - Article Animation Height Issues (IN PROGRESS)
+
+- **Status**: 🔄 Fixing  
+- **Priority**: Medium
+- **Reported**: January 17, 2025
+- **Description**: Article cards in the homepage animation are cut off from the top, making them look incomplete.
+
+- **Root Cause**: Animation container height insufficient (500px) and potential overflow issues with article card positioning.
+
+- **Solution Applied**:
+  1. Increased container min-height from 500px to 600px with padding
+  2. Added explicit min-height to scroll track (520px)
+  3. Added vertical padding (py-4) to scroll container to prevent top cutoff
+  4. Wrapped article cards in additional height container for better positioning
+
+- **Technical Changes**:
+  - `/src/components/sections/ArticlesSection.tsx`: Enhanced container height from 500px to 600px, added padding and explicit track height
+  - Improved card wrapper structure with py-2 padding for better vertical spacing
+
+- **Testing**: 🎯 Manual verification required
+  - Visual testing for proper article card display without cutoff
+  - Animation container height verification (600px minimum)
+  - Padding effectiveness assessment
+
+- **Status**: NEEDS USER VERIFICATION - Height increased and padding added, awaiting user testing confirmation
 
 ### Issue #031 - Filter Layout: Category Row Consistency
 

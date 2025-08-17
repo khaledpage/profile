@@ -2,6 +2,71 @@
 
 This document contains all test cases for the portfolio application, covering every feature and functionality.
 
+## 🚨 ACTIVE BUG TESTING (January 17, 2025)
+
+### BUG-004-EDIT: Article Editing Functionality Validation (P0 - E2E)
+
+**Description**: Test save button activation and markdown preview rendering in article edit modal
+
+**Test File**: `tests/article-editing-functionality.spec.ts`
+
+**Prerequisites**:
+- Server running on localhost:3002
+- Admin login with username: 'admin', password: 'admin123'
+
+**Test Cases**:
+
+1. **Save Button Activation Test**:
+   - Login as admin
+   - Navigate to articles page
+   - Click edit button on any article
+   - Verify save button is initially disabled
+   - Modify content in the editor
+   - Verify save button becomes enabled
+   - Click save and verify saving state
+   - Verify save button becomes disabled after save
+
+2. **Markdown Preview Rendering Test**:
+   - Open article edit modal
+   - Add markdown content (headers, bold, italic, code, lists, etc.)
+   - Switch to preview mode
+   - Verify all markdown elements render correctly as HTML
+   - Check headings, formatting, code blocks, lists, and links
+
+3. **Unsaved Changes Detection Test**:
+   - Open edit modal
+   - Make changes to title and content
+   - Verify "Unsaved changes" indicator appears
+   - Save changes and verify indicator disappears
+   - Verify "Last saved" timestamp appears
+
+4. **Close Confirmation Test**:
+   - Open edit modal and make changes
+   - Attempt to close modal
+   - Verify confirmation dialog appears
+   - Test both accept and cancel options
+
+**Status**: CREATED - Tests implemented to validate BUG-004 fixes
+
+### BUG-002-ANIM: Article Animation Height Validation (P1 - Visual)
+
+**Description**: Test article animation container height and prevent cutoff
+
+**Manual Test Steps**:
+
+1. Navigate to homepage
+2. Scroll to articles section
+3. Observe horizontal scrolling animation
+4. Verify articles are not cut off from top or bottom
+5. Check animation container height (should be 600px minimum)
+6. Verify padding prevents cutoff issues
+
+**Expected Result**: All article cards display fully within animation container without being cut off
+
+**Status**: UPDATED - Container height increased to 600px with padding
+
+---
+
 ## 🏛️ Architecture & Test Organization
 
 ### Test Categories

@@ -180,20 +180,23 @@ export default function ArticlesSection() {
             </h3>
           </div>
           
-          <div id="articles-scroll-container" className="relative overflow-hidden h-auto min-h-[500px]">
+          <div id="articles-scroll-container" className="relative overflow-hidden min-h-[600px] py-4">
             <div
               id="articles-scroll-track"
               className="flex gap-6 animate-scroll hover:animate-pause items-stretch h-full"
               style={{
                 width: 'max-content',
-                '--scroll-duration': `${Math.max(90, fallbackArticles.length * 20)}s`
+                '--scroll-duration': `${Math.max(90, fallbackArticles.length * 20)}s`,
+                minHeight: '520px' // Ensure enough height for full article cards
               } as React.CSSProperties}
             >
               {/* Duplicate articles enough times for smooth infinite scroll */}
               {Array.from({ length: Math.max(6, Math.ceil(20 / Math.max(1, fallbackArticles.length))) }, (_, repeatIndex) => 
                 fallbackArticles.map((article, index) => (
-                  <div key={`${article.slug}-${repeatIndex}-${index}`} id={`article-scroll-item-${article.slug}-${repeatIndex}-${index}`} className="flex-shrink-0 w-80 h-full">
-                    <ArticleCard article={article} />
+                  <div key={`${article.slug}-${repeatIndex}-${index}`} id={`article-scroll-item-${article.slug}-${repeatIndex}-${index}`} className="flex-shrink-0 w-80 h-full py-2">
+                    <div className="h-full">
+                      <ArticleCard article={article} />
+                    </div>
                   </div>
                 ))
               ).flat()}
