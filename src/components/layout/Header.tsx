@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Bars3Icon, XMarkIcon, CodeBracketIcon } from '@heroicons/react/24/outline';
 import { useLanguage } from '@/utils/i18n';
 import { handleSmoothScrollClick } from '@/utils/smooth-scroll';
+import AdminNavigation from './AdminNavigation';
 import type { SiteConfig } from '@/types/content';
 
 type Props = {
@@ -176,6 +177,9 @@ export default function Header({ config }: Props) {
                 </motion.a>
               ))}
             </div>
+
+            {/* Admin Navigation */}
+            {config && <AdminNavigation config={config} />}
 
             {/* CTA Button */}
             <motion.a

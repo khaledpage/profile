@@ -352,7 +352,8 @@
     "enabledByDefault": false,
     "allowToggle": true,
     "allowZipDownload": true,
-    "allowZipUpload": true
+    "allowZipUpload": true,
+    "showLoginNavigation": true
   },
   "colorRotation": {
     "enabled": true,
@@ -377,6 +378,9 @@
           "language": "Sprache",
           "skillsLayout": "Skills-Layout",
           "reorderSectionsHelp": "Abschnitte neu anordnen und Sichtbarkeit umschalten. Änderungen werden in Ihren Einstellungen gespeichert.",
+          "login": "Anmelden",
+          "logout": "Abmelden",
+          "adminMode": "Admin-Modus",
           "hidden": "Ausgeblendet",
           "visible": "Sichtbar"
         },
@@ -528,7 +532,10 @@
           "skillsLayout": "Skills Layout",
           "reorderSectionsHelp": "Reorder sections and toggle their visibility. Changes are saved to your preferences.",
           "hidden": "Hidden",
-          "visible": "Visible"
+          "visible": "Visible",
+          "login": "Login",
+          "logout": "Logout",
+          "adminMode": "Admin Mode"
         },
         "workflow": {
           "title": "From Vision to Reality",

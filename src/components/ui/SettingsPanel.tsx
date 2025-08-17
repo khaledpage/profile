@@ -193,6 +193,13 @@ export default function SettingsPanel({ config }: Props) {
     };
   }, [settingsConfig?.cookieConsent, config]);
 
+  // Switch away from advanced tab if admin is disabled
+  useEffect(() => {
+    if (activeTab === 'advanced' && !adminEnabled) {
+      setActiveTab('appearance');
+    }
+  }, [adminEnabled, activeTab]);
+
   // acceptCookies removed; use handleAcceptCookies instead to persist and apply settings
 
   const declineCookies = () => {
@@ -416,7 +423,7 @@ export default function SettingsPanel({ config }: Props) {
         { id: 'appearance' as TabId, label: 'Appearance', icon: '🎨' },
         { id: 'behavior' as TabId, label: 'Behavior', icon: '⚙️' },
         { id: 'home' as TabId, label: 'Home Sections', icon: '🧩' },
-        { id: 'advanced' as TabId, label: 'Advanced', icon: '🔧' }
+        ...(adminEnabled ? [{ id: 'advanced' as TabId, label: 'Advanced', icon: '🔧' }] : [])
               ].map((tab) => (
                 <button
                   id={`settings-tab-${tab.id}`}

@@ -472,22 +472,64 @@ As an admin, I want to create reusable article templates (tutorial, review, case
 
 ---
 
-## feature: the article editing button and deletion confirmation should also seen when open the article like in http://localhost:3001/articles/nextjs-vs-react
+### FEAT-024: Article Admin Actions on Individual Pages
 
+- **ID**: FEAT-024
+- **Status**: ✅ DONE
+- **Implementation Date**: August 17, 2025
+- **Description**: The article editing button and deletion confirmation should also be seen when opening the article like in individual article pages
+- **Implementation Details**:
+  - Created `ArticleAdminActions` component with floating edit and delete buttons
+  - Added edit button that opens the article edit modal
+  - Added delete button with confirmation state (click twice to confirm)
+  - Positioned buttons on the right side to not interfere with back button
+  - Only visible when admin mode is enabled
+  - Integrated with existing `ArticleEditModal` component
+  - Added proper accessibility attributes and keyboard navigation
 
-## feature : the editing mode should look nice, now it look very primitive
+---
 
-## feature : add log in and log out navigation and functionality in homepage, which can be configured to be displayed or not from config.json
+### FEAT-025: Admin-Only Settings Panel Features
 
-## feature : create tests for the editing mode
+- **ID**: FEAT-025
+- **Status**: ✅ DONE
+- **Implementation Date**: August 17, 2025
+- **Description**: The settings panel for non-admin users should not show advanced option setting tab and not "Admin" checkbox
+- **Implementation Details**:
+  - Modified `SettingsPanel.tsx` to filter tabs based on admin status
+  - Advanced tab only visible when admin mode is enabled
+  - Automatic tab switching when admin mode is disabled while on Advanced tab
+  - Admin toggle section already conditionally rendered based on `config.admin.allowToggle`
+  - Enhanced user experience with proper state management
 
-## feature : improve the styling and layout of the editing mode for better user experience
+---
 
-## feature: the setting pannel for not admin user, dont show advance option setting tab and not "Admin" checkbox
+### FEAT-026: Login/Logout Navigation
 
-## feature : in the "Customize the order and visibility of home page sections" in setting pannel, dosent look nice, it should be look more like element that can be dragged and reordered easily.
+- **ID**: FEAT-026
+- **Status**: ✅ DONE
+- **Implementation Date**: August 17, 2025
+- **Description**: Add login and logout navigation and functionality in homepage, which can be configured to be displayed or not from config.json
+- **Implementation Details**:
+  - Created `AdminNavigation` component for header integration
+  - Added `showLoginNavigation` configuration option to `config.json`
+  - Shows "Login" button when user is not authenticated
+  - Shows "Admin Mode" dropdown when user is authenticated
+  - Dropdown includes logout and dashboard navigation options
+  - Added i18n translations for login/logout/admin mode
+  - Integrated with existing admin authentication system
+  - Configurable visibility through `config.admin.showLoginNavigation`
 
+---
 
-## feature: add new section for "about me" or "Über mich" that have a picture and text content, the picture will be my picture, and the text will be about me, like study degree, work experience, ..., my picture is in ../src/content/assets/csm_Khaled_Alabsi_Portraet_6d491f1c81.jpg .i can choose between the old and the new section layout in config.json or in setting pannel in the ui.
+## feature: the editing mode should look nice, now it look very primitive
 
-## feature: new section for static-article, this will be same as the old section for articles , but only use htm articles, so no md support, or upload/delete/edite, just static content, with no use for backend or api at all, the gaol is, in the future to build a copy of this app without backend or api, just static content that run on githup page.
+## feature: create tests for the editing mode
+
+## feature: improve the styling and layout of the editing mode for better user experience
+
+## feature: in the "Customize the order and visibility of home page sections" in setting pannel, dosent look nice, it should be look more like element that can be dragged and reordered easily
+
+## feature: add new section for "about me" or "Über mich" that have a picture and text content, the picture will be my picture, and the text will be about me, like study degree, work experience, ..., my picture is in ../src/content/assets/csm_Khaled_Alabsi_Portraet_6d491f1c81.jpg .i can choose between the old and the new section layout in config.json or in setting pannel in the ui
+
+## feature: new section for static-article, this will be same as the old section for articles , but only use htm articles, so no md support, or upload/delete/edite, just static content, with no use for backend or api at all, the gaol is, in the future to build a copy of this app without backend or api, just static content that run on githup page

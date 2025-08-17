@@ -123,6 +123,9 @@ export interface SiteConfig {
         language?: string;
         skillsLayout?: string;
         home?: string;
+        login?: string;
+        logout?: string;
+        adminMode?: string;
       };
       workflow?: {
         title: string;
@@ -273,6 +276,8 @@ export interface SiteConfig {
     allowZipDownload?: boolean;
     /** Enable uploading article ZIPs client-side */
     allowZipUpload?: boolean;
+    /** Show login/logout navigation in header */
+    showLoginNavigation?: boolean;
   };
 }
 

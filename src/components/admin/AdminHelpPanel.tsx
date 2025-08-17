@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { useLanguage } from '@/utils/i18n';
 import type { SiteConfig } from '@/types/content';
 
@@ -172,7 +173,7 @@ export default function AdminHelpPanel({ config, onClose }: Props) {
           {currentStep === 1 && (
             <div className="mt-4 p-4 rounded-lg" style={{ backgroundColor: 'color-mix(in srgb, var(--accent-1), transparent 90%)' }}>
               <p className="text-sm font-medium" style={{ color: 'var(--accent-1)' }}>
-                💡 Tip: You can access the articles page by clicking "Articles" in the navigation menu or visiting /articles directly.
+                💡 Tip: You can access the articles page by clicking &quot;Articles&quot; in the navigation menu or visiting /articles directly.
               </p>
             </div>
           )}
@@ -200,13 +201,13 @@ export default function AdminHelpPanel({ config, onClose }: Props) {
               }}
             />
             <span className="text-sm" style={{ color: 'var(--foreground)' }}>
-              Don't show this guide again
+              Don&apos;t show this guide again
             </span>
           </label>
           <p className="text-xs mt-1 ml-7" style={{ color: 'var(--muted)' }}>
             {dontShowAgain 
-              ? "This guide will be permanently hidden for all sessions" 
-              : "This guide will be hidden for this session only"
+              ? 'This guide will be permanently hidden for all sessions' 
+              : 'This guide will be hidden for this session only'
             }
           </p>
         </div>
@@ -272,7 +273,7 @@ export default function AdminHelpPanel({ config, onClose }: Props) {
           <div id="help-quick-actions" className="mt-6 p-4 rounded-lg" style={{ backgroundColor: 'color-mix(in srgb, var(--card), transparent 50%)' }}>
             <h4 className="font-semibold mb-3">Quick Actions:</h4>
             <div className="flex flex-wrap gap-3">
-              <a
+              <Link
                 href="/articles"
                 className="px-4 py-2 rounded-lg text-sm font-medium transition-all"
                 style={{
@@ -281,7 +282,7 @@ export default function AdminHelpPanel({ config, onClose }: Props) {
                 }}
               >
                 Go to Articles
-              </a>
+              </Link>
               <a
                 href="/admin"
                 className="px-4 py-2 rounded-lg text-sm font-medium border transition-all"
