@@ -524,20 +524,6 @@ export default function SettingsPanel({ config }: Props) {
             <div id="settings-header" className="flex items-center justify-between mb-6">
               <div id="settings-title-section">
                 <h2 id="settings-title" className="text-xl font-semibold">Settings</h2>
-                {config.admin?.allowToggle && (
-                  <div id="admin-toggle-section" className="mt-2 text-xs flex items-center gap-2">
-                    <label id="admin-toggle-label" className="flex items-center gap-2">
-                      <input id="admin-toggle-checkbox" type="checkbox" checked={adminEnabled} onChange={(e)=> setAdminEnabled(e.target.checked)} />
-                      <span style={{ color: 'var(--muted)' }}>Admin mode</span>
-                    </label>
-                    <button
-                      id="admin-apply-button"
-                      onClick={()=> { setAdmin(adminEnabled); setAdminEnabled(adminEnabled); }}
-                      className="px-2 py-1 rounded border text-xs"
-                      style={{ borderColor: 'color-mix(in srgb, var(--card), transparent 60%)' }}
-                    >Apply</button>
-                  </div>
-                )}
                 {!hasConsent && settingsConfig?.cookieConsent && (
                   <div id="cookie-consent-warning" className="flex items-center gap-3 mt-2">
                     <p id="cookie-warning-text" className="text-sm text-orange-400">
@@ -638,15 +624,18 @@ export default function SettingsPanel({ config }: Props) {
                                   id={`theme-option-${key}`}
                                   key={key}
                                   onClick={() => handleThemeChange(key)}
-                                  className={`p-2.5 rounded-lg text-left transition-all ${
+                                  className={`p-2.5 rounded-lg text-left transition-all border-2 border-transparent ${
                                     (preferences.colorProfile || config.colorProfile) === key
-                                      ? 'ring-2 ring-accent-1 scale-105'
+                                      ? 'scale-105'
                                       : 'hover:scale-105'
                                   }`}
                                   style={{
                                     backgroundColor: palette.card,
                                     color: palette.foreground,
                                     border: `1px solid ${palette.cardContrast}`,
+                                    ...(((preferences.colorProfile || config.colorProfile) === key) && {
+                                      boxShadow: 'inset 0 0 0 2px var(--accent-1)'
+                                    })
                                   }}
                                 >
                                   <div className="text-xs font-medium mb-1">{palette.name}</div>
@@ -684,9 +673,14 @@ export default function SettingsPanel({ config }: Props) {
                             onClick={() => handleSkillsDesignChange(design)}
                             className={`p-3 rounded-lg text-left transition-all text-sm ${
                               (preferences.skillsDesign || config.skillsDisplay?.design) === design
-                                ? 'ring-2 ring-accent-1 bg-white/10'
-                                : 'bg-white/5 hover:bg-white/10'
+                                ? 'bg-white/10 border-2 border-transparent' 
+                                : 'bg-white/5 hover:bg-white/10 border-2 border-transparent'
                             }`}
+                            style={{
+                              ...(((preferences.skillsDesign || config.skillsDisplay?.design) === design) && {
+                                boxShadow: 'inset 0 0 0 2px var(--accent-1)'
+                              })
+                            }}
                           >
                             <div className="font-medium capitalize">{design}</div>
                             <div className="text-xs mt-1" style={{ color: 'var(--muted)' }}>
@@ -717,9 +711,14 @@ export default function SettingsPanel({ config }: Props) {
                             onClick={() => handleAboutLayoutChange(layout)}
                             className={`p-3 rounded-lg text-left transition-all text-sm ${
                               (preferences.aboutLayout || config.aboutSection?.layout) === layout
-                                ? 'ring-2 ring-accent-1 bg-white/10'
-                                : 'bg-white/5 hover:bg-white/10'
+                                ? 'bg-white/10 border-2 border-transparent'
+                                : 'bg-white/5 hover:bg-white/10 border-2 border-transparent'
                             }`}
+                            style={{
+                              ...(((preferences.aboutLayout || config.aboutSection?.layout) === layout) && {
+                                boxShadow: 'inset 0 0 0 2px var(--accent-1)'
+                              })
+                            }}
                           >
                             <div className="font-medium capitalize">{layout}</div>
                             <div className="text-xs mt-1" style={{ color: 'var(--muted)' }}>

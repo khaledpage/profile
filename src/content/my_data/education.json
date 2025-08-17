@@ -1,0 +1,51 @@
+{
+  "education": [
+    {
+      "degree": "Master of Computer Science",
+      "institution": "Technical University",
+      "location": "Germany",
+      "year": "2019",
+      "grade": "1.5",
+      "thesis": "Modern Web Application Architecture with Microservices"
+    },
+    {
+      "degree": "Bachelor of Computer Science",
+      "institution": "University of Applied Sciences",
+      "location": "Germany", 
+      "year": "2017",
+      "grade": "1.8",
+      "focus": "Software Engineering and Web Technologies"
+    }
+  ],
+  "certifications": [
+    {
+      "name": "AWS Certified Solutions Architect",
+      "issuer": "Amazon Web Services",
+      "year": "2023",
+      "validUntil": "2026"
+    },
+    {
+      "name": "Google Cloud Professional Developer",
+      "issuer": "Google Cloud",
+      "year": "2022",
+      "validUntil": "2025"
+    }
+  ],
+  "languages": [
+    {
+      "language": "German",
+      "level": "Native",
+      "code": "de"
+    },
+    {
+      "language": "English",
+      "level": "Fluent (C1)",
+      "code": "en"
+    },
+    {
+      "language": "Arabic",
+      "level": "Native",
+      "code": "ar"
+    }
+  ]
+}

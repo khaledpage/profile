@@ -1,0 +1,22 @@
+{
+  "personal": {
+    "name": "Khaled Alabsi",
+    "title": "Senior Full-Stack Developer",
+    "location": "Remote / Deutschland",
+    "email": "khaled@example.com",
+    "phone": "+49 123 456789",
+    "website": "https://khaled-alabsi.dev",
+    "github": "https://github.com/khaledalabsi",
+    "linkedin": "https://linkedin.com/in/khaledalabsi"
+  },
+  "summary": {
+    "en": "With over 5 years of experience in web development, I combine technical expertise with creative design to create exceptional digital solutions. I specialize in modern web technologies like React, Next.js and Node.js, developing scalable and user-friendly applications.",
+    "de": "Mit über 5 Jahren Erfahrung in der Webentwicklung verbinde ich technisches Know-how mit kreativem Design, um außergewöhnliche digitale Lösungen zu schaffen. Ich spezialisiere mich auf moderne Web-Technologien wie React, Next.js und Node.js und entwickle skalierbare und benutzerfreundliche Anwendungen."
+  },
+  "stats": {
+    "experience": "5+ Years",
+    "projects": "40+",
+    "techFocus": "Next.js, TS",
+    "location": "Remote"
+  }
+}

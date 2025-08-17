@@ -3,6 +3,7 @@
 import Hero from '@/components/sections/Hero';
 import SkillsShowcaseMultiDesign from '@/components/sections/SkillsShowcaseMultiDesign';
 import ArticlesSection from '@/components/sections/ArticlesSection';
+import StaticArticlesSection from '@/components/sections/StaticArticlesSection';
 import WorkflowSection from '@/components/sections/WorkflowSection';
 import AboutMeSection from '@/components/sections/AboutMeSection';
 import ProjectCard from '@/components/ui/ProjectCard';
@@ -14,8 +15,8 @@ type Props = {
   config: SiteConfig;
 };
 
-const DEFAULT_ORDER: Array<'hero' | 'about' | 'skills' | 'projects' | 'articles' | 'workflow' | 'contact'> = [
-  'hero', 'about', 'skills', 'projects', 'articles', 'workflow', 'contact'
+const DEFAULT_ORDER: Array<'hero' | 'about' | 'skills' | 'projects' | 'articles' | 'staticArticles' | 'workflow' | 'contact'> = [
+  'hero', 'about', 'skills', 'projects', 'articles', 'staticArticles', 'workflow', 'contact'
 ];
 
 export default function HomeSectionsController({ content, config }: Props) {
@@ -152,6 +153,8 @@ export default function HomeSectionsController({ content, config }: Props) {
             );
           case 'articles':
             return <ArticlesSection key="articles" />;
+          case 'staticArticles':
+            return <StaticArticlesSection key="staticArticles" config={config} />;
           case 'workflow':
             return <WorkflowSection key="workflow" config={config} />;
           case 'contact':

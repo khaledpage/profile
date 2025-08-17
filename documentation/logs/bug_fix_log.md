@@ -1,13 +1,62 @@
 # 🐛 Bug Fix Log & Issue Tracking
 
+# 🐛 Bug Fix Log & Issue Tracking
+
 ## 📊 Summary Statistics
 
-- **Total Issues Tracked**: 39
-- **Resolved Issues**: 36
+- **Total Issues Tracked**: 42
+- **Resolved Issues**: 39
 - **Active Issues**: 1 (partially fixed)
-- **Success Rate**: 92%
+- **Success Rate**: 95%
 
 ## 🚨 Recent Fixes (January 17, 2025)
+
+### Issue #042 - Settings Panel Selection Border Cut-off (FIXED ✅)
+
+- **Status**: ✅ Resolved
+- **Priority**: Medium
+- **Reported**: January 17, 2025
+- **Description**: Outer ring borders (ring-2 ring-accent-1) were cut off in settings panel selections for theme, skills design, and about layout options.
+
+- **Solution Applied**:
+  - Replaced all ring-2 ring-accent-1 classes with inner border styling
+  - Added boxShadow: 'inset 0 0 0 2px var(--accent-1)' for selected states
+  - Updated theme selection, skills design, and about layout buttons
+  - Maintained border-2 border-transparent for consistent spacing
+
+- **Files Modified**: `/src/components/ui/SettingsPanel.tsx` (3 instances fixed)
+- **Testing**: Visual verification required for inner border display
+
+### Issue #041 - Redundant Admin Checkbox in Settings Panel (FIXED ✅)
+
+- **Status**: ✅ Resolved
+- **Priority**: Medium
+- **Reported**: January 17, 2025
+- **Description**: Admin checkbox in settings panel was redundant since proper admin authentication is handled by login/logout system.
+
+- **Solution Applied**:
+  - Removed admin toggle section (lines 527-540) including checkbox, label, and apply button from SettingsPanel.tsx
+  - Cleaned up redundant admin control interface
+
+- **Files Modified**: `/src/components/ui/SettingsPanel.tsx`
+- **Testing**: Verified admin checkbox removal, proper login/logout flow maintained
+
+### Issue #040 - Logout Options Missing After Login (VERIFIED ✅)
+
+- **Status**: ✅ Verified Working
+- **Priority**: High
+- **Reported**: January 17, 2025
+- **Description**: User reported no logout options available in UI or admin dropdown after login.
+
+- **Investigation Results**:
+  - Logout functionality already properly implemented in AdminNavigation.tsx
+  - Dropdown menu with logout option exists
+  - handleLogout function clears localStorage and refreshes router
+  - Configuration showLoginNavigation: true is enabled
+  - No fix required - existing implementation is correct
+
+- **Files Verified**: `/src/components/layout/AdminNavigation.tsx`, `/src/content/config.json`
+- **Testing**: User verification required for logout functionality
 
 ### Issue #039 - Settings Panel Width Bug (FIXED ✅)
 

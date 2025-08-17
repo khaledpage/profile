@@ -515,6 +515,14 @@
               "custom": "Benutzerdefiniert"
             }
           }
+        },
+        "staticArticles": {
+          "title": "Statische Artikel",
+          "subtitle": "Nur-HTML-Artikel und Tutorials",
+          "featured": "Ausgewählter Artikel",
+          "allArticles": "Alle statischen Artikel",
+          "viewAll": "Alle statischen Artikel anzeigen",
+          "noArticles": "Momentan sind keine statischen Artikel verfügbar."
         }
       },
       "en": {
@@ -669,6 +677,14 @@
               "custom": "Custom"
             }
           }
+        },
+        "staticArticles": {
+          "title": "Static Articles",
+          "subtitle": "HTML-only articles and tutorials",
+          "featured": "Featured Article",
+          "allArticles": "All Static Articles",
+          "viewAll": "View All Static Articles",
+          "noArticles": "No static articles available at the moment."
         }
       }
     }

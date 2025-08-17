@@ -1,0 +1,35 @@
+[
+  {
+    "slug": "matrix-multiplication",
+    "title": "Matrix Multiplication Visualized",
+    "excerpt": "Interactive visualization of matrix multiplication with step-by-step explanations using pure HTML, CSS, and JavaScript.",
+    "coverImage": "/images/projects/project1.jpg",
+    "publishDate": "2025-01-15",
+    "tags": ["mathematics", "visualization", "interactive"],
+    "category": "Tutorial",
+    "readingTime": 8,
+    "featured": true
+  },
+  {
+    "slug": "html-css-layouts",
+    "title": "Modern CSS Layout Techniques",
+    "excerpt": "A comprehensive guide to CSS Grid, Flexbox, and modern layout methods without any JavaScript framework dependencies.",
+    "coverImage": "/images/projects/project2.jpg",
+    "publishDate": "2025-01-10",
+    "tags": ["css", "layout", "responsive"],
+    "category": "Tutorial",
+    "readingTime": 12,
+    "featured": false
+  },
+  {
+    "slug": "vanilla-js-components",
+    "title": "Building Reusable Components with Vanilla JavaScript",
+    "excerpt": "Learn how to create modular, reusable components using only vanilla JavaScript and modern web standards.",
+    "coverImage": "/images/projects/project3.jpg",
+    "publishDate": "2025-01-05",
+    "tags": ["javascript", "components", "vanilla"],
+    "category": "Tutorial",
+    "readingTime": 15,
+    "featured": false
+  }
+]

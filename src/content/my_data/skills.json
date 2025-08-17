@@ -1,0 +1,53 @@
+{
+  "technical": {
+    "frontend": [
+      { "name": "React", "level": 90, "years": 4 },
+      { "name": "Next.js", "level": 85, "years": 3 },
+      { "name": "TypeScript", "level": 88, "years": 3 },
+      { "name": "JavaScript", "level": 92, "years": 5 },
+      { "name": "HTML5", "level": 95, "years": 6 },
+      { "name": "CSS3/SCSS", "level": 90, "years": 5 },
+      { "name": "Tailwind CSS", "level": 85, "years": 2 },
+      { "name": "Vue.js", "level": 75, "years": 2 }
+    ],
+    "backend": [
+      { "name": "Node.js", "level": 85, "years": 4 },
+      { "name": "Express.js", "level": 80, "years": 3 },
+      { "name": "NestJS", "level": 75, "years": 2 },
+      { "name": "PHP", "level": 70, "years": 3 },
+      { "name": "Python", "level": 65, "years": 2 }
+    ],
+    "database": [
+      { "name": "PostgreSQL", "level": 80, "years": 3 },
+      { "name": "MySQL", "level": 75, "years": 4 },
+      { "name": "MongoDB", "level": 70, "years": 2 },
+      { "name": "Redis", "level": 65, "years": 2 }
+    ],
+    "tools": [
+      { "name": "Git", "level": 90, "years": 5 },
+      { "name": "Docker", "level": 75, "years": 2 },
+      { "name": "AWS", "level": 70, "years": 2 },
+      { "name": "Vercel", "level": 85, "years": 3 },
+      { "name": "Figma", "level": 80, "years": 3 }
+    ]
+  },
+  "soft": [
+    "Team Leadership",
+    "Project Management", 
+    "Client Communication",
+    "Problem Solving",
+    "Agile Methodologies",
+    "Code Review",
+    "Mentoring",
+    "Technical Documentation"
+  ],
+  "interests": [
+    "Open Source Contributions",
+    "Tech Blogging",
+    "UI/UX Design",
+    "Performance Optimization",
+    "Web Accessibility",
+    "Machine Learning",
+    "DevOps Practices"
+  ]
+}

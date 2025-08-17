@@ -1,5 +1,7 @@
 'use client';
 
+import React from 'react';
+import Image from 'next/image';
 import { useLanguage } from '@/utils/i18n';
 import type { SiteConfig } from '@/types/content';
 
@@ -10,74 +12,33 @@ type Props = {
 export default function AboutMeSection({ config }: Props) {
   const { translations } = useLanguage(config);
 
+  // About content with fallback data
   const aboutContent = {
     en: {
       title: "About Me",
-      subtitle: "Let me introduce myself",
-      description: "With over 5 years of experience in web development, I combine technical expertise with creative design to create exceptional digital solutions. I specialize in modern web technologies like React, Next.js and Node.js, developing scalable and user-friendly applications.",
-      education: {
-        title: "Education",
-        degree: "Master of Computer Science",
-        university: "Technical University",
-        year: "2019"
-      },
-      experience: {
-        title: "Experience",
-        items: [
-          {
-            role: "Senior Full-Stack Developer",
-            company: "Tech Innovation GmbH",
-            period: "2021 - Present",
-            description: "Lead development of modern web applications using React, Next.js, and TypeScript."
-          },
-          {
-            role: "Frontend Developer",
-            company: "Digital Solutions AG",
-            period: "2019 - 2021", 
-            description: "Developed responsive user interfaces and optimized application performance."
-          }
-        ]
-      },
-      stats: {
-        experience: "5+ Years",
-        projects: "40+",
-        techFocus: "Next.js, TS",
-        location: "Remote"
-      }
+      greeting: "Hi, I'm Khaled Alabsi",
+      role: "Full-Stack Developer & Software Engineer",
+      description: "I'm passionate about creating innovative digital solutions and turning complex problems into elegant, user-friendly applications.",
+      highlights: [
+        "5+ years of software development experience",
+        "Expert in React, Next.js, and modern web technologies",
+        "Strong background in both frontend and backend development",
+        "Passionate about clean code and best practices"
+      ],
+      cta: "Get In Touch"
     },
     de: {
-      title: "Über mich",
-      subtitle: "Lassen Sie mich mich vorstellen",
-      description: "Mit über 5 Jahren Erfahrung in der Webentwicklung kombiniere ich technische Expertise mit kreativem Design, um außergewöhnliche digitale Lösungen zu schaffen. Spezialisiert auf moderne Webtechnologien wie React, Next.js und Node.js, entwickle ich skalierbare und benutzerfreundliche Anwendungen.",
-      education: {
-        title: "Ausbildung",
-        degree: "Master Informatik",
-        university: "Technische Universität",
-        year: "2019"
-      },
-      experience: {
-        title: "Berufserfahrung",
-        items: [
-          {
-            role: "Senior Full-Stack Entwickler",
-            company: "Tech Innovation GmbH",
-            period: "2021 - Heute",
-            description: "Leitung der Entwicklung moderner Webanwendungen mit React, Next.js und TypeScript."
-          },
-          {
-            role: "Frontend Entwickler",
-            company: "Digital Solutions AG",
-            period: "2019 - 2021",
-            description: "Entwicklung responsiver Benutzeroberflächen und Optimierung der Anwendungsleistung."
-          }
-        ]
-      },
-      stats: {
-        experience: "5+ Jahre",
-        projects: "40+",
-        techFocus: "Next.js, TS",
-        location: "Remote"
-      }
+      title: "Über Mich",
+      greeting: "Hallo, ich bin Khaled Alabsi",
+      role: "Full-Stack Entwickler & Software Engineer",
+      description: "Ich bin leidenschaftlich dabei, innovative digitale Lösungen zu schaffen und komplexe Probleme in elegante, benutzerfreundliche Anwendungen zu verwandeln.",
+      highlights: [
+        "5+ Jahre Erfahrung in der Softwareentwicklung",
+        "Experte in React, Next.js und modernen Web-Technologien",
+        "Starker Hintergrund in Frontend- und Backend-Entwicklung",
+        "Leidenschaftlich für sauberen Code und bewährte Praktiken"
+      ],
+      cta: "Kontakt Aufnehmen"
     }
   };
 
@@ -85,188 +46,112 @@ export default function AboutMeSection({ config }: Props) {
   const content = aboutContent[currentLang as keyof typeof aboutContent] || aboutContent.en;
 
   return (
-    <section id="about-me" className="py-24">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
+    <section
+      id="about-me-section"
+      className="relative py-20 px-4"
+      style={{ backgroundColor: 'var(--background)' }}
+    >
+      <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: 'var(--foreground)' }}>
+          <h2
+            id="about-me-title"
+            className="text-4xl font-bold mb-4"
+            style={{ color: 'var(--foreground)' }}
+          >
             {content.title}
           </h2>
-          <p className="text-lg" style={{ color: 'var(--muted)' }}>
-            {content.subtitle}
-          </p>
         </div>
 
-        {/* Main Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          {/* Profile Picture & Introduction */}
-          <div className="lg:col-span-5">
-            <div className="relative mb-8">
-              {/* Profile Picture with modern frame */}
-              <div className="relative mx-auto w-80 h-80 md:w-96 md:h-96">
-                <div 
-                  className="absolute inset-0 rounded-full"
-                  style={{
-                    background: 'linear-gradient(135deg, var(--accent-1), var(--accent-2))',
-                    padding: '6px'
-                  }}
-                >
-                  <div 
-                    className="w-full h-full rounded-full overflow-hidden"
-                    style={{ backgroundColor: 'var(--card)' }}
-                  >
-                    <img
-                      src="/content/assets/csm_Khaled_Alabsi_Portraet_6d491f1c81.jpg"
-                      alt="Khaled Alabsi Profile Picture"
-                      className="w-full h-full object-cover"
-                      style={{ filter: 'brightness(1.1) contrast(1.05)' }}
-                    />
-                  </div>
-                </div>
-                
-                {/* Decorative elements */}
-                <div 
-                  className="absolute -top-4 -right-4 w-24 h-24 rounded-full opacity-20 animate-pulse"
-                  style={{ backgroundColor: 'var(--accent-1)' }}
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Profile Image */}
+          <div className="flex justify-center lg:justify-start">
+            <div
+              id="profile-image-container"
+              className="relative w-80 h-80 rounded-full overflow-hidden"
+              style={{
+                background: 'linear-gradient(135deg, var(--accent-1), var(--accent-2))',
+                padding: '4px'
+              }}
+            >
+              <div
+                className="relative w-full h-full rounded-full overflow-hidden"
+                style={{ backgroundColor: 'var(--card)' }}
+              >
+                <Image
+                  src="/images/project1.jpg"
+                  alt="Profile Picture"
+                  fill
+                  className="object-cover"
+                  priority
                 />
-                <div 
-                  className="absolute -bottom-6 -left-6 w-16 h-16 rounded-full opacity-30 animate-pulse"
-                  style={{ 
-                    backgroundColor: 'var(--accent-2)',
-                    animationDelay: '1s'
-                  }}
-                />
-              </div>
-            </div>
-
-            {/* Quick Stats */}
-            <div className="grid grid-cols-2 gap-4">
-              <div className="glass rounded-xl p-4 text-center">
-                <div className="text-2xl font-bold mb-1" style={{ color: 'var(--accent-1)' }}>
-                  {content.stats.experience}
-                </div>
-                <div className="text-sm" style={{ color: 'var(--muted)' }}>
-                  {content.experience.title}
-                </div>
-              </div>
-              <div className="glass rounded-xl p-4 text-center">
-                <div className="text-2xl font-bold mb-1" style={{ color: 'var(--accent-1)' }}>
-                  {content.stats.projects}
-                </div>
-                <div className="text-sm" style={{ color: 'var(--muted)' }}>
-                  Projekte
-                </div>
-              </div>
-              <div className="glass rounded-xl p-4 text-center">
-                <div className="text-2xl font-bold mb-1" style={{ color: 'var(--accent-1)' }}>
-                  {content.stats.techFocus}
-                </div>
-                <div className="text-sm" style={{ color: 'var(--muted)' }}>
-                  Tech Focus
-                </div>
-              </div>
-              <div className="glass rounded-xl p-4 text-center">
-                <div className="text-2xl font-bold mb-1" style={{ color: 'var(--accent-1)' }}>
-                  {content.stats.location}
-                </div>
-                <div className="text-sm" style={{ color: 'var(--muted)' }}>
-                  Standort
-                </div>
               </div>
             </div>
           </div>
 
-          {/* Content Section */}
-          <div className="lg:col-span-7 space-y-8">
-            {/* Description */}
-            <div className="glass rounded-2xl p-8">
-              <h3 className="text-xl font-semibold mb-4 flex items-center gap-2" style={{ color: 'var(--foreground)' }}>
-                <span className="text-2xl">👋</span>
-                Hallo!
+          {/* Content */}
+          <div className="space-y-8">
+            <div>
+              <h3
+                id="about-me-greeting"
+                className="text-3xl font-bold mb-2"
+                style={{ color: 'var(--foreground)' }}
+              >
+                {content.greeting}
               </h3>
-              <p className="text-lg leading-relaxed" style={{ color: 'var(--muted)' }}>
+              <p
+                id="about-me-role"
+                className="text-xl mb-6"
+                style={{ color: 'var(--accent-1)' }}
+              >
+                {content.role}
+              </p>
+              <p
+                id="about-me-description"
+                className="text-lg leading-relaxed"
+                style={{ color: 'var(--foreground-muted)' }}
+              >
                 {content.description}
               </p>
             </div>
 
-            {/* Education */}
-            <div className="glass rounded-2xl p-8">
-              <h3 className="text-xl font-semibold mb-4 flex items-center gap-2" style={{ color: 'var(--foreground)' }}>
-                <span className="text-2xl">🎓</span>
-                {content.education.title}
-              </h3>
-              <div className="flex items-center justify-between">
-                <div>
-                  <div className="font-medium" style={{ color: 'var(--foreground)' }}>
-                    {content.education.degree}
-                  </div>
-                  <div className="text-sm mt-1" style={{ color: 'var(--muted)' }}>
-                    {content.education.university}
-                  </div>
-                </div>
-                <div className="text-right">
-                  <div 
-                    className="px-3 py-1 rounded-full text-sm font-medium"
-                    style={{ 
-                      backgroundColor: 'color-mix(in srgb, var(--accent-1), transparent 80%)',
-                      color: 'var(--accent-1)' 
-                    }}
+            {/* Highlights */}
+            <div id="about-me-highlights" className="space-y-4">
+              {content.highlights.map((highlight, index) => (
+                <div
+                  key={index}
+                  id={`about-highlight-${index}`}
+                  className="flex items-center space-x-3"
+                >
+                  <div
+                    className="w-2 h-2 rounded-full"
+                    style={{ backgroundColor: 'var(--accent-1)' }}
+                  />
+                  <span
+                    className="text-base"
+                    style={{ color: 'var(--foreground)' }}
                   >
-                    {content.education.year}
-                  </div>
+                    {highlight}
+                  </span>
                 </div>
-              </div>
+              ))}
             </div>
 
-            {/* Experience */}
-            <div className="glass rounded-2xl p-8">
-              <h3 className="text-xl font-semibold mb-6 flex items-center gap-2" style={{ color: 'var(--foreground)' }}>
-                <span className="text-2xl">💼</span>
-                {content.experience.title}
-              </h3>
-              <div className="space-y-6">
-                {content.experience.items.map((job, index) => (
-                  <div key={index} className="relative">
-                    {/* Timeline line */}
-                    {index < content.experience.items.length - 1 && (
-                      <div 
-                        className="absolute left-3 top-8 w-0.5 h-16"
-                        style={{ backgroundColor: 'color-mix(in srgb, var(--accent-1), transparent 70%)' }}
-                      />
-                    )}
-                    
-                    {/* Timeline dot */}
-                    <div 
-                      className="absolute left-1.5 top-2 w-3 h-3 rounded-full"
-                      style={{ backgroundColor: 'var(--accent-1)' }}
-                    />
-                    
-                    {/* Content */}
-                    <div className="ml-8">
-                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-                        <h4 className="font-semibold" style={{ color: 'var(--foreground)' }}>
-                          {job.role}
-                        </h4>
-                        <span 
-                          className="text-sm px-2 py-1 rounded mt-1 sm:mt-0"
-                          style={{ 
-                            backgroundColor: 'color-mix(in srgb, var(--card), transparent 50%)',
-                            color: 'var(--muted)' 
-                          }}
-                        >
-                          {job.period}
-                        </span>
-                      </div>
-                      <div className="text-sm font-medium mb-2" style={{ color: 'var(--accent-1)' }}>
-                        {job.company}
-                      </div>
-                      <p className="text-sm leading-relaxed" style={{ color: 'var(--muted)' }}>
-                        {job.description}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
+            {/* CTA Button */}
+            <div className="pt-6">
+              <button
+                id="about-me-cta-button"
+                className="px-8 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105"
+                style={{
+                  background: 'linear-gradient(135deg, var(--accent-1), var(--accent-2))',
+                  color: 'var(--card-contrast)'
+                }}
+                onClick={() => {
+                  const contactSection = document.getElementById('contact-section');
+                  contactSection?.scrollIntoView({ behavior: 'smooth' });
+                }}
+              >
+                {content.cta}
+              </button>
             </div>
           </div>
         </div>

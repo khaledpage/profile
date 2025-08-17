@@ -7,6 +7,7 @@ import JSZip from 'jszip';
 import { saveAs } from 'file-saver';
 import { useState } from 'react';
 import ArticleEditModal from '@/components/articles/ArticleEditModal';
+import LoadingLink from '@/components/ui/LoadingLink';
 
 interface ArticleCardProps {
   article: Article;
@@ -158,7 +159,7 @@ export default function ArticleCard({
   
   return (
     <>
-      <Link href={`/articles/${slug}`} id={`article-card-link-${slug}`} className="group block">
+      <LoadingLink href={`/articles/${slug}`} id={`article-card-link-${slug}`} className="group block">
         <article 
           id={`article-card-${slug}`}
           className={`glass rounded-2xl overflow-hidden transition-all duration-300 lift h-full max-h-[450px] flex flex-col ${
@@ -334,7 +335,7 @@ export default function ArticleCard({
           </div>
         </div>
       </article>
-    </Link>
+    </LoadingLink>
     
     {/* Article Edit Modal */}
     <ArticleEditModal

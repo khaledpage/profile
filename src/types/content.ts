@@ -268,8 +268,8 @@ export interface SiteConfig {
   };
   /** Default homepage sections order and visibility */
   homeSections?: {
-    order: Array<'hero' | 'about' | 'skills' | 'projects' | 'articles' | 'workflow' | 'contact'>;
-    hidden?: Array<'hero' | 'about' | 'skills' | 'projects' | 'articles' | 'workflow' | 'contact'>;
+    order: Array<'hero' | 'about' | 'skills' | 'projects' | 'articles' | 'staticArticles' | 'workflow' | 'contact'>;
+    hidden?: Array<'hero' | 'about' | 'skills' | 'projects' | 'articles' | 'staticArticles' | 'workflow' | 'contact'>;
   };
   /** Admin configuration and feature flags */
   admin?: {

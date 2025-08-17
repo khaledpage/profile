@@ -1,0 +1,79 @@
+{
+  "experience": [
+    {
+      "role": "Senior Full-Stack Developer",
+      "company": "Tech Innovation GmbH",
+      "location": "Munich, Germany",
+      "type": "Full-time",
+      "startDate": "2021-03",
+      "endDate": null,
+      "current": true,
+      "description": {
+        "en": "Lead development of modern web applications using React, Next.js, and TypeScript. Architect scalable solutions and mentor junior developers.",
+        "de": "Leitung der Entwicklung moderner Webanwendungen mit React, Next.js und TypeScript. Architektur skalierbarer Lösungen und Mentoring von Junior-Entwicklern."
+      },
+      "technologies": ["React", "Next.js", "TypeScript", "Node.js", "PostgreSQL", "AWS"],
+      "achievements": [
+        "Led team of 5 developers on major client project",
+        "Improved application performance by 40%",
+        "Implemented CI/CD pipeline reducing deployment time by 60%"
+      ]
+    },
+    {
+      "role": "Frontend Developer",
+      "company": "Digital Solutions AG",
+      "location": "Berlin, Germany",
+      "type": "Full-time",
+      "startDate": "2019-06",
+      "endDate": "2021-02",
+      "current": false,
+      "description": {
+        "en": "Developed responsive user interfaces and optimized application performance. Collaborated with UX designers and backend developers.",
+        "de": "Entwicklung responsiver Benutzeroberflächen und Optimierung der Anwendungsleistung. Zusammenarbeit mit UX-Designern und Backend-Entwicklern."
+      },
+      "technologies": ["React", "JavaScript", "SASS", "REST APIs", "Git"],
+      "achievements": [
+        "Delivered 15+ client projects on time",
+        "Reduced page load times by 35%",
+        "Mentored 2 intern developers"
+      ]
+    },
+    {
+      "role": "Junior Web Developer",
+      "company": "StartupLab",
+      "location": "Hamburg, Germany",
+      "type": "Full-time",
+      "startDate": "2018-09",
+      "endDate": "2019-05",
+      "current": false,
+      "description": {
+        "en": "Built web applications for startup clients using modern JavaScript frameworks. Gained experience in agile development methodologies.",
+        "de": "Entwicklung von Webanwendungen für Startup-Kunden mit modernen JavaScript-Frameworks. Erfahrung in agilen Entwicklungsmethoden gesammelt."
+      },
+      "technologies": ["Vue.js", "JavaScript", "PHP", "MySQL", "Bootstrap"],
+      "achievements": [
+        "Contributed to 8 successful product launches",
+        "Implemented responsive design for mobile-first approach",
+        "Participated in code reviews and sprint planning"
+      ]
+    }
+  ],
+  "freelance": [
+    {
+      "client": "E-Commerce Solutions",
+      "project": "Online Shop Platform",
+      "duration": "3 months",
+      "year": "2023",
+      "technologies": ["Next.js", "Stripe", "Prisma", "PostgreSQL"],
+      "description": "Built a complete e-commerce platform with payment integration and admin dashboard."
+    },
+    {
+      "client": "Local Restaurant Chain",
+      "project": "Food Ordering App",
+      "duration": "2 months", 
+      "year": "2022",
+      "technologies": ["React Native", "Firebase", "Node.js"],
+      "description": "Developed mobile app for food ordering with real-time order tracking."
+    }
+  ]
+}

@@ -36,6 +36,7 @@ When the user types "start", perform these steps in order:
 6. For each new feature/bug fix:
   - Add test cases in TEST_CASES.md.
   - Implement automated tests (Playwright) covering unit, integration, and e2e flows.
+  - Update REQUIREMENTS_TABELLE.md with statuses.
 7. Consider work complete only when all relevant tests/e2e tests pass. Record results and blockers.
 8. Log all attempts in problem_solving_log.md (description, steps, result, attempt number). Read this file first to avoid repeating failed approaches.
 

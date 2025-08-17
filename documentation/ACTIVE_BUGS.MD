@@ -105,8 +105,52 @@ Description: In the settings panel, selected theme options (like "Mint Green") a
 ---
 
 bug: after login, there are no log out options available in the UI or admin dropdown
+Status: **VERIFIED** ✅
+Priority: High
+Description: Logout functionality is already properly implemented in AdminNavigation.tsx with dropdown menu, handleLogout function, and proper state management.
 
+Fix Applied: Confirmed existing implementation includes:
+
+- Dropdown menu with logout option
+- handleLogout function that clears localStorage and refreshes router
+- Proper UI feedback and state management
+- Configuration showLoginNavigation: true is enabled
+
+Files Involved: /src/components/layout/AdminNavigation.tsx, /src/content/config.json
+Date Verified: 2025-01-17
+
+**User Verification Placeholder:**
+[ ] verified working correctly
+
+---
 
 bug: configuration panel should not have admin check box (id=admin-toggle-label) option, its useless.
+Status: **FIXED** ✅
+Priority: Medium
+Description: Admin checkbox in settings panel was redundant since proper admin authentication is handled by login/logout system.
+Fix Applied: Removed admin toggle section (lines 527-540) including checkbox, label, and apply button from SettingsPanel.tsx
+Files Modified: /src/components/ui/SettingsPanel.tsx
+Date Fixed: 2025-01-17
+
+**User Verification Placeholder:**
+[ ] verified admin checkbox removed
+
+---
 
 bug: because you didnt manage to fix the element selection border size in the configuration panel, so it always looks cut off, just make the selections boarder inner and not outer, and add some inner shadow when selecting.
+Status: **FIXED** ✅
+Priority: Medium
+Description: Outer ring borders (ring-2 ring-accent-1) were cut off in settings panel selections. Converted to inner borders with box-shadow.
+
+Fix Applied:
+
+- Replaced all ring-2 ring-accent-1 classes with inner border styling
+- Added boxShadow: 'inset 0 0 0 2px var(--accent-1)' for selected states
+- Updated theme selection, skills design, and about layout buttons
+- Maintained border-2 border-transparent for consistent spacing
+
+Files Modified: /src/components/ui/SettingsPanel.tsx (3 instances fixed)
+Date Fixed: 2025-01-17
+
+**User Verification Placeholder:**
+[ ] verified inner borders display correctly without cut-off
