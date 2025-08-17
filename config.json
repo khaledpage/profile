@@ -32,10 +32,10 @@
       },
       "contact": {
         "enabled": true,
-        "showForm": true,
+        "showForm": false,
         "showContactInfo": true,
-        "showSocialLinks": true,
-        "showDownloadCV": true
+        "showSocialLinks": false,
+        "showDownloadCV": false
       }
     },
     "animations": {
@@ -57,7 +57,18 @@
     "description": "Professional Developer & Digital Innovator",
     "url": "https://khaledpage.github.io/profile",
     "author": "Khaled Alabsi",
-    "keywords": ["developer", "full-stack", "react", "nextjs", "typescript"],
+    "keywords": [
+      "senior software engineer",
+      "full-stack developer",
+      "machine learning",
+      "process monitoring",
+      "cloud",
+      "devops",
+      "data analytics",
+      "react",
+      "spring",
+      "java"
+    ],
     "favicon": "/favicon.ico"
   },
   "personal": {
@@ -194,7 +205,7 @@
               "Docker",
               "Kubernetes"
             ],
-            "image": "/assets/project1.jpg",
+            "image": "",
             "demo": "",
             "github": "",
             "featured": true
@@ -210,7 +221,7 @@
               "PostgreSQL",
               "REST APIs"
             ],
-            "image": "/assets/project2.jpg",
+            "image": "",
             "demo": "",
             "github": "",
             "featured": true
@@ -226,7 +237,7 @@
               "Node.js",
               "MongoDB"
             ],
-            "image": "/assets/project3.jpg",
+            "image": "",
             "demo": "",
             "github": "",
             "featured": true
@@ -242,7 +253,7 @@
               "REST APIs",
               "Push Notifications"
             ],
-            "image": "/assets/project4.jpg",
+            "image": "",
             "demo": "",
             "github": "",
             "featured": false
@@ -258,7 +269,7 @@
               "Elasticsearch",
               "API Gateway"
             ],
-            "image": "/assets/project5.jpg",
+            "image": "",
             "demo": "",
             "github": "",
             "featured": false
@@ -274,7 +285,7 @@
               "Grafana",
               "ELK Stack"
             ],
-            "image": "/assets/project6.jpg",
+            "image": "",
             "demo": "",
             "github": "",
             "featured": false

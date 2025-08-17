@@ -20,16 +20,15 @@ const Experience = ({ content, config }: ExperienceProps) => {
 
         <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8">
           {content.projects?.map((project: any, index: number) => (
-            <div key={index} className="glass p-6 rounded-2xl border border-white/10 hover:border-primary/30 transition-all duration-300 group">
-              <div className="space-y-4">
-                <div className="relative overflow-hidden rounded-lg bg-gray-800/50 h-48">
-                  {project.image && (
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                    />
-                  )}
+            <div key={index} className="glass p-6 rounded-2xl border border-white/10 hover:border-primary/30 transition-all duration-300 group flex flex-col h-full">
+              {/* Only show image container if project has an image */}
+              {project.image && (
+                <div className="relative overflow-hidden rounded-lg bg-gray-800/50 h-48 mb-4">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                   {project.featured && (
                     <div className="absolute top-3 right-3 bg-primary text-white text-xs px-2 py-1 rounded-full">
@@ -37,29 +36,46 @@ const Experience = ({ content, config }: ExperienceProps) => {
                     </div>
                   )}
                 </div>
-                
-                <div>
-                  <h3 className="text-xl font-bold mb-2" style={{ color: 'var(--text)' }}>{project.title}</h3>
-                  <p className="text-theme-secondary leading-relaxed mb-4">{project.description}</p>
-                  
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.technologies?.map((tech: string, techIndex: number) => (
-                      <span
-                        key={techIndex}
-                        className="px-3 py-1 bg-primary/20 text-primary text-sm rounded-full border border-primary/30"
-                      >
-                        {tech}
-                      </span>
-                    ))}
+              )}
+              
+              {/* If no image, show featured badge at top of card */}
+              {!project.image && project.featured && (
+                <div className="flex justify-end mb-4">
+                  <div className="bg-primary text-white text-xs px-3 py-1 rounded-full">
+                    Featured
                   </div>
-                  
-                  <div className="flex space-x-3">
+                </div>
+              )}
+              
+              <div className="flex-1 flex flex-col">
+                <h3 className="text-xl font-bold mb-2" style={{ color: 'var(--text)' }}>{project.title}</h3>
+                <p className="text-theme-secondary leading-relaxed mb-4 flex-1">{project.description}</p>
+                
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {project.technologies?.map((tech: string, techIndex: number) => (
+                    <span
+                      key={techIndex}
+                      className="px-3 py-1 text-sm rounded-full border transition-colors duration-200 hover:scale-105"
+                      style={{ 
+                        backgroundColor: 'var(--surface)',
+                        borderColor: 'var(--border)',
+                        color: 'var(--text)'
+                      }}
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+                
+                {/* Only show buttons container if there are demo or github links */}
+                {(project.demo || project.github) && (
+                  <div className="flex space-x-3 mt-auto">
                     {project.demo && (
                       <a
                         href={project.demo}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex-1 btn-primary text-center text-sm py-2"
+                        className="flex-1 btn-primary text-center text-sm py-2 rounded-lg"
                       >
                         Live Demo
                       </a>
@@ -69,13 +85,14 @@ const Experience = ({ content, config }: ExperienceProps) => {
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex-1 glass text-center text-sm py-2 border border-white/20 hover:border-primary/30 transition-colors"
+                        className="flex-1 glass text-center text-sm py-2 rounded-lg border border-white/20 hover:border-primary/30 transition-colors"
+                        style={{ color: 'var(--text)' }}
                       >
                         GitHub
                       </a>
                     )}
                   </div>
-                </div>
+                )}
               </div>
             </div>
           )) || (

@@ -6,6 +6,22 @@ interface ProcessProps {
 }
 
 const Process = ({ content, config }: ProcessProps) => {
+  // Icon mapping for process steps
+  const getIcon = (iconName: string) => {
+    const iconMap: { [key: string]: string } = {
+      'Lightbulb': '💡',
+      'Search': '🔍', 
+      'Palette': '🎨',
+      'Code': '💻',
+      'Rocket': '🚀',
+      'Wrench': '🔧',
+      'Award': '🏆',
+      'Target': '🎯',
+      'TrendingUp': '📈'
+    };
+    return iconMap[iconName] || '⚡';
+  };
+
   return (
     <section id="process" className="py-20 lg:py-32 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -24,7 +40,7 @@ const Process = ({ content, config }: ProcessProps) => {
               <div className="glass p-8 rounded-2xl border border-white/10 hover:border-primary/30 transition-all duration-300 h-full">
                 <div className="text-center">
                   <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-6 border border-primary/30">
-                    <span className="text-2xl">{step.icon}</span>
+                    <span className="text-2xl">{getIcon(step.icon)}</span>
                   </div>
                   
                   <div className="absolute -top-3 -right-3 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold text-sm">
