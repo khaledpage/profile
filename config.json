@@ -62,8 +62,8 @@
   },
   "personal": {
     "name": "Khaled Alabsi",
-    "role": "Senior Full-Stack Developer",
-    "tagline": "Transforming ideas into exceptional digital experiences",
+    "role": "Senior Software Engineer",
+    "tagline": "Transforming ideas into exceptional digital solutions",
     "email": "khaled.alabsi@example.com",
     "phone": "+49 123 456 7890",
     "location": "Germany",
@@ -118,80 +118,165 @@
         ],
         "skills": [
           {
-            "name": "Frontend Development",
-            "level": 95,
+            "name": "Enterprise Development",
             "technologies": [
-              "React",
-              "Next.js",
-              "TypeScript",
-              "Vue.js",
-              "Angular"
+              "Java",
+              "Spring Framework",
+              "Spring Boot",
+              "Maven",
+              "Gradle"
             ]
           },
           {
             "name": "Backend Development",
-            "level": 90,
             "technologies": [
               "Node.js",
               "Python",
-              "Java",
+              "REST APIs",
               "PostgreSQL",
               "MongoDB"
             ]
           },
           {
+            "name": "Frontend Development", 
+            "technologies": [
+              "React",
+              "TypeScript",
+              "Next.js",
+              "HTML5",
+              "CSS3"
+            ]
+          },
+          {
             "name": "Cloud & DevOps",
-            "level": 85,
             "technologies": [
               "AWS",
               "Docker",
               "Kubernetes",
-              "CI/CD",
-              "Terraform"
+              "Terraform",
+              "Jenkins"
+            ]
+          },
+          {
+            "name": "Data & Analytics",
+            "technologies": [
+              "Apache Spark",
+              "Tableau",
+              "Elasticsearch",
+              "Redis",
+              "Apache Kafka"
             ]
           },
           {
             "name": "Mobile Development",
-            "level": 80,
-            "technologies": ["React Native", "Flutter", "iOS", "Android"]
+            "technologies": [
+              "React Native",
+              "Firebase",
+              "SQLite",
+              "Push Notifications",
+              "Cross-platform"
+            ]
           }
         ]
       },
       "experience": {
         "title": "My Projects",
-        "subtitle": "Bringing Ideas to Life",
+        "subtitle": "Innovative Solutions & Professional Achievements",
         "projects": [
           {
-            "title": "E-Commerce Platform",
-            "description": "A comprehensive e-commerce solution with advanced features like real-time inventory, payment processing, and analytics dashboard.",
+            "title": "Enterprise Software Development",
+            "description": "Led development of large-scale enterprise applications with focus on performance optimization, scalability, and maintainability. Implemented modern architectural patterns and best practices.",
             "technologies": [
-              "Next.js",
-              "Node.js",
+              "Java",
+              "Spring Framework",
+              "React",
               "PostgreSQL",
-              "Stripe",
-              "AWS"
+              "Docker",
+              "Kubernetes"
             ],
             "image": "/assets/project1.jpg",
-            "demo": "https://demo.example.com",
-            "github": "https://github.com/example",
+            "demo": "",
+            "github": "",
             "featured": true
           },
           {
-            "title": "Task Management App",
-            "description": "A collaborative project management tool with real-time updates, team communication, and advanced reporting features.",
-            "technologies": ["React", "Firebase", "Material-UI", "Socket.io"],
+            "title": "Data Analytics Platform",
+            "description": "Designed and implemented comprehensive data analytics solutions for business intelligence. Created interactive dashboards and automated reporting systems.",
+            "technologies": [
+              "Python",
+              "Apache Spark",
+              "Tableau",
+              "AWS",
+              "PostgreSQL",
+              "REST APIs"
+            ],
             "image": "/assets/project2.jpg",
-            "demo": "https://demo2.example.com",
-            "github": "https://github.com/example2",
+            "demo": "",
+            "github": "",
             "featured": true
           },
           {
-            "title": "Analytics Dashboard",
-            "description": "A real-time analytics dashboard for monitoring business metrics with interactive charts and customizable widgets.",
-            "technologies": ["Vue.js", "D3.js", "Express", "MongoDB", "Redis"],
+            "title": "Cloud Infrastructure Optimization",
+            "description": "Architected and deployed scalable cloud solutions with emphasis on cost optimization and performance. Implemented CI/CD pipelines and automated deployment strategies.",
+            "technologies": [
+              "AWS",
+              "Terraform",
+              "Jenkins",
+              "Docker",
+              "Node.js",
+              "MongoDB"
+            ],
             "image": "/assets/project3.jpg",
-            "demo": "https://demo3.example.com",
-            "github": "https://github.com/example3",
+            "demo": "",
+            "github": "",
+            "featured": true
+          },
+          {
+            "title": "Mobile Application Development",
+            "description": "Developed cross-platform mobile applications with focus on user experience and performance. Integrated real-time features and offline capabilities.",
+            "technologies": [
+              "React Native",
+              "TypeScript",
+              "Firebase",
+              "SQLite",
+              "REST APIs",
+              "Push Notifications"
+            ],
+            "image": "/assets/project4.jpg",
+            "demo": "",
+            "github": "",
+            "featured": false
+          },
+          {
+            "title": "Microservices Architecture",
+            "description": "Designed and implemented microservices-based architecture for high-traffic applications. Focused on service isolation, API gateway patterns, and distributed systems.",
+            "technologies": [
+              "Java",
+              "Spring Boot",
+              "Apache Kafka",
+              "Redis",
+              "Elasticsearch",
+              "API Gateway"
+            ],
+            "image": "/assets/project5.jpg",
+            "demo": "",
+            "github": "",
+            "featured": false
+          },
+          {
+            "title": "DevOps & Automation",
+            "description": "Implemented comprehensive DevOps practices including automated testing, deployment pipelines, monitoring, and infrastructure as code solutions.",
+            "technologies": [
+              "Jenkins",
+              "GitLab CI",
+              "Ansible",
+              "Prometheus",
+              "Grafana",
+              "ELK Stack"
+            ],
+            "image": "/assets/project6.jpg",
+            "demo": "",
+            "github": "",
             "featured": false
           }
         ]
@@ -354,80 +439,165 @@
         ],
         "skills": [
           {
-            "name": "Frontend-Entwicklung",
-            "level": 95,
+            "name": "Unternehmensentwicklung",
             "technologies": [
-              "React",
-              "Next.js",
-              "TypeScript",
-              "Vue.js",
-              "Angular"
+              "Java",
+              "Spring Framework",
+              "Spring Boot",
+              "Maven",
+              "Gradle"
             ]
           },
           {
             "name": "Backend-Entwicklung",
-            "level": 90,
             "technologies": [
               "Node.js",
               "Python",
-              "Java",
+              "REST APIs",
               "PostgreSQL",
               "MongoDB"
             ]
           },
           {
+            "name": "Frontend-Entwicklung",
+            "technologies": [
+              "React",
+              "TypeScript",
+              "Next.js",
+              "HTML5",
+              "CSS3"
+            ]
+          },
+          {
             "name": "Cloud & DevOps",
-            "level": 85,
             "technologies": [
               "AWS",
               "Docker",
               "Kubernetes",
-              "CI/CD",
-              "Terraform"
+              "Terraform",
+              "Jenkins"
+            ]
+          },
+          {
+            "name": "Daten & Analytics",
+            "technologies": [
+              "Apache Spark",
+              "Tableau",
+              "Elasticsearch",
+              "Redis",
+              "Apache Kafka"
             ]
           },
           {
             "name": "Mobile Entwicklung",
-            "level": 80,
-            "technologies": ["React Native", "Flutter", "iOS", "Android"]
+            "technologies": [
+              "React Native",
+              "Firebase",
+              "SQLite",
+              "Push Notifications",
+              "Plattformübergreifend"
+            ]
           }
         ]
       },
       "experience": {
         "title": "Meine Projekte",
-        "subtitle": "Ideen zum Leben erwecken",
+        "subtitle": "Innovative Lösungen & Berufliche Erfolge",
         "projects": [
           {
-            "title": "E-Commerce Plattform",
-            "description": "Eine umfassende E-Commerce-Lösung mit erweiterten Funktionen wie Echtzeit-Inventar, Zahlungsabwicklung und Analytics-Dashboard.",
+            "title": "Enterprise Software Entwicklung",
+            "description": "Leitete die Entwicklung großflächiger Unternehmensanwendungen mit Fokus auf Performance-Optimierung, Skalierbarkeit und Wartbarkeit. Implementierte moderne Architekturmuster und Best Practices.",
             "technologies": [
-              "Next.js",
-              "Node.js",
+              "Java",
+              "Spring Framework",
+              "React",
               "PostgreSQL",
-              "Stripe",
-              "AWS"
+              "Docker",
+              "Kubernetes"
             ],
             "image": "/assets/project1.jpg",
-            "demo": "https://demo.example.com",
-            "github": "https://github.com/example",
+            "demo": "",
+            "github": "",
             "featured": true
           },
           {
-            "title": "Aufgabenmanagement App",
-            "description": "Ein kollaboratives Projektmanagement-Tool mit Echtzeit-Updates, Teamkommunikation und erweiterten Berichtsfunktionen.",
-            "technologies": ["React", "Firebase", "Material-UI", "Socket.io"],
+            "title": "Datenanalyse Plattform",
+            "description": "Entwarf und implementierte umfassende Datenanalyse-Lösungen für Business Intelligence. Erstellte interaktive Dashboards und automatisierte Berichtssysteme.",
+            "technologies": [
+              "Python",
+              "Apache Spark",
+              "Tableau",
+              "AWS",
+              "PostgreSQL",
+              "REST APIs"
+            ],
             "image": "/assets/project2.jpg",
-            "demo": "https://demo2.example.com",
-            "github": "https://github.com/example2",
+            "demo": "",
+            "github": "",
             "featured": true
           },
           {
-            "title": "Analytics Dashboard",
-            "description": "Ein Echtzeit-Analytics-Dashboard zur Überwachung von Geschäftskennzahlen mit interaktiven Diagrammen und anpassbaren Widgets.",
-            "technologies": ["Vue.js", "D3.js", "Express", "MongoDB", "Redis"],
+            "title": "Cloud-Infrastruktur Optimierung",
+            "description": "Architektierte und deployerte skalierbare Cloud-Lösungen mit Fokus auf Kostenoptimierung und Performance. Implementierte CI/CD-Pipelines und automatisierte Deployment-Strategien.",
+            "technologies": [
+              "AWS",
+              "Terraform",
+              "Jenkins",
+              "Docker",
+              "Node.js",
+              "MongoDB"
+            ],
             "image": "/assets/project3.jpg",
-            "demo": "https://demo3.example.com",
-            "github": "https://github.com/example3",
+            "demo": "",
+            "github": "",
+            "featured": true
+          },
+          {
+            "title": "Mobile Anwendungsentwicklung",
+            "description": "Entwickelte plattformübergreifende mobile Anwendungen mit Fokus auf Benutzererfahrung und Performance. Integrierte Echtzeit-Features und Offline-Funktionalitäten.",
+            "technologies": [
+              "React Native",
+              "TypeScript",
+              "Firebase",
+              "SQLite",
+              "REST APIs",
+              "Push Notifications"
+            ],
+            "image": "/assets/project4.jpg",
+            "demo": "",
+            "github": "",
+            "featured": false
+          },
+          {
+            "title": "Microservices Architektur",
+            "description": "Entwarf und implementierte Microservices-basierte Architektur für hochfrequentierte Anwendungen. Fokus auf Service-Isolation, API-Gateway-Patterns und verteilte Systeme.",
+            "technologies": [
+              "Java",
+              "Spring Boot",
+              "Apache Kafka",
+              "Redis",
+              "Elasticsearch",
+              "API Gateway"
+            ],
+            "image": "/assets/project5.jpg",
+            "demo": "",
+            "github": "",
+            "featured": false
+          },
+          {
+            "title": "DevOps & Automatisierung",
+            "description": "Implementierte umfassende DevOps-Praktiken einschließlich automatisierter Tests, Deployment-Pipelines, Monitoring und Infrastructure as Code Lösungen.",
+            "technologies": [
+              "Jenkins",
+              "GitLab CI",
+              "Ansible",
+              "Prometheus",
+              "Grafana",
+              "ELK Stack"
+            ],
+            "image": "/assets/project6.jpg",
+            "demo": "",
+            "github": "",
             "featured": false
           }
         ]

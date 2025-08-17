@@ -29,6 +29,7 @@
 | **About Section Redesign** | Completely redesigned without progress bars, using clean card-based skill display | ✅ Redesigned |
 | **Development Server Fix** | Fixed Next.js configuration to prevent module not found errors in development | ✅ Fixed |
 | **GitHub Pages Export** | Fixed export process to properly build static files for deployment | ✅ Fixed |
+| **Professional Content Update** | Updated projects and skills sections with real professional information extracted from CV | ✅ Updated |
 
 ## Theme Categories
 

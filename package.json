@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "export": "NODE_ENV=production next build && mkdir -p docs && cp -r out/* docs/ && echo '' > docs/.nojekyll"
+    "export": "next build && next export && mkdir -p docs && cp -r out/* docs/ && echo '' > docs/.nojekyll"
   },
   "dependencies": {
     "next": "14.0.4",

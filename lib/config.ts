@@ -96,7 +96,6 @@ export interface Config {
         highlights: string[];
         skills: Array<{
           name: string;
-          level: number;
           technologies: string[];
         }>;
       };
