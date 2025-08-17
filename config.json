@@ -2,7 +2,7 @@
   "ui": {
     "language": "en",
     "theme": {
-      "active": "midnight-gradient",
+      "active": "monochrome-light",
       "layout": "modern"
     },
     "sections": {

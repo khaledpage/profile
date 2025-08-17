@@ -30,6 +30,11 @@ export default function Home() {
     // Apply font variables
     root.style.setProperty('--font-heading', theme.fonts.heading);
     root.style.setProperty('--font-body', theme.fonts.body);
+
+    // Apply shadow variables for animations
+    const primaryColor = theme.colors.primary;
+    root.style.setProperty('--primary-shadow', `${primaryColor}40`); // 40 = 25% opacity
+    root.style.setProperty('--primary-shadow-strong', `${primaryColor}CC`); // CC = 80% opacity
   }, [theme, currentLanguage]);
 
   const toggleLanguage = () => {

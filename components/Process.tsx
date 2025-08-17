@@ -13,7 +13,7 @@ const Process = ({ content, config }: ProcessProps) => {
           <h2 className="text-3xl lg:text-5xl font-bold mb-4">
             <span className="gradient-text">{content.title}</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-theme-secondary max-w-3xl mx-auto">
             {content.subtitle}
           </p>
         </div>
@@ -32,7 +32,7 @@ const Process = ({ content, config }: ProcessProps) => {
                   </div>
                   
                   <h3 className="text-xl font-bold text-white mb-4">{step.title}</h3>
-                  <p className="text-gray-300 leading-relaxed">{step.description}</p>
+                  <p className="text-theme-secondary leading-relaxed">{step.description}</p>
                 </div>
               </div>
               
@@ -42,7 +42,7 @@ const Process = ({ content, config }: ProcessProps) => {
               )}
             </div>
           )) || (
-            <div className="col-span-full text-center text-gray-400">
+            <div className="col-span-full text-center text-theme-muted">
               No process steps found
             </div>
           )}

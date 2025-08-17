@@ -10,6 +10,8 @@ export interface Theme {
     textSecondary: string;
     border: string;
     gradient: string;
+    primaryShadow?: string;
+    primaryShadowStrong?: string;
   };
   fonts: {
     heading: string;
@@ -290,6 +292,30 @@ export const themes: Record<string, Theme> = {
     },
   },
 
+  'high-contrast': {
+    name: 'High Contrast',
+    colors: {
+      primary: '#ffffff',
+      secondary: '#ffffff',
+      accent: '#ffffff',
+      background: 'linear-gradient(135deg, #000000 0%, #000000 50%, #111111 100%)',
+      surface: 'rgba(255, 255, 255, 0.1)',
+      text: '#ffffff',
+      textSecondary: '#ffffff',
+      border: 'rgba(255, 255, 255, 0.3)',
+      gradient: 'linear-gradient(135deg, #ffffff 0%, #ffffff 50%, #ffffff 100%)',
+    },
+    fonts: {
+      heading: 'Inter, sans-serif',
+      body: 'Inter, sans-serif',
+    },
+    effects: {
+      glass: 'backdrop-filter: blur(10px); background: rgba(255, 255, 255, 0.1);',
+      shadow: '0 8px 32px rgba(255, 255, 255, 0.2)',
+      blur: 'blur(10px)',
+    },
+  },
+
   // Retro Themes
   'retro-synthwave': {
     name: 'Retro Synthwave',
@@ -366,6 +392,7 @@ export const getThemesByCategory = () => {
     monochrome: [
       'monochrome-dark',
       'monochrome-light',
+      'high-contrast',
     ],
     retro: [
       'retro-synthwave',

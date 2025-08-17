@@ -13,7 +13,7 @@ const Experience = ({ content, config }: ExperienceProps) => {
           <h2 className="text-3xl lg:text-5xl font-bold mb-4">
             <span className="gradient-text">{content.title}</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-theme-secondary max-w-3xl mx-auto">
             {content.subtitle}
           </p>
         </div>
@@ -40,7 +40,7 @@ const Experience = ({ content, config }: ExperienceProps) => {
                 
                 <div>
                   <h3 className="text-xl font-bold text-white mb-2">{project.title}</h3>
-                  <p className="text-gray-300 leading-relaxed mb-4">{project.description}</p>
+                  <p className="text-theme-secondary leading-relaxed mb-4">{project.description}</p>
                   
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.technologies?.map((tech: string, techIndex: number) => (
@@ -79,7 +79,7 @@ const Experience = ({ content, config }: ExperienceProps) => {
               </div>
             </div>
           )) || (
-            <div className="col-span-full text-center text-gray-400">
+            <div className="col-span-full text-center text-theme-muted">
               No projects found
             </div>
           )}

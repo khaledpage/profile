@@ -61,7 +61,7 @@ const Nav = ({ content, currentLanguage }: NavProps) => {
                   <button
                     key={item.name}
                     onClick={() => handleNavClick(item.href)}
-                    className="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition-colors relative group"
+                    className="text-theme-secondary hover:text-white px-3 py-2 text-sm font-medium transition-colors relative group"
                   >
                     {item.name}
                     <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-accent transition-all duration-300 group-hover:w-full" />

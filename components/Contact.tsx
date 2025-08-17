@@ -47,7 +47,7 @@ const Contact = ({ content, config, currentLanguage }: ContactProps) => {
           <h2 className="text-3xl lg:text-5xl font-bold mb-4">
             <span className="gradient-text">{content.title}</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-theme-secondary max-w-3xl mx-auto">
             {content.subtitle}
           </p>
         </div>
@@ -57,7 +57,7 @@ const Contact = ({ content, config, currentLanguage }: ContactProps) => {
           <div className="space-y-8">
             <div>
               <h3 className="text-2xl font-bold text-white mb-6">{content.getInTouch || 'Get In Touch'}</h3>
-              <p className="text-gray-300 leading-relaxed mb-8">
+              <p className="text-theme-secondary leading-relaxed mb-8">
                 {content.description}
               </p>
             </div>
@@ -110,7 +110,7 @@ const Contact = ({ content, config, currentLanguage }: ContactProps) => {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label htmlFor="name" className="block text-sm font-medium text-theme-secondary mb-2">
                     {content.form?.name || 'Name'}
                   </label>
                   <input
@@ -126,7 +126,7 @@ const Contact = ({ content, config, currentLanguage }: ContactProps) => {
                 </div>
                 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label htmlFor="email" className="block text-sm font-medium text-theme-secondary mb-2">
                     {content.form?.email || 'Email'}
                   </label>
                   <input
@@ -143,7 +143,7 @@ const Contact = ({ content, config, currentLanguage }: ContactProps) => {
               </div>
 
               <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-2">
+                <label htmlFor="subject" className="block text-sm font-medium text-theme-secondary mb-2">
                   {content.form?.subject || 'Subject'}
                 </label>
                 <input
@@ -159,7 +159,7 @@ const Contact = ({ content, config, currentLanguage }: ContactProps) => {
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
+                <label htmlFor="message" className="block text-sm font-medium text-theme-secondary mb-2">
                   {content.form?.message || 'Message'}
                 </label>
                 <textarea
@@ -183,7 +183,7 @@ const Contact = ({ content, config, currentLanguage }: ContactProps) => {
               </button>
 
               {submitStatus === 'success' && (
-                <div className="text-center text-green-400 font-medium">
+                <div className="text-center text-theme-success font-medium">
                   {content.form?.successMessage || 'Message sent successfully!'}
                 </div>
               )}

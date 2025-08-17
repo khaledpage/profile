@@ -1129,20 +1129,12 @@ video {
   --tw-text-opacity: 1;
   color: rgb(156 163 175 / var(--tw-text-opacity, 1));
 }
-.text-green-400 {
-  --tw-text-opacity: 1;
-  color: rgb(74 222 128 / var(--tw-text-opacity, 1));
-}
 .text-primary {
   color: var(--primary);
 }
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
-}
-.text-yellow-400 {
-  --tw-text-opacity: 1;
-  color: rgb(250 204 21 / var(--tw-text-opacity, 1));
 }
 .no-underline {
   text-decoration-line: none;
@@ -1157,6 +1149,11 @@ video {
 }
 .opacity-5 {
   opacity: 0.05;
+}
+.shadow {
+  --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 .blur-3xl {
   --tw-blur: blur(64px);
@@ -1197,19 +1194,9 @@ video {
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-/* Custom CSS Variables for Themes */
+/* Custom CSS Variables for Themes - These are set dynamically by JavaScript */
 :root {
-  --primary: #6366f1;
-  --secondary: #8b5cf6;
-  --accent: #06b6d4;
-  --background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
-  --surface: rgba(255, 255, 255, 0.05);
-  --text: #ffffff;
-  --text-secondary: #a1a1aa;
-  --border: rgba(255, 255, 255, 0.1);
-  --gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #06b6d4 100%);
-  --card-bg: rgba(255, 255, 255, 0.08);
-  --hero-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  /* Theme variables will be set dynamically by the theme system */
 }
 
 * {
@@ -1301,10 +1288,10 @@ body {
 
 @keyframes pulse-glow {
   0%, 100% {
-    box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+    box-shadow: 0 0 20px var(--primary-shadow, rgba(99, 102, 241, 0.4));
   }
   50% {
-    box-shadow: 0 0 40px rgba(99, 102, 241, 0.8);
+    box-shadow: 0 0 40px var(--primary-shadow-strong, rgba(99, 102, 241, 0.8));
   }
 }
 
@@ -1350,7 +1337,7 @@ body {
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 20px 40px rgba(99, 102, 241, 0.4);
+  box-shadow: 0 20px 40px var(--primary-shadow, rgba(99, 102, 241, 0.4));
 }
 
 .btn-primary::before {
@@ -1622,6 +1609,32 @@ body {
 
 .animate-rotate-slow {
   animation: rotate-slow 15s linear infinite;
+}
+
+/* Theme-aware text color classes */
+.text-theme-secondary {
+  color: var(--text-secondary);
+}
+
+.text-theme-success {
+  color: var(--accent);
+}
+
+.text-theme-warning {
+  color: var(--secondary);
+}
+
+.text-theme-muted {
+  color: var(--text-secondary);
+  opacity: 0.7;
+}
+
+.bg-theme-success {
+  background-color: var(--accent);
+}
+
+.border-theme {
+  border-color: var(--border);
 }
 
 .hover\:text-primary:hover {

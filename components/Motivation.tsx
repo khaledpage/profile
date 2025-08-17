@@ -13,7 +13,7 @@ const Motivation = ({ content, config }: MotivationProps) => {
           <h2 className="text-3xl lg:text-5xl font-bold mb-4">
             <span className="gradient-text">{content.title}</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-theme-secondary max-w-3xl mx-auto">
             {content.subtitle}
           </p>
         </div>
@@ -27,12 +27,12 @@ const Motivation = ({ content, config }: MotivationProps) => {
                     <div className="text-3xl">💡</div>
                     <div>
                       <h3 className="text-xl font-bold text-white mb-2">{point.title}</h3>
-                      <p className="text-gray-300 leading-relaxed">{point.description}</p>
+                      <p className="text-theme-secondary leading-relaxed">{point.description}</p>
                     </div>
                   </div>
                 </div>
               )) || (
-                <div className="text-center text-gray-400">
+                <div className="text-center text-theme-muted">
                   No motivation points found
                 </div>
               )}
@@ -43,7 +43,7 @@ const Motivation = ({ content, config }: MotivationProps) => {
             {content.cta && (
               <div className="glass p-8 rounded-2xl border border-white/10">
                 <h3 className="text-2xl font-bold text-white mb-4">{content.cta.title}</h3>
-                <p className="text-gray-300 leading-relaxed mb-6">{content.cta.description}</p>
+                <p className="text-theme-secondary leading-relaxed mb-6">{content.cta.description}</p>
                 <a
                   href="#contact"
                   className="btn-primary inline-block"

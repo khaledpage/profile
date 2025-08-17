@@ -24,18 +24,18 @@ const About = ({ content, config }: AboutProps) => {
                 
                 <div className="absolute -top-4 -right-4 glass p-4 rounded-xl">
                   <div className="flex items-center space-x-2">
-                    <span className="text-yellow-400">⭐</span>
+                    <span className="text-theme-warning">⭐</span>
                     <span className="text-sm font-semibold">{content.experience}+ Years</span>
                   </div>
-                  <p className="text-xs text-gray-300">{content.experienceLabel}</p>
+                  <p className="text-xs text-theme-secondary">{content.experienceLabel}</p>
                 </div>
 
                 <div className="absolute -bottom-4 -left-4 glass p-4 rounded-xl">
                   <div className="flex items-center space-x-2">
-                    <span className="text-green-400">✓</span>
+                    <span className="text-theme-success">✓</span>
                     <span className="text-sm font-semibold">{content.projects}+</span>
                   </div>
-                  <p className="text-xs text-gray-300">{content.projectsLabel}</p>
+                  <p className="text-xs text-theme-secondary">{content.projectsLabel}</p>
                 </div>
               </div>
             </div>
@@ -52,10 +52,10 @@ const About = ({ content, config }: AboutProps) => {
               <h2 className="text-3xl lg:text-5xl font-bold mb-4">
                 <span className="gradient-text">{content.title}</span>
               </h2>
-              <p className="text-xl text-gray-300 mb-6">
+              <p className="text-xl text-theme-secondary mb-6">
                 {content.subtitle}
               </p>
-              <p className="text-gray-300 leading-relaxed text-lg">
+              <p className="text-theme-secondary leading-relaxed text-lg">
                 {content.description}
               </p>
             </div>
@@ -64,7 +64,7 @@ const About = ({ content, config }: AboutProps) => {
               {content.highlights.map((highlight: string, index: number) => (
                 <div key={index} className="flex items-start space-x-3">
                   <span className="text-primary mt-1 flex-shrink-0">✓</span>
-                  <p className="text-gray-300">{highlight}</p>
+                  <p className="text-theme-secondary">{highlight}</p>
                 </div>
               ))}
             </div>
