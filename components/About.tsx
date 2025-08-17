@@ -70,12 +70,12 @@ const About = ({ content, config }: AboutProps) => {
             </div>
 
             <div className="space-y-6">
-              <h3 className="text-2xl font-bold text-white">{content.skillsTitle}</h3>
+              <h3 className="text-2xl font-bold mb-6" style={{ color: 'var(--text)' }}>{content.skillsTitle}</h3>
               <div className="space-y-4">
                 {content.skills.map((skill: any, index: number) => (
                   <div key={skill.name} className="space-y-2">
                     <div className="flex justify-between items-center">
-                      <span className="font-semibold text-white">{skill.name}</span>
+                      <span className="font-semibold" style={{ color: 'var(--text)' }}>{skill.name}</span>
                       <span className="text-primary font-bold">{skill.level}%</span>
                     </div>
                     

@@ -17,7 +17,7 @@ const Hero: React.FC<HeroProps> = ({ content, config }) => {
             <span className="gradient-text">{config.personal.name}</span>
           </h1>
           <div className="h-16 md:h-20 flex items-center justify-center mb-8">
-            <div className="text-2xl md:text-4xl lg:text-5xl font-semibold text-white">
+            <div className="text-2xl md:text-4xl lg:text-5xl font-semibold" style={{ color: 'var(--text)' }}>
               {content.roles[0]}
             </div>
           </div>
@@ -35,7 +35,8 @@ const Hero: React.FC<HeroProps> = ({ content, config }) => {
               href={`/assets/${config.personal.cv}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="glass px-8 py-4 text-lg font-semibold text-white border-2 border-primary/30 hover:border-primary/60 hover:bg-primary/10 rounded-full transition-all duration-300 inline-block text-center no-underline"
+              className="glass px-8 py-4 text-lg font-semibold border-2 border-primary/30 hover:border-primary/60 hover:bg-primary/10 rounded-full transition-all duration-300 inline-block text-center no-underline"
+              style={{ color: 'var(--text)' }}
             >
               {content.cta.secondary}
             </a>

@@ -56,7 +56,7 @@ const Contact = ({ content, config, currentLanguage }: ContactProps) => {
           {/* Contact Info */}
           <div className="space-y-8">
             <div>
-              <h3 className="text-2xl font-bold text-white mb-6">{content.getInTouch || 'Get In Touch'}</h3>
+              <h3 className="text-2xl font-bold mb-6" style={{ color: 'var(--text)' }}>{content.getInTouch || 'Get In Touch'}</h3>
               <p className="text-theme-secondary leading-relaxed mb-8">
                 {content.description}
               </p>
@@ -69,7 +69,7 @@ const Contact = ({ content, config, currentLanguage }: ContactProps) => {
                     <span className="text-xl">📧</span>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-white">{method.label}</h4>
+                    <h4 className="font-semibold" style={{ color: 'var(--text)' }}>{method.label}</h4>
                     <p className="text-gray-300">{method.value}</p>
                   </div>
                 </div>
@@ -82,7 +82,7 @@ const Contact = ({ content, config, currentLanguage }: ContactProps) => {
 
             {/* Social Links */}
             <div className="pt-8 border-t border-white/10">
-              <h4 className="text-lg font-semibold text-white mb-4">{content.social?.title || 'Follow Me'}</h4>
+              <h4 className="text-lg font-semibold mb-4" style={{ color: 'var(--text)' }}>{content.social?.title || 'Follow Me'}</h4>
               <div className="flex space-x-4">
                 {config.personal.social?.map((social: any, index: number) => (
                   <a
@@ -105,7 +105,7 @@ const Contact = ({ content, config, currentLanguage }: ContactProps) => {
 
           {/* Contact Form */}
           <div className="glass p-8 rounded-2xl border border-white/10">
-            <h3 className="text-2xl font-bold text-white mb-6">{content.getInTouch || 'Get In Touch'}</h3>
+            <h3 className="text-2xl font-bold mb-6" style={{ color: 'var(--text)' }}>{content.getInTouch || 'Get In Touch'}</h3>
             
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid sm:grid-cols-2 gap-4">
@@ -120,7 +120,12 @@ const Contact = ({ content, config, currentLanguage }: ContactProps) => {
                     value={formData.name}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:border-primary/50 focus:outline-none text-white placeholder-gray-400"
+                    className="w-full px-4 py-3 border rounded-lg focus:border-primary/50 focus:outline-none placeholder-gray-400"
+                    style={{ 
+                      backgroundColor: 'var(--surface)', 
+                      borderColor: 'var(--border)',
+                      color: 'var(--text)'
+                    }}
                     placeholder={content.form?.namePlaceholder || 'Your name'}
                   />
                 </div>
@@ -136,7 +141,12 @@ const Contact = ({ content, config, currentLanguage }: ContactProps) => {
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:border-primary/50 focus:outline-none text-white placeholder-gray-400"
+                    className="w-full px-4 py-3 border rounded-lg focus:border-primary/50 focus:outline-none placeholder-gray-400"
+                    style={{ 
+                      backgroundColor: 'var(--surface)', 
+                      borderColor: 'var(--border)',
+                      color: 'var(--text)'
+                    }}
                     placeholder={content.form?.emailPlaceholder || 'your@email.com'}
                   />
                 </div>
@@ -153,7 +163,12 @@ const Contact = ({ content, config, currentLanguage }: ContactProps) => {
                   value={formData.subject}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:border-primary/50 focus:outline-none text-white placeholder-gray-400"
+                  className="w-full px-4 py-3 border rounded-lg focus:border-primary/50 focus:outline-none placeholder-gray-400"
+                  style={{ 
+                    backgroundColor: 'var(--surface)', 
+                    borderColor: 'var(--border)',
+                    color: 'var(--text)'
+                  }}
                   placeholder={content.form?.subjectPlaceholder || 'Project subject'}
                 />
               </div>
@@ -169,7 +184,12 @@ const Contact = ({ content, config, currentLanguage }: ContactProps) => {
                   onChange={handleInputChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg focus:border-primary/50 focus:outline-none text-white placeholder-gray-400 resize-none"
+                  className="w-full px-4 py-3 border rounded-lg focus:border-primary/50 focus:outline-none placeholder-gray-400 resize-none"
+                  style={{ 
+                    backgroundColor: 'var(--surface)', 
+                    borderColor: 'var(--border)',
+                    color: 'var(--text)'
+                  }}
                   placeholder={content.form?.messagePlaceholder || 'Tell me about your project...'}
                 />
               </div>

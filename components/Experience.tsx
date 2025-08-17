@@ -39,7 +39,7 @@ const Experience = ({ content, config }: ExperienceProps) => {
                 </div>
                 
                 <div>
-                  <h3 className="text-xl font-bold text-white mb-2">{project.title}</h3>
+                  <h3 className="text-xl font-bold mb-2" style={{ color: 'var(--text)' }}>{project.title}</h3>
                   <p className="text-theme-secondary leading-relaxed mb-4">{project.description}</p>
                   
                   <div className="flex flex-wrap gap-2 mb-4">

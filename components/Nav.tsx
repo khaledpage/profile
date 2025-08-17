@@ -61,7 +61,7 @@ const Nav = ({ content, currentLanguage }: NavProps) => {
                   <button
                     key={item.name}
                     onClick={() => handleNavClick(item.href)}
-                    className="text-theme-secondary hover:text-white px-3 py-2 text-sm font-medium transition-colors relative group"
+                    className="text-theme-secondary hover:text-primary px-3 py-2 text-sm font-medium transition-colors relative group"
                   >
                     {item.name}
                     <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-accent transition-all duration-300 group-hover:w-full" />
@@ -109,14 +109,18 @@ const Nav = ({ content, currentLanguage }: NavProps) => {
       {/* Mobile Menu */}
       {isOpen && (
         <div className="fixed inset-0 z-40 md:hidden">
-          <div className="absolute inset-0 bg-black/50 backdrop-blur-xl" />
+          <div className="absolute inset-0 backdrop-blur-xl" style={{ backgroundColor: 'var(--surface)' }} />
           <div className="relative glass h-full w-80 ml-auto p-6 pt-20">
             <div className="space-y-6">
               {navItems.map((item) => (
                 <button
                   key={item.name}
                   onClick={() => handleNavClick(item.href)}
-                  className="block w-full text-left text-lg font-medium text-white hover:text-primary transition-colors py-3 border-b border-white/10"
+                  className="block w-full text-left text-lg font-medium hover:text-primary transition-colors py-3 border-b"
+                  style={{ 
+                    color: 'var(--text)',
+                    borderBottomColor: 'var(--border)'
+                  }}
                 >
                   {item.name}
                 </button>

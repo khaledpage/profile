@@ -26,7 +26,7 @@ const Motivation = ({ content, config }: MotivationProps) => {
                   <div className="flex items-start space-x-4">
                     <div className="text-3xl">💡</div>
                     <div>
-                      <h3 className="text-xl font-bold text-white mb-2">{point.title}</h3>
+                      <h3 className="text-xl font-bold mb-2" style={{ color: 'var(--text)' }}>{point.title}</h3>
                       <p className="text-theme-secondary leading-relaxed">{point.description}</p>
                     </div>
                   </div>
@@ -42,7 +42,7 @@ const Motivation = ({ content, config }: MotivationProps) => {
           <div className="space-y-8">
             {content.cta && (
               <div className="glass p-8 rounded-2xl border border-white/10">
-                <h3 className="text-2xl font-bold text-white mb-4">{content.cta.title}</h3>
+                <h3 className="text-2xl font-bold mb-4" style={{ color: 'var(--text)' }}>{content.cta.title}</h3>
                 <p className="text-theme-secondary leading-relaxed mb-6">{content.cta.description}</p>
                 <a
                   href="#contact"

@@ -31,7 +31,7 @@ const Process = ({ content, config }: ProcessProps) => {
                     {index + 1}
                   </div>
                   
-                  <h3 className="text-xl font-bold text-white mb-4">{step.title}</h3>
+                  <h3 className="text-xl font-bold mb-4" style={{ color: 'var(--text)' }}>{step.title}</h3>
                   <p className="text-theme-secondary leading-relaxed">{step.description}</p>
                 </div>
               </div>

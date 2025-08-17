@@ -14,6 +14,7 @@
 | **Static Export** | ✅ Complete | Configured for GitHub Pages deployment |
 | **Image Display** | 🔧 Fixed | Fixed double path issue in About section profile image |
 | **Contact Integration** | 🔧 Updated | Replaced resume download button with Contact Me button |
+| **Color Contrast** | 🔧 Fixed | Improved text readability and theme-aware styling for all elements |
 
 ## Recent Updates (August 2025)
 
@@ -23,6 +24,7 @@
 | **Navigation Update** | Replaced PDF download button with "Contact Me" button that scrolls to contact section | ✅ Implemented |
 | **GitHub Pages Build** | Successfully built and deployed static files to `/docs` directory | ✅ Complete |
 | **Comprehensive README** | Created detailed documentation with configuration, theming, and deployment instructions | ✅ Added |
+| **Color Accessibility** | Fixed hard-coded white text and improved contrast ratios for light themes | ✅ Fixed |
 
 ## Theme Categories
 
