@@ -32,21 +32,59 @@
 - **Test Coverage**: E2E test FILE-002 passing, manual upload testing confirmed
 - **Impact**: Article upload functionality now works end-to-end, uploaded articles immediately appear in articles list
 
-### Issue #025 - Articles Scroll Container Height and Speed Issues
+### Issue #028 - User Education: Real-Time Article Editing Discoverability
+
+- **Status**: ✅ Fixed
+- **Priority**: High  
+- **Reported**: January 16, 2025
+- **Description**: User reports "i cant edit articles in real time or i dont know how" - indicating confusion about accessing existing editing functionality
+- **Root Cause**: User experience and education issue - comprehensive editing system exists but lacks discoverability and user guidance
+- **Fix Applied**:
+  - Created comprehensive AdminHelpPanel component with interactive 8-step editing guide
+  - Added prominent help button in articles page admin controls ("How to edit articles")
+  - Implemented first-time user auto-onboarding that shows help panel automatically
+  - Enhanced edit button styling with icons, better colors, and informative tooltips
+  - Added hover effects and visual improvements for better discoverability
+  - Created complete user education covering navigation, editing modal, auto-save, and bulk operations
+- **Files Changed**:
+  - `src/components/admin/AdminHelpPanel.tsx` (new interactive help system)
+  - `src/components/articles/ArticlesExplorer.tsx` (help button and auto-onboarding logic)
+  - `src/components/ui/ArticleCard.tsx` (enhanced edit button styling and tooltips)
+- **Impact**: Users now have clear guidance on accessing and using real-time article editing features, resolving the "don't know how" user experience issue
+
+### Issue #027 - Let's Talk Button Animation Visibility
 
 - **Status**: ✅ Fixed
 - **Priority**: Medium  
+- **Reported**: January 16, 2025
+- **Description**: The "Let's Talk" button in navigation appears not animated to users
+- **Root Cause**: Animation relied solely on random heartbeat triggers (8-15 second intervals) with no continuous visible animation
+- **Fix Applied**:
+  - Added `pulse-glow` class to both desktop and mobile CTA buttons for continuous glow animation
+  - Maintained existing random heartbeat trigger system as additional attention-grabbing feature
+  - Animation uses 2.5s infinite pulse with accent colors for theme consistency
+  - Provides always-visible animation feedback while preserving sophisticated trigger system
+- **Files Changed**:
+  - `src/components/layout/Header.tsx` (added pulse-glow class to header-cta-button and mobile-cta-button)
+- **Impact**: Users now see continuous subtle animation on CTA buttons, improved call-to-action visibility
+
+### Issue #025 - Articles Scroll Container Height and Speed Issues
+
+- **Status**: ✅ Fixed (Attempt #2)
+- **Priority**: Medium  
 - **Reported**: August 16, 2025
 - **Description**: Article scroll container height too small causing content to be cut off, and animation too fast
-- **Root Cause**: Fixed height container and insufficient animation duration
+- **Root Cause**: Fixed height container and insufficient animation duration, plus unbounded article card heights
 - **Fix Applied**:
-  - Added min-height of 400px to articles scroll container
-  - Increased scroll duration from 40s base to 60s base + 15s per article
-  - Added items-stretch and h-full classes for consistent height
-  - Improved animation timing for better readability
+  - Attempt #1: Added min-height of 400px and increased duration to 60s base + 15s per article
+  - Attempt #2: Increased container min-height to 500px and duration to 90s base + 20s per article
+  - Added height constraints to article cards: `h-full max-h-[450px] flex flex-col`
+  - Made content section flexible: `flex-1 flex flex-col justify-between`
+  - Improved container timing for even better readability
 - **Files Changed**:
-  - `src/components/sections/ArticlesSection.tsx` (enhanced scroll container and timing)
-- **Impact**: Better visual presentation and readability of scrolling articles
+  - `src/components/sections/ArticlesSection.tsx` (enhanced scroll container to min-h-[500px] and timing to 90s + 20s per article)
+  - `src/components/ui/ArticleCard.tsx` (added height constraints and flex layout)
+- **Impact**: Articles now fit properly within the scroll container without being cut off, and animation speed is more comfortable for reading
 
 ### Issue #025 - CTA Button Heartbeat Animation Not Working
 

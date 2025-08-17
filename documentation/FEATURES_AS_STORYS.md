@@ -436,3 +436,6 @@ As an admin, I want to create reusable article templates (tutorial, review, case
 ---
 
 ### feature: if the admin log in the login save to the cookie in the browser or session. if it in cookie the user should be ask to accept cookie again if he didnt accpet it befor. 
+
+
+## feature: the User Education - How to Edit Articles in Real Time, should have dont show again option, and it only displayed once per user session, and only in admin role

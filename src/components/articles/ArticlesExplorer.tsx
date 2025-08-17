@@ -5,6 +5,7 @@ import { useLanguage } from '@/utils/i18n';
 import { Article } from '@/types/article';
 import { SiteConfig } from '@/types/content';
 import ArticleCard from '@/components/ui/ArticleCard';
+import AdminHelpPanel from '@/components/admin/AdminHelpPanel';
 import { useArticles, useArticleActions, useArticleUpload } from '@/hooks/useArticles';
 import { isAdminEnabled } from '@/utils/admin';
 import JSZip from 'jszip';
@@ -22,6 +23,7 @@ export default function ArticlesExplorer({ config }: ArticlesExplorerProps) {
   const [isAdmin, setIsAdmin] = useState(false);
   const [selectedArticles, setSelectedArticles] = useState<Set<string>>(new Set());
   const [bulkMode, setBulkMode] = useState(false);
+  const [showHelpPanel, setShowHelpPanel] = useState(false);
 
   // Use modular hooks
   const { 
@@ -52,6 +54,13 @@ export default function ArticlesExplorer({ config }: ArticlesExplorerProps) {
   // Check admin status on mount
   useEffect(() => {
     setIsAdmin(isAdminEnabled());
+    
+    // Check if user has seen the editing guide
+    const hasSeenGuide = localStorage.getItem('hasSeenEditingGuide');
+    if (isAdminEnabled() && !hasSeenGuide) {
+      // Show help automatically for first-time admin users
+      setTimeout(() => setShowHelpPanel(true), 1000);
+    }
   }, []);
 
   // Handle search term changes
@@ -193,40 +202,53 @@ export default function ArticlesExplorer({ config }: ArticlesExplorerProps) {
         {/* Admin Upload Controls */}
         {isAdmin && (
           <div id="articles-explorer-admin-controls" className="mb-4 p-4 border rounded-lg bg-card">
-            <div className="flex flex-wrap gap-4 items-center">
-              <label htmlFor="article-upload-input" className="btn-primary cursor-pointer">
-                {isUploading ? 'Uploading...' : 'Upload Articles'}
-              </label>
-              <input
-                id="article-upload-input"
-                type="file"
-                multiple
-                accept=".zip"
-                onChange={handleFileUpload}
-                className="hidden"
-                disabled={isUploading}
-              />
-              
-              <button
-                id="bulk-mode-toggle"
-                onClick={() => setBulkMode(!bulkMode)}
-                className={`px-4 py-2 rounded ${bulkMode ? 'bg-accent-1 text-white' : 'bg-gray-200 text-gray-700'}`}
-              >
-                Bulk Mode
-              </button>
+            <div className="flex flex-wrap gap-4 items-center justify-between">
+              <div className="flex flex-wrap gap-4 items-center">
+                <label htmlFor="article-upload-input" className="btn-primary cursor-pointer">
+                  {isUploading ? 'Uploading...' : 'Upload Articles'}
+                </label>
+                <input
+                  id="article-upload-input"
+                  type="file"
+                  multiple
+                  accept=".zip"
+                  onChange={handleFileUpload}
+                  className="hidden"
+                  disabled={isUploading}
+                />
+                
+                <button
+                  id="bulk-mode-toggle"
+                  onClick={() => setBulkMode(!bulkMode)}
+                  className={`px-4 py-2 rounded ${bulkMode ? 'bg-accent-1 text-white' : 'bg-gray-200 text-gray-700'}`}
+                >
+                  Bulk Mode
+                </button>
 
-              {bulkMode && selectedArticles.size > 0 && (
-                <div className="flex gap-2">
-                  <button
-                    id="bulk-delete-button"
-                    onClick={handleBulkDelete}
-                    disabled={isDeleting}
-                    className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 disabled:opacity-50"
-                  >
-                    {isDeleting ? 'Deleting...' : `Delete ${selectedArticles.size}`}
-                  </button>
-                </div>
-              )}
+                {bulkMode && selectedArticles.size > 0 && (
+                  <div className="flex gap-2">
+                    <button
+                      id="bulk-delete-button"
+                      onClick={handleBulkDelete}
+                      disabled={isDeleting}
+                      className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 disabled:opacity-50"
+                    >
+                      {isDeleting ? 'Deleting...' : `Delete ${selectedArticles.size}`}
+                    </button>
+                  </div>
+                )}
+              </div>
+              
+              {/* Help Button */}
+              <button
+                id="admin-help-button"
+                onClick={() => setShowHelpPanel(true)}
+                className="px-4 py-2 rounded-lg border border-accent-1 text-accent-1 hover:bg-accent-1 hover:text-white transition-all flex items-center gap-2"
+                title="How to edit articles"
+              >
+                <span>❓</span>
+                <span className="hidden sm:inline">Help</span>
+              </button>
             </div>
 
             {/* Upload Progress */}
@@ -381,6 +403,14 @@ export default function ArticlesExplorer({ config }: ArticlesExplorerProps) {
             </button>
           )}
         </div>
+      )}
+      
+      {/* Admin Help Panel */}
+      {showHelpPanel && (
+        <AdminHelpPanel 
+          config={config}
+          onClose={() => setShowHelpPanel(false)}
+        />
       )}
     </div>
   );

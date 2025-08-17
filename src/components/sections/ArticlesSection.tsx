@@ -180,13 +180,13 @@ export default function ArticlesSection() {
             </h3>
           </div>
           
-          <div id="articles-scroll-container" className="relative overflow-hidden h-auto min-h-[400px]">
+          <div id="articles-scroll-container" className="relative overflow-hidden h-auto min-h-[500px]">
             <div
               id="articles-scroll-track"
-              className="flex gap-6 animate-scroll hover:animate-pause items-stretch"
+              className="flex gap-6 animate-scroll hover:animate-pause items-stretch h-full"
               style={{
                 width: 'max-content',
-                '--scroll-duration': `${Math.max(60, fallbackArticles.length * 15)}s`
+                '--scroll-duration': `${Math.max(90, fallbackArticles.length * 20)}s`
               } as React.CSSProperties}
             >
               {/* Duplicate articles enough times for smooth infinite scroll */}

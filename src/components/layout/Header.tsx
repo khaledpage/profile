@@ -183,7 +183,7 @@ export default function Header({ config }: Props) {
               href="#contact"
               onClick={handleSmoothScrollClick}
               data-heartbeat="true"
-              className="hidden md:block relative px-6 py-2 font-medium rounded-full transition-all duration-300 interactive-border hover:shadow-lg"
+              className="hidden md:block relative px-6 py-2 font-medium rounded-full transition-all duration-300 interactive-border hover:shadow-lg pulse-glow"
               style={{
                 background: `linear-gradient(to right, var(--accent-1), var(--accent-2))`,
                 color: 'var(--card-contrast)',
@@ -292,7 +292,7 @@ export default function Header({ config }: Props) {
                       setIsOpen(false);
                     }}
                     data-heartbeat="true"
-                    className="mt-4 px-6 py-3 font-medium rounded-full text-center"
+                    className="mt-4 px-6 py-3 font-medium rounded-full text-center pulse-glow"
                     style={{
                       background: `linear-gradient(to right, var(--accent-1), var(--accent-2))`,
                       color: 'var(--card-contrast)',

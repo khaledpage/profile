@@ -158,7 +158,7 @@ export default function ArticleCard({
       <Link href={`/articles/${slug}`} id={`article-card-link-${slug}`} className="group block">
         <article 
           id={`article-card-${slug}`}
-          className={`glass rounded-2xl overflow-hidden transition-all duration-300 lift ${
+          className={`glass rounded-2xl overflow-hidden transition-all duration-300 lift h-full max-h-[450px] flex flex-col ${
             featured ? 'col-span-full lg:col-span-2' : ''
           } ${selected ? 'ring-2 ring-blue-500' : ''}`}
         >
@@ -203,14 +203,16 @@ export default function ArticleCard({
               <button
                 id={`article-edit-button-${slug}`}
                 onClick={handleEdit}
-                className="px-3 py-1.5 rounded-lg text-xs font-medium border backdrop-blur-sm hover:opacity-80 transition-opacity"
+                className="px-3 py-1.5 rounded-lg text-xs font-medium border backdrop-blur-sm hover:scale-105 hover:shadow-lg transition-all flex items-center gap-1"
                 style={{
-                  backgroundColor: 'color-mix(in srgb, var(--background), transparent 20%)',
+                  backgroundColor: 'color-mix(in srgb, var(--accent-1), transparent 85%)',
                   color: 'var(--accent-1)',
                   borderColor: 'var(--accent-1)'
                 }}
+                title="Edit this article in real-time"
               >
-                Edit
+                <span>✏️</span>
+                <span>Edit</span>
               </button>
               <button
                 id={`article-delete-button-${slug}`}
@@ -254,7 +256,7 @@ export default function ArticleCard({
           </div>
         </div>
         
-        <div id={`article-content-${slug}`} className="p-6">
+        <div id={`article-content-${slug}`} className="p-6 flex-1 flex flex-col justify-between">
           <div id={`article-meta-${slug}`} className="flex items-center gap-2 mb-3">
             <span 
               id={`article-category-${slug}`}

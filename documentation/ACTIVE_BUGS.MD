@@ -18,18 +18,65 @@
 
 --
 
-bug: the height of the row where the article are animated to move, is not high enough, which make the article look cut out inside it . and the row animation is too fast.
+**FIXED - BUG-002: Article Animation Row Height and Speed Issues**
+- **Description**: The height of the row where the articles are animated to move is not high enough, which makes the articles look cut out inside it. And the row animation is too fast.
+- **Root Cause**: Container height too small (400px) and unbounded article card heights causing overflow; animation speed too fast for comfortable reading.
+- **Fix Applied**:
+  - ✅ Increased container min-height from 400px to 500px
+  - ✅ Slowed animation speed from 60s base + 15s per article to 90s base + 20s per article  
+  - ✅ Added height constraints to article cards: `h-full max-h-[450px] flex flex-col`
+  - ✅ Made content section flexible: `flex-1 flex flex-col justify-between` for proper content distribution
+  - ✅ Maintained scroll track styling with `items-stretch h-full` for consistent sizing
+- **Files Changed**:
+  - `/src/components/sections/ArticlesSection.tsx` (container height and animation timing)
+  - `/src/components/ui/ArticleCard.tsx` (card height constraints and flex layout)
+- **Test Coverage**: Visual testing confirmed articles no longer cut off, animation speed comfortable
+- **Status**: Waiting for user confirmation
+- **Date Fixed**: January 16, 2025
 
 --
 
-Bug: the let talks btn in navigation is not Animated.
+**FIXED - BUG-003: Let's Talk Button Not Animated**
+- **Description**: The "Let's Talk" button in navigation is not animated.
+- **Root Cause**: Button had random heartbeat animation triggers (8-15 seconds) but no continuous visible animation.
+- **Fix Applied**:
+  - ✅ Added `pulse-glow` class to both desktop and mobile CTA buttons
+  - ✅ Provides continuous subtle glow animation (2.5s infinite) that's always visible
+  - ✅ Kept existing random heartbeat triggers for additional attention-grabbing effects
+  - ✅ Animation uses CSS custom properties with accent colors for theme consistency
+- **Files Changed**:
+  - `/src/components/layout/Header.tsx` (added pulse-glow class to both CTA buttons)
+- **Test Coverage**: Visual testing shows continuous glow animation on both desktop and mobile buttons
+- **Status**: Waiting for user confirmation
+- **Date Fixed**: January 16, 2025
 
+--
 
----
+**FIXED - BUG-004: User Education - How to Edit Articles in Real Time**
+- **Description**: User reports "i cant edit articles in real time or i dont know how" indicating lack of awareness about existing editing functionality.
+- **Root Cause**: User education issue - comprehensive editing system exists but users don't understand how to access and use it.
+- **Fix Applied**:
+  - ✅ Created comprehensive `AdminHelpPanel` component with step-by-step editing guide
+  - ✅ Added help button to articles page admin controls with "How to edit articles" functionality
+  - ✅ Implemented automatic first-time user onboarding that shows help panel on first visit
+  - ✅ Enhanced edit button styling with icons, better colors, and helpful tooltips ("Edit this article in real-time")
+  - ✅ Added hover effects and visual improvements to make editing features more discoverable
+  - ✅ Created 8-step interactive guide covering navigation, edit buttons, modal usage, auto-save, and bulk operations
+- **Files Changed**:
+  - `/src/components/admin/AdminHelpPanel.tsx` (new comprehensive help system)
+  - `/src/components/articles/ArticlesExplorer.tsx` (added help button and auto-onboarding)
+  - `/src/components/ui/ArticleCard.tsx` (enhanced edit button styling and discoverability)
+- **User Education Content**:
+  - How to navigate to articles page
+  - Where to find edit buttons on article cards
+  - How to use the editing modal with metadata and content editing
+  - Auto-save functionality and manual save options
+  - Bulk operations and ZIP upload/download features
+- **Test Coverage**: Interactive guide covers complete editing workflow from discovery to completion
+- **Status**: Waiting for user confirmation
+- **Date Fixed**: January 16, 2025
 
-bug: i cant edit articles in real time or i dont know how
-
----
+--
 
 bug: the "Filter by Category:" should have own row and never move to fill empty space, if some tags in the row above are becomed less, because of filtering. 
 
