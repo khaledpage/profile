@@ -1,50 +1,48 @@
 {
   "site": {
-    "title": "Khaled Alabsi - Senior Software Engineer & Full-Stack Developer",
-    "description": "Khaled Alabsi - Professional Developer & Digital Innovator with 8+ years of experience in full-stack development, Java, Spring, React, Cloud Computing, and Enterprise Software Solutions in Germany.",
+    "title": "Khaled Alabsi - Software Engineer & Digital Innovator",
+    "description": "Khaled Alabsi - Software Engineer & Digital Innovator with expertise in full-stack development, DevOps, cloud solutions, and AI-driven automation. Strong background in banking, insurance, and enterprise software with a focus on scalable, secure, and user-friendly applications.",
     "url": "https://www.alabsi.space",
     "author": "Khaled Alabsi",
     "keywords": [
       "Khaled Alabsi",
-      "senior software engineer",
+      "software engineer",
       "full-stack developer",
       "Java developer",
-      "Spring Framework",
-      "React developer",
-      "Node.js",
-      "Python developer",
+      "Spring Boot",
+      "ReactJS",
+      "micro-frontend architecture",
+      "DevOps",
+      "CI/CD pipelines",
+      "Kubernetes",
+      "Docker",
+      "TeamCity",
+      "Ansible",
+      "Vagrant",
       "machine learning",
       "process monitoring",
-      "cloud computing",
-      "AWS",
-      "devops",
-      "data analytics",
+      "anomaly detection",
+      "AI automation",
+      "LLM agent",
       "enterprise software",
-      "microservices",
-      "software engineer Germany",
-      "developer Germany",
-      "JavaScript",
-      "TypeScript",
-      "PostgreSQL",
-      "MongoDB",
-      "Docker",
-      "Kubernetes",
-      "Terraform",
-      "Jenkins",
-      "Apache Spark",
-      "Elasticsearch",
+      "IT architecture",
+      "cloud computing",
+      "Python developer",
       "mobile development",
       "React Native",
-      "API development",
-      "system architecture",
-      "software consultant"
+      "Xamarin",
+      "Openshift",
+      "banking software",
+      "insurance software",
+      "data analytics",
+      "Germany"
     ],
     "favicon": "/favicon.ico"
   },
   "personal": {
     "name": "Khaled Alabsi",
-    "role": "Senior Software Engineer",
-    "tagline": "Transforming ideas into exceptional digital solutions",
+    "role": "Software Engineer",
+    "tagline": "Building secure, scalable, and intelligent digital solutions",
     "email": "khaled.alabsi@example.com",
     "phone": "+49 123 456 7890",
     "location": "Germany",
@@ -74,187 +72,134 @@
         "greeting": "Hello, I'm",
         "name": "Khaled Alabsi",
         "roles": [
+          "Software Engineer",
           "Full-Stack Developer",
-          "Digital Innovator",
-          "Problem Solver",
-          "Tech Enthusiast"
+          "DevOps Specialist",
+          "AI Innovator"
         ],
-        "description": "I craft elegant solutions to complex problems, transforming innovative ideas into powerful digital experiences that drive business success.",
+        "description": "I design and implement scalable, secure, and user-focused applications. From enterprise systems to AI-powered automation, I transform complex challenges into digital success stories.",
         "cta": {
-          "primary": "Let's Work Together",
-          "secondary": "View My Work"
+          "primary": "Start a Project",
+          "secondary": "See My Work"
         }
       },
       "about": {
         "title": "About Me",
-        "subtitle": "Passionate Developer & Digital Craftsman",
-        "description": "With over 8 years of experience in full-stack development, I specialize in creating scalable, performant applications that deliver exceptional user experiences. My passion lies in solving complex technical challenges and turning innovative ideas into reality.",
+        "subtitle": "Engineer, Innovator & Digital Architect",
+        "description": "I hold an M.Sc. in Computer and Communication Systems and have extensive experience across industries such as banking, insurance, and enterprise IT. My focus is on creating robust software solutions, from micro-frontend architectures and DevOps pipelines to AI-driven automation and process monitoring.",
         "highlights": [
-          "8+ years of professional development experience",
-          "Expert in modern web technologies and frameworks",
-          "Strong focus on user experience and performance",
-          "Passionate about clean code and best practices",
-          "Experienced in leading development teams",
-          "Continuous learner and technology enthusiast"
+          "M.Sc. in Computer & Communication Systems (2023)",
+          "B.Sc. in Applied Computer Science (2021)",
+          "17+ years professional experience",
+          "Specialized in banking, insurance, and enterprise IT",
+          "Expert in CI/CD, containerization, and DevOps",
+          "AI and machine learning for anomaly detection & automation"
         ],
         "skills": [
           {
-            "name": "Enterprise Development",
+            "name": "Enterprise & Full-Stack Development",
             "technologies": [
               "Java",
-              "Spring Framework",
+              "Kotlin",
               "Spring Boot",
-              "Maven",
-              "Gradle"
+              "ReactJS",
+              "TypeScript"
             ]
           },
           {
-            "name": "Backend Development",
+            "name": "DevOps & Cloud",
             "technologies": [
-              "Node.js",
-              "Python",
-              "REST APIs",
-              "PostgreSQL",
-              "MongoDB"
-            ]
-          },
-          {
-            "name": "Frontend Development",
-            "technologies": [
-              "React",
-              "TypeScript",
-              "Next.js",
-              "HTML5",
-              "CSS3"
-            ]
-          },
-          {
-            "name": "Cloud & DevOps",
-            "technologies": [
-              "AWS",
               "Docker",
               "Kubernetes",
-              "Terraform",
-              "Jenkins"
+              "Openshift",
+              "TeamCity",
+              "Jenkins",
+              "Ansible",
+              "Vagrant"
             ]
           },
           {
-            "name": "Data & Analytics",
+            "name": "AI & Data",
             "technologies": [
-              "Apache Spark",
-              "Tableau",
-              "Elasticsearch",
-              "Redis",
-              "Apache Kafka"
+              "Machine Learning",
+              "Python",
+              "Process Monitoring",
+              "Anomaly Detection",
+              "LLM Agents"
             ]
           },
           {
             "name": "Mobile Development",
+            "technologies": ["React Native", "Xamarin", "Cross-platform"]
+          },
+          {
+            "name": "Architecture & Consulting",
             "technologies": [
-              "React Native",
-              "Firebase",
-              "SQLite",
-              "Push Notifications",
-              "Cross-platform"
+              "IT Transformation",
+              "Business Architecture",
+              "System Integration"
             ]
           }
         ]
       },
       "experience": {
-        "title": "My Projects",
-        "subtitle": "Innovative Solutions & Professional Achievements",
+        "title": "Highlighted Projects",
+        "subtitle": "A Selection of My Work",
         "projects": [
           {
-            "title": "Enterprise Software Development",
-            "description": "Led development of large-scale enterprise applications with focus on performance optimization, scalability, and maintainability. Implemented modern architectural patterns and best practices.",
+            "title": "Securities Products Platform (Banking)",
+            "description": "Developed secure, scalable full-stack applications using Spring Boot and ReactJS with micro-frontend architecture. Enhanced maintainability and modularity, and improved CI/CD pipelines with TeamCity.",
             "technologies": [
-              "Java",
-              "Spring Framework",
-              "React",
-              "PostgreSQL",
-              "Docker",
-              "Kubernetes"
-            ],
-            "image": "",
-            "demo": "",
-            "github": "",
-            "featured": false
-          },
-          {
-            "title": "Data Analytics Platform",
-            "description": "Designed and implemented comprehensive data analytics solutions for business intelligence. Created interactive dashboards and automated reporting systems.",
-            "technologies": [
-              "Python",
-              "Apache Spark",
-              "Tableau",
-              "AWS",
-              "PostgreSQL",
-              "REST APIs"
-            ],
-            "image": "",
-            "demo": "",
-            "github": "",
-            "featured": false
-          },
-          {
-            "title": "Cloud Infrastructure Optimization",
-            "description": "Architected and deployed scalable cloud solutions with emphasis on cost optimization and performance. Implemented CI/CD pipelines and automated deployment strategies.",
-            "technologies": [
-              "AWS",
-              "Terraform",
-              "Jenkins",
-              "Docker",
-              "Node.js",
-              "MongoDB"
-            ],
-            "image": "",
-            "demo": "",
-            "github": "",
-            "featured": false
-          },
-          {
-            "title": "Mobile Application Development",
-            "description": "Developed cross-platform mobile applications with focus on user experience and performance. Integrated real-time features and offline capabilities.",
-            "technologies": [
-              "React Native",
-              "TypeScript",
-              "Firebase",
-              "SQLite",
-              "REST APIs",
-              "Push Notifications"
-            ],
-            "image": "",
-            "demo": "",
-            "github": "",
-            "featured": false
-          },
-          {
-            "title": "Microservices Architecture",
-            "description": "Designed and implemented microservices-based architecture for high-traffic applications. Focused on service isolation, API gateway patterns, and distributed systems.",
-            "technologies": [
-              "Java",
               "Spring Boot",
-              "Apache Kafka",
-              "Redis",
-              "Elasticsearch",
-              "API Gateway"
+              "ReactJS",
+              "TeamCity",
+              "Micro-frontend Architecture"
             ],
+            "image": "",
+            "demo": "",
+            "github": "",
+            "featured": true
+          },
+          {
+            "title": "AI Document Processing",
+            "description": "Designed and deployed an ML-powered system for automated document processing, leveraging Python, Spring Boot, and ReactJS. Deployed in production using Ansible and Vagrant.",
+            "technologies": ["Python", "Spring Boot", "ReactJS", "Ansible", "Vagrant"],
+            "image": "",
+            "demo": "",
+            "github": "",
+            "featured": true
+          },
+          {
+            "title": "Insurance Process Automation",
+            "description": "Implemented Kubernetes-based orchestration for internal administrative applications. Automated CI/CD pipelines to accelerate deployment and improve efficiency.",
+            "technologies": ["Kubernetes", "Docker", "CI/CD", "DevOps"],
+            "image": "",
+            "demo": "",
+            "github": "",
+            "featured": true
+          },
+          {
+            "title": "Process Monitoring & Anomaly Detection",
+            "description": "Applied statistical methods and ML to monitor processes, classify patterns, and detect anomalies in industrial and business workflows.",
+            "technologies": ["Machine Learning", "Process Monitoring", "Anomaly Detection"],
             "image": "",
             "demo": "",
             "github": "",
             "featured": false
           },
           {
-            "title": "DevOps & Automation",
-            "description": "Implemented comprehensive DevOps practices including automated testing, deployment pipelines, monitoring, and infrastructure as code solutions.",
-            "technologies": [
-              "Jenkins",
-              "GitLab CI",
-              "Ansible",
-              "Prometheus",
-              "Grafana",
-              "ELK Stack"
-            ],
+            "title": "AI-driven Process Automation",
+            "description": "Designed and implemented LLM-agent solutions for automated process execution and optimization.",
+            "technologies": ["LLM Agent", "Python", "AI Automation"],
+            "image": "",
+            "demo": "",
+            "github": "",
+            "featured": false
+          },
+          {
+            "title": "Enterprise Cloud Migration",
+            "description": "Led comprehensive cloud migration projects for enterprise clients, implementing scalable infrastructure solutions and optimizing performance.",
+            "technologies": ["AWS", "Kubernetes", "Terraform", "Jenkins"],
             "image": "",
             "demo": "",
             "github": "",
@@ -272,73 +217,73 @@
             "icon": "Lightbulb"
           },
           {
-            "title": "Quality",
-            "description": "Every line of code matters. I'm committed to delivering high-quality, maintainable, and scalable solutions.",
+            "title": "Security & Quality",
+            "description": "Building secure, maintainable, and scalable solutions is at the core of everything I develop.",
             "icon": "Award"
           },
           {
-            "title": "Impact",
-            "description": "Technology should make a difference. I focus on creating solutions that positively impact users and businesses.",
+            "title": "Business Impact",
+            "description": "Technology should drive business success. I focus on creating solutions that deliver measurable value.",
             "icon": "Target"
           },
           {
-            "title": "Growth",
-            "description": "Continuous learning and improvement are at the core of my professional journey.",
+            "title": "Continuous Learning",
+            "description": "The tech landscape evolves rapidly. I stay ahead by continuously learning and adapting.",
             "icon": "TrendingUp"
           }
         ],
         "cta": {
-          "title": "Ready to Create Something Amazing?",
-          "description": "Let's collaborate and bring your vision to life with cutting-edge technology and innovative solutions.",
+          "title": "Ready to Transform Your Business?",
+          "description": "Let's collaborate to build secure, scalable, and intelligent solutions that drive your business forward.",
           "button": "Start Your Project"
         }
       },
       "process": {
         "title": "My Development Process",
-        "subtitle": "From Concept to Launch",
+        "subtitle": "From Concept to Production",
         "steps": [
           {
             "number": "01",
-            "title": "Discovery & Planning",
-            "description": "Understanding your vision, goals, and requirements to create a comprehensive project roadmap",
+            "title": "Discovery & Analysis",
+            "description": "Understanding business requirements, technical constraints, and security considerations",
             "icon": "Lightbulb"
           },
           {
             "number": "02",
-            "title": "Research & Strategy",
-            "description": "Market analysis, user research, and technical feasibility assessment",
+            "title": "Architecture & Planning",
+            "description": "Designing scalable, secure architecture with clear implementation roadmap",
             "icon": "Search"
           },
           {
             "number": "03",
-            "title": "Design & Prototyping",
-            "description": "Creating wireframes, mockups, and interactive prototypes for optimal user experience",
-            "icon": "Palette"
-          },
-          {
-            "number": "04",
             "title": "Development & Testing",
-            "description": "Agile development with continuous testing and quality assurance",
+            "description": "Agile development with continuous integration, automated testing, and code quality assurance",
             "icon": "Code"
           },
           {
-            "number": "05",
-            "title": "Deployment & Launch",
-            "description": "Production deployment with monitoring and performance optimization",
+            "number": "04",
+            "title": "DevOps & Deployment",
+            "description": "Containerized deployment with CI/CD pipelines, monitoring, and infrastructure as code",
             "icon": "Rocket"
+          },
+          {
+            "number": "05",
+            "title": "Monitoring & Optimization",
+            "description": "Performance monitoring, security audits, and continuous optimization",
+            "icon": "TrendingUp"
           },
           {
             "number": "06",
             "title": "Support & Evolution",
-            "description": "Ongoing maintenance, updates, and feature enhancements",
+            "description": "Ongoing maintenance, feature enhancements, and technology updates",
             "icon": "Wrench"
           }
         ]
       },
       "contact": {
-        "title": "Let's Build Something Amazing",
-        "subtitle": "Ready to turn your ideas into reality?",
-        "description": "Whether you have a specific project in mind or just want to explore possibilities, I'm here to help bring your vision to life.",
+        "title": "Let's Build Something Exceptional",
+        "subtitle": "Ready to transform your ideas into digital solutions?",
+        "description": "Whether you need enterprise software development, DevOps implementation, or AI-powered automation, I'm here to help bring your vision to life.",
         "info": [
           {
             "icon": "Mail",
@@ -361,15 +306,21 @@
           "email": "Your Email",
           "subject": "Project Subject",
           "message": "Tell me about your project...",
-          "submit": "Send Message"
+          "submit": "Send Message",
+          "sending": "Sending...",
+          "successMessage": "Message sent successfully!",
+          "namePlaceholder": "Your name",
+          "emailPlaceholder": "your@email.com",
+          "subjectPlaceholder": "Project subject",
+          "messagePlaceholder": "Tell me about your project..."
         },
         "social": {
-          "title": "Follow Me",
+          "title": "Connect With Me",
           "description": "Stay connected for updates and insights"
         },
         "cta": {
           "title": "Let's Build Something Great Together",
-          "description": "Whether it's a web application, mobile app, or custom solution, I'm here to help bring your ideas to life.",
+          "description": "Whether it's enterprise software, cloud solutions, or AI automation, I'm here to help bring your ideas to life.",
           "email": "Email Me",
           "resume": "Download Resume"
         }
@@ -395,187 +346,134 @@
         "greeting": "Hallo, ich bin",
         "name": "Khaled Alabsi",
         "roles": [
+          "Software-Ingenieur",
           "Full-Stack Entwickler",
-          "Digitaler Innovator",
-          "Problemlöser",
-          "Tech-Enthusiast"
+          "DevOps Spezialist",
+          "KI-Innovator"
         ],
-        "description": "Ich entwickle elegante Lösungen für komplexe Probleme und verwandle innovative Ideen in kraftvolle digitale Erfahrungen, die Geschäftserfolg vorantreiben.",
+        "description": "Ich entwerfe und implementiere skalierbare, sichere und benutzerorientierte Anwendungen. Von Unternehmenssystemen bis hin zu KI-gestützter Automatisierung verwandle ich komplexe Herausforderungen in digitale Erfolgsgeschichten.",
         "cta": {
-          "primary": "Zusammenarbeiten",
+          "primary": "Projekt starten",
           "secondary": "Meine Arbeit ansehen"
         }
       },
       "about": {
         "title": "Über Mich",
-        "subtitle": "Leidenschaftlicher Entwickler & Digitaler Handwerker",
-        "description": "Mit über 8 Jahren Erfahrung in der Full-Stack-Entwicklung spezialisiere ich mich auf die Erstellung skalierbarer, leistungsstarker Anwendungen, die außergewöhnliche Benutzererfahrungen liefern. Meine Leidenschaft liegt darin, komplexe technische Herausforderungen zu lösen und innovative Ideen in die Realität umzusetzen.",
+        "subtitle": "Ingenieur, Innovator & Digitaler Architekt",
+        "description": "Ich besitze einen M.Sc. in Computer- und Kommunikationssystemen und habe umfangreiche Erfahrungen in Branchen wie Banking, Versicherungen und Unternehmens-IT. Mein Fokus liegt auf der Erstellung robuster Software-Lösungen, von Micro-Frontend-Architekturen und DevOps-Pipelines bis hin zu KI-gestützter Automatisierung und Prozessüberwachung.",
         "highlights": [
-          "8+ Jahre professionelle Entwicklungserfahrung",
-          "Experte in modernen Web-Technologien und Frameworks",
-          "Starker Fokus auf Benutzererfahrung und Performance",
-          "Leidenschaftlich für sauberen Code und Best Practices",
-          "Erfahren in der Leitung von Entwicklungsteams",
-          "Kontinuierlicher Lerner und Technologie-Enthusiast"
+          "M.Sc. in Computer- & Kommunikationssystemen (2023)",
+          "B.Sc. in Angewandter Informatik (2021)",
+          "17+ Jahre Berufserfahrung",
+          "Spezialisiert auf Banking, Versicherungen und Unternehmens-IT",
+          "Experte in CI/CD, Containerisierung und DevOps",
+          "KI und Machine Learning für Anomalieerkennung & Automatisierung"
         ],
         "skills": [
           {
-            "name": "Unternehmensentwicklung",
+            "name": "Unternehmens- & Full-Stack Entwicklung",
             "technologies": [
               "Java",
-              "Spring Framework",
+              "Kotlin",
               "Spring Boot",
-              "Maven",
-              "Gradle"
+              "ReactJS",
+              "TypeScript"
             ]
           },
           {
-            "name": "Backend-Entwicklung",
+            "name": "DevOps & Cloud",
             "technologies": [
-              "Node.js",
-              "Python",
-              "REST APIs",
-              "PostgreSQL",
-              "MongoDB"
-            ]
-          },
-          {
-            "name": "Frontend-Entwicklung",
-            "technologies": [
-              "React",
-              "TypeScript",
-              "Next.js",
-              "HTML5",
-              "CSS3"
-            ]
-          },
-          {
-            "name": "Cloud & DevOps",
-            "technologies": [
-              "AWS",
               "Docker",
               "Kubernetes",
-              "Terraform",
-              "Jenkins"
+              "Openshift",
+              "TeamCity",
+              "Jenkins",
+              "Ansible",
+              "Vagrant"
             ]
           },
           {
-            "name": "Daten & Analytics",
+            "name": "KI & Daten",
             "technologies": [
-              "Apache Spark",
-              "Tableau",
-              "Elasticsearch",
-              "Redis",
-              "Apache Kafka"
+              "Machine Learning",
+              "Python",
+              "Prozessüberwachung",
+              "Anomalieerkennung",
+              "LLM Agenten"
             ]
           },
           {
             "name": "Mobile Entwicklung",
+            "technologies": ["React Native", "Xamarin", "Plattformübergreifend"]
+          },
+          {
+            "name": "Architektur & Beratung",
             "technologies": [
-              "React Native",
-              "Firebase",
-              "SQLite",
-              "Push Notifications",
-              "Plattformübergreifend"
+              "IT-Transformation",
+              "Geschäftsarchitektur",
+              "Systemintegration"
             ]
           }
         ]
       },
       "experience": {
-        "title": "Meine Projekte",
-        "subtitle": "Innovative Lösungen & Berufliche Erfolge",
+        "title": "Ausgewählte Projekte",
+        "subtitle": "Eine Auswahl meiner Arbeit",
         "projects": [
           {
-            "title": "Enterprise Software Entwicklung",
-            "description": "Leitete die Entwicklung großflächiger Unternehmensanwendungen mit Fokus auf Performance-Optimierung, Skalierbarkeit und Wartbarkeit. Implementierte moderne Architekturmuster und Best Practices.",
+            "title": "Wertpapier-Produktplattform (Banking)",
+            "description": "Entwicklung sicherer, skalierbarer Full-Stack-Anwendungen mit Spring Boot und ReactJS mit Micro-Frontend-Architektur. Verbesserte Wartbarkeit und Modularität sowie optimierte CI/CD-Pipelines mit TeamCity.",
             "technologies": [
-              "Java",
-              "Spring Framework",
-              "React",
-              "PostgreSQL",
-              "Docker",
-              "Kubernetes"
-            ],
-            "image": "",
-            "demo": "",
-            "github": "",
-            "featured": false
-          },
-          {
-            "title": "Datenanalyse Plattform",
-            "description": "Entwarf und implementierte umfassende Datenanalyse-Lösungen für Business Intelligence. Erstellte interaktive Dashboards und automatisierte Berichtssysteme.",
-            "technologies": [
-              "Python",
-              "Apache Spark",
-              "Tableau",
-              "AWS",
-              "PostgreSQL",
-              "REST APIs"
-            ],
-            "image": "",
-            "demo": "",
-            "github": "",
-            "featured": false
-          },
-          {
-            "title": "Cloud-Infrastruktur Optimierung",
-            "description": "Architektierte und deployerte skalierbare Cloud-Lösungen mit Fokus auf Kostenoptimierung und Performance. Implementierte CI/CD-Pipelines und automatisierte Deployment-Strategien.",
-            "technologies": [
-              "AWS",
-              "Terraform",
-              "Jenkins",
-              "Docker",
-              "Node.js",
-              "MongoDB"
-            ],
-            "image": "",
-            "demo": "",
-            "github": "",
-            "featured": false
-          },
-          {
-            "title": "Mobile Anwendungsentwicklung",
-            "description": "Entwickelte plattformübergreifende mobile Anwendungen mit Fokus auf Benutzererfahrung und Performance. Integrierte Echtzeit-Features und Offline-Funktionalitäten.",
-            "technologies": [
-              "React Native",
-              "TypeScript",
-              "Firebase",
-              "SQLite",
-              "REST APIs",
-              "Push Notifications"
-            ],
-            "image": "",
-            "demo": "",
-            "github": "",
-            "featured": false
-          },
-          {
-            "title": "Microservices Architektur",
-            "description": "Entwarf und implementierte Microservices-basierte Architektur für hochfrequentierte Anwendungen. Fokus auf Service-Isolation, API-Gateway-Patterns und verteilte Systeme.",
-            "technologies": [
-              "Java",
               "Spring Boot",
-              "Apache Kafka",
-              "Redis",
-              "Elasticsearch",
-              "API Gateway"
+              "ReactJS",
+              "TeamCity",
+              "Micro-Frontend-Architektur"
             ],
+            "image": "",
+            "demo": "",
+            "github": "",
+            "featured": true
+          },
+          {
+            "title": "KI-Dokumentenverarbeitung",
+            "description": "Entwurf und Bereitstellung eines ML-gestützten Systems für automatisierte Dokumentenverarbeitung unter Verwendung von Python, Spring Boot und ReactJS. Produktionsbereitstellung mit Ansible und Vagrant.",
+            "technologies": ["Python", "Spring Boot", "ReactJS", "Ansible", "Vagrant"],
+            "image": "",
+            "demo": "",
+            "github": "",
+            "featured": true
+          },
+          {
+            "title": "Versicherungs-Prozessautomatisierung",
+            "description": "Implementierung Kubernetes-basierter Orchestrierung für interne administrative Anwendungen. Automatisierte CI/CD-Pipelines zur Beschleunigung der Bereitstellung und Effizienzsteigerung.",
+            "technologies": ["Kubernetes", "Docker", "CI/CD", "DevOps"],
+            "image": "",
+            "demo": "",
+            "github": "",
+            "featured": true
+          },
+          {
+            "title": "Prozessüberwachung & Anomalieerkennung",
+            "description": "Anwendung statistischer Methoden und ML zur Überwachung von Prozessen, Klassifizierung von Mustern und Erkennung von Anomalien in industriellen und geschäftlichen Arbeitsabläufen.",
+            "technologies": ["Machine Learning", "Prozessüberwachung", "Anomalieerkennung"],
             "image": "",
             "demo": "",
             "github": "",
             "featured": false
           },
           {
-            "title": "DevOps & Automatisierung",
-            "description": "Implementierte umfassende DevOps-Praktiken einschließlich automatisierter Tests, Deployment-Pipelines, Monitoring und Infrastructure as Code Lösungen.",
-            "technologies": [
-              "Jenkins",
-              "GitLab CI",
-              "Ansible",
-              "Prometheus",
-              "Grafana",
-              "ELK Stack"
-            ],
+            "title": "KI-gesteuerte Prozessautomatisierung",
+            "description": "Entwurf und Implementierung von LLM-Agent-Lösungen für automatisierte Prozessausführung und -optimierung.",
+            "technologies": ["LLM Agent", "Python", "KI-Automatisierung"],
+            "image": "",
+            "demo": "",
+            "github": "",
+            "featured": false
+          },
+          {
+            "title": "Unternehmens-Cloud-Migration",
+            "description": "Leitung umfassender Cloud-Migrationsprojekte für Unternehmenskunden, Implementierung skalierbarer Infrastrukturlösungen und Leistungsoptimierung.",
+            "technologies": ["AWS", "Kubernetes", "Terraform", "Jenkins"],
             "image": "",
             "demo": "",
             "github": "",
@@ -593,73 +491,73 @@
             "icon": "Lightbulb"
           },
           {
-            "title": "Qualität",
-            "description": "Jede Zeile Code zählt. Ich bin verpflichtet, hochwertige, wartbare und skalierbare Lösungen zu liefern.",
+            "title": "Sicherheit & Qualität",
+            "description": "Die Entwicklung sicherer, wartbarer und skalierbarer Lösungen steht im Mittelpunkt all meiner Entwicklungen.",
             "icon": "Award"
           },
           {
-            "title": "Wirkung",
-            "description": "Technologie sollte einen Unterschied machen. Ich konzentriere mich darauf, Lösungen zu schaffen, die Benutzer und Unternehmen positiv beeinflussen.",
+            "title": "Geschäftsauswirkungen",
+            "description": "Technologie sollte den Geschäftserfolg vorantreiben. Ich konzentriere mich auf die Erstellung von Lösungen, die messbaren Wert liefern.",
             "icon": "Target"
           },
           {
-            "title": "Wachstum",
-            "description": "Kontinuierliches Lernen und Verbesserung stehen im Kern meiner beruflichen Laufbahn.",
+            "title": "Kontinuierliches Lernen",
+            "description": "Die Technologielandschaft entwickelt sich schnell. Ich bleibe vorne, indem ich kontinuierlich lerne und mich anpasse.",
             "icon": "TrendingUp"
           }
         ],
         "cta": {
-          "title": "Bereit, etwas Erstaunliches zu schaffen?",
-          "description": "Lassen Sie uns zusammenarbeiten und Ihre Vision mit modernster Technologie und innovativen Lösungen zum Leben erwecken.",
+          "title": "Bereit, Ihr Unternehmen zu transformieren?",
+          "description": "Lassen Sie uns zusammenarbeiten, um sichere, skalierbare und intelligente Lösungen zu entwickeln, die Ihr Unternehmen voranbringen.",
           "button": "Projekt starten"
         }
       },
       "process": {
         "title": "Mein Entwicklungsprozess",
-        "subtitle": "Vom Konzept zum Launch",
+        "subtitle": "Vom Konzept zur Produktion",
         "steps": [
           {
             "number": "01",
-            "title": "Entdeckung & Planung",
-            "description": "Ihre Vision, Ziele und Anforderungen verstehen, um eine umfassende Projekt-Roadmap zu erstellen",
+            "title": "Entdeckung & Analyse",
+            "description": "Verständnis der Geschäftsanforderungen, technischen Einschränkungen und Sicherheitsüberlegungen",
             "icon": "Lightbulb"
           },
           {
             "number": "02",
-            "title": "Forschung & Strategie",
-            "description": "Marktanalyse, Benutzerforschung und technische Machbarkeitsbewertung",
+            "title": "Architektur & Planung",
+            "description": "Entwurf skalierbarer, sicherer Architektur mit klarer Implementierungs-Roadmap",
             "icon": "Search"
           },
           {
             "number": "03",
-            "title": "Design & Prototyping",
-            "description": "Wireframes, Mockups und interaktive Prototypen für optimale Benutzererfahrung erstellen",
-            "icon": "Palette"
-          },
-          {
-            "number": "04",
             "title": "Entwicklung & Testing",
-            "description": "Agile Entwicklung mit kontinuierlichen Tests und Qualitätssicherung",
+            "description": "Agile Entwicklung mit kontinuierlicher Integration, automatisierten Tests und Code-Qualitätssicherung",
             "icon": "Code"
           },
           {
-            "number": "05",
-            "title": "Deployment & Launch",
-            "description": "Produktions-Deployment mit Überwachung und Performance-Optimierung",
+            "number": "04",
+            "title": "DevOps & Bereitstellung",
+            "description": "Containerisierte Bereitstellung mit CI/CD-Pipelines, Überwachung und Infrastruktur als Code",
             "icon": "Rocket"
+          },
+          {
+            "number": "05",
+            "title": "Überwachung & Optimierung",
+            "description": "Leistungsüberwachung, Sicherheitsaudits und kontinuierliche Optimierung",
+            "icon": "TrendingUp"
           },
           {
             "number": "06",
             "title": "Support & Evolution",
-            "description": "Laufende Wartung, Updates und Feature-Erweiterungen",
+            "description": "Laufende Wartung, Feature-Erweiterungen und Technologie-Updates",
             "icon": "Wrench"
           }
         ]
       },
       "contact": {
-        "title": "Lassen Sie uns etwas Erstaunliches bauen",
-        "subtitle": "Bereit, Ihre Ideen in die Realität umzusetzen?",
-        "description": "Ob Sie ein spezifisches Projekt im Kopf haben oder einfach nur Möglichkeiten erkunden möchten, ich bin hier, um Ihre Vision zum Leben zu erwecken.",
+        "title": "Lassen Sie uns etwas Außergewöhnliches bauen",
+        "subtitle": "Bereit, Ihre Ideen in digitale Lösungen zu verwandeln?",
+        "description": "Ob Sie Unternehmenssoftware-Entwicklung, DevOps-Implementierung oder KI-gestützte Automatisierung benötigen, ich bin hier, um Ihre Vision zum Leben zu erwecken.",
         "info": [
           {
             "icon": "Mail",
@@ -682,15 +580,21 @@
           "email": "Ihre E-Mail",
           "subject": "Projekt Betreff",
           "message": "Erzählen Sie mir von Ihrem Projekt...",
-          "submit": "Nachricht senden"
+          "submit": "Nachricht senden",
+          "sending": "Wird gesendet...",
+          "successMessage": "Nachricht erfolgreich gesendet!",
+          "namePlaceholder": "Ihr Name",
+          "emailPlaceholder": "ihre@email.com",
+          "subjectPlaceholder": "Projekt Betreff",
+          "messagePlaceholder": "Erzählen Sie mir von Ihrem Projekt..."
         },
         "social": {
-          "title": "Folgen Sie mir",
+          "title": "Verbinden Sie sich mit mir",
           "description": "Bleiben Sie in Verbindung für Updates und Einblicke"
         },
         "cta": {
           "title": "Lassen Sie uns gemeinsam etwas Großartiges bauen",
-          "description": "Ob es sich um eine Webanwendung, mobile App oder maßgeschneiderte Lösung handelt, ich bin hier, um Ihre Ideen zum Leben zu erwecken.",
+          "description": "Ob Unternehmenssoftware, Cloud-Lösungen oder KI-Automatisierung, ich bin hier, um Ihre Ideen zum Leben zu erwecken.",
           "email": "E-Mail senden",
           "resume": "Lebenslauf herunterladen"
         }
