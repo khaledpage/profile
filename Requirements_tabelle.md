@@ -21,6 +21,7 @@
 | **Mobile Scroll Optimization** | ✅ Complete | Fixed mobile scroll glitches with touch-action CSS and conditional hover effects |
 | **Hardcoded Element IDs** | ✅ Complete | All HTML elements now have unique, semantic, hardcoded IDs for debugging |
 | **React Hydration Fix** | ✅ Complete | Fixed server-client rendering mismatch for browser language detection |
+| **Automated Deployment** | ✅ Complete | One-command deployment script with random commit messages and GitHub Pages preparation |
 
 ## Requirements Tabelle
 
@@ -31,6 +32,7 @@
 | REQ-003 | Mobile scroll performance optimization | Fix touch scroll glitches on interactive boxes | High | Done | @copilot | Smooth scrolling on mobile devices, touch-action CSS applied | components/About.tsx, Experience.tsx, Process.tsx, Motivation.tsx, Contact.tsx |
 | REQ-004 | Hardcoded semantic IDs | Enable easier debugging and testing | Medium | Done | @copilot | All HTML elements have unique, hardcoded IDs with semantic naming | All component files |
 | REQ-005 | React hydration error fix | Ensure consistent server-client rendering | High | Done | @copilot | No hydration errors in production build, consistent language detection | app/page.tsx |
+| REQ-006 | Automated deployment script | Streamline deployment process with one command | High | Done | @copilot | Single command exports, commits with random message, and pushes to GitHub | scripts/deploy-to-github-pages.sh, package.json |
 
 | **Configuration Split** | ✅ Complete | Split config.json into ui.config.json and content.config.json for better organization and maintainability |
 
