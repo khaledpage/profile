@@ -6,20 +6,55 @@ import config from '@/lib/config'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: config.site.title,
+  title: {
+    default: config.site.title,
+    template: `%s | ${config.site.title}`
+  },
   description: config.site.description,
+  keywords: config.site.keywords,
+  authors: [{ name: config.site.author }],
+  creator: config.site.author,
+  publisher: config.site.author,
   metadataBase: new URL(config.site.url),
+  alternates: {
+    canonical: config.site.url,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: config.site.url,
     title: config.site.title,
     description: config.site.description,
-    url: config.site.url,
     siteName: config.site.title,
-    type: 'website',
+    images: [
+      {
+        url: `${config.site.url}/assets/csm_Khaled_Alabsi_Portraet_6d491f1c81.jpg`,
+        width: 1200,
+        height: 630,
+        alt: config.site.title,
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: config.site.title,
     description: config.site.description,
+    images: [`${config.site.url}/assets/csm_Khaled_Alabsi_Portraet_6d491f1c81.jpg`],
+    creator: '@khaled_alabsi',
+  },
+  verification: {
+    google: 'your-google-verification-code', // You'll need to add this later
   },
 }
 
@@ -37,6 +72,51 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org/",
+              "@type": "Person",
+              "name": "Khaled Alabsi",
+              "jobTitle": "Senior Software Engineer",
+              "description": "Professional Developer & Digital Innovator with over 8 years of experience in full-stack development, specializing in scalable applications and innovative digital solutions.",
+              "url": "https://www.alabsi.space",
+              "image": "https://www.alabsi.space/assets/csm_Khaled_Alabsi_Portraet_6d491f1c81.jpg",
+              "sameAs": [
+                "https://github.com/khaled-alabsi",
+                "https://linkedin.com/in/khaled-alabsi",
+                "https://twitter.com/khaled_alabsi"
+              ],
+              "worksFor": {
+                "@type": "Organization",
+                "name": "Independent Developer"
+              },
+              "knowsAbout": [
+                "Full-Stack Development",
+                "Java",
+                "Spring Framework",
+                "React",
+                "Node.js",
+                "Python",
+                "Cloud Computing",
+                "AWS",
+                "DevOps",
+                "Data Analytics",
+                "Machine Learning",
+                "Mobile Development",
+                "Enterprise Software",
+                "Microservices"
+              ],
+              "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "Germany"
+              }
+            })
+          }}
+        />
+      </head>
       <body className={inter.className}>{children}</body>
     </html>
   )
