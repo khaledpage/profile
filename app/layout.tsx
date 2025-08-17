@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: config.site.title,
   description: config.site.description,
-  viewport: 'width=device-width, initial-scale=1',
+  metadataBase: new URL(config.site.url),
   openGraph: {
     title: config.site.title,
     description: config.site.description,
@@ -21,6 +21,13 @@ export const metadata: Metadata = {
     title: config.site.title,
     description: config.site.description,
   },
+}
+
+export function generateViewport() {
+  return {
+    width: 'device-width',
+    initialScale: 1,
+  }
 }
 
 export default function RootLayout({

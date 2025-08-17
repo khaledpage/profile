@@ -15,7 +15,7 @@ const About = ({ content, config }: AboutProps) => {
               <div className="relative overflow-hidden rounded-2xl">
                 <div className="aspect-[4/5] relative">
                   <img
-                    src={`/assets/${config.personal.image}`}
+                    src={config.personal.image}
                     alt={config.personal.name}
                     className="w-full h-full object-cover"
                   />

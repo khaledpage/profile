@@ -55,7 +55,7 @@
   "site": {
     "title": "Khaled Alabsi",
     "description": "Professional Developer & Digital Innovator",
-    "url": "https://khaled-alabsi.github.io/my-life",
+    "url": "https://khaledpage.github.io/profile",
     "author": "Khaled Alabsi",
     "keywords": ["developer", "full-stack", "react", "nextjs", "typescript"],
     "favicon": "/favicon.ico"
@@ -120,17 +120,35 @@
           {
             "name": "Frontend Development",
             "level": 95,
-            "technologies": ["React", "Next.js", "TypeScript", "Vue.js", "Angular"]
+            "technologies": [
+              "React",
+              "Next.js",
+              "TypeScript",
+              "Vue.js",
+              "Angular"
+            ]
           },
           {
             "name": "Backend Development",
             "level": 90,
-            "technologies": ["Node.js", "Python", "Java", "PostgreSQL", "MongoDB"]
+            "technologies": [
+              "Node.js",
+              "Python",
+              "Java",
+              "PostgreSQL",
+              "MongoDB"
+            ]
           },
           {
             "name": "Cloud & DevOps",
             "level": 85,
-            "technologies": ["AWS", "Docker", "Kubernetes", "CI/CD", "Terraform"]
+            "technologies": [
+              "AWS",
+              "Docker",
+              "Kubernetes",
+              "CI/CD",
+              "Terraform"
+            ]
           },
           {
             "name": "Mobile Development",
@@ -146,7 +164,13 @@
           {
             "title": "E-Commerce Platform",
             "description": "A comprehensive e-commerce solution with advanced features like real-time inventory, payment processing, and analytics dashboard.",
-            "technologies": ["Next.js", "Node.js", "PostgreSQL", "Stripe", "AWS"],
+            "technologies": [
+              "Next.js",
+              "Node.js",
+              "PostgreSQL",
+              "Stripe",
+              "AWS"
+            ],
             "image": "/assets/project1.jpg",
             "demo": "https://demo.example.com",
             "github": "https://github.com/example",
@@ -332,17 +356,35 @@
           {
             "name": "Frontend-Entwicklung",
             "level": 95,
-            "technologies": ["React", "Next.js", "TypeScript", "Vue.js", "Angular"]
+            "technologies": [
+              "React",
+              "Next.js",
+              "TypeScript",
+              "Vue.js",
+              "Angular"
+            ]
           },
           {
             "name": "Backend-Entwicklung",
             "level": 90,
-            "technologies": ["Node.js", "Python", "Java", "PostgreSQL", "MongoDB"]
+            "technologies": [
+              "Node.js",
+              "Python",
+              "Java",
+              "PostgreSQL",
+              "MongoDB"
+            ]
           },
           {
             "name": "Cloud & DevOps",
             "level": 85,
-            "technologies": ["AWS", "Docker", "Kubernetes", "CI/CD", "Terraform"]
+            "technologies": [
+              "AWS",
+              "Docker",
+              "Kubernetes",
+              "CI/CD",
+              "Terraform"
+            ]
           },
           {
             "name": "Mobile Entwicklung",
@@ -358,7 +400,13 @@
           {
             "title": "E-Commerce Plattform",
             "description": "Eine umfassende E-Commerce-Lösung mit erweiterten Funktionen wie Echtzeit-Inventar, Zahlungsabwicklung und Analytics-Dashboard.",
-            "technologies": ["Next.js", "Node.js", "PostgreSQL", "Stripe", "AWS"],
+            "technologies": [
+              "Next.js",
+              "Node.js",
+              "PostgreSQL",
+              "Stripe",
+              "AWS"
+            ],
             "image": "/assets/project1.jpg",
             "demo": "https://demo.example.com",
             "github": "https://github.com/example",
