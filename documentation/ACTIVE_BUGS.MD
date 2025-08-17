@@ -3,20 +3,6 @@
 
 ---
 
-CR-001: Default Admin Mode
-Status: **FIXED** ✅
-Priority: Low
-Description: Change the default mode to non-admin mode.
-
-**Fix Applied**: Changed `"enabledByDefault": true` to `"enabledByDefault": false` in src/content/config.json
-
-**Files Modified**: 
-- `/src/content/config.json`: Updated admin.enabledByDefault from true to false
-
-**Date Fixed**: January 17, 2025
-
----
-
 
 BUG-009: Back Button Positioning Consistency
 Status: **FIXED** ✅
@@ -114,7 +100,13 @@ Description: In the settings panel, selected theme options (like "Mint Green") a
 **Date Fixed**: August 17, 2025
 
 **User Verification Placeholder:**
-[ ] on fixed for smalle screen
+[ ] not fixed
 
 ---
 
+bug: after login, there are no log out options available in the UI or admin dropdown
+
+
+bug: configuration panel should not have admin check box (id=admin-toggle-label) option, its useless.
+
+bug: because you didnt manage to fix the element selection border size in the configuration panel, so it always looks cut off, just make the selections boarder inner and not outer, and add some inner shadow when selecting.

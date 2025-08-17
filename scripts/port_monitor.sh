@@ -2,12 +2,14 @@
 
 PORT=9323
 CHECK_INTERVAL=30   # seconds between checks
-TIMEOUT=100         # 100 seconds
+TIMEOUT=89         # 89 seconds
 
 current_pid=""
 start_time=0
 
+
 while true; do
+    echo "$(date '+%Y-%m-%d %H:%M:%S') - Starting port monitor for port $PORT"
     pid=$(lsof -ti tcp:$PORT)
 
     if [[ -n "$pid" ]]; then

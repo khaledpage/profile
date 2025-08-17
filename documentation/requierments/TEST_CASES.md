@@ -48,6 +48,172 @@ This document contains all test cases for the portfolio application, covering ev
 
 **Status**: CREATED - Tests implemented to validate BUG-004 fixes
 
+---
+
+### About Section Layout Switching Tests (2025-08-17)
+
+**Description**: Comprehensive tests for About section layout switching functionality
+
+**Test File**: `tests/about-section-layout-switching.spec.ts`
+
+**Test Cases**:
+
+1. **Default Layout Display Test**:
+   - Navigate to home page
+   - Verify basic about section is displayed by default
+   - Check that enhanced layout elements are not visible
+
+2. **Layout Switching Through Settings Test**:
+   - Open settings panel and navigate to appearance tab
+   - Find About Layout section
+   - Switch from basic to enhanced layout
+   - Verify enhanced layout activates with profile picture and timeline
+
+3. **Preference Persistence Test**:
+   - Switch to enhanced layout
+   - Reload page
+   - Verify enhanced layout persists across page reloads
+
+4. **Bidirectional Switching Test**:
+   - Switch to enhanced layout and verify activation
+   - Switch back to basic layout and verify deactivation
+   - Confirm profile picture and enhanced elements are hidden
+
+5. **Settings UI Validation Test**:
+   - Verify layout descriptions are accurate
+   - Check that selected option is highlighted
+   - Validate button styling and feedback
+
+6. **Enhanced Layout Components Test**:
+   - Switch to enhanced layout
+   - Verify profile picture displays with correct styling
+   - Check stats grid with experience, projects, tech focus
+   - Validate timeline with education and work experience
+
+**Status**: IMPLEMENTED - Complete test suite for About section layout switching
+
+---
+
+## FEAT-029-TEST: Enhanced Drag-and-Drop Home Sections Customization Test Suite
+
+**Feature**: FEAT-029 - Enhanced drag-and-drop functionality for home page sections in settings panel
+
+**Test Cases**:
+
+1. **Drag-and-Drop Functionality Test**:
+   - Open settings panel and navigate to Home Sections tab
+   - Verify all sections are displayed with drag handles and order indicators
+   - Drag a section from one position to another
+   - Verify the section moves to the correct position
+   - Verify order numbers update correctly
+   - Check that preferences are saved automatically
+
+2. **Visual Feedback During Drag Test**:
+   - Initiate drag operation on any section
+   - Verify dragged item has scale, rotation, and shadow effects
+   - Verify drag-over target shows accent border and scale effect
+   - Verify drag indicators are visible and positioned correctly
+   - Test drag end state returns to normal styling
+
+3. **Visibility Toggle Test**:
+   - Click visibility checkbox for any section
+   - Verify section opacity changes to indicate hidden state
+   - Verify custom checkbox styling and animations work
+   - Check that hidden sections are saved in preferences
+   - Verify home page reflects the visibility changes
+
+4. **Manual Arrow Controls Test**:
+   - Use up/down arrow buttons to reorder sections
+   - Verify buttons are disabled at list boundaries
+   - Check that manual controls work alongside drag-and-drop
+   - Verify hover effects and accessibility labels
+
+5. **Visual Design and Polish Test**:
+   - Verify section cards have glass morphism effects
+   - Check emoji icons are displayed for each section type
+   - Verify gradient animations and backdrop blur effects
+   - Test responsive behavior on different screen sizes
+   - Validate accessibility with keyboard navigation
+
+6. **Instructions and Help Text Test**:
+   - Verify instructional text is clear and helpful
+   - Check that both drag-and-drop and manual methods are explained
+   - Verify emoji indicators enhance the user experience
+   - Test that the interface is intuitive for new users
+
+**Expected Results**: Users can intuitively reorder home page sections with smooth drag-and-drop interactions, enhanced visual feedback, and polished modern UI design.
+
+**Status**: CREATED - Tests required to validate enhanced drag-and-drop implementation
+
+---
+
+### FEAT-027-TEST: Enhanced Article Editing Modal Styling and Functionality (P1 - E2E)
+
+**Description**: Comprehensive test suite for the enhanced article editing modal with improved styling, status indicators, and user experience
+
+**Test File**: `tests/enhanced-editing-modal.spec.ts`
+
+**Prerequisites**:
+- Server running on localhost:3000
+- Admin login with username: 'admin', password: 'admin123'
+- Enhanced modal styling implementation
+
+**Test Cases**:
+
+1. **Enhanced Modal Styling Test**:
+   - Open article edit modal
+   - Verify modal has gradient header with rounded corners
+   - Check for enhanced metadata panel with icons and proper styling
+   - Verify backdrop blur effects and shadow styling
+   - Confirm modal container has modern glass morphism appearance
+
+2. **Status Indicators Functionality Test**:
+   - Open edit modal and make changes
+   - Verify "Unsaved Changes" indicator appears with yellow styling
+   - Save changes and verify "Saving..." indicator with blue styling
+   - Confirm "Saved" indicator appears with green styling and timestamp
+   - Test all status indicator animations and transitions
+
+3. **Enhanced Form Fields Test**:
+   - Verify all form fields have proper labels with SVG icons
+   - Check rounded corner styling and padding on all inputs
+   - Test focus states and transitions on form elements
+   - Verify featured checkbox has enhanced styling
+   - Confirm helper text appears for tags field
+
+4. **Enhanced Button Styling Test**:
+   - Test preview toggle button with hover effects and icons
+   - Verify save button changes color and shows loading spinner when saving
+   - Check close button has proper hover animations and rotation effect
+   - Confirm all buttons have backdrop blur and transition effects
+
+5. **Enhanced Editor Panel Test**:
+   - Verify editor header has proper icon and title
+   - Check editor textarea has enhanced styling with monospace font
+   - Test preview panel header with real-time indicator
+   - Confirm proper background gradients and section styling
+
+6. **Accessibility and Keyboard Navigation Test**:
+   - Test tab navigation through all form fields
+   - Verify focus states are visible and properly styled
+   - Test escape key functionality for modal close
+   - Check ARIA labels and accessibility attributes
+
+7. **Loading State Enhancement Test**:
+   - Verify loading spinner has proper styling and animation
+   - Check loading state text and container alignment
+   - Test loading state transitions and visibility
+
+8. **Form Validation and User Feedback Test**:
+   - Test form validation with empty fields
+   - Verify helper text and error messaging
+   - Check user feedback for successful actions
+   - Test form state management and validation
+
+**Status**: IMPLEMENTED - Comprehensive test suite created for enhanced editing modal
+
+---
+
 ### BUG-002-ANIM: Article Animation Height Validation (P1 - Visual)
 
 **Description**: Test article animation container height and prevent cutoff

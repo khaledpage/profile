@@ -4,6 +4,7 @@ import Hero from '@/components/sections/Hero';
 import SkillsShowcaseMultiDesign from '@/components/sections/SkillsShowcaseMultiDesign';
 import ArticlesSection from '@/components/sections/ArticlesSection';
 import WorkflowSection from '@/components/sections/WorkflowSection';
+import AboutMeSection from '@/components/sections/AboutMeSection';
 import ProjectCard from '@/components/ui/ProjectCard';
 import { Project, SiteContent, SiteConfig } from '@/types/content';
 import React from 'react';
@@ -20,6 +21,7 @@ const DEFAULT_ORDER: Array<'hero' | 'about' | 'skills' | 'projects' | 'articles'
 export default function HomeSectionsController({ content, config }: Props) {
   const [order, setOrder] = React.useState(DEFAULT_ORDER);
   const [hidden, setHidden] = React.useState<Array<string>>([]);
+  const [userPreferences, setUserPreferences] = React.useState<any>({});
 
   React.useEffect(() => {
     // Load from preferences if allowed
@@ -27,13 +29,16 @@ export default function HomeSectionsController({ content, config }: Props) {
       const prefs = localStorage.getItem('user-preferences');
       let prefOrder = config.homeSections?.order ?? DEFAULT_ORDER;
       let prefHidden = config.homeSections?.hidden ?? [];
+      let preferences = {};
       if (prefs) {
         const parsed = JSON.parse(prefs);
+        preferences = parsed;
         if (parsed?.homeSections?.order) prefOrder = parsed.homeSections.order;
         if (parsed?.homeSections?.hidden) prefHidden = parsed.homeSections.hidden;
       }
       setOrder(prefOrder as typeof DEFAULT_ORDER);
       setHidden(prefHidden as Array<string>);
+      setUserPreferences(preferences);
     } catch {}
   }, [config.homeSections]);
 
@@ -42,6 +47,7 @@ export default function HomeSectionsController({ content, config }: Props) {
       try {
         const e = ev as CustomEvent<{ homeSections?: { order?: typeof DEFAULT_ORDER; hidden?: Array<string> } }>;
         const detail = e?.detail || {};
+        setUserPreferences(detail);
         if (detail?.homeSections) {
           if (Array.isArray(detail.homeSections.order)) {
             setOrder(detail.homeSections.order as typeof DEFAULT_ORDER);
@@ -75,6 +81,14 @@ export default function HomeSectionsController({ content, config }: Props) {
               />
             );
           case 'about':
+            // Check if enhanced layout is enabled (user preference overrides config)
+            const aboutLayout = userPreferences.aboutLayout || config.aboutSection?.layout || 'basic';
+            
+            if (aboutLayout === 'enhanced') {
+              return <AboutMeSection key="about" config={config} />;
+            }
+            
+            // Default/basic layout
             return (
               <section id="about" className="py-24" key="about">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">

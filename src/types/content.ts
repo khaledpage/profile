@@ -256,6 +256,11 @@ export interface SiteConfig {
     /** If true, the Settings panel is only visible when Admin mode is enabled */
     adminOnly?: boolean;
   };
+  aboutSection?: {
+    layout?: string;
+    availableLayouts?: string[];
+    allowLayoutChange?: boolean;
+  };
   skillsDisplay?: {
     design?: string;
     availableDesigns?: string[];

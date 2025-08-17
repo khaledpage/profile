@@ -522,14 +522,105 @@ As an admin, I want to create reusable article templates (tutorial, review, case
 
 ---
 
-## feature: the editing mode should look nice, now it look very primitive
+### FEAT-027: Enhanced Article Editing Modal
 
-## feature: create tests for the editing mode
+- **ID**: FEAT-027
+- **Status**: ✅ DONE
+- **Implementation Date**: August 17, 2025
+- **Description**: The editing mode should look nice, now it look very primitive
+- **Implementation Details**:
+  - Enhanced modal header with gradient background and status indicators
+  - Added animated status badges for unsaved changes, saving state, and last saved time
+  - Improved button designs with hover effects, icons, and modern styling
+  - Enhanced metadata panel with organized sections and icons
+  - Added enhanced form fields with improved spacing and focus states
+  - Enhanced editor panel with proper headers and better loading states
+  - Improved preview panel with real-time preview indicator
+  - Added backdrop blur effects and modern glass morphism styling
+  - Enhanced typography and spacing throughout the modal
+  - Added proper button animations and state feedback
 
+---
+
+### FEAT-028: Article Editing Modal Test Suite
+
+- **ID**: FEAT-028
+- **Status**: ✅ DONE
+- **Implementation Date**: August 17, 2025
+- **Description**: create tests for the editing mode
+- **Implementation Details**:
+  - Created comprehensive test suite in `tests/enhanced-editing-modal.spec.ts`
+  - Added 8 comprehensive test cases covering all enhanced modal functionality
+  - Tests cover enhanced styling, status indicators, form fields, buttons, editor panels
+  - Added accessibility and keyboard navigation tests
+  - Included loading state and form validation tests
+  - Updated TEST_CASES.md with detailed test documentation
+  - Tests validate gradient headers, backdrop blur, animations, and user feedback
+  - Comprehensive coverage of enhanced UI elements and interactions
+
+---
+
+
+# Story that are pending with status pending 
 ## feature: improve the styling and layout of the editing mode for better user experience
 
-## feature: in the "Customize the order and visibility of home page sections" in setting pannel, dosent look nice, it should be look more like element that can be dragged and reordered easily
+---
+
+### FEAT-029: Enhanced Drag-and-Drop Home Sections Customization
+
+- **ID**: FEAT-029
+- **Status**: ✅ DONE
+- **Implementation Date**: August 17, 2025
+- **Description**: The home sections customization in settings panel should look more like elements that can be dragged and reordered easily
+- **Implementation Details**:
+  - Implemented comprehensive drag-and-drop functionality for home page sections
+  - Added visual drag indicators with grip handles and position numbers
+  - Enhanced section cards with modern glass morphism design and hover effects
+  - Added animated feedback during drag operations (scale, rotation, shadow)
+  - Implemented visual drag-over indicators with accent color borders
+  - Added emoji icons for each section type for better visual identification
+  - Enhanced visibility toggles with custom checkboxes and smooth animations
+  - Maintained backward compatibility with arrow button controls
+  - Added comprehensive instructions for both drag-and-drop and manual reordering
+  - Improved accessibility with proper labels, titles, and keyboard navigation
+  - Enhanced visual hierarchy with order indicators and improved typography
+  - Added backdrop blur effects and modern card styling throughout
+
+---
+
+### FEAT-030: Enhanced About Me Section with Profile Picture
+
+- **ID**: FEAT-030
+- **Status**: ✅ DONE
+- **Implementation Date**: August 17, 2025
+- **Description**: Add new section for "about me" or "Über mich" that have a picture and text content, the picture will be my picture, and the text will be about me, like study degree, work experience, ..., my picture is in ../src/content/assets/csm_Khaled_Alabsi_Portraet_6d491f1c81.jpg. I can choose between the old and the new section layout in config.json or in setting panel in the UI
+- **Implementation Details**:
+  - Created comprehensive `AboutMeSection.tsx` component with enhanced layout and profile picture
+  - Added profile picture with gradient border and modern decorative elements
+  - Implemented quick stats grid with glass morphism styling and interactive cards
+  - Created education and experience timeline with animated elements
+  - Added bilingual content support for both English and German
+  - Extended configuration system with `aboutSection` in config.json with layout options
+  - Updated `SiteConfig` TypeScript interface to include aboutSection configuration
+  - Modified `HomeSectionsController.tsx` to dynamically switch between basic and enhanced layouts
+  - Added About Layout selection in Settings Panel with user-friendly controls
+  - Implemented user preference system that overrides default configuration
+  - Added translation keys for About Layout in both German and English
+  - Enhanced aboutSection with gradient backgrounds, animations, and hover effects
+  - Maintained backward compatibility with existing basic about section
+  - Configuration allows switching between "basic" and "enhanced" layouts
+  - Settings panel provides real-time preview of layout options with descriptions
+
+---
+
+## feature: new section for static-article, this will be same as the old section for articles , but only use htm articles, so no md support, or upload/delete/edite, just static content, with no use for backend or api at all, the gaol is, in the future to build a copy of this app without backend or api, just static content that run on githup page
 
 ## feature: add new section for "about me" or "Über mich" that have a picture and text content, the picture will be my picture, and the text will be about me, like study degree, work experience, ..., my picture is in ../src/content/assets/csm_Khaled_Alabsi_Portraet_6d491f1c81.jpg .i can choose between the old and the new section layout in config.json or in setting pannel in the ui
 
-## feature: new section for static-article, this will be same as the old section for articles , but only use htm articles, so no md support, or upload/delete/edite, just static content, with no use for backend or api at all, the gaol is, in the future to build a copy of this app without backend or api, just static content that run on githup page
+### when clicking on article to open it, sometime it take time to open, but there are not indicator for waiting, so add some loading spinner or something indicating for opening
+
+
+### features: read my data from src/content/my_data/* and extract relevant information for the about section and projects section and all other relvent section. (rmember to use englisch and german) (rememeber no hard coded information in html components, everything should be configurable using the json file in src/content/* if not, just extract it)
+
+### feature: create a build script to convert the app to static HTML and copy assets and prepare in /docs so github pages can serve it. remember to include all necessary files and dependencies for a complete static site and no api or backend, no articles only static-articles
+

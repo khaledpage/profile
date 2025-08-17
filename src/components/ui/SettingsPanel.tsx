@@ -15,6 +15,7 @@ type UserPreferences = {
   colorProfile?: string;
   animationsEnabled?: boolean;
   skillsDesign?: string;
+  aboutLayout?: string;
   cookieConsent?: boolean;
   language?: string;
   homeSections?: {
@@ -25,7 +26,7 @@ type UserPreferences = {
 
 type TabId = 'appearance' | 'behavior' | 'home' | 'advanced';
 
-// Inline editor component for Home Sections
+// Inline editor component for Home Sections with drag & drop
 type SectionKey = 'hero' | 'about' | 'skills' | 'projects' | 'articles' | 'workflow' | 'contact';
 function HomeSectionsEditor({
   config,
@@ -40,6 +41,56 @@ function HomeSectionsEditor({
   const defaultOrder: SectionKey[] = ['hero','about','skills','projects','articles','workflow','contact'];
   const order: SectionKey[] = (preferences.homeSections?.order as SectionKey[]) || (config.homeSections?.order as SectionKey[]) || defaultOrder;
   const hidden: SectionKey[] = (preferences.homeSections?.hidden as SectionKey[]) || (config.homeSections?.hidden as SectionKey[]) || [];
+  
+  const [draggedItem, setDraggedItem] = useState<SectionKey | null>(null);
+  const [dragOverItem, setDragOverItem] = useState<SectionKey | null>(null);
+
+  const handleDragStart = (key: SectionKey) => {
+    setDraggedItem(key);
+  };
+
+  const handleDragOver = (e: React.DragEvent, key: SectionKey) => {
+    e.preventDefault();
+    setDragOverItem(key);
+  };
+
+  const handleDragLeave = () => {
+    setDragOverItem(null);
+  };
+
+  const handleDrop = (e: React.DragEvent, targetKey: SectionKey) => {
+    e.preventDefault();
+    
+    if (!draggedItem || draggedItem === targetKey) {
+      setDraggedItem(null);
+      setDragOverItem(null);
+      return;
+    }
+
+    const newOrder = [...order];
+    const draggedIndex = newOrder.indexOf(draggedItem);
+    const targetIndex = newOrder.indexOf(targetKey);
+
+    // Remove the dragged item
+    newOrder.splice(draggedIndex, 1);
+    // Insert at the new position
+    newOrder.splice(targetIndex, 0, draggedItem);
+
+    onChange({ order: newOrder, hidden });
+    setDraggedItem(null);
+    setDragOverItem(null);
+  };
+
+  const handleDragEnd = () => {
+    setDraggedItem(null);
+    setDragOverItem(null);
+  };
+
+  const toggle = (key: SectionKey) => {
+    const isHidden = hidden.includes(key);
+    const nextHidden = isHidden ? hidden.filter(k => k !== key) : [...hidden, key];
+    onChange({ order, hidden: nextHidden });
+  };
 
   const move = (idx: number, dir: -1 | 1) => {
     const next = [...order];
@@ -48,12 +99,6 @@ function HomeSectionsEditor({
     const [item] = next.splice(idx, 1);
     next.splice(newIdx, 0, item);
     onChange({ order: next, hidden });
-  };
-
-  const toggle = (key: SectionKey) => {
-    const isHidden = hidden.includes(key);
-    const nextHidden = isHidden ? hidden.filter(k => k !== key) : [...hidden, key];
-    onChange({ order, hidden: nextHidden });
   };
 
   const labelMap: Record<SectionKey, string> = {
@@ -68,39 +113,147 @@ function HomeSectionsEditor({
 
   return (
     <div id="home-sections-editor" className="space-y-3">
-      <div id="home-sections-description" className="text-xs" style={{ color: 'var(--muted)' }}>
-        {'Customize the order and visibility of home page sections'}
+      <div id="home-sections-description" className="text-xs mb-4" style={{ color: 'var(--muted)' }}>
+        <div className="flex items-center gap-2 mb-2">
+          <span>🧩</span>
+          <span>{'Drag sections to reorder them or use the arrow buttons'}</span>
+        </div>
+        <div className="flex items-center gap-2">
+          <span>✅</span>
+          <span>{'Check/uncheck to show/hide sections on the home page'}</span>
+        </div>
       </div>
-      {order.map((key, idx) => {
-        const isHidden = hidden.includes(key);
-        return (
-          <div id={`section-item-${key}`} key={key} className={`p-3 rounded-lg border ${isHidden ? 'opacity-50' : ''}`} style={{ borderColor: 'color-mix(in srgb, var(--card), transparent 70%)' }}>
-            <div id={`section-item-content-${key}`} className="flex items-center gap-3">
-              <div id={`section-item-checkbox-container-${key}`} className="flex items-center">
-                <input id={`section-checkbox-${key}`} type="checkbox" checked={!hidden.includes(key)} onChange={() => toggle(key)} />
+      
+      <div className="space-y-2">
+        {order.map((key, idx) => {
+          const isHidden = hidden.includes(key);
+          const isDragging = draggedItem === key;
+          const isDragOver = dragOverItem === key;
+          
+          return (
+            <div 
+              id={`section-item-${key}`} 
+              key={key} 
+              draggable
+              onDragStart={() => handleDragStart(key)}
+              onDragOver={(e) => handleDragOver(e, key)}
+              onDragLeave={handleDragLeave}
+              onDrop={(e) => handleDrop(e, key)}
+              onDragEnd={handleDragEnd}
+              className={`
+                group relative p-4 rounded-xl border-2 transition-all duration-200 cursor-move
+                ${isHidden ? 'opacity-60' : 'opacity-100'}
+                ${isDragging ? 'scale-105 rotate-2 shadow-lg z-10' : 'scale-100 rotate-0'}
+                ${isDragOver && !isDragging ? 'scale-102 border-accent-1 shadow-md' : ''}
+                hover:shadow-md hover:scale-102
+              `} 
+              style={{ 
+                borderColor: isDragOver && !isDragging 
+                  ? 'var(--accent-1)' 
+                  : 'color-mix(in srgb, var(--card), transparent 60%)',
+                backgroundColor: isDragging 
+                  ? 'color-mix(in srgb, var(--accent-1), transparent 90%)' 
+                  : 'color-mix(in srgb, var(--card), transparent 80%)',
+                backdropFilter: 'blur(8px)'
+              }}
+            >
+              {/* Drag indicator */}
+              <div className="absolute left-2 top-1/2 transform -translate-y-1/2 opacity-50 group-hover:opacity-100 transition-opacity">
+                <div className="flex flex-col gap-0.5">
+                  <div className="w-1 h-1 rounded-full bg-current"></div>
+                  <div className="w-1 h-1 rounded-full bg-current"></div>
+                  <div className="w-1 h-1 rounded-full bg-current"></div>
+                  <div className="w-1 h-1 rounded-full bg-current"></div>
+                </div>
               </div>
-              <div id={`section-item-info-${key}`} className="flex-1">
-                <div id={`section-item-name-${key}`} className="text-sm font-medium">{labelMap[key]}</div>
-                <div id={`section-item-key-${key}`} className="text-xs" style={{ color: 'var(--muted)' }}>{key}</div>
+
+              <div id={`section-item-content-${key}`} className="flex items-center gap-4 ml-6">
+                {/* Visibility toggle */}
+                <div id={`section-item-checkbox-container-${key}`} className="flex items-center">
+                  <label className="relative cursor-pointer">
+                    <input 
+                      id={`section-checkbox-${key}`} 
+                      type="checkbox" 
+                      checked={!hidden.includes(key)} 
+                      onChange={() => toggle(key)}
+                      className="sr-only"
+                    />
+                    <div className={`
+                      w-5 h-5 rounded border-2 transition-all duration-200 flex items-center justify-center
+                      ${!isHidden 
+                        ? 'bg-accent-1 border-accent-1' 
+                        : 'border-gray-400 bg-transparent'
+                      }
+                    `}>
+                      {!isHidden && (
+                        <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                        </svg>
+                      )}
+                    </div>
+                  </label>
+                </div>
+
+                {/* Section info */}
+                <div id={`section-item-info-${key}`} className="flex-1">
+                  <div id={`section-item-name-${key}`} className="text-sm font-semibold flex items-center gap-2">
+                    <span className="text-lg">
+                      {key === 'hero' && '🏠'}
+                      {key === 'about' && '👋'}
+                      {key === 'skills' && '💪'}
+                      {key === 'projects' && '🚀'}
+                      {key === 'articles' && '📚'}
+                      {key === 'workflow' && '⚙️'}
+                      {key === 'contact' && '📧'}
+                    </span>
+                    <span>{labelMap[key]}</span>
+                  </div>
+                  <div id={`section-item-key-${key}`} className="text-xs mt-1" style={{ color: 'var(--muted)' }}>
+                    Section: {key}
+                  </div>
+                </div>
+
+                {/* Manual controls */}
+                <div id={`section-item-controls-${key}`} className="flex items-center gap-1 opacity-60 group-hover:opacity-100 transition-opacity">
+                  <button
+                    id={`section-move-up-${key}`}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      move(idx, -1);
+                    }}
+                    disabled={idx === 0}
+                    className="p-1.5 rounded-lg disabled:opacity-30 hover:bg-white/10 transition-colors"
+                    title="Move up"
+                  >
+                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clipRule="evenodd" />
+                    </svg>
+                  </button>
+                  <button
+                    id={`section-move-down-${key}`}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      move(idx, 1);
+                    }}
+                    disabled={idx === order.length - 1}
+                    className="p-1.5 rounded-lg disabled:opacity-30 hover:bg-white/10 transition-colors"
+                    title="Move down"
+                  >
+                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+                    </svg>
+                  </button>
+                </div>
               </div>
-            <div id={`section-item-controls-${key}`} className="flex items-center gap-2">
-              <button
-                id={`section-move-up-${key}`}
-                onClick={() => move(idx, -1)}
-                disabled={idx === 0}
-                className="p-1 rounded disabled:opacity-30"
-              >↑</button>
-              <button
-                id={`section-move-down-${key}`}
-                onClick={() => move(idx, 1)}
-                disabled={idx === order.length - 1}
-                className="p-1 rounded disabled:opacity-30"
-              >↓</button>
+
+              {/* Order indicator */}
+              <div className="absolute -top-2 -left-2 w-6 h-6 rounded-full bg-accent-1 text-white text-xs font-bold flex items-center justify-center shadow-lg">
+                {idx + 1}
+              </div>
             </div>
-            </div>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
     </div>
   );
 }
@@ -284,6 +437,12 @@ export default function SettingsPanel({ config }: Props) {
     // Update local state immediately for UI responsiveness
     setPreferences(prev => ({ ...prev, skillsDesign: design }));
     savePreferences({ skillsDesign: design });
+  };
+
+  const handleAboutLayoutChange = (layout: string) => {
+    // Update local state immediately for UI responsiveness
+    setPreferences(prev => ({ ...prev, aboutLayout: layout }));
+    savePreferences({ aboutLayout: layout });
   };
 
   const handleAnimationToggle = (enabled: boolean) => {
@@ -536,6 +695,36 @@ export default function SettingsPanel({ config }: Props) {
                               {design === 'carousel' && 'Interactive slideshow format'}
                               {design === 'masonry' && 'Pinterest-style varied heights'}
                               {design === 'timeline' && 'Chronological flow design'}
+                            </div>
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* About Section Layout Selection */}
+                  {config.aboutSection?.allowLayoutChange && (
+                    <div>
+                      <h3 className="text-sm font-medium mb-3">
+                        {translations?.common && 'aboutLayout' in translations.common 
+                          ? String(translations.common.aboutLayout)
+                          : 'About Section Layout'}
+                      </h3>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 p-1">
+                        {config.aboutSection.availableLayouts?.map((layout) => (
+                          <button
+                            key={layout}
+                            onClick={() => handleAboutLayoutChange(layout)}
+                            className={`p-3 rounded-lg text-left transition-all text-sm ${
+                              (preferences.aboutLayout || config.aboutSection?.layout) === layout
+                                ? 'ring-2 ring-accent-1 bg-white/10'
+                                : 'bg-white/5 hover:bg-white/10'
+                            }`}
+                          >
+                            <div className="font-medium capitalize">{layout}</div>
+                            <div className="text-xs mt-1" style={{ color: 'var(--muted)' }}>
+                              {layout === 'basic' && 'Simple text-based about section'}
+                              {layout === 'enhanced' && 'Rich layout with profile picture and timeline'}
                             </div>
                           </button>
                         ))}

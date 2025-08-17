@@ -377,6 +377,7 @@
           "colorThemes": "Farbthemen",
           "language": "Sprache",
           "skillsLayout": "Skills-Layout",
+          "aboutLayout": "Über-mich-Layout",
           "reorderSectionsHelp": "Abschnitte neu anordnen und Sichtbarkeit umschalten. Änderungen werden in Ihren Einstellungen gespeichert.",
           "login": "Anmelden",
           "logout": "Abmelden",
@@ -530,6 +531,7 @@
           "colorThemes": "Color Themes",
           "language": "Language",
           "skillsLayout": "Skills Layout",
+          "aboutLayout": "About Layout",
           "reorderSectionsHelp": "Reorder sections and toggle their visibility. Changes are saved to your preferences.",
           "hidden": "Hidden",
           "visible": "Visible",
@@ -690,6 +692,11 @@
     "allowLanguageChange": true,
     "cookieConsent": true,
     "adminOnly": false
+  },
+  "aboutSection": {
+    "layout": "enhanced",
+    "availableLayouts": ["basic", "enhanced"],
+    "allowLayoutChange": true
   },
   "skillsDisplay": {
     "design": "grid",
