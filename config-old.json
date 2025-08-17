@@ -1,0 +1,191 @@
+{
+  "site": {
+    "title": "Khaled Alabsi",
+    "description": "Professional Developer & Digital Innovator",
+    "url": "https://khaled-alabsi.github.io/my-life"
+  },
+  "theme": {
+    "active": "midnight-gradient",
+    "layout": "modern"
+  },
+  "personal": {
+    "name": "Khaled Alabsi",
+    "role": "Senior Full-Stack Developer",
+    "tagline": "Transforming ideas into exceptional digital experiences",
+    "email": "khaled.alabsi@example.com",
+    "phone": "+49 123 456 7890",
+    "location": "Germany",
+    "image": "/assets/csm_Khaled_Alabsi_Portraet_6d491f1c81.jpg",
+    "resume": "/assets/Alabsi_Khaled DE_250310.pdf",
+    "social": [
+      {
+        "platform": "Github",
+        "icon": "Github",
+        "url": "https://github.com/khaled-alabsi"
+      },
+      {
+        "platform": "LinkedIn",
+        "icon": "Linkedin",
+        "url": "https://linkedin.com/in/khaled-alabsi"
+      },
+      {
+        "platform": "Twitter",
+        "icon": "Twitter",
+        "url": "https://twitter.com/khaled_alabsi"
+      }
+    ]
+  },
+  "hero": {
+    "greeting": "Hello, I'm",
+    "name": "Khaled Alabsi",
+    "roles": [
+      "Full-Stack Developer",
+      "Digital Innovator",
+      "Problem Solver",
+      "Tech Enthusiast"
+    ],
+    "description": "I craft elegant solutions to complex problems, transforming innovative ideas into powerful digital experiences that drive business success.",
+    "cta": {
+      "primary": "Let's Work Together",
+      "secondary": "View My Work"
+    }
+  },
+  "about": {
+    "title": "About Me",
+    "subtitle": "Passionate about creating digital excellence",
+    "description": "With over 8 years of experience in software development, I specialize in building scalable web applications, mobile solutions, and cloud-native architectures. My expertise spans across modern technologies including React, Node.js, Python, and cloud platforms.",
+    "highlights": [
+      "8+ years of professional development experience",
+      "Expert in modern web technologies and frameworks",
+      "Proven track record of delivering high-quality solutions",
+      "Passionate about clean code and best practices"
+    ],
+    "skills": [
+      { "name": "Frontend Development", "level": 95, "technologies": ["React", "Next.js", "TypeScript", "Tailwind CSS"] },
+      { "name": "Backend Development", "level": 90, "technologies": ["Node.js", "Python", "PostgreSQL", "MongoDB"] },
+      { "name": "Cloud & DevOps", "level": 85, "technologies": ["AWS", "Docker", "Kubernetes", "CI/CD"] },
+      { "name": "Mobile Development", "level": 80, "technologies": ["React Native", "Flutter", "iOS", "Android"] }
+    ]
+  },
+  "experience": {
+    "title": "Experience & Projects",
+    "subtitle": "Building solutions that matter",
+    "projects": [
+      {
+        "title": "E-Commerce Platform",
+        "description": "Full-stack e-commerce solution with advanced analytics and real-time inventory management",
+        "technologies": ["React", "Node.js", "PostgreSQL", "Redis"],
+        "impact": "Increased sales by 40% and reduced load times by 60%"
+      },
+      {
+        "title": "Healthcare Management System",
+        "description": "Comprehensive patient management system with telemedicine capabilities",
+        "technologies": ["Vue.js", "Python", "Django", "WebRTC"],
+        "impact": "Served 10,000+ patients and improved efficiency by 50%"
+      },
+      {
+        "title": "FinTech Mobile App",
+        "description": "Secure mobile banking application with biometric authentication",
+        "technologies": ["React Native", "TypeScript", "AWS", "Blockchain"],
+        "impact": "Processed $1M+ in transactions with 99.9% uptime"
+      }
+    ]
+  },
+  "motivation": {
+    "title": "Why Work With Me?",
+    "subtitle": "Excellence in every line of code",
+    "points": [
+      {
+        "icon": "Zap",
+        "title": "Lightning Fast Development",
+        "description": "Rapid prototyping and iterative development ensure quick time-to-market without compromising quality."
+      },
+      {
+        "icon": "Shield",
+        "title": "Rock-Solid Security",
+        "description": "Security-first approach with industry best practices and comprehensive testing protocols."
+      },
+      {
+        "icon": "Rocket",
+        "title": "Scalable Solutions",
+        "description": "Future-proof architectures that grow with your business and adapt to changing requirements."
+      },
+      {
+        "icon": "Heart",
+        "title": "Passionate Craftsmanship",
+        "description": "Every project is treated with care, attention to detail, and a commitment to excellence."
+      }
+    ]
+  },
+  "process": {
+    "title": "From Idea to Reality",
+    "subtitle": "My proven development process",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Concept & Discovery",
+        "description": "Understanding your vision, requirements, and business objectives",
+        "icon": "Lightbulb"
+      },
+      {
+        "number": "02",
+        "title": "Analysis & Planning",
+        "description": "Technical analysis, architecture design, and project roadmap creation",
+        "icon": "Search"
+      },
+      {
+        "number": "03",
+        "title": "Design & Prototyping",
+        "description": "User experience design and interactive prototypes for validation",
+        "icon": "Palette"
+      },
+      {
+        "number": "04",
+        "title": "Development & Testing",
+        "description": "Agile development with continuous testing and quality assurance",
+        "icon": "Code"
+      },
+      {
+        "number": "05",
+        "title": "Deployment & Launch",
+        "description": "Production deployment with monitoring and performance optimization",
+        "icon": "Rocket"
+      },
+      {
+        "number": "06",
+        "title": "Support & Evolution",
+        "description": "Ongoing maintenance, updates, and feature enhancements",
+        "icon": "Wrench"
+      }
+    ]
+  },
+  "contact": {
+    "title": "Let's Build Something Amazing",
+    "subtitle": "Ready to turn your ideas into reality?",
+    "description": "Whether you have a specific project in mind or just want to explore possibilities, I'm here to help bring your vision to life.",
+    "info": [
+      {
+        "icon": "Mail",
+        "label": "Email",
+        "value": "khaled.alabsi@example.com"
+      },
+      {
+        "icon": "Phone",
+        "label": "Phone",
+        "value": "+1 (555) 123-4567"
+      },
+      {
+        "icon": "MapPin",
+        "label": "Location",
+        "value": "San Francisco, CA"
+      }
+    ],
+    "form": {
+      "name": "Your Name",
+      "email": "Your Email",
+      "subject": "Project Subject",
+      "message": "Tell me about your project...",
+      "submit": "Send Message"
+    }
+  }
+}

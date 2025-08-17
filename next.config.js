@@ -1,30 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
-  distDir: 'docs',
   trailingSlash: true,
-  eslint: {
-    // Warning: This allows production builds to successfully complete even if
-    // your project has ESLint errors.
-    ignoreDuringBuilds: true,
-  },
+  skipTrailingSlashRedirect: true,
+  distDir: 'docs',
   images: {
-    unoptimized: true,
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'source.unsplash.com',
-        port: '',
-        pathname: '/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'images.unsplash.com',
-        port: '',
-        pathname: '/**',
-      },
-    ],
+    unoptimized: true
   },
-};
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/my-life' : '',
+  basePath: process.env.NODE_ENV === 'production' ? '/my-life' : '',
+}
 
-module.exports = nextConfig;
+module.exports = nextConfig
