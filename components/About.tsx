@@ -10,6 +10,7 @@ const About = ({ content, config }: AboutProps) => {
     <section id="about" className="py-20 lg:py-32 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Image Section */}
           <div className="relative">
             <div className="relative z-10">
               <div className="relative overflow-hidden rounded-2xl">
@@ -23,10 +24,10 @@ const About = ({ content, config }: AboutProps) => {
                 </div>
                 
                 <div className="absolute -top-4 -right-4 glass p-4 rounded-xl">
-                  <div className="flex items-center space-x-2">
+                  {/* <div className="flex items-center space-x-2">
                     <span className="text-theme-warning">⭐</span>
                     <span className="text-sm font-semibold">{content.experience}+ Years</span>
-                  </div>
+                  </div> */}
                   <p className="text-xs text-theme-secondary">{content.experienceLabel}</p>
                 </div>
 
@@ -47,6 +48,7 @@ const About = ({ content, config }: AboutProps) => {
             </div>
           </div>
 
+          {/* Content Section */}
           <div className="space-y-8">
             <div>
               <h2 className="text-3xl lg:text-5xl font-bold mb-4">
@@ -60,6 +62,7 @@ const About = ({ content, config }: AboutProps) => {
               </p>
             </div>
 
+            {/* Highlights */}
             <div className="space-y-4">
               {content.highlights.map((highlight: string, index: number) => (
                 <div key={index} className="flex items-start space-x-3">
@@ -69,28 +72,30 @@ const About = ({ content, config }: AboutProps) => {
               ))}
             </div>
 
+            {/* Skills Section - Redesigned without progress bars */}
             <div className="space-y-6">
               <h3 className="text-2xl font-bold mb-6" style={{ color: 'var(--text)' }}>{content.skillsTitle}</h3>
-              <div className="space-y-4">
+              
+              {/* Skills Grid */}
+              <div className="grid gap-6">
                 {content.skills.map((skill: any, index: number) => (
-                  <div key={skill.name} className="space-y-2">
-                    <div className="flex justify-between items-center">
-                      <span className="font-semibold" style={{ color: 'var(--text)' }}>{skill.name}</span>
-                      <span className="text-primary font-bold">{skill.level}%</span>
+                  <div key={skill.name} className="glass p-6 rounded-xl hover:scale-105 transition-transform duration-300">
+                    <div className="flex items-center space-x-3 mb-4">
+                      <div className="w-3 h-3 bg-gradient-to-r from-primary to-accent rounded-full"></div>
+                      <h4 className="text-lg font-semibold" style={{ color: 'var(--text)' }}>{skill.name}</h4>
                     </div>
                     
-                    <div className="relative h-2 bg-gray-700 rounded-full overflow-hidden">
-                      <div
-                        className="absolute left-0 top-0 h-full bg-gradient-to-r from-primary to-accent rounded-full transition-all duration-1000 ease-out"
-                        style={{ width: `${skill.level}%` }}
-                      />
-                    </div>
-                    
-                    <div className="flex flex-wrap gap-2 mt-2">
+                    {/* Technologies as clean tags */}
+                    <div className="flex flex-wrap gap-2">
                       {skill.technologies.map((tech: string, techIndex: number) => (
                         <span
                           key={tech}
-                          className="px-3 py-1 bg-primary/20 text-primary text-sm rounded-full border border-primary/30"
+                          className="px-3 py-1 text-sm rounded-full border transition-colors duration-200 hover:scale-105"
+                          style={{ 
+                            backgroundColor: 'var(--surface)',
+                            borderColor: 'var(--border)',
+                            color: 'var(--text)'
+                          }}
                         >
                           {tech}
                         </span>
@@ -104,6 +109,7 @@ const About = ({ content, config }: AboutProps) => {
         </div>
       </div>
 
+      {/* Background decorations */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-1/4 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
         <div className="absolute bottom-1/4 left-0 w-80 h-80 bg-secondary/5 rounded-full blur-3xl" />

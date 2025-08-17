@@ -31,15 +31,6 @@ const Hero: React.FC<HeroProps> = ({ content, config }) => {
             >
               {content.cta.primary}
             </a>
-            <a 
-              href={`/assets/${config.personal.cv}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="glass px-8 py-4 text-lg font-semibold border-2 border-primary/30 hover:border-primary/60 hover:bg-primary/10 rounded-full transition-all duration-300 inline-block text-center no-underline"
-              style={{ color: 'var(--text)' }}
-            >
-              {content.cta.secondary}
-            </a>
           </div>
         </div>
       </div>

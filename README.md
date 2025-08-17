@@ -281,7 +281,7 @@ Configure SEO and site information:
    ```json
    {
      "site": {
-       "url": "https://yourusername.github.io/repository-name"
+       "url": "https://khaledpage.github.io/profile"
      }
    }
    ```
@@ -289,8 +289,8 @@ Configure SEO and site information:
 2. **Update `next.config.js` with your repository name:**
    ```javascript
    const nextConfig = {
-     assetPrefix: process.env.NODE_ENV === 'production' ? '/repository-name' : '',
-     basePath: process.env.NODE_ENV === 'production' ? '/repository-name' : '',
+     assetPrefix: process.env.NODE_ENV === 'production' ? '/profile' : '',
+     basePath: process.env.NODE_ENV === 'production' ? '/profile' : '',
    }
    ```
 
@@ -314,7 +314,7 @@ Configure SEO and site information:
    - Save settings
 
 6. **Access your site:**
-   Your portfolio will be available at: `https://yourusername.github.io/repository-name`
+   Your portfolio will be available at: `https://khaledpage.github.io/profile`
 
 ### Other Deployment Options
 
