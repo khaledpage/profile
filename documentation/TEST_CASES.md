@@ -1087,12 +1087,168 @@ This document contains all test cases for the portfolio application, covering ev
 
 ---
 
-*This test suite covers all implemented features and ensures comprehensive quality assurance for the portfolio application, with special emphasis on article management, file upload/download functionality, and the new multi-backend architecture.*
+---
+
+## 📝 Article Template System
+
+### TEMP-001: Template Manager Interface (P0 - E2E)
+
+**Description**: Test template management interface in admin dashboard
+
+**Steps**:
+1. Navigate to `/admin`
+2. Click on "Templates" tab
+3. Verify template manager container loads
+4. Check title and subtitle display
+5. Verify "Create Template" button is visible
+6. Check category filter section displays
+7. Verify templates grid loads with predefined templates
+
+**Expected Result**: Template manager interface displays correctly with all navigation elements
+
+### TEMP-002: Template Category Filtering (P1 - E2E)
+
+**Description**: Test template filtering by category
+
+**Steps**:
+1. Navigate to admin Templates tab
+2. Click on "All Templates" filter
+3. Note total template count
+4. Click on "Tutorial" category filter
+5. Verify only tutorial templates are shown
+6. Check category filter styling (active state)
+7. Repeat for other categories (Review, Case Study, etc.)
+
+**Expected Result**: Templates filter correctly by category with visual feedback
+
+### TEMP-003: Template Preview Functionality (P1 - E2E)
+
+**Description**: Test template preview modal
+
+**Steps**:
+1. Navigate to admin Templates tab
+2. Click "Preview" button on any template
+3. Verify preview modal opens
+4. Check modal header shows template name
+5. Verify metadata section displays correctly
+6. Check content structure preview is visible
+7. Test closing modal with close button
+8. Test closing modal with Escape key
+
+**Expected Result**: Template preview shows complete template structure and metadata
+
+### TEMP-004: Predefined Templates Content (P0 - UNIT)
+
+**Description**: Validate predefined template content and structure
+
+**Steps**:
+1. Load template service
+2. Get all predefined templates
+3. Verify tutorial template has proper structure
+4. Check review template has all required sections
+5. Validate case study template completeness
+6. Ensure all templates have required metadata
+7. Verify template content contains placeholders
+
+**Expected Result**: All predefined templates have consistent structure and complete content
+
+### TEMP-005: Template Storage Persistence (P1 - INTEGRATION)
+
+**Description**: Test template storage in local storage
+
+**Steps**:
+1. Create a custom template
+2. Save template
+3. Refresh the page
+4. Navigate back to Templates tab
+5. Verify custom template persists
+6. Delete custom template
+7. Refresh page again
+8. Verify template is removed
+
+**Expected Result**: Custom templates persist across sessions and can be managed
+
+### TEMP-006: Article Creation from Template (P0 - E2E)
+
+**Description**: Test creating articles using templates
+
+**Steps**:
+1. Navigate to admin Templates tab
+2. Click "Use Template" on tutorial template
+3. Verify redirect to article creation (if implemented)
+4. OR verify template data is properly prepared
+5. Check metadata pre-population
+6. Verify content structure is generated
+7. Test customization options
+
+**Expected Result**: Templates generate properly structured article content with metadata
+
+### TEMP-007: Template Service API (P0 - UNIT)
+
+**Description**: Test template service methods and data handling
+
+**Steps**:
+1. Test getAllTemplates() returns predefined + custom templates
+2. Test getTemplatesByCategory() filters correctly
+3. Test getTemplate() by ID returns correct template
+4. Test saveTemplate() creates new custom template
+5. Test updateTemplate() modifies existing template
+6. Test deleteTemplate() removes custom template
+7. Test createArticleFromTemplate() generates article data
+
+**Expected Result**: All template service methods work correctly with proper data validation
+
+### TEMP-008: Template Category Organization (P1 - E2E)
+
+**Description**: Test template categorization and organization
+
+**Steps**:
+1. Navigate to admin Templates tab
+2. Verify all category buttons are present
+3. Check category icons display correctly
+4. Verify template counts per category
+5. Test category descriptions (if displayed)
+6. Check custom category for user templates
+
+**Expected Result**: Templates are properly organized by category with clear navigation
+
+### TEMP-009: Template Multilingual Support (P1 - E2E)
+
+**Description**: Test template interface in different languages
+
+**Steps**:
+1. Navigate to admin Templates tab (English)
+2. Verify English interface text
+3. Switch to German language
+4. Navigate to Templates tab
+5. Verify German translations display
+6. Check template names and descriptions
+7. Test switching back to English
+
+**Expected Result**: Template interface supports both English and German languages
+
+### TEMP-010: Template Error Handling (P1 - E2E)
+
+**Description**: Test template system error handling
+
+**Steps**:
+1. Navigate to Templates tab
+2. Try to access non-existent template
+3. Verify error handling for missing templates
+4. Test template creation with invalid data
+5. Check error messages are user-friendly
+6. Verify system gracefully handles storage errors
+
+**Expected Result**: Template system handles errors gracefully with helpful user feedback
+
+---
+
+*This test suite covers all implemented features and ensures comprehensive quality assurance for the portfolio application, with special emphasis on article management, file upload/download functionality, multi-backend architecture, and the new article template system.*
 - Clean up test artifacts after execution
 - Mock external dependencies where appropriate
 
 ---
 
-**Last Updated**: 2024-12-19
-**Version**: 1.0.0
+**Last Updated**: August 16, 2025
+**Version**: 1.1.0
 **Maintainer**: Development Team

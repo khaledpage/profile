@@ -8,7 +8,17 @@
    - Environments: .env.local
 
  ✓ Starting...
- ✓ Ready in 1801ms
+ ✓ Ready in 1715ms
  ○ Compiling / ...
- ✓ Compiled / in 2.1s (1563 modules)
+ ✓ Compiled / in 1206ms (1549 modules)
 No custom defaults found, using base configuration
+ ✓ Compiled in 105ms (658 modules)
+ ○ Compiling /articles ...
+ ✓ Compiled /articles in 617ms (1196 modules)
+No custom defaults found, using base configuration
+ GET /articles 200 in 2335ms
+ GET /articles 200 in 92ms
+ ✓ Compiled /favicon.ico in 385ms (1289 modules)
+ GET /favicon.ico 200 in 486ms
+ GET /api/articles 200 in 551ms
+[?25h

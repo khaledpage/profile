@@ -119,7 +119,7 @@
 | ART-22   | Tag Filtering            | Filter articles by tags                         | High     | Clickable tag chips; multi-select; clear-all; combined with search query                                  |
 | ADMIN-01 | Admin Role Toggle        | Admin mode with feature gating                  | High     | Admin default enabled; toggle in settings (if allowed); event-driven UI updates                           |
 | ADMIN-02 | ZIP Download             | Per-article ZIP download (admin-only)           | High     | Button on cards in admin mode; includes article.md, metadata.json, assets/                                |
-| ADMIN-03 | ZIP Upload               | Upload article ZIPs and merge for import        | Medium   | Upload control in Articles page (admin); produces imported-articles.zip; doc updated                      |
+| ADMIN-03 | ZIP Upload               | Upload article ZIPs and merge for import        | Medium   | ✅ COMPLETED (Aug 17, 2025) - POST API endpoint; ZIP extraction; file creation; articles list integration; E2E tested |
 | ADMIN-04 | Article Deletion         | Admin can delete articles via web interface     | High     | ✅ COMPLETED (Dec 27, 2024) - Delete button on article cards; confirmation dialog; API authentication; file cleanup |
 | ADMIN-05 | Bulk Article Operations  | Admin can select/delete multiple articles       | Medium   | ✅ COMPLETED (Aug 16, 2025) - Bulk mode toggle; checkbox selection; bulk delete with progress feedback               |
 | ADMIN-06 | Upload Progress Display  | Progress indicator for ZIP file uploads         | Low      | ✅ COMPLETED (Aug 16, 2025) - Progress bars per file; success/error indicators; enhanced upload feedback             |
@@ -136,3 +136,7 @@
 | BACK-05  | Backend Migration        | Tools to migrate articles between backends      | Medium   | ✅ COMPLETED (Aug 16, 2025) - Migration service; progress tracking; batch processing; error handling      |
 | BACK-06  | Fallback Backend         | Secondary backend for redundancy and sync      | Medium   | ✅ COMPLETED (Aug 16, 2025) - Fallback configuration; automatic sync; conflict resolution; failover      |
 | BACK-07  | Backend Security         | Secure credential handling and authentication   | High     | ✅ COMPLETED (Aug 16, 2025) - Encrypted storage; input validation; secure API requests; access controls   |
+| TEMP-01  | Article Templates        | Reusable templates for consistent content       | High     | ✅ COMPLETED (Aug 16, 2025) - Template service; predefined templates; template manager UI; article generation |
+| TEMP-02  | Template Categories      | Organized template types and filtering          | High     | ✅ COMPLETED (Aug 16, 2025) - Category system; filter interface; organized template storage; visual indicators |
+| TEMP-03  | Template Preview         | Preview template structure before use           | Medium   | ✅ COMPLETED (Aug 16, 2025) - Modal preview; metadata display; content structure; escape key handling     |
+| TEMP-04  | Custom Templates         | User-created template management                | Medium   | ✅ COMPLETED (Aug 16, 2025) - Custom template creation; CRUD operations; local storage persistence; validation |

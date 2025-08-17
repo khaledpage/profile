@@ -8,6 +8,7 @@
 import { Article, ArticleMetadata } from '@/types/article';
 import fs from 'fs';
 import path from 'path';
+import JSZip from 'jszip';
 
 export interface ArticleService {
   // CRUD Operations
@@ -166,9 +167,122 @@ export class FileSystemArticleService implements ArticleService {
   }
 
   async uploadFromZip(zipBuffer: ArrayBuffer): Promise<{ slug: string; title?: string }[]> {
-    // Implementation for ZIP upload would go here
-    // This would extract the ZIP and create articles
-    throw new Error('ZIP upload not implemented yet');
+    try {
+      const zip = await JSZip.loadAsync(zipBuffer);
+      const results: { slug: string; title?: string }[] = [];
+
+      // Process each file in the ZIP
+      for (const [filepath, file] of Object.entries(zip.files)) {
+        if (file.dir) continue; // Skip directories
+
+        // Look for metadata.json files to identify articles
+        if (filepath.endsWith('metadata.json')) {
+          try {
+            const metadataContent = await file.async('text');
+            const metadata: ArticleMetadata = JSON.parse(metadataContent);
+            
+            // Generate slug from title or use directory name
+            const slug = this.generateSlugFromTitle(metadata.title) || 
+                        filepath.split('/')[filepath.split('/').length - 2] || 
+                        `imported-${Date.now()}`;
+
+            // Find corresponding article.md file
+            const articlePath = filepath.replace('metadata.json', 'article.md');
+            const articleFile = zip.files[articlePath];
+            
+            if (!articleFile) {
+              console.warn(`No article.md found for ${filepath}, skipping`);
+              continue;
+            }
+
+            const content = await articleFile.async('text');
+
+            // Create the article directories
+            const contentDir = path.join(this.contentDir, slug);
+            const publicDir = path.join(this.publicDir, slug);
+
+            // Ensure directories exist
+            if (!fs.existsSync(contentDir)) {
+              fs.mkdirSync(contentDir, { recursive: true });
+            }
+            if (!fs.existsSync(publicDir)) {
+              fs.mkdirSync(publicDir, { recursive: true });
+            }
+
+            // Write metadata.json
+            fs.writeFileSync(
+              path.join(contentDir, 'metadata.json'),
+              JSON.stringify(metadata, null, 2)
+            );
+
+            // Write article.md
+            fs.writeFileSync(path.join(contentDir, 'article.md'), content);
+
+            // Handle assets
+            const assetDir = path.join(contentDir, 'assets');
+            const publicAssetDir = path.join(publicDir, 'assets');
+            
+            // Process assets if they exist
+            const basePath = filepath.replace('/metadata.json', '');
+            for (const [assetPath, assetFile] of Object.entries(zip.files)) {
+              if (assetPath.startsWith(basePath + '/assets/') && !assetFile.dir) {
+                const assetName = path.basename(assetPath);
+                
+                // Ensure asset directories exist
+                if (!fs.existsSync(assetDir)) {
+                  fs.mkdirSync(assetDir, { recursive: true });
+                }
+                if (!fs.existsSync(publicAssetDir)) {
+                  fs.mkdirSync(publicAssetDir, { recursive: true });
+                }
+
+                // Write asset files
+                const assetBuffer = await assetFile.async('nodebuffer');
+                fs.writeFileSync(path.join(assetDir, assetName), assetBuffer);
+                fs.writeFileSync(path.join(publicAssetDir, assetName), assetBuffer);
+              }
+            }
+
+            // Create public JSON file for the article
+            const articleData = {
+              slug,
+              metadata,
+              content,
+              assets: fs.existsSync(assetDir) ? fs.readdirSync(assetDir) : []
+            };
+
+            fs.writeFileSync(
+              path.join(publicDir, 'article.json'),
+              JSON.stringify(articleData, null, 2)
+            );
+
+            results.push({ slug, title: metadata.title });
+          } catch (error) {
+            console.error(`Error processing article from ${filepath}:`, error);
+            // Continue processing other articles
+          }
+        }
+      }
+
+      // Update articles.json index
+      if (results.length > 0) {
+        await this.updateArticlesIndex();
+      }
+
+      return results;
+    } catch (error) {
+      console.error('Error uploading from ZIP:', error);
+      throw new Error(`Failed to process ZIP file: ${error instanceof Error ? error.message : 'Unknown error'}`);
+    }
+  }
+
+  private generateSlugFromTitle(title: string): string {
+    return title
+      .toLowerCase()
+      .replace(/[^a-z0-9\s-]/g, '') // Remove special characters
+      .replace(/\s+/g, '-') // Replace spaces with hyphens
+      .replace(/-+/g, '-') // Replace multiple hyphens with single
+      .replace(/^-|-$/g, ''); // Remove leading/trailing hyphens
   }
 
   async exportAsZip(slug: string): Promise<ArrayBuffer> {

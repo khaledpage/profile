@@ -381,4 +381,58 @@ This feature extends the existing modular ArticleService architecture to support
 
 ---
 
+### FEAT-012: Article Template System
+
+**ID**: FEAT-012
+**Date**: August 16, 2025
+**Status**: ✅ DONE
+**Implementation Date**: August 16, 2025
+
+#### User Story
+
+As an admin, I want to create reusable article templates (tutorial, review, case study, etc.), so that I can maintain consistent content structure and create articles faster.
+
+#### Implementation Details
+
+- Created template service with predefined structures for tutorials, reviews, and case studies
+- Form-based article creation from templates with customization options
+- Template management interface in admin panel with categories and filters
+- Template preview functionality with content structure display
+- Predefined templates for common article types with placeholder content
+
+#### Technical Changes
+
+- `src/services/templateService.ts`: Complete template management service
+- `src/components/admin/TemplateManager.tsx`: Template creation and management UI
+- `src/components/articles/ArticleFromTemplate.tsx`: Template-based article creation
+- `src/app/admin/page.tsx`: Added Templates tab to admin dashboard
+- `src/content/config.json`: Added template translations (EN/DE)
+- `src/types/content.ts`: Extended type definitions for template interface
+- `tests/article-templates.spec.ts`: Comprehensive test coverage
+
+#### Features Implemented
+
+- **Predefined Templates**: Tutorial, Product Review, and Case Study templates
+- **Template Categories**: Organized by type (tutorial, review, case-study, news, documentation, custom)
+- **Template Management**: Create, preview, and delete custom templates
+- **Article Creation**: Generate articles from templates with customizable metadata
+- **Template Preview**: Modal preview showing structure and metadata
+- **Category Filtering**: Filter templates by category with count indicators
+- **Multilingual Support**: German and English translations
+- **Local Storage**: Templates persist in browser storage
+
+#### Acceptance Criteria
+
+- ✅ Predefined templates for common article types
+- ✅ Template creation interface in admin panel
+- ✅ Article creation from template with pre-filled structure
+- ✅ Template preview functionality
+- ✅ Template categorization and organization
+- ✅ Category-based filtering with visual indicators
+- ✅ Integration with existing admin dashboard
+- ✅ Multilingual interface support
+- ✅ Test coverage for all major functionality
+
+---
+
 ### feature: if the admin log in the login save to the cookie in the browser or session. if it in cookie the user should be ask to accept cookie again if he didnt accpet it befor. 

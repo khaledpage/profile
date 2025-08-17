@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { getAllArticles } from '@/utils/articles';
 import { Article } from '@/types/article';
+import { createArticleService } from '@/services/articleService';
 import fs from 'fs';
 import path from 'path';
 
@@ -60,70 +61,81 @@ export async function DELETE(request: Request) {
   }
 }
 
-export async function PUT(request: Request) {
+export async function POST(request: Request) {
   try {
-    // Check for admin authentication
     const adminKey = request.headers.get('x-admin-key');
-
     if (!adminKey || adminKey !== process.env.ADMIN_PASSWORD) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    const { article }: { article: Article } = await request.json();
-    
-    if (!article || !article.slug) {
-      return NextResponse.json({ error: 'Invalid article data' }, { status: 400 });
+    // Parse the uploaded files from FormData
+    const formData = await request.formData();
+    const files = formData.getAll('files') as File[];
+
+    if (!files || files.length === 0) {
+      return NextResponse.json({ error: 'No files provided' }, { status: 400 });
     }
 
-    const { slug, metadata, content } = article;
+    const service = createArticleService();
+    const results: { slug: string; title?: string }[] = [];
+    const errors: string[] = [];
 
-    // Define article paths
-    const contentDir = path.join(process.cwd(), 'src/content/articles', slug);
-    const metadataPath = path.join(contentDir, 'metadata.json');
-    const contentPath = path.join(contentDir, 'article.md');
+    // Process each uploaded ZIP file
+    for (const file of files) {
+      try {
+        if (!file.name.endsWith('.zip')) {
+          errors.push(`${file.name}: Only ZIP files are allowed`);
+          continue;
+        }
 
-    // Ensure content directory exists
-    if (!fs.existsSync(contentDir)) {
-      fs.mkdirSync(contentDir, { recursive: true });
-    }
-
-    // Update metadata.json
-    fs.writeFileSync(metadataPath, JSON.stringify(metadata, null, 2));
-
-    // Update article.md
-    fs.writeFileSync(contentPath, content);
-
-    // Update articles.json in public/data
-    const articlesJsonPath = path.join(process.cwd(), 'public/data/articles.json');
-    if (fs.existsSync(articlesJsonPath)) {
-      const articlesData = JSON.parse(fs.readFileSync(articlesJsonPath, 'utf8'));
-      
-      // Find and update the article in the JSON data
-      const articleIndex = articlesData.findIndex((a: { slug: string }) => a.slug === slug);
-      
-      if (articleIndex !== -1) {
-        // Update existing article
-        articlesData[articleIndex] = {
-          slug,
-          metadata,
-          // Keep existing coverImageUrl if it exists
-          ...(articlesData[articleIndex].coverImageUrl && { coverImageUrl: articlesData[articleIndex].coverImageUrl })
-        };
-      } else {
-        // Add new article
-        articlesData.push({
-          slug,
-          metadata
-        });
+        // Convert file to ArrayBuffer
+        const arrayBuffer = await file.arrayBuffer();
+        
+        // Upload the ZIP file using the service
+        const uploadResults = await service.uploadFromZip(arrayBuffer);
+        results.push(...uploadResults);
+      } catch (error) {
+        console.error(`Error processing file ${file.name}:`, error);
+        errors.push(`${file.name}: ${error instanceof Error ? error.message : 'Unknown error'}`);
       }
-      
-      fs.writeFileSync(articlesJsonPath, JSON.stringify(articlesData, null, 2));
     }
 
-    return NextResponse.json({ message: 'Article updated successfully' }, { status: 200 });
+    return NextResponse.json({ 
+      success: true, 
+      results, 
+      errors: errors.length > 0 ? errors : undefined 
+    });
   } catch (error) {
-    console.error('Update article error:', error);
-    return NextResponse.json({ error: 'Failed to update article' }, { status: 500 });
+    console.error('POST /api/articles error:', error);
+    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
+  }
+}
+
+export async function PUT(request: Request) {
+  try {
+    const adminKey = request.headers.get('x-admin-key');
+    if (!adminKey || adminKey !== process.env.ADMIN_PASSWORD) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    }
+
+    const body = await request.json();
+    const { slug, article } = body;
+
+    if (!slug || !article) {
+      return NextResponse.json({ error: 'Missing slug or article data' }, { status: 400 });
+    }
+
+    const service = createArticleService();
+    const updated = await service.updateArticle(slug, article);
+
+    if (updated) {
+      return NextResponse.json({ success: true, slug });
+    } else {
+      return NextResponse.json({ error: 'Article not found' }, { status: 404 });
+    }
+  } catch (error) {
+    console.error('PUT /api/articles error:', error);
+    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }
  

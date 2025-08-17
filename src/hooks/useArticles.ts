@@ -331,37 +331,67 @@ export function useArticleUpload(): UseArticleUploadReturn {
   const [uploadResults, setUploadResults] = useState<{ slug: string; title?: string }[]>([]);
 
   const uploadFiles = useCallback(async (files: FileList) => {
+    const adminKey = localStorage.getItem('admin-password');
+    if (!adminKey) {
+      alert('Admin authentication required. Please log in again.');
+      window.location.href = '/login';
+      return;
+    }
+
     setIsUploading(true);
     setProgress({});
     setUploadResults([]);
 
-    // Implementation would handle file uploads with progress tracking
-    // This is a placeholder for the actual upload logic
-    
     try {
+      // Create FormData for file upload
+      const formData = new FormData();
+      
+      // Add files to formData and initialize progress
       for (let i = 0; i < files.length; i++) {
         const file = files[i];
-        const fileName = file.name;
-        
-        // Simulate progress
-        setProgress(prev => ({ ...prev, [fileName]: 0 }));
-        
-        // Simulate upload process
-        for (let p = 0; p <= 100; p += 25) {
-          await new Promise(resolve => setTimeout(resolve, 200));
-          setProgress(prev => ({ ...prev, [fileName]: p }));
-        }
+        formData.append('files', file);
+        setProgress(prev => ({ ...prev, [file.name]: 0 }));
       }
+
+      // Upload files to the API
+      const response = await fetch('/api/articles', {
+        method: 'POST',
+        headers: {
+          'x-admin-key': adminKey,
+        },
+        body: formData,
+      });
+
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.error || 'Upload failed');
+      }
+
+      const result = await response.json();
       
-      // Simulate results
-      const results = Array.from(files).map((file, index) => ({
-        slug: `uploaded-article-${index}`,
-        title: file.name.replace('.zip', '')
-      }));
-      
-      setUploadResults(results);
+      // Update progress to 100% for all files
+      const finalProgress: { [fileName: string]: number } = {};
+      for (let i = 0; i < files.length; i++) {
+        finalProgress[files[i].name] = 100;
+      }
+      setProgress(finalProgress);
+
+      // Set upload results
+      setUploadResults(result.results || []);
+
+      // Show errors if any
+      if (result.errors && result.errors.length > 0) {
+        console.warn('Upload errors:', result.errors);
+        alert(`Some files had issues:\n${result.errors.join('\n')}`);
+      }
+
     } catch (error) {
       console.error('Upload error:', error);
+      alert(`Upload failed: ${error instanceof Error ? error.message : 'Unknown error'}`);
+      
+      // Reset progress on error
+      setProgress({});
+      setUploadResults([]);
     } finally {
       setIsUploading(false);
     }

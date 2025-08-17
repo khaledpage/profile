@@ -2,14 +2,37 @@
 
 ## 📊 Summary Statistics
 
-- **Total Issues Tracked**: 26
-- **Resolved Issues**: 25
+- **Total Issues Tracked**: 27
+- **Resolved Issues**: 26
 - **Active Issues**: 1  
 - **Success Rate**: 96%
 
 ## 🚨 Active Issues
 
-### Issue #024 - Articles Scroll Container Height and Speed Issues
+### Issue #026 - Article Upload Not Showing in Articles List
+
+- **Status**: ✅ Fixed  
+- **Priority**: High
+- **Reported**: August 17, 2025
+- **Description**: When uploading articles via ZIP file, uploaded articles do not appear in the articles list despite upload success indication
+- **Root Cause**: Missing POST endpoint in articles API route and incomplete uploadFromZip implementation in ArticleService
+- **Fix Applied**:
+  - Implemented complete POST endpoint in `/src/app/api/articles/route.ts` with FormData handling, authentication, and file processing
+  - Completed `uploadFromZip` method in FileSystemArticleService with ZIP extraction, metadata parsing, file creation, and asset handling
+  - Updated `useArticleUpload` hook to use real API endpoint instead of placeholder simulation
+  - Added proper JSZip TypeScript type definitions to handle ZIP file processing
+  - Ensured uploaded articles include required `published: true` field for visibility
+  - Fixed articles index updating to include newly uploaded articles
+- **Files Changed**:
+  - `src/app/api/articles/route.ts` (added POST endpoint with complete ZIP processing)
+  - `src/services/articleService.ts` (implemented uploadFromZip with file system operations)
+  - `src/hooks/useArticles.ts` (replaced placeholder with real API integration)
+  - `src/types/ambient.d.ts` (added JSZip type definitions)
+  - `playwright.config.ts` (updated baseURL to match server port)
+- **Test Coverage**: E2E test FILE-002 passing, manual upload testing confirmed
+- **Impact**: Article upload functionality now works end-to-end, uploaded articles immediately appear in articles list
+
+### Issue #025 - Articles Scroll Container Height and Speed Issues
 
 - **Status**: ✅ Fixed
 - **Priority**: Medium  

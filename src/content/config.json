@@ -485,6 +485,24 @@
             "enableSync": "Automatische Synchronisation mit Backup-Backend aktivieren",
             "saveConfig": "Konfiguration speichern",
             "testNewBackend": "Neues Backend testen"
+          },
+          "templates": {
+            "title": "Artikel-Vorlagen",
+            "subtitle": "Wiederverwendbare Artikel-Vorlagen erstellen und verwalten",
+            "createNew": "Vorlage erstellen",
+            "useTemplate": "Vorlage verwenden",
+            "preview": "Vorschau",
+            "delete": "Löschen",
+            "noTemplates": "Keine Vorlagen gefunden",
+            "categories": {
+              "all": "Alle Vorlagen",
+              "tutorial": "Tutorial",
+              "review": "Bewertung",
+              "caseStudy": "Fallstudie",
+              "news": "Nachrichten",
+              "documentation": "Dokumentation",
+              "custom": "Benutzerdefiniert"
+            }
           }
         }
       },
@@ -611,6 +629,24 @@
             "enableSync": "Enable automatic sync with fallback backend",
             "saveConfig": "Save Configuration",
             "testNewBackend": "Test New Backend"
+          },
+          "templates": {
+            "title": "Article Templates",
+            "subtitle": "Create and manage reusable article templates",
+            "createNew": "Create Template",
+            "useTemplate": "Use Template",
+            "preview": "Preview",
+            "delete": "Delete",
+            "noTemplates": "No templates found",
+            "categories": {
+              "all": "All Templates",
+              "tutorial": "Tutorial",
+              "review": "Review",
+              "caseStudy": "Case Study",
+              "news": "News",
+              "documentation": "Documentation",
+              "custom": "Custom"
+            }
           }
         }
       }

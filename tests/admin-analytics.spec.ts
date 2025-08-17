@@ -30,7 +30,7 @@ test.describe('Admin Dashboard Comprehensive', () => {
       await expect(statNumber).toBeVisible();
       
       const numberText = await statNumber.textContent();
-      expect(numberText).toMatch(/\\d+/); // Should contain at least one digit
+      expect(numberText).toMatch(/\d+/); // Should contain at least one digit
     }
     
     // Verify quick actions section

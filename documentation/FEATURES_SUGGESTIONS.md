@@ -15,15 +15,6 @@ This file contains suggested features and improvements based on recent implement
 - Live cursor indicators
 **Status**: Pending approval
 
-### SUGGESTION-009: Article Template System
-**Description**: Create reusable article templates (tutorial, review, case study, etc.)
-**Rationale**: Consistent content structure and faster article creation
-**Implementation**:
-- Template service with predefined structures
-- Form-based article creation from templates
-- Custom template creation
-**Status**: approved
-
 ### SUGGESTION-010: Enhanced Article Search
 **Description**: Full-text search with advanced filters (date range, author, reading time)
 **Rationale**: Better content discovery with professional search experience

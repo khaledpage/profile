@@ -205,6 +205,24 @@ export interface SiteConfig {
           saveConfig: string;
           testNewBackend: string;
         };
+        templates?: {
+          title: string;
+          subtitle: string;
+          createNew: string;
+          useTemplate: string;
+          preview: string;
+          delete: string;
+          noTemplates: string;
+          categories: {
+            all: string;
+            tutorial: string;
+            review: string;
+            caseStudy: string;
+            news: string;
+            documentation: string;
+            custom: string;
+          };
+        };
       };
     }>;
   };

@@ -9,6 +9,7 @@ import { SiteConfig } from '@/types/content';
 import { Article } from '@/types/article';
 import AnalyticsDashboard from '@/components/ui/AnalyticsDashboard';
 import BackendSelector from '@/components/admin/BackendSelector';
+import TemplateManager from '@/components/admin/TemplateManager';
 
 export default function AdminDashboard() {
   const router = useRouter();
@@ -161,6 +162,22 @@ export default function AdminDashboard() {
               }}
             >
               Backend
+            </button>
+            
+            <button
+              id="templates-tab"
+              onClick={() => setActiveTab('templates')}
+              className={`py-4 px-2 border-b-2 font-medium text-sm transition-colors ${
+                activeTab === 'templates'
+                  ? 'border-accent-1 text-accent-1'
+                  : 'border-transparent hover:text-accent-1'
+              }`}
+              style={{ 
+                color: activeTab === 'templates' ? 'var(--accent-1)' : 'var(--muted)',
+                borderColor: activeTab === 'templates' ? 'var(--accent-1)' : 'transparent'
+              }}
+            >
+              Templates
             </button>
           </nav>
         </div>
@@ -356,6 +373,17 @@ export default function AdminDashboard() {
         {/* Backend Configuration Tab Content */}
         {activeTab === 'backend' && config && (
           <BackendSelector config={config} />
+        )}
+
+        {/* Templates Tab Content */}
+        {activeTab === 'templates' && config && (
+          <TemplateManager 
+            config={config} 
+            onCreateFromTemplate={(templateId) => {
+              // Redirect to article creation with template
+              router.push(`/admin/articles/new?template=${templateId}`);
+            }}
+          />
         )}
       </div>
     </div>
