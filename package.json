@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "export": "next build && mkdir -p docs && cp -r out/* docs/ && echo '' > docs/.nojekyll"
+    "export": "next build && mkdir -p docs && cp -r out/* docs/ && echo '' > docs/.nojekyll",
+    "test-local": "cp next.config.local.js next.config.js && next build && mkdir -p test-local && cp -r out/* test-local/ && git checkout next.config.js && echo 'Local test build created in test-local/ folder'"
   },
   "dependencies": {
     "next": "14.0.4",

@@ -6,7 +6,7 @@ const nextConfig = {
   images: {
     unoptimized: true
   },
-  // Remove base path for custom domain
+  // Remove base path for local testing
   assetPrefix: '',
   basePath: '',
 }
