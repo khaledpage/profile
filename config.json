@@ -78,8 +78,8 @@
     "email": "khaled.alabsi@example.com",
     "phone": "+49 123 456 7890",
     "location": "Germany",
-    "image": "/assets/csm_Khaled_Alabsi_Portraet_6d491f1c81.jpg",
-    "resume": "/assets/Alabsi_Khaled DE_250310.pdf",
+    "image": "./assets/csm_Khaled_Alabsi_Portraet_6d491f1c81.jpg",
+    "resume": "./assets/Alabsi_Khaled DE_250310.pdf",
     "social": [
       {
         "platform": "Github",
@@ -526,7 +526,7 @@
               "Docker",
               "Kubernetes"
             ],
-            "image": "/assets/project1.jpg",
+            "image": "./assets/project1.jpg",
             "demo": "",
             "github": "",
             "featured": true
@@ -542,7 +542,7 @@
               "PostgreSQL",
               "REST APIs"
             ],
-            "image": "/assets/project2.jpg",
+            "image": "./assets/project2.jpg",
             "demo": "",
             "github": "",
             "featured": true
@@ -558,7 +558,7 @@
               "Node.js",
               "MongoDB"
             ],
-            "image": "/assets/project3.jpg",
+            "image": "./assets/project3.jpg",
             "demo": "",
             "github": "",
             "featured": true
@@ -574,7 +574,7 @@
               "REST APIs",
               "Push Notifications"
             ],
-            "image": "/assets/project4.jpg",
+            "image": "./assets/project4.jpg",
             "demo": "",
             "github": "",
             "featured": false
@@ -590,7 +590,7 @@
               "Elasticsearch",
               "API Gateway"
             ],
-            "image": "/assets/project5.jpg",
+            "image": "./assets/project5.jpg",
             "demo": "",
             "github": "",
             "featured": false
@@ -606,7 +606,7 @@
               "Grafana",
               "ELK Stack"
             ],
-            "image": "/assets/project6.jpg",
+            "image": "./assets/project6.jpg",
             "demo": "",
             "github": "",
             "featured": false

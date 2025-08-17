@@ -35,6 +35,8 @@
 | **Process Icons Bug Fix** | Fixed Process section icons displaying as text by implementing proper icon mapping | ✅ Fixed |
 | **Contact Component Configuration** | Fixed configuration flags (showForm, showContactInfo, showSocialLinks, showDownloadCV) not working | ✅ Fixed |
 | **Experience Container Sizing** | Fixed container height inconsistency for projects with and without images using flexbox layout | ✅ Fixed |
+| **GitHub Pages Asset Path Fix** | Fixed profile image and all asset paths not loading on GitHub Pages by changing from absolute to relative paths | ✅ Fixed |
+| **Export Script Deprecation Fix** | Updated package.json export script to remove deprecated 'next export' command, using modern output: 'export' method | ✅ Fixed |
 
 ## Theme Categories
 

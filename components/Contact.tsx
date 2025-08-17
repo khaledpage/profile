@@ -114,7 +114,7 @@ const Contact = ({ content, config, currentLanguage }: ContactProps) => {
               {showDownloadCV && (
                 <div className="pt-6">
                   <a
-                    href="/assets/Alabsi_Khaled DE_250310.pdf"
+                    href="./assets/Alabsi_Khaled DE_250310.pdf"
                     download
                     className="inline-flex items-center space-x-2 btn-secondary px-6 py-3 rounded-lg"
                   >
