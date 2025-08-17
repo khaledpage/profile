@@ -12,6 +12,16 @@
 | **Responsive Design** | ✅ Complete | Mobile-first approach with tablet and desktop optimization |
 | **Navigation** | ✅ Complete | Sticky navigation with smooth scrolling and mobile menu |
 | **Static Export** | ✅ Complete | Configured for GitHub Pages deployment |
+| **Image Display** | 🔧 Fixed | Fixed double path issue in About section profile image |
+| **Contact Integration** | 🔧 Updated | Replaced resume download button with Contact Me button |
+
+## Recent Updates (August 2025)
+
+| Update | Description | Status |
+|--------|-------------|--------|
+| **Image Path Fix** | Fixed profile image not displaying due to double `/assets/` path | ✅ Fixed |
+| **Navigation Update** | Replaced PDF download button with "Contact Me" button that scrolls to contact section | ✅ Implemented |
+| **GitHub Pages Build** | Successfully built and deployed static files to `/docs` directory | ✅ Complete |
 
 ## Theme Categories
 
