@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { Article } from '@/types/article';
+import { renderMarkdownSync } from '@/utils/markdown';
 
 interface ArticleEditModalProps {
   article: Article;
@@ -64,10 +65,11 @@ export default function ArticleEditModal({ article, isOpen, onClose, onSave }: A
         tags !== article.metadata.tags.join(', ') ||
         category !== article.metadata.category ||
         featured !== article.metadata.featured ||
-        coverImage !== (article.metadata.coverImage || '')
+        coverImage !== (article.metadata.coverImage || '') ||
+        content !== (article.content || '')
       );
     }
-  }, [title, summary, tags, category, featured, coverImage, isOpen, article]);
+  }, [title, summary, tags, category, featured, coverImage, content, isOpen, article]);
 
   // Auto-save functionality
   const autoSave = useCallback(async () => {
@@ -330,10 +332,10 @@ export default function ArticleEditModal({ article, isOpen, onClose, onSave }: A
                   id="preview-content"
                   className="prose prose-lg max-w-none"
                   style={{ color: 'var(--foreground)' }}
-                >
-                  {/* Simple markdown preview - in production, use a proper markdown renderer */}
-                  <pre className="whitespace-pre-wrap font-sans">{content}</pre>
-                </div>
+                  dangerouslySetInnerHTML={{
+                    __html: renderMarkdownSync(content)
+                  }}
+                />
               </div>
             ) : (
               <div id="editor-container" className="flex-1 flex flex-col p-6">

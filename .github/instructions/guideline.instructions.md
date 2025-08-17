@@ -17,12 +17,12 @@ Hints
 When the user types "start", perform these steps in order:
 
 1. Read FEATURES_AS_STORIES.md.
-2. Implement one incomplete story:
+2. Implement all incomplete stories:
   - Assign a unique ID.
   - Implement the feature.
   - Add implementation date.
   - Mark the story as done.
-3. Address ACTIVE_BUGS.md:
+3. Address all ACTIVE_BUGS.md:
   - Reword each bug concisely.
   - Leave a user-verification placeholder before closing a bug.
   - If the fix fails, retry and log attempt number.
@@ -30,13 +30,13 @@ When the user types "start", perform these steps in order:
 4. Update REQUIREMENTS_TABELLE.md with statuses.
 5. Follow the FEATURE SUGGESTIONS workflow:
   - Add suggestions to FEATURES_SUGGESTIONS.md with an approval placeholder.
-  - If approved: implement -> add to FEATURES_AS_STORIES.md (with ID) -> update REQUIREMENTS_TABELLE.md -> remove from suggestions.
+  - If approved: implement -> add to FEATURES_AS_STORIES.md (with ID) -> update REQUIREMENTS_TABELLE.md -> remove (delete it) from suggestions.
   - If rejected: move to FEATURES_REJECTED.md with reason.
   - If pending: keep in suggestions with required-info placeholders.
 6. For each new feature/bug fix:
   - Add test cases in TEST_CASES.md.
   - Implement automated tests (Playwright) covering unit, integration, and e2e flows.
-7. Consider work complete only when all relevant tests pass. Record results and blockers.
+7. Consider work complete only when all relevant tests/e2e tests pass. Record results and blockers.
 8. Log all attempts in problem_solving_log.md (description, steps, result, attempt number). Read this file first to avoid repeating failed approaches.
 
 ---

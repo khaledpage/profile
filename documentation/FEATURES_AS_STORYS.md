@@ -439,3 +439,5 @@ As an admin, I want to create reusable article templates (tutorial, review, case
 
 
 ## feature: the User Education - How to Edit Articles in Real Time, should have dont show again option, and it only displayed once per user session, and only in admin role
+
+## feature: the article editing button and deletion confirmation should also seen when open the article like in http://localhost:3001/articles/nextjs-vs-react
