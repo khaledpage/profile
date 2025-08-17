@@ -66,9 +66,22 @@
 ---
 
 BUG-005: Filter Layout Issue
-Status: Active
+Status: **FIXED** ✅
 Priority: Medium
 Description: The "Filter by Category:" should have own row and never move to fill empty space, if some tags in the row above are becomed less, because of filtering.
+
+**Root Cause**: The filter layout used `space-y-4` but was not explicitly forced to use flex-col layout, which could allow horizontal flow in some edge cases.
+
+**Fix Applied**: 
+- Changed layout from `space-y-4` to `flex flex-col gap-4` for explicit vertical stacking
+- Added `flex flex-col` to each filter section container
+- Added `max-w-xs` to category select and clear button to prevent stretching
+- Ensured Category filter always remains on its own row regardless of tag filtering
+
+**Files Modified**: 
+- `/src/components/articles/ArticlesExplorer.tsx`: Updated filter layout structure
+
+**Date Fixed**: January 17, 2025
 
 ---
 
@@ -136,23 +149,60 @@ Description: Filter by Category should maintain its own row and not move to fill
 ---
 
 CR-001: Default Admin Mode
-Status: Pending
+Status: **FIXED** ✅
 Priority: Low
 Description: Change the default mode to non-admin mode.
+
+**Fix Applied**: Changed `"enabledByDefault": true` to `"enabledByDefault": false` in src/content/config.json
+
+**Files Modified**: 
+- `/src/content/config.json`: Updated admin.enabledByDefault from true to false
+
+**Date Fixed**: January 17, 2025
 
 ---
 
 BUG-007: Test Selector Inconsistency
-Status: Active
+Status: **FIXED** ✅
 Priority: Low
 Description: The selector page.waitForSelector('#admin-dashboard') is sometimes changed to '#admin-dashboard-container' and back. Need consistent solution with code comments to prevent repeated changes.
+
+**Fix Applied**: Added clear documentation comments in admin page component specifying the correct test selector ID to use.
+
+**Files Modified**: 
+- `/src/app/admin/page.tsx`: Added documentation comment explaining test selector requirements
+
+**Documentation Added**:
+```tsx
+{/* 
+  IMPORTANT FOR TESTS: Main container ID is #admin-dashboard
+  - DO NOT change to #admin-dashboard-container 
+  - Tests depend on this exact selector: page.waitForSelector('#admin-dashboard')
+  - Sub-elements use: #admin-dashboard-title, #admin-dashboard-subtitle, #admin-dashboard-loading
+*/}
+```
+
+**Date Fixed**: January 17, 2025
 
 ---
 
 BUG-008: Theme-dependent Styling Tests
-Status: Active
+Status: **FIXED** ✅
 Priority: Low
 Description: In tests, accept that some styling (color, opacity) can change depending on theme. Tests should not be harsh in such cases and should be flexible with theme-dependent styling variations.
+
+**Fix Applied**: Updated theme-related tests to be more flexible and accept theme variations rather than expecting specific color values.
+
+**Files Modified**: 
+- `/tests/theme-i18n-accessibility.spec.ts`: Made background color test flexible to accept any valid CSS color format
+- `/tests/back-button-consistency.spec.ts`: Updated glass styling test to include CSS custom properties
+
+**Changes Made**:
+- Replaced rigid RGB value matching with flexible CSS color format detection
+- Added support for CSS custom properties (var(--*)) in color tests
+- Enhanced regex patterns to accept modern color formats including color-mix() and color()
+
+**Date Fixed**: January 17, 2025
 
 ---
 
@@ -201,11 +251,46 @@ Description: The back buttons on the articles page and other pages were not posi
 
 ---
 
-bug : the styles should be always in own file, that are shared for all the project and good organized, so never hard code the styles in the components. this will ensure better maintainability and consistency across the application.
+bug: the styles should be always in own file, that are shared for all the project and good organized, so never hard code the styles in the components. this will ensure better maintainability and consistency across the application.
 
+Status: **PARTIALLY FIXED** ⚠️
+Priority: Medium
+Description: Hardcoded styles in components reduce maintainability and consistency. Styles should be organized in dedicated CSS files.
+
+**Fix Applied**: Created a shared components CSS file with commonly used styles that were previously hardcoded.
+
+**Files Created**: 
+- `/src/styles/components.css`: Comprehensive CSS utility classes for common component patterns
+
+**Files Modified**: 
+- `/src/app/globals.css`: Added import for components.css
+
+**Progress Made**:
+- Created utility classes for text colors (.text-foreground, .text-muted, .text-accent)
+- Created utility classes for backgrounds (.bg-card-blend, .bg-accent-light)
+- Created utility classes for borders (.border-muted, .border-accent)
+- Created component classes for modal, glass, article cards, forms, buttons
+- Created responsive and theme-specific variations
+
+**Next Steps**: Replace hardcoded styles with CSS classes in components (ongoing refactoring needed)
+
+**Date Started**: January 17, 2025
 
 ---
 
 bug: setting panel width is not enough, the skill layout selection, show selection box cut out in width
+
+Status: **FIXED** ✅
+Priority: Medium
+Description: Settings panel width is insufficient for skill layout selection, causing selection boxes to be cut off.
+
+**Fix Applied**: 
+- Increased modal width from `max-w-2xl` to `max-w-4xl` for more space
+- Improved skills layout grid from `grid-cols-1 gap-2` to `grid-cols-1 sm:grid-cols-2 gap-3` for better layout
+
+**Files Modified**: 
+- `/src/components/ui/SettingsPanel.tsx`: Increased modal width and improved grid layout
+
+**Date Fixed**: January 17, 2025
 
 ---

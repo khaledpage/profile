@@ -2,12 +2,90 @@
 
 ## 📊 Summary Statistics
 
-- **Total Issues Tracked**: 33
-- **Resolved Issues**: 29
-- **Active Issues**: 4  
-- **Success Rate**: 88%
+- **Total Issues Tracked**: 39
+- **Resolved Issues**: 36
+- **Active Issues**: 1 (partially fixed)
+- **Success Rate**: 92%
 
-## 🚨 Recent Fixes
+## 🚨 Recent Fixes (January 17, 2025)
+
+### Issue #039 - Settings Panel Width Bug (FIXED ✅)
+
+- **Status**: ✅ Resolved
+- **Priority**: Medium  
+- **Reported**: January 17, 2025
+- **Description**: Settings panel width insufficient for skill layout selection, causing selection boxes to be cut off.
+
+- **Solution Applied**:
+  - Increased modal width from `max-w-2xl` to `max-w-4xl` for more space
+  - Improved skills layout grid from `grid-cols-1 gap-2` to `grid-cols-1 sm:grid-cols-2 gap-3`
+
+- **Files Modified**: `/src/components/ui/SettingsPanel.tsx`
+
+### Issue #038 - Hardcoded Styles in Components (PARTIALLY FIXED ⚠️)
+
+- **Status**: ⚠️ Partially Fixed
+- **Priority**: Medium
+- **Reported**: January 17, 2025
+- **Description**: Hardcoded styles reduce maintainability and consistency.
+
+- **Solution Applied**:
+  - Created shared `/src/styles/components.css` with utility classes
+  - Added import to `/src/app/globals.css`
+  - Created utility classes for common patterns (text, backgrounds, borders, modals, forms)
+
+- **Next Steps**: Replace hardcoded styles with CSS classes in components (ongoing)
+
+### Issue #037 - Theme-dependent Styling Tests (FIXED ✅)
+
+- **Status**: ✅ Resolved
+- **Priority**: Low
+- **Reported**: January 17, 2025
+- **Description**: Tests failing due to rigid color value expectations across themes.
+
+- **Solution Applied**:
+  - Updated theme tests to accept any valid CSS color format
+  - Made background color assertions flexible for theme variations
+  - Enhanced regex patterns for modern color formats (color-mix, var)
+
+- **Files Modified**: `/tests/theme-i18n-accessibility.spec.ts`, `/tests/back-button-consistency.spec.ts`
+
+### Issue #036 - Test Selector Inconsistency (FIXED ✅)
+
+- **Status**: ✅ Resolved
+- **Priority**: Low
+- **Reported**: January 17, 2025
+- **Description**: Admin dashboard selector inconsistency between `#admin-dashboard` and `#admin-dashboard-container`.
+
+- **Solution Applied**:
+  - Added clear documentation comments in admin page component
+  - Specified correct test selector ID requirements to prevent future changes
+
+- **Files Modified**: `/src/app/admin/page.tsx`
+
+### Issue #035 - Default Admin Mode (FIXED ✅)
+
+- **Status**: ✅ Resolved
+- **Priority**: Low
+- **Reported**: January 17, 2025
+- **Description**: Change default mode to non-admin mode.
+
+- **Solution Applied**: Changed `"enabledByDefault": true` to `"enabledByDefault": false` in config
+- **Files Modified**: `/src/content/config.json`
+
+### Issue #034 - Filter Layout Issue (FIXED ✅)
+
+- **Status**: ✅ Resolved
+- **Priority**: Medium
+- **Reported**: January 17, 2025
+- **Description**: Category filter moving to fill empty space when tags are filtered.
+
+- **Solution Applied**:
+  - Changed layout from `space-y-4` to `flex flex-col gap-4` for explicit vertical stacking
+  - Added `flex flex-col` to each filter section container
+  - Added `max-w-xs` to prevent stretching
+
+- **Files Modified**: `/src/components/articles/ArticlesExplorer.tsx`
 
 ### Issue #033 - Article Editing Functionality Issues (IN PROGRESS)
 

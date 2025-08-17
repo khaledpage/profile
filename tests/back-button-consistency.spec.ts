@@ -208,8 +208,8 @@ test.describe('Back Button Consistency', () => {
         // Verify glass styling
         expect(glassStyles.backdropFilter).toContain('blur');
         expect(glassStyles.borderRadius).toBe('16px'); // 1rem
-        // Background should be semi-transparent (modern browsers use color() format)
-        expect(glassStyles.backgroundColor).toMatch(/rgba?\([^)]*,\s*[0-9.]+\)|color\(srgb.*\/.*\)/);
+        // Background should be semi-transparent (flexible for different themes and color formats)
+        expect(glassStyles.backgroundColor).toMatch(/rgba?\([^)]*,\s*[0-9.]+\)|color\(srgb.*\/.*\)|var\(--[^)]+\)/);
       }
     }
   });

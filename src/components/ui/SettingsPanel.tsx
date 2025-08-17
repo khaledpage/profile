@@ -345,7 +345,7 @@ export default function SettingsPanel({ config }: Props) {
         >
           <div 
             id="settings-panel"
-            className="w-full max-w-2xl rounded-2xl p-6 h-[80vh] flex flex-col"
+            className="w-full max-w-4xl rounded-2xl p-6 h-[80vh] flex flex-col"
             style={{
               background: 'var(--card)',
               color: 'var(--foreground)',
@@ -511,7 +511,7 @@ export default function SettingsPanel({ config }: Props) {
                           ? String(translations.common.skillsLayout)
                           : 'Skills Layout'}
                       </h3>
-                      <div className="grid grid-cols-1 gap-2">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         {config.skillsDisplay.availableDesigns?.map((design) => (
                           <button
                             key={design}

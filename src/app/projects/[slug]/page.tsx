@@ -3,6 +3,10 @@ import { getAllContent, getSiteConfig } from '@/utils/content';
 import type { Project } from '@/types/content';
 import Link from 'next/link';
 
+function slugify(title: string) {
+  return title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+}
+
 export async function generateStaticParams() {
   try {
     const { projects } = await getAllContent();
@@ -10,10 +14,6 @@ export async function generateStaticParams() {
   } catch {
     return [];
   }
-}
-
-function slugify(title: string) {
-  return title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 }
 
 function findProject(projects: Project[], slug: string): Project | null {

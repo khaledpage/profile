@@ -87,6 +87,12 @@ export default function AdminDashboard() {
 
   return (
     <div id="admin-dashboard" className="min-h-screen" style={{ backgroundColor: 'var(--background)' }}>
+      {/* 
+        IMPORTANT FOR TESTS: Main container ID is #admin-dashboard
+        - DO NOT change to #admin-dashboard-container 
+        - Tests depend on this exact selector: page.waitForSelector('#admin-dashboard')
+        - Sub-elements use: #admin-dashboard-title, #admin-dashboard-subtitle, #admin-dashboard-loading
+      */}
       {/* Header */}
       <header id="admin-header" className="border-b" style={{ borderColor: 'var(--card)' }}>
         <div className="container mx-auto px-4 py-6">

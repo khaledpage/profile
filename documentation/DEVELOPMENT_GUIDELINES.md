@@ -32,6 +32,7 @@ Before making any changes, ensure you follow these steps:
 - [ ] Ensure readability across all themes (dark/light/vibrant)
 - [ ] Maintain consistent spacing and component patterns
 - [ ] Test responsive design on different screen sizes
+- [ ] All styles are not hardcoded in elements, they should be defined in CSS classes.
 
 ### 🧭 Navigation & UX
 

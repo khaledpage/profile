@@ -291,10 +291,10 @@ export default function ArticlesExplorer({ config }: ArticlesExplorerProps) {
         )}
 
         {/* Filters */}
-        <div id="articles-explorer-filters" className="mb-4 space-y-4">
+        <div id="articles-explorer-filters" className="mb-4 flex flex-col gap-4">
           {/* Tag Filter Row */}
           {tags.length > 0 && (
-            <div className="w-full">
+            <div className="w-full flex flex-col">
               <label className="block text-sm font-medium mb-2">Filter by Tag:</label>
               <div className="flex flex-wrap gap-2">
                 {tags.map(tag => (
@@ -317,13 +317,13 @@ export default function ArticlesExplorer({ config }: ArticlesExplorerProps) {
 
           {/* Category Filter Row - Always on separate row */}
           {categories.length > 0 && (
-            <div className="w-full">
+            <div className="w-full flex flex-col">
               <label className="block text-sm font-medium mb-2">Filter by Category:</label>
               <select
                 id="category-filter-select"
                 value={selectedCategory}
                 onChange={(e) => handleCategoryFilter(e.target.value)}
-                className="px-3 py-2 border rounded bg-card text-foreground"
+                className="px-3 py-2 border rounded bg-card text-foreground max-w-xs"
               >
                 <option value="">All Categories</option>
                 {categories.map(category => (
@@ -337,11 +337,11 @@ export default function ArticlesExplorer({ config }: ArticlesExplorerProps) {
 
           {/* Clear Filters Row */}
           {(searchTerm || selectedTag || selectedCategory) && (
-            <div className="w-full">
+            <div className="w-full flex flex-col">
               <button
                 id="clear-filters-button"
                 onClick={handleClearFilters}
-                className="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600"
+                className="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 max-w-xs"
               >
                 Clear Filters
               </button>
