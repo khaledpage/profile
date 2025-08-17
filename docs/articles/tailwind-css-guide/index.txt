@@ -1,0 +1,782 @@
+1:"$Sreact.fragment"
+3:I[7555,[],""]
+4:I[1295,[],""]
+6:I[9665,[],"OutletBoundary"]
+8:I[4911,[],"AsyncMetadataOutlet"]
+a:I[9665,[],"ViewportBoundary"]
+c:I[9665,[],"MetadataBoundary"]
+d:"$Sreact.suspense"
+f:I[8393,[],""]
+:HL["/_next/static/media/569ce4b8f30dc480-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/media/93f479601ee12b01-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/_next/static/css/ede2448e004ae69d.css","style"]
+:HL["/_next/static/css/09dfadb69bdaa005.css","style"]
+0:{"P":null,"b":"5QyHVeBhPAXN08XoAIEIF","p":"","c":["","articles","tailwind-css-guide",""],"i":false,"f":[[["",{"children":["articles",{"children":[["slug","tailwind-css-guide","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/ede2448e004ae69d.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],"$L2"]}],{"children":["articles",["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["slug","tailwind-css-guide","d"],["$","$1","c",{"children":[null,["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L5",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/09dfadb69bdaa005.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","$L6",null,{"children":["$L7",["$","$L8",null,{"promise":"$@9"}]]}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,[["$","$La",null,{"children":"$Lb"}],["$","meta",null,{"name":"next-size-adjust","content":""}]],["$","$Lc",null,{"children":["$","div",null,{"hidden":true,"children":["$","$d",null,{"fallback":null,"children":"$Le"}]}]}]]}],false]],"m":"$undefined","G":["$f",[]],"s":false,"S":true}
+10:I[674,["330","static/chunks/d3ac728e-3c8e3ea0cde7eecf.js","874","static/chunks/874-437a265a67d6cfee.js","63","static/chunks/63-b8ba2254fb9ac97a.js","859","static/chunks/859-ac8518b844428efa.js","904","static/chunks/app/articles/%5Bslug%5D/page-5cecfbd7adf8bff3.js"],"default"]
+11:I[6947,["330","static/chunks/d3ac728e-3c8e3ea0cde7eecf.js","874","static/chunks/874-437a265a67d6cfee.js","63","static/chunks/63-b8ba2254fb9ac97a.js","859","static/chunks/859-ac8518b844428efa.js","904","static/chunks/app/articles/%5Bslug%5D/page-5cecfbd7adf8bff3.js"],"default"]
+12:I[6874,["330","static/chunks/d3ac728e-3c8e3ea0cde7eecf.js","874","static/chunks/874-437a265a67d6cfee.js","63","static/chunks/63-b8ba2254fb9ac97a.js","859","static/chunks/859-ac8518b844428efa.js","904","static/chunks/app/articles/%5Bslug%5D/page-5cecfbd7adf8bff3.js"],""]
+5:["$","$L10",null,{"children":[["$","$L11",null,{"slug":"tailwind-css-guide","title":"Tailwind CSS: The Ultimate Guide to Utility-First Styling"}],["$","div",null,{"className":"min-h-screen pt-20","children":["$","article",null,{"className":"py-12","children":["$","div",null,{"className":"container mx-auto px-6 max-w-4xl","children":[["$","nav",null,{"className":"mb-8","children":["$","ol",null,{"className":"flex items-center space-x-2 text-sm","children":[["$","li",null,{"children":["$","$L12",null,{"href":"/","className":"hover:text-accent-1 transition-colors","style":{"color":"var(--muted)"},"children":"Home"}]}],["$","span",null,{"style":{"color":"var(--muted)"},"children":"/"}],["$","li",null,{"children":["$","$L12",null,{"href":"/articles","className":"hover:text-accent-1 transition-colors","style":{"color":"var(--muted)"},"children":"Articles"}]}],["$","span",null,{"style":{"color":"var(--muted)"},"children":"/"}],["$","li",null,{"style":{"color":"var(--foreground)"},"children":"Tailwind CSS: The Ultimate Guide to Utility-First Styling"}]]}]}],["$","$L12",null,{"href":"/articles","className":"fab-nav glass back-btn","style":{"left":"1rem","right":"auto","backgroundColor":"color-mix(in srgb, var(--card), transparent 20%)","border":"1px solid color-mix(in srgb, var(--foreground), transparent 90%)","color":"var(--foreground)","padding":"0.75rem 1rem","borderRadius":"1rem","textDecoration":"none","display":"flex","alignItems":"center","gap":"0.5rem","fontSize":"0.875rem","fontWeight":"500","transition":"all 0.2s ease","backdropFilter":"blur(12px)","position":"fixed","bottom":"5.5rem","zIndex":40},"children":"← Articles"}],["$","div",null,{"className":"mb-8","children":[["$","div",null,{"className":"flex items-center gap-2 mb-4","children":[["$","span",null,{"className":"px-3 py-1 rounded-lg text-sm font-medium","style":{"backgroundColor":"color-mix(in srgb, var(--accent-2), transparent 70%)","color":"var(--accent-2)"},"children":"CSS & Styling"}],["$","span",null,{"className":"px-3 py-1 rounded-lg text-sm font-medium","style":{"backgroundColor":"var(--accent-1)","color":"var(--card-contrast)"},"children":"Featured"}]]}],["$","h1",null,{"className":"text-4xl md:text-5xl font-bold mb-6","style":{"color":"var(--foreground)"},"children":"Tailwind CSS: The Ultimate Guide to Utility-First Styling"}],["$","p",null,{"className":"text-xl mb-6","style":{"color":"var(--muted)"},"children":"Master Tailwind CSS from basics to advanced techniques. Learn utility-first methodology, responsive design, customization, and best practices for modern web development."}],["$","div",null,{"className":"flex flex-wrap items-center gap-4 mb-8","children":[["$","div",null,{"className":"flex items-center gap-2","children":["$","span",null,{"className":"text-sm font-medium","style":{"color":"var(--foreground)"},"children":["By ","Khaled Alabsi"]}]}],["$","span",null,{"style":{"color":"var(--muted)"},"children":"•"}],["$","span",null,{"className":"text-sm","style":{"color":"var(--muted)"},"children":"January 16, 2025"}],["$","span",null,{"style":{"color":"var(--muted)"},"children":"•"}],["$","span",null,{"className":"text-sm","style":{"color":"var(--muted)"},"children":[15," min read"]}]]}],["$","div",null,{"className":"flex flex-wrap gap-2","children":[["$","span","Tailwind CSS",{"className":"px-3 py-1 rounded-lg text-sm","style":{"backgroundColor":"color-mix(in srgb, var(--card), transparent 30%)","color":"var(--muted)"},"children":"Tailwind CSS"}],["$","span","CSS",{"className":"px-3 py-1 rounded-lg text-sm","style":{"backgroundColor":"color-mix(in srgb, var(--card), transparent 30%)","color":"var(--muted)"},"children":"CSS"}],["$","span","Utility-First",{"className":"px-3 py-1 rounded-lg text-sm","style":{"backgroundColor":"color-mix(in srgb, var(--card), transparent 30%)","color":"var(--muted)"},"children":"Utility-First"}],["$","span","Responsive Design",{"className":"px-3 py-1 rounded-lg text-sm","style":{"backgroundColor":"color-mix(in srgb, var(--card), transparent 30%)","color":"var(--muted)"},"children":"Responsive Design"}],["$","span","Web Development",{"className":"px-3 py-1 rounded-lg text-sm","style":{"backgroundColor":"color-mix(in srgb, var(--card), transparent 30%)","color":"var(--muted)"},"children":"Web Development"}]]}]]}],["$","div",null,{"className":"relative aspect-video mb-12 rounded-2xl overflow-hidden","children":"$L13"}],"$L14","$L15"]}]}]}]]}]
+16:I[3063,["330","static/chunks/d3ac728e-3c8e3ea0cde7eecf.js","874","static/chunks/874-437a265a67d6cfee.js","63","static/chunks/63-b8ba2254fb9ac97a.js","859","static/chunks/859-ac8518b844428efa.js","904","static/chunks/app/articles/%5Bslug%5D/page-5cecfbd7adf8bff3.js"],"Image"]
+17:I[571,["330","static/chunks/d3ac728e-3c8e3ea0cde7eecf.js","874","static/chunks/874-437a265a67d6cfee.js","63","static/chunks/63-b8ba2254fb9ac97a.js","859","static/chunks/859-ac8518b844428efa.js","904","static/chunks/app/articles/%5Bslug%5D/page-5cecfbd7adf8bff3.js"],"default"]
+19:I[4331,["177","static/chunks/app/layout-7c0feacb3be76484.js"],"default"]
+1a:I[6268,["177","static/chunks/app/layout-7c0feacb3be76484.js"],"default"]
+13:["$","$L16",null,{"src":"https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=400&fit=crop&crop=entropy&auto=format","alt":"Tailwind CSS: The Ultimate Guide to Utility-First Styling","fill":true,"className":"object-cover","priority":true}]
+18:T4d60,# Tailwind CSS: The Ultimate Guide to Utility-First Styling
+
+Tailwind CSS has revolutionized how developers approach styling by introducing a utility-first methodology that prioritizes speed, consistency, and maintainability. This comprehensive guide will take you from Tailwind basics to advanced techniques, helping you master this powerful CSS framework.
+
+## What is Tailwind CSS?
+
+Tailwind CSS is a utility-first CSS framework that provides low-level utility classes to build custom designs without leaving your HTML. Instead of writing custom CSS, you compose designs using pre-built utility classes.
+
+### Traditional CSS vs Tailwind
+
+**Traditional CSS:**
+```css
+/* styles.css */
+.btn-primary {
+  background-color: #3b82f6;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.375rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: #2563eb;
+}
+```
+
+```html
+<button class="btn-primary">Click me</button>
+```
+
+**Tailwind CSS:**
+```html
+<button class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded transition-colors">
+  Click me
+</button>
+```
+
+## Getting Started with Tailwind CSS
+
+### Installation Options
+
+#### 1. CDN (Quick Start)
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+  <h1 class="text-3xl font-bold underline">
+    Hello world!
+  </h1>
+</body>
+</html>
+```
+
+#### 2. npm Installation (Recommended)
+```bash
+# Install Tailwind CSS
+npm install -D tailwindcss
+npx tailwindcss init
+
+# Create your tailwind.config.js
+echo 'module.exports = {
+  content: ["./src/**/*.{html,js}"],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}' > tailwind.config.js
+
+# Create your CSS file
+echo '@tailwind base;
+@tailwind components;
+@tailwind utilities;' > src/input.css
+
+# Build your CSS
+npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch
+```
+
+#### 3. With Next.js
+```bash
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+```
+
+## Core Concepts
+
+### 1. Utility-First Philosophy
+
+Tailwind promotes building designs by composing small, single-purpose utility classes:
+
+```html
+<!-- Traditional approach -->
+<div class="card">
+  <h2 class="card-title">Product Name</h2>
+  <p class="card-description">Product description here</p>
+  <button class="btn btn-primary">Buy Now</button>
+</div>
+
+<!-- Tailwind approach -->
+<div class="bg-white rounded-lg shadow-md p-6 max-w-sm">
+  <h2 class="text-xl font-bold text-gray-900 mb-2">Product Name</h2>
+  <p class="text-gray-600 mb-4">Product description here</p>
+  <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded transition-colors">
+    Buy Now
+  </button>
+</div>
+```
+
+### 2. Design Tokens and Consistency
+
+Tailwind uses a systematic approach to design tokens:
+
+```html
+<!-- Spacing (4px base unit) -->
+<div class="p-1">   <!-- padding: 4px -->
+<div class="p-2">   <!-- padding: 8px -->
+<div class="p-4">   <!-- padding: 16px -->
+<div class="p-8">   <!-- padding: 32px -->
+
+<!-- Colors (systematic palette) -->
+<div class="bg-gray-50">    <!-- Lightest gray -->
+<div class="bg-gray-500">   <!-- Medium gray -->
+<div class="bg-gray-900">   <!-- Darkest gray -->
+
+<!-- Typography scale -->
+<h1 class="text-xs">     <!-- 12px -->
+<h1 class="text-sm">     <!-- 14px -->
+<h1 class="text-base">   <!-- 16px -->
+<h1 class="text-lg">     <!-- 18px -->
+<h1 class="text-xl">     <!-- 20px -->
+<h1 class="text-2xl">    <!-- 24px -->
+```
+
+## Essential Utility Classes
+
+### Layout and Positioning
+
+```html
+<!-- Flexbox -->
+<div class="flex items-center justify-between">
+  <div>Left content</div>
+  <div>Right content</div>
+</div>
+
+<!-- Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+  <div class="bg-gray-100 p-4">Item 1</div>
+  <div class="bg-gray-100 p-4">Item 2</div>
+  <div class="bg-gray-100 p-4">Item 3</div>
+</div>
+
+<!-- Positioning -->
+<div class="relative">
+  <div class="absolute top-0 right-0 bg-red-500 text-white px-2 py-1 rounded">
+    Badge
+  </div>
+</div>
+```
+
+### Spacing and Sizing
+
+```html
+<!-- Margin and Padding -->
+<div class="mt-4 mb-8 px-6 py-3">Content</div>
+
+<!-- Width and Height -->
+<div class="w-full h-64">Full width, fixed height</div>
+<div class="w-1/2 h-auto">Half width, auto height</div>
+<div class="max-w-md mx-auto">Centered with max width</div>
+```
+
+### Typography
+
+```html
+<!-- Font styles -->
+<h1 class="text-4xl font-bold text-gray-900 leading-tight">
+  Main Heading
+</h1>
+
+<p class="text-lg text-gray-600 font-light leading-relaxed">
+  Body text with relaxed line height
+</p>
+
+<!-- Text alignment and decoration -->
+<p class="text-center underline">Centered underlined text</p>
+<p class="text-right line-through">Right-aligned strikethrough</p>
+```
+
+### Colors and Backgrounds
+
+```html
+<!-- Background colors -->
+<div class="bg-gradient-to-r from-blue-500 to-purple-600">
+  Gradient background
+</div>
+
+<!-- Text colors -->
+<p class="text-blue-600">Blue text</p>
+<p class="text-red-500 hover:text-red-700">Hover color change</p>
+
+<!-- Border colors -->
+<div class="border-2 border-gray-300 hover:border-blue-500">
+  Bordered element
+</div>
+```
+
+## Responsive Design
+
+### Mobile-First Approach
+
+Tailwind uses a mobile-first approach with responsive prefixes:
+
+```html
+<!-- Responsive layout -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+  <!-- Mobile: 1 column, Tablet: 2 columns, Desktop: 4 columns -->
+</div>
+
+<!-- Responsive spacing -->
+<div class="p-4 md:p-8 lg:p-12">
+  <!-- Mobile: 16px padding, Tablet: 32px, Desktop: 48px -->
+</div>
+
+<!-- Responsive typography -->
+<h1 class="text-2xl md:text-4xl lg:text-6xl font-bold">
+  <!-- Mobile: 24px, Tablet: 36px, Desktop: 60px -->
+</h1>
+```
+
+### Breakpoint System
+
+```javascript
+// Default breakpoints
+{
+  'sm': '640px',   // Small devices
+  'md': '768px',   // Medium devices  
+  'lg': '1024px',  // Large devices
+  'xl': '1280px',  // Extra large devices
+  '2xl': '1536px'  // 2X Extra large devices
+}
+```
+
+### Complete Responsive Example
+
+```html
+<div class="container mx-auto px-4">
+  <!-- Hero Section -->
+  <div class="flex flex-col lg:flex-row items-center gap-8 py-12">
+    <div class="flex-1 text-center lg:text-left">
+      <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
+        Build Amazing Websites
+      </h1>
+      <p class="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl">
+        Create beautiful, responsive designs with Tailwind CSS utility classes.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+        <button class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold">
+          Get Started
+        </button>
+        <button class="border-2 border-gray-300 hover:border-gray-400 px-8 py-3 rounded-lg font-semibold">
+          Learn More
+        </button>
+      </div>
+    </div>
+    <div class="flex-1 max-w-md lg:max-w-none">
+      <img src="/hero-image.jpg" alt="Hero" class="w-full h-auto rounded-lg shadow-lg">
+    </div>
+  </div>
+</div>
+```
+
+## Advanced Techniques
+
+### 1. Custom Components with @apply
+
+While Tailwind promotes utility-first, you can create reusable components:
+
+```css
+/* styles.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .btn-primary {
+    @apply bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded transition-colors;
+  }
+  
+  .card {
+    @apply bg-white rounded-lg shadow-md overflow-hidden;
+  }
+  
+  .card-header {
+    @apply px-6 py-4 border-b border-gray-200;
+  }
+  
+  .card-body {
+    @apply px-6 py-4;
+  }
+}
+```
+
+### 2. Custom Configuration
+
+```javascript
+// tailwind.config.js
+module.exports = {
+  content: ['./src/**/*.{html,js,jsx,ts,tsx}'],
+  theme: {
+    extend: {
+      // Custom colors
+      colors: {
+        primary: {
+          50: '#eff6ff',
+          500: '#3b82f6',
+          900: '#1e3a8a'
+        },
+        secondary: '#f59e0b'
+      },
+      
+      // Custom spacing
+      spacing: {
+        '18': '4.5rem',
+        '88': '22rem'
+      },
+      
+      // Custom fonts
+      fontFamily: {
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+        heading: ['Poppins', 'sans-serif']
+      },
+      
+      // Custom animations
+      animation: {
+        'fade-in': 'fadeIn 0.5s ease-in-out',
+        'slide-up': 'slideUp 0.3s ease-out'
+      },
+      
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' }
+        },
+        slideUp: {
+          '0%': { transform: 'translateY(20px)', opacity: '0' },
+          '100%': { transform: 'translateY(0)', opacity: '1' }
+        }
+      }
+    }
+  },
+  plugins: [
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/aspect-ratio')
+  ]
+}
+```
+
+### 3. Dark Mode Implementation
+
+```html
+<!-- Toggle button -->
+<button id="theme-toggle" class="p-2 rounded-lg bg-gray-200 dark:bg-gray-700">
+  <svg class="w-5 h-5 text-gray-800 dark:text-gray-200" fill="currentColor" viewBox="0 0 20 20">
+    <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+  </svg>
+</button>
+
+<!-- Dark mode responsive design -->
+<div class="bg-white dark:bg-gray-900 min-h-screen transition-colors">
+  <header class="bg-gray-50 dark:bg-gray-800 p-4">
+    <h1 class="text-2xl font-bold text-gray-900 dark:text-white">
+      My Website
+    </h1>
+  </header>
+  
+  <main class="container mx-auto p-4">
+    <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+      <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">
+        Card Title
+      </h2>
+      <p class="text-gray-600 dark:text-gray-300">
+        Card content that adapts to dark mode.
+      </p>
+    </div>
+  </main>
+</div>
+```
+
+```javascript
+// Dark mode toggle script
+const themeToggle = document.getElementById('theme-toggle');
+const htmlElement = document.documentElement;
+
+themeToggle.addEventListener('click', () => {
+  if (htmlElement.classList.contains('dark')) {
+    htmlElement.classList.remove('dark');
+    localStorage.setItem('theme', 'light');
+  } else {
+    htmlElement.classList.add('dark');
+    localStorage.setItem('theme', 'dark');
+  }
+});
+
+// Initialize theme
+if (localStorage.getItem('theme') === 'dark' || 
+    (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+  htmlElement.classList.add('dark');
+}
+```
+
+## Practical Examples
+
+### 1. Modern Card Component
+
+```html
+<div class="max-w-sm mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
+  <div class="md:flex">
+    <div class="md:shrink-0">
+      <img class="h-48 w-full object-cover md:h-full md:w-48" 
+           src="/product-image.jpg" 
+           alt="Product">
+    </div>
+    <div class="p-8">
+      <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">
+        Product Category
+      </div>
+      <h3 class="block mt-1 text-lg leading-tight font-medium text-black">
+        Amazing Product Name
+      </h3>
+      <p class="mt-2 text-slate-500">
+        This is a fantastic product that will solve all your problems.
+      </p>
+      <div class="mt-4 flex items-center justify-between">
+        <span class="text-2xl font-bold text-gray-900">$99.99</span>
+        <button class="bg-indigo-500 hover:bg-indigo-600 text-white px-4 py-2 rounded-lg transition-colors">
+          Add to Cart
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+### 2. Navigation Menu
+
+```html
+<nav class="bg-white shadow-lg sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="flex justify-between items-center py-4">
+      <!-- Logo -->
+      <div class="flex items-center space-x-2">
+        <img class="h-8 w-8" src="/logo.svg" alt="Logo">
+        <span class="text-xl font-bold text-gray-900">Brand</span>
+      </div>
+      
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex space-x-8">
+        <a href="#" class="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md transition-colors">
+          Home
+        </a>
+        <a href="#" class="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md transition-colors">
+          About
+        </a>
+        <a href="#" class="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md transition-colors">
+          Services
+        </a>
+        <a href="#" class="text-gray-700 hover:text-indigo-600 px-3 py-2 rounded-md transition-colors">
+          Contact
+        </a>
+      </div>
+      
+      <!-- Mobile menu button -->
+      <div class="md:hidden">
+        <button class="p-2 rounded-md text-gray-700 hover:text-indigo-600 hover:bg-gray-100">
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+```
+
+### 3. Form Design
+
+```html
+<form class="max-w-md mx-auto bg-white rounded-lg shadow-md p-6">
+  <h2 class="text-2xl font-bold text-gray-900 mb-6 text-center">Contact Us</h2>
+  
+  <div class="mb-4">
+    <label for="name" class="block text-sm font-medium text-gray-700 mb-2">
+      Full Name
+    </label>
+    <input type="text" id="name" name="name" 
+           class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors"
+           placeholder="Enter your full name">
+  </div>
+  
+  <div class="mb-4">
+    <label for="email" class="block text-sm font-medium text-gray-700 mb-2">
+      Email Address
+    </label>
+    <input type="email" id="email" name="email"
+           class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors"
+           placeholder="Enter your email">
+  </div>
+  
+  <div class="mb-6">
+    <label for="message" class="block text-sm font-medium text-gray-700 mb-2">
+      Message
+    </label>
+    <textarea id="message" name="message" rows="4"
+              class="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-colors resize-none"
+              placeholder="Enter your message"></textarea>
+  </div>
+  
+  <button type="submit" 
+          class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-2 px-4 rounded-md transition-colors focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+    Send Message
+  </button>
+</form>
+```
+
+## Best Practices
+
+### 1. Organization and Maintainability
+
+```html
+<!-- Group related classes logically -->
+<!-- Layout first, then spacing, colors, typography -->
+<div class="flex items-center justify-between 
+            px-4 py-2 
+            bg-white border border-gray-200 
+            text-sm font-medium">
+  Content
+</div>
+
+<!-- Use line breaks for complex components -->
+<button class="
+  inline-flex items-center
+  px-4 py-2
+  bg-indigo-600 hover:bg-indigo-700
+  text-white font-medium
+  border border-transparent rounded-md
+  shadow-sm
+  focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2
+  transition-colors
+">
+  Button Text
+</button>
+```
+
+### 2. Performance Optimization
+
+```javascript
+// tailwind.config.js - Purge unused styles
+module.exports = {
+  content: [
+    './src/**/*.{html,js,jsx,ts,tsx}',
+    './pages/**/*.{js,ts,jsx,tsx}',
+    './components/**/*.{js,ts,jsx,tsx}'
+  ],
+  // Only include the CSS you actually use
+}
+```
+
+### 3. Component Extraction
+
+```javascript
+// React component example
+const Button = ({ variant = 'primary', size = 'md', children, ...props }) => {
+  const baseClasses = 'inline-flex items-center justify-center font-medium rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2';
+  
+  const variants = {
+    primary: 'bg-indigo-600 hover:bg-indigo-700 text-white focus:ring-indigo-500',
+    secondary: 'bg-gray-200 hover:bg-gray-300 text-gray-900 focus:ring-gray-500',
+    outline: 'border-2 border-indigo-600 text-indigo-600 hover:bg-indigo-50 focus:ring-indigo-500'
+  };
+  
+  const sizes = {
+    sm: 'px-3 py-2 text-sm',
+    md: 'px-4 py-2 text-base',
+    lg: 'px-6 py-3 text-lg'
+  };
+  
+  const classes = `${baseClasses} ${variants[variant]} ${sizes[size]}`;
+  
+  return (
+    <button className={classes} {...props}>
+      {children}
+    </button>
+  );
+};
+```
+
+## Common Pitfalls and Solutions
+
+### 1. Class Name Conflicts
+
+```html
+<!-- Problem: Conflicting margins -->
+<div class="mt-4 m-0">Content</div>
+
+<!-- Solution: Be specific and consistent -->
+<div class="mt-4 mb-0 mx-0">Content</div>
+```
+
+### 2. Overusing @apply
+
+```css
+/* Avoid: Converting everything to components -->
+.my-component {
+  @apply flex items-center justify-between p-4 bg-white rounded shadow;
+}
+
+/* Better: Use utilities in HTML, components for true reusability */
+```
+
+### 3. Not Using Design Tokens
+
+```html
+<!-- Avoid: Arbitrary values -->
+<div class="mt-[23px] text-[#ff6b35]">Content</div>
+
+<!-- Better: Use design system -->
+<div class="mt-6 text-orange-500">Content</div>
+```
+
+## Integration with Popular Frameworks
+
+### Next.js Integration
+
+```javascript
+// pages/_app.js
+import '../styles/globals.css'
+
+function MyApp({ Component, pageProps }) {
+  return <Component {...pageProps} />
+}
+
+export default MyApp
+```
+
+```css
+/* styles/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+### Vue.js Integration
+
+```javascript
+// main.js
+import { createApp } from 'vue'
+import App from './App.vue'
+import './index.css'
+
+createApp(App).mount('#app')
+```
+
+### React Integration
+
+```javascript
+// index.js
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+
+ReactDOM.render(<App />, document.getElementById('root'));
+```
+
+## Tools and Resources
+
+### 1. Development Tools
+
+- **Tailwind CSS IntelliSense** - VS Code extension for autocomplete
+- **Headwind** - Class sorter extension
+- **Tailwind Docs** - Official documentation
+- **Tailwind Play** - Online playground
+
+### 2. Component Libraries
+
+- **Headless UI** - Unstyled, accessible components
+- **Heroicons** - Beautiful SVG icons
+- **Tailwind UI** - Premium component collection
+
+### 3. Build Tools Integration
+
+```javascript
+// webpack.config.js
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          'postcss-loader'
+        ]
+      }
+    ]
+  }
+}
+
+// postcss.config.js
+module.exports = {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {}
+  }
+}
+```
+
+## Conclusion
+
+Tailwind CSS represents a paradigm shift in how we approach styling web applications. By embracing utility-first principles, it offers:
+
+### Advantages:
+- **Rapid development** with pre-built utilities
+- **Consistent design systems** through design tokens
+- **Responsive design** made simple
+- **Small bundle sizes** with purging
+- **High customizability** without fighting the framework
+
+### When to Use Tailwind:
+- Building custom designs quickly
+- Working in teams that value consistency
+- Projects requiring responsive design
+- Applications with design system requirements
+
+### When to Consider Alternatives:
+- Very simple websites with minimal styling needs
+- Teams unfamiliar with utility-first methodology
+- Projects with existing large CSS codebases
+
+Tailwind CSS continues to evolve, with recent additions like arbitrary value support, container queries, and improved performance optimizations. By mastering its core concepts and best practices, you'll be well-equipped to build beautiful, maintainable web applications.
+
+Start small, practice with real projects, and gradually adopt more advanced techniques as you become comfortable with the utility-first approach. Happy styling! 🎨
+14:["$","div",null,{"className":"prose-container","children":["$","$L17",null,{"content":"$18","className":"article-content","articleSlug":"tailwind-css-guide"}]}]
+15:["$","footer",null,{"className":"mt-16 pt-8","style":{"borderTop":"1px solid color-mix(in srgb, var(--foreground), transparent 85%)"},"children":["$","div",null,{"className":"flex items-center justify-center flex-wrap gap-4","children":["$","div",null,{"children":[["$","p",null,{"className":"text-sm mb-2","style":{"color":"var(--muted)"},"children":["Published on ","January 16, 2025"]}],false]}]}]}]
+2:["$","html",null,{"lang":"en","suppressHydrationWarning":true,"children":["$","body",null,{"id":"app-body","className":"__variable_5cfdac __variable_9a8899 antialiased","children":["$","div",null,{"id":"app-root","className":"relative min-h-dvh","children":[["$","div",null,{"id":"app-grid-background","className":"fixed inset-0 bg-grid pointer-events-none","aria-hidden":true}],["$","div",null,{"id":"app-animated-background","className":"fixed inset-0 animated-gradient -z-10","style":{"opacity":0.6,"--anim-rotate":"60s","--anim-fade":"50s","--anim-min":"0","--anim-max":"0.6"},"aria-hidden":true}],["$","$L19",null,{"palettes":{"indigoPurpleDark":{"name":"Indigo Purple","background":"#0a0b14","foreground":"#e8e9f2","muted":"#9ca0b3","card":"#0f1118","cardContrast":"#14161f","accent1":"#7c3aed","accent2":"#4338ca"},"oceanBlueDark":{"name":"Ocean Blue","background":"#0a0e16","foreground":"#e8f2ff","muted":"#93a8c2","card":"#0f1520","cardContrast":"#141b28","accent1":"#0ea5e9","accent2":"#0284c7"},"emeraldForestDark":{"name":"Emerald Forest","background":"#0a130e","foreground":"#e8f5ed","muted":"#94b3a3","card":"#0f1914","cardContrast":"#14201a","accent1":"#10b981","accent2":"#059669"},"sunsetOrangeDark":{"name":"Sunset Orange","background":"#140a08","foreground":"#fff0ea","muted":"#c2a191","card":"#1a100e","cardContrast":"#211614","accent1":"#ea580c","accent2":"#dc2626"},"roseGoldDark":{"name":"Rose Gold","background":"#110a0c","foreground":"#ffeef2","muted":"#b8939d","card":"#171013","cardContrast":"#1e1619","accent1":"#f43f5e","accent2":"#e11d48"},"midnightPurpleDark":{"name":"Midnight Purple","background":"#0e0a14","foreground":"#f0ebff","muted":"#a693c7","card":"#141018","cardContrast":"#1b161f","accent1":"#8b5cf6","accent2":"#7c3aed"},"cloudWhiteLight":{"name":"Cloud White","background":"#ffffff","foreground":"#1a1a1a","muted":"#6b7280","card":"#f9fafb","cardContrast":"#f3f4f6","accent1":"#4f46e5","accent2":"#3b82f6"},"warmCreamLight":{"name":"Warm Cream","background":"#fefcf8","foreground":"#2a251f","muted":"#6b6560","card":"#faf8f4","cardContrast":"#f5f2ee","accent1":"#d97706","accent2":"#ea580c"},"softBlueLight":{"name":"Soft Blue","background":"#f8fafc","foreground":"#1e293b","muted":"#64748b","card":"#f1f5f9","cardContrast":"#e2e8f0","accent1":"#0ea5e9","accent2":"#0284c7"},"mintGreenLight":{"name":"Mint Green","background":"#f7fdf9","foreground":"#1f2937","muted":"#6b7280","card":"#f0fdf4","cardContrast":"#e8f5e8","accent1":"#10b981","accent2":"#059669"},"lavenderLight":{"name":"Lavender","background":"#fbfaff","foreground":"#2d2438","muted":"#6b6580","card":"#f8f6ff","cardContrast":"#f3f0ff","accent1":"#8b5cf6","accent2":"#7c3aed"},"peachLight":{"name":"Peach","background":"#fff8f5","foreground":"#2d1f1a","muted":"#78716c","card":"#fef2ee","cardContrast":"#fed7c5","accent1":"#ea580c","accent2":"#dc2626"},"neonCyberDark":{"name":"Neon Cyber","background":"#070b0e","foreground":"#e0ffff","muted":"#7dd3fc","card":"#0c1419","cardContrast":"#111c22","accent1":"#00d4ff","accent2":"#7c3aed"},"electricPinkDark":{"name":"Electric Pink","background":"#140a12","foreground":"#ffeef8","muted":"#e879f9","card":"#1a1018","cardContrast":"#20161e","accent1":"#ec4899","accent2":"#d946ef"},"acidGreenDark":{"name":"Acid Green","background":"#0a140a","foreground":"#f0fff0","muted":"#84cc16","card":"#101a10","cardContrast":"#162016","accent1":"#84cc16","accent2":"#65a30d"},"sunburstYellowDark":{"name":"Sunburst Yellow","background":"#14120a","foreground":"#fffbeb","muted":"#fbbf24","card":"#1a1810","cardContrast":"#201e16","accent1":"#f59e0b","accent2":"#f97316"}},"colorProfile":"mintGreenLight","colorRotation":{"enabled":true,"intervalSec":120,"candidates":["indigoPurpleDark","oceanBlueDark","emeraldForestDark","sunsetOrangeDark","roseGoldDark","midnightPurpleDark","cloudWhiteLight","warmCreamLight","softBlueLight","mintGreenLight","lavenderLight","peachLight","neonCyberDark","electricPinkDark","acidGreenDark","sunburstYellowDark"]},"animation":{"rotateDurationSec":60,"fadeDurationSec":50,"fadeOutDurationSec":10,"fadeInAfterSec":50,"fadeMin":0,"fadeMax":0.6,"enabled":true},"interactiveEffects":{"enabled":true,"triggerChance":0.08,"minIntervalSec":8,"maxPerMinute":6,"ripple":{"sizePx":180,"durationMs":1200,"color":""}}}],["$","$L1a",null,{"config":{"colorProfile":"mintGreenLight","paletteGroups":{"dark":{"name":"Dark Themes","palettes":{"indigoPurpleDark":"$2:props:children:props:children:props:children:2:props:palettes:indigoPurpleDark","oceanBlueDark":"$2:props:children:props:children:props:children:2:props:palettes:oceanBlueDark","emeraldForestDark":"$2:props:children:props:children:props:children:2:props:palettes:emeraldForestDark","sunsetOrangeDark":"$2:props:children:props:children:props:children:2:props:palettes:sunsetOrangeDark","roseGoldDark":"$2:props:children:props:children:props:children:2:props:palettes:roseGoldDark","midnightPurpleDark":"$2:props:children:props:children:props:children:2:props:palettes:midnightPurpleDark"}},"light":{"name":"Light Themes","palettes":{"cloudWhiteLight":"$2:props:children:props:children:props:children:2:props:palettes:cloudWhiteLight","warmCreamLight":"$2:props:children:props:children:props:children:2:props:palettes:warmCreamLight","softBlueLight":"$2:props:children:props:children:props:children:2:props:palettes:softBlueLight","mintGreenLight":"$2:props:children:props:children:props:children:2:props:palettes:mintGreenLight","lavenderLight":"$2:props:children:props:children:props:children:2:props:palettes:lavenderLight","peachLight":"$2:props:children:props:children:props:children:2:props:palettes:peachLight"}},"vibrant":{"name":"Vibrant Themes","palettes":{"neonCyberDark":"$2:props:children:props:children:props:children:2:props:palettes:neonCyberDark","electricPinkDark":"$2:props:children:props:children:props:children:2:props:palettes:electricPinkDark","acidGreenDark":"$2:props:children:props:children:props:children:2:props:palettes:acidGreenDark","sunburstYellowDark":"$2:props:children:props:children:props:children:2:props:palettes:sunburstYellowDark"}}},"palettes":{"indigoPurpleDark":{"name":"Indigo Purple","background":"#0a0b14","foreground":"#e8e9f2","muted":"#9ca0b3","card":"#0f1118","cardContrast":"#14161f","accent1":"#7c3aed","accent2":"#4338ca"},"oceanBlueDark":{"name":"Ocean Blue","background":"#0a0e16","foreground":"#e8f2ff","muted":"#93a8c2","card":"#0f1520","cardContrast":"#141b28","accent1":"#0ea5e9","accent2":"#0284c7"},"emeraldForestDark":{"name":"Emerald Forest","background":"#0a130e","foreground":"#e8f5ed","muted":"#94b3a3","card":"#0f1914","cardContrast":"#14201a","accent1":"#10b981","accent2":"#059669"},"sunsetOrangeDark":{"name":"Sunset Orange","background":"#140a08","foreground":"#fff0ea","muted":"#c2a191","card":"#1a100e","cardContrast":"#211614","accent1":"#ea580c","accent2":"#dc2626"},"roseGoldDark":{"name":"Rose Gold","background":"#110a0c","foreground":"#ffeef2","muted":"#b8939d","card":"#171013","cardContrast":"#1e1619","accent1":"#f43f5e","accent2":"#e11d48"},"midnightPurpleDark":{"name":"Midnight Purple","background":"#0e0a14","foreground":"#f0ebff","muted":"#a693c7","card":"#141018","cardContrast":"#1b161f","accent1":"#8b5cf6","accent2":"#7c3aed"},"cloudWhiteLight":{"name":"Cloud White","background":"#ffffff","foreground":"#1a1a1a","muted":"#6b7280","card":"#f9fafb","cardContrast":"#f3f4f6","accent1":"#4f46e5","accent2":"#3b82f6"},"warmCreamLight":{"name":"Warm Cream","background":"#fefcf8","foreground":"#2a251f","muted":"#6b6560","card":"#faf8f4","cardContrast":"#f5f2ee","accent1":"#d97706","accent2":"#ea580c"},"softBlueLight":{"name":"Soft Blue","background":"#f8fafc","foreground":"#1e293b","muted":"#64748b","card":"#f1f5f9","cardContrast":"#e2e8f0","accent1":"#0ea5e9","accent2":"#0284c7"},"mintGreenLight":{"name":"Mint Green","background":"#f7fdf9","foreground":"#1f2937","muted":"#6b7280","card":"#f0fdf4","cardContrast":"#e8f5e8","accent1":"#10b981","accent2":"#059669"},"lavenderLight":{"name":"Lavender","background":"#fbfaff","foreground":"#2d2438","muted":"#6b6580","card":"#f8f6ff","cardContrast":"#f3f0ff","accent1":"#8b5cf6","accent2":"#7c3aed"},"peachLight":{"name":"Peach","background":"#fff8f5","foreground":"#2d1f1a","muted":"#78716c","card":"#fef2ee","cardContrast":"#fed7c5","accent1":"#ea580c","accent2":"#dc2626"},"neonCyberDark":{"name":"Neon Cyber","background":"#070b0e","foreground":"#e0ffff","muted":"#7dd3fc","card":"#0c1419","cardContrast":"#111c22","accent1":"#00d4ff","accent2":"#7c3aed"},"electricPinkDark":{"name":"Electric Pink","background":"#140a12","foreground":"#ffeef8","muted":"#e879f9","card":"#1a1018","cardContrast":"#20161e","accent1":"#ec4899","accent2":"#d946ef"},"acidGreenDark":{"name":"Acid Green","background":"#0a140a","foreground":"#f0fff0","muted":"#84cc16","card":"#101a10","cardContrast":"#162016","accent1":"#84cc16","accent2":"#65a30d"},"sunburstYellowDark":{"name":"Sunburst Yellow","background":"#14120a","foreground":"#fffbeb","muted":"#fbbf24","card":"#1a1810","cardContrast":"#201e16","accent1":"#f59e0b","accent2":"#f97316"}},"animation":"$2:props:children:props:children:props:children:2:props:animation","admin":{"enabledByDefault":false,"allowToggle":true,"allowZipDownload":true,"allowZipUpload":true,"showLoginNavigation":true},"colorRotation":"$2:props:children:props:children:props:children:2:props:colorRotation","i18n":{"defaultLocale":"en","languages":{"de":{"nav":{"about":"Über mich","projects":"Projekte","skills":"Skills","articles":"Artikel","contact":"Kontakt"},"cta":{"talk":"Lass uns sprechen"},"common":{"back":"Zurück","seeAlso":"Siehe auch","home":"Startseite","liveView":"Live ansehen","viewProject":"Projekt ansehen","downloadSettings":"Einstellungen herunterladen","enableAnimations":"Animationen aktivieren","colorThemes":"Farbthemen","language":"Sprache","skillsLayout":"Skills-Layout","aboutLayout":"Über-mich-Layout","reorderSectionsHelp":"Abschnitte neu anordnen und Sichtbarkeit umschalten. Änderungen werden in Ihren Einstellungen gespeichert.","login":"Anmelden","logout":"Abmelden","adminMode":"Admin-Modus","hidden":"Ausgeblendet","visible":"Sichtbar"},"workflow":{"title":"Von der Vision zur Realität","subtitle":"Jedes erfolgreiche Projekt folgt einem bewährten Pfad. Lassen Sie mich Ihre Ideen durch eine strategische Reise vom ersten Konzept zur florierenden Geschäftslösung führen.","steps":{"idea":{"title":"Ihre Idee","description":"Teilen Sie Ihre Vision, Herausforderung oder Ihr Geschäftskonzept","details":["Geschäftsproblem-Identifikation","Marktchancen-Analyse","Nutzerbedürfnisse-Bewertung","Wettbewerbslandschaft-Überprüfung"]},"concept":{"title":"Konzept-Design","description":"Verwandeln Sie Ideen in strukturierte technische Konzepte","details":["Systemarchitektur-Planung","Technologie-Stack-Auswahl","Benutzererfahrungs-Design","Technische Machbarkeitsstudie"]},"code":{"title":"Entwicklung","description":"Erstellen Sie robuste, skalierbare Lösungen mit modernen Technologien","details":["Sauberer, wartbarer Code","Performance-Optimierung","Sicherheits-Best-Practices","Responsive Design-Implementierung"]},"goal":{"title":"Zielerreichung","description":"Liefern Sie funktionale Produkte, die Ziele erfüllen","details":["Qualitätssicherung-Tests","Benutzerakzeptanz-Validierung","Performance-Benchmarking","Dokumentations-Lieferung"]},"business":{"title":"Geschäftsauswirkung","description":"Starten Sie Lösungen, die echten Geschäftswert schaffen","details":["Umsatzgenerierung","Prozessoptimierung","Nutzerengagement-Wachstum","Marktexpansions-Möglichkeiten"]}},"cta":{"title":"Bereit, Ihre Idee zu verwandeln?","description":"Lassen Sie uns besprechen, wie ich dabei helfen kann, Ihre Vision mit bewährter Expertise und strategischem Denken zum Leben zu erwecken.","button":"Lass uns reden"}},"login":{"title":"Admin Anmeldung","username":"Benutzername","password":"Passwort","login":"Anmelden","logging_in":"Anmeldung läuft...","back_to_home":"Zurück zur Startseite"},"cookies":{"consent_required":"Cookie-Zustimmung erforderlich","admin_login_message":"Um Ihre Admin-Sitzung zu speichern, müssen wir notwendige Cookies speichern. Dies erfordert Ihre Zustimmung, um fortzufahren.","deny":"Ablehnen","accept":"Akzeptieren & Fortfahren"},"analytics":{"title":"Analytics Dashboard","subtitle":"Verfolgen Sie die Leistung und das Engagement Ihrer Inhalte","loading":"Analytics werden geladen...","noData":"Noch keine Analytics-Daten verfügbar.","startTracking":"Analytics erscheinen, sobald Besucher Ihre Artikel lesen.","clearData":"Analytics-Daten löschen","clearButton":"Daten löschen","totalViews":"Gesamte Aufrufe","uniqueVisitors":"Eindeutige Besucher","avgReadingTime":"Durchschn. Lesezeit","trackedArticles":"Verfolgte Artikel","weeklyViews":"Wöchentliche Aufrufe","topArticles":"Top Artikel","deviceBreakdown":"Geräte-Verteilung"},"admin":{"backendSelector":{"title":"Artikel-Backend-Konfiguration","configure":"Konfigurieren","currentBackend":"Aktuelles Backend","testConnection":"Verbindung testen","selectBackend":"Backend-Typ auswählen","databaseType":"Datenbank-Typ","host":"Host","port":"Port","database":"Datenbank","username":"Benutzername","filename":"Datenbankdatei","cmsType":"CMS-Typ","apiUrl":"API-URL","apiKey":"API-Schlüssel","advancedOptions":"Erweiterte Optionen","enableSync":"Automatische Synchronisation mit Backup-Backend aktivieren","saveConfig":"Konfiguration speichern","testNewBackend":"Neues Backend testen"},"templates":{"title":"Artikel-Vorlagen","subtitle":"Wiederverwendbare Artikel-Vorlagen erstellen und verwalten","createNew":"Vorlage erstellen","useTemplate":"Vorlage verwenden","preview":"Vorschau","delete":"Löschen","noTemplates":"Keine Vorlagen gefunden","categories":{"all":"Alle Vorlagen","tutorial":"Tutorial","review":"Bewertung","caseStudy":"Fallstudie","news":"Nachrichten","documentation":"Dokumentation","custom":"Benutzerdefiniert"}}},"staticArticles":{"title":"Statische Artikel","subtitle":"Nur-HTML-Artikel und Tutorials","featured":"Ausgewählter Artikel","allArticles":"Alle statischen Artikel","viewAll":"Alle statischen Artikel anzeigen","noArticles":"Momentan sind keine statischen Artikel verfügbar."}},"en":{"nav":{"about":"About","projects":"Projects","skills":"Skills","articles":"Articles","contact":"Contact"},"cta":{"talk":"Let's Talk"},"common":{"back":"Back","seeAlso":"See also","home":"Home","liveView":"View Live","viewProject":"View Project","downloadSettings":"Download Settings","enableAnimations":"Enable animations","colorThemes":"Color Themes","language":"Language","skillsLayout":"Skills Layout","aboutLayout":"About Layout","reorderSectionsHelp":"Reorder sections and toggle their visibility. Changes are saved to your preferences.","hidden":"Hidden","visible":"Visible","login":"Login","logout":"Logout","adminMode":"Admin Mode"},"workflow":{"title":"From Vision to Reality","subtitle":"Every successful project follows a proven path. Let me guide your ideas through a strategic journey from initial concept to thriving business solution.","steps":{"idea":{"title":"Your Idea","description":"Share your vision, challenge, or business concept","details":["Business problem identification","Market opportunity analysis","User needs assessment","Competitive landscape review"]},"concept":{"title":"Concept Design","description":"Transform ideas into structured technical concepts","details":["System architecture planning","Technology stack selection","User experience design","Technical feasibility study"]},"code":{"title":"Development","description":"Build robust, scalable solutions with modern technologies","details":["Clean, maintainable code","Performance optimization","Security best practices","Responsive design implementation"]},"goal":{"title":"Achievement","description":"Deliver functional products that meet objectives","details":["Quality assurance testing","User acceptance validation","Performance benchmarking","Documentation delivery"]},"business":{"title":"Business Impact","description":"Launch solutions that drive real business value","details":["Revenue generation","Process optimization","User engagement growth","Market expansion opportunities"]}},"cta":{"title":"Ready to Transform Your Idea?","description":"Let's discuss how I can help bring your vision to life with proven expertise and strategic thinking.","button":"Let's Talk"}},"login":{"title":"Admin Login","username":"Username","password":"Password","login":"Login","logging_in":"Logging in...","back_to_home":"Back to Home"},"cookies":{"consent_required":"Cookie Consent Required","admin_login_message":"To save your admin session, we need to store necessary cookies. This requires your consent to continue.","deny":"Deny","accept":"Accept & Continue"},"analytics":{"title":"Analytics Dashboard","subtitle":"Track your content performance and engagement","loading":"Loading analytics...","noData":"No analytics data available yet.","startTracking":"Analytics will appear as visitors read your articles.","clearData":"Clear analytics data","clearButton":"Clear Data","totalViews":"Total Views","uniqueVisitors":"Unique Visitors","avgReadingTime":"Avg. Reading Time","trackedArticles":"Tracked Articles","weeklyViews":"Weekly Views","topArticles":"Top Articles","deviceBreakdown":"Device Breakdown"},"admin":{"backendSelector":{"title":"Article Backend Configuration","configure":"Configure","currentBackend":"Current Backend","testConnection":"Test Connection","selectBackend":"Select Backend Type","databaseType":"Database Type","host":"Host","port":"Port","database":"Database","username":"Username","filename":"Database File","cmsType":"CMS Type","apiUrl":"API URL","apiKey":"API Key","advancedOptions":"Advanced Options","enableSync":"Enable automatic sync with fallback backend","saveConfig":"Save Configuration","testNewBackend":"Test New Backend"},"templates":{"title":"Article Templates","subtitle":"Create and manage reusable article templates","createNew":"Create Template","useTemplate":"Use Template","preview":"Preview","delete":"Delete","noTemplates":"No templates found","categories":{"all":"All Templates","tutorial":"Tutorial","review":"Review","caseStudy":"Case Study","news":"News","documentation":"Documentation","custom":"Custom"}}},"staticArticles":{"title":"Static Articles","subtitle":"HTML-only articles and tutorials","featured":"Featured Article","allArticles":"All Static Articles","viewAll":"View All Static Articles","noArticles":"No static articles available at the moment."}}}},"interactiveEffects":"$2:props:children:props:children:props:children:2:props:interactiveEffects","settings":{"enabled":true,"showIcon":true,"allowThemeChange":true,"allowAnimationToggle":true,"allowLanguageChange":true,"cookieConsent":true,"adminOnly":false},"aboutSection":{"layout":"enhanced","availableLayouts":["basic","enhanced"],"allowLayoutChange":true},"skillsDisplay":{"design":"grid","availableDesigns":["marquee","grid","carousel","masonry","timeline"],"allowDesignChange":true}}}],"$L1b","$L1c"]}]}]}]
+1d:I[2815,["177","static/chunks/app/layout-7c0feacb3be76484.js"],"default"]
+1b:["$","$L1d",null,{}]
+1c:["$","$L3",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L4",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]
+b:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+7:null
+1e:I[8175,[],"IconMark"]
+9:{"metadata":[["$","title","0",{"children":"Tailwind CSS: The Ultimate Guide to Utility-First Styling - Khaled Alabsi | Khaled Alabsi"}],["$","meta","1",{"name":"description","content":"Complete Tailwind CSS guide - learn utility-first styling, responsive design, customization, and best practices for modern web development."}],["$","meta","2",{"name":"author","content":"Khaled Alabsi"}],["$","meta","3",{"name":"keywords","content":"Tailwind CSS,Utility-first CSS,CSS Framework,Responsive Design,Web Styling"}],["$","meta","4",{"name":"creator","content":"Khaled Alabsi"}],["$","meta","5",{"name":"robots","content":"index, follow"}],["$","meta","6",{"name":"googlebot","content":"index, follow, max-video-preview:-1, max-image-preview:large, max-snippet:-1"}],["$","meta","7",{"name":"google-site-verification","content":"your-google-verification-code"}],["$","meta","8",{"property":"og:title","content":"Tailwind CSS: The Ultimate Guide to Utility-First Styling"}],["$","meta","9",{"property":"og:description","content":"Complete Tailwind CSS guide - learn utility-first styling, responsive design, customization, and best practices for modern web development."}],["$","meta","10",{"property":"og:image","content":"https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=400&fit=crop&crop=entropy&auto=format"}],["$","meta","11",{"property":"og:type","content":"article"}],["$","meta","12",{"property":"article:published_time","content":"2025-01-16"}],["$","meta","13",{"property":"article:modified_time","content":"2025-01-16"}],["$","meta","14",{"property":"article:author","content":"Khaled Alabsi"}],["$","meta","15",{"property":"article:tag","content":"Tailwind CSS"}],["$","meta","16",{"property":"article:tag","content":"CSS"}],["$","meta","17",{"property":"article:tag","content":"Utility-First"}],["$","meta","18",{"property":"article:tag","content":"Responsive Design"}],["$","meta","19",{"property":"article:tag","content":"Web Development"}],["$","meta","20",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","21",{"name":"twitter:title","content":"Khaled Alabsi — Full-Stack Developer & Designer"}],["$","meta","22",{"name":"twitter:description","content":"Full‑Stack Developer & Designer specializing in Next.js, React, TypeScript. Clean code, delightful UX, and scalable systems."}],["$","meta","23",{"name":"twitter:image","content":"https://khaledpage.github.io/profile/images/og-image.jpg"}],["$","link","24",{"rel":"icon","href":"/favicon.ico","type":"image/x-icon","sizes":"16x16"}],["$","link","25",{"rel":"icon","href":"/favicon.ico"}],["$","$L1e","26",{}]],"error":null,"digest":"$undefined"}
+e:"$9:metadata"

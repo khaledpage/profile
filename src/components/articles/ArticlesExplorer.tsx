@@ -5,11 +5,6 @@ import { useLanguage } from '@/utils/i18n';
 import { Article } from '@/types/article';
 import { SiteConfig } from '@/types/content';
 import ArticleCard from '@/components/ui/ArticleCard';
-import AdminHelpPanel from '@/components/admin/AdminHelpPanel';
-import { useArticles, useArticleActions, useArticleUpload } from '@/hooks/useArticles';
-import { isAdminEnabled } from '@/utils/admin';
-import JSZip from 'jszip';
-import { saveAs } from 'file-saver';
 
 interface ArticlesExplorerProps {
   config: SiteConfig;
@@ -20,401 +15,205 @@ export default function ArticlesExplorer({ config }: ArticlesExplorerProps) {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedTag, setSelectedTag] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
-  const [isAdmin, setIsAdmin] = useState(false);
-  const [selectedArticles, setSelectedArticles] = useState<Set<string>>(new Set());
-  const [bulkMode, setBulkMode] = useState(false);
-  const [showHelpPanel, setShowHelpPanel] = useState(false);
+  const [articles, setArticles] = useState<Article[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-  // Use modular hooks
-  const { 
-    articles, 
-    loading, 
-    error,
-    refresh,
-    searchArticles,
-    filterByTag,
-    filterByCategory,
-    clearFilters
-  } = useArticles();
-  
-  const {
-    deleteArticle,
-    bulkDeleteArticles,
-    downloadArticle,
-    isDeleting
-  } = useArticleActions();
-  
-  const {
-    uploadFiles,
-    progress,
-    isUploading,
-    uploadResults
-  } = useArticleUpload();
-
-  // Check admin status on mount
+  // Load articles from static JSON file
   useEffect(() => {
-    setIsAdmin(isAdminEnabled());
-    
-    // Check if user has permanently dismissed or dismissed for this session
-    const hasPermanentlyDismissed = localStorage.getItem('hasSeenEditingGuide');
-    const hasSessionDismissed = sessionStorage.getItem('adminHelpDismissedThisSession');
-    
-    if (isAdminEnabled() && !hasPermanentlyDismissed && !hasSessionDismissed) {
-      // Show help automatically for first-time admin users who haven't dismissed it
-      setTimeout(() => setShowHelpPanel(true), 1000);
-    }
+    const loadArticles = async () => {
+      try {
+        setIsLoading(true);
+        const response = await fetch('/data/articles.json');
+        if (!response.ok) {
+          throw new Error('Failed to load articles');
+        }
+        const data = await response.json();
+        setArticles(data.articles || []);
+        setError(null);
+      } catch (err) {
+        console.error('Error loading articles:', err);
+        setError('Failed to load articles');
+        setArticles([]);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    loadArticles();
   }, []);
 
-  // Handle search term changes
-  useEffect(() => {
-    searchArticles(searchTerm);
-  }, [searchTerm, searchArticles]);
-
-  // Handle tag filter changes
-  useEffect(() => {
-    filterByTag(selectedTag);
-  }, [selectedTag, filterByTag]);
-
-  // Handle category filter changes
-  useEffect(() => {
-    filterByCategory(selectedCategory);
-  }, [selectedCategory, filterByCategory]);
-
-  // Get unique tags and categories from all articles
-  const { tags, categories } = useMemo(() => {
-    const allTags = new Set<string>();
-    const allCategories = new Set<string>();
-    
-    articles.forEach(article => {
-      article.metadata.tags.forEach(tag => allTags.add(tag));
-      allCategories.add(article.metadata.category);
+  // Filter articles based on search term, tag, and category
+  const filteredArticles = useMemo(() => {
+    return articles.filter(article => {
+      const matchesSearch = !searchTerm || 
+        article.metadata.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        article.metadata.summary.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        article.content?.toLowerCase().includes(searchTerm.toLowerCase());
+      
+      const matchesTag = !selectedTag || 
+        article.metadata.tags?.some(tag => tag.toLowerCase() === selectedTag.toLowerCase());
+      
+      const matchesCategory = !selectedCategory || 
+        article.metadata.category?.toLowerCase() === selectedCategory.toLowerCase();
+      
+      return matchesSearch && matchesTag && matchesCategory;
     });
-    
-    return {
-      tags: Array.from(allTags).sort(),
-      categories: Array.from(allCategories).sort()
-    };
+  }, [articles, searchTerm, selectedTag, selectedCategory]);
+
+    // Get all unique tags and categories for filters
+  const allTags = useMemo(() => {
+    const tags = new Set<string>();
+    articles.forEach(article => {
+      article.metadata.tags?.forEach(tag => tags.add(tag));
+    });
+    return Array.from(tags).sort();
   }, [articles]);
 
-  const handleSearch = (value: string) => {
-    setSearchTerm(value);
-  };
+  const allCategories = useMemo(() => {
+    const categories = new Set<string>();
+    articles.forEach(article => {
+      if (article.metadata.category) {
+        categories.add(article.metadata.category);
+      }
+    });
+    return Array.from(categories).sort();
+  }, [articles]);
 
-  const handleTagFilter = (tag: string) => {
-    setSelectedTag(selectedTag === tag ? '' : tag);
-  };
-
-  const handleCategoryFilter = (category: string) => {
-    setSelectedCategory(selectedCategory === category ? '' : category);
-  };
-
-  const handleClearFilters = () => {
-    setSearchTerm('');
-    setSelectedTag('');
-    setSelectedCategory('');
-    clearFilters();
-  };
-
-  const handleArticleSelect = (slug: string, selected: boolean) => {
-    const newSelected = new Set(selectedArticles);
-    if (selected) {
-      newSelected.add(slug);
-    } else {
-      newSelected.delete(slug);
-    }
-    setSelectedArticles(newSelected);
-  };
-
-  const handleSelectAll = () => {
-    if (selectedArticles.size === articles.length) {
-      setSelectedArticles(new Set());
-    } else {
-      setSelectedArticles(new Set(articles.map(a => a.slug)));
-    }
-  };
-
-  const handleBulkDelete = async () => {
-    if (selectedArticles.size === 0) return;
-    
-    const confirmation = confirm(`Delete ${selectedArticles.size} selected articles?`);
-    if (!confirmation) return;
-
-    const slugs = Array.from(selectedArticles);
-    const results = await bulkDeleteArticles(slugs);
-    
-    if (results.success.length > 0) {
-      setSelectedArticles(new Set());
-      await refresh();
-    }
-    
-    if (results.failed.length > 0) {
-      alert(`Failed to delete ${results.failed.length} articles`);
-    }
-  };
-
-  const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
-    const files = event.target.files;
-    if (!files) return;
-    
-    await uploadFiles(files);
-    await refresh();
-    
-    // Reset input
-    event.target.value = '';
-  };
-
-  if (loading) {
+  if (isLoading) {
     return (
-      <div id="articles-explorer-loading" className="flex justify-center items-center py-8">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-accent-1"></div>
+      <div className="max-w-7xl mx-auto px-4 py-8">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-accent-1 mx-auto"></div>
+          <p className="mt-4 text-lg" style={{ color: 'var(--foreground-muted)' }}>
+            Loading articles...
+          </p>
+        </div>
       </div>
     );
   }
 
   if (error) {
     return (
-      <div id="articles-explorer-error" className="text-center py-8 text-red-500">
-        <p>Error loading articles: {error}</p>
-        <button 
-          id="articles-explorer-retry-button"
-          onClick={refresh}
-          className="mt-4 px-4 py-2 bg-accent-1 text-white rounded hover:bg-accent-2"
-        >
-          Retry
-        </button>
+      <div className="max-w-7xl mx-auto px-4 py-8">
+        <div className="text-center">
+          <p className="text-lg" style={{ color: 'var(--error)' }}>
+            {error}
+          </p>
+        </div>
       </div>
     );
-  };
+  }
 
   return (
-    <div id="articles-explorer-container" className="w-full max-w-6xl mx-auto p-4">
-      {/* Header with Search and Controls */}
-      <div id="articles-explorer-header" className="mb-6">
-        <div id="articles-explorer-search-bar" className="mb-4">
+    <div className="max-w-7xl mx-auto px-4 py-8">
+      {/* Search and Filter Controls */}
+      <div className="mb-8 space-y-4">
+        {/* Search Bar */}
+        <div className="max-w-md mx-auto">
           <input
-            id="articles-search-input"
             type="text"
             placeholder="Search articles..."
             value={searchTerm}
-            onChange={(e) => handleSearch(e.target.value)}
-            className="w-full px-4 py-2 border rounded-lg bg-card text-foreground focus:ring-2 focus:ring-accent-1"
-          />
-        </div>
-
-        {/* Admin Upload Controls */}
-        {isAdmin && (
-          <div id="articles-explorer-admin-controls" className="mb-4 p-4 border rounded-lg bg-card">
-            <div className="flex flex-wrap gap-4 items-center justify-between">
-              <div className="flex flex-wrap gap-4 items-center">
-                <label htmlFor="article-upload-input" className="btn-primary cursor-pointer">
-                  {isUploading ? 'Uploading...' : 'Upload Articles'}
-                </label>
-                <input
-                  id="article-upload-input"
-                  type="file"
-                  multiple
-                  accept=".zip"
-                  onChange={handleFileUpload}
-                  className="hidden"
-                  disabled={isUploading}
-                />
-                
-                <button
-                  id="bulk-mode-toggle"
-                  onClick={() => setBulkMode(!bulkMode)}
-                  className={`px-4 py-2 rounded ${bulkMode ? 'bg-accent-1 text-white' : 'bg-gray-200 text-gray-700'}`}
-                >
-                  Bulk Mode
-                </button>
-
-                {bulkMode && selectedArticles.size > 0 && (
-                  <div className="flex gap-2">
-                    <button
-                      id="bulk-delete-button"
-                      onClick={handleBulkDelete}
-                      disabled={isDeleting}
-                      className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 disabled:opacity-50"
-                    >
-                      {isDeleting ? 'Deleting...' : `Delete ${selectedArticles.size}`}
-                    </button>
-                  </div>
-                )}
-              </div>
-              
-              {/* Help Button */}
-              <button
-                id="admin-help-button"
-                onClick={() => setShowHelpPanel(true)}
-                className="px-4 py-2 rounded-lg border border-accent-1 text-accent-1 hover:bg-accent-1 hover:text-white transition-all flex items-center gap-2"
-                title="How to edit articles"
-              >
-                <span>❓</span>
-                <span className="hidden sm:inline">Help</span>
-              </button>
-            </div>
-
-            {/* Upload Progress */}
-            {Object.keys(progress).length > 0 && (
-              <div id="upload-progress-container" className="mt-4">
-                <h4 className="font-semibold mb-2">Upload Progress:</h4>
-                {Object.entries(progress).map(([fileName, percent]) => (
-                  <div key={fileName} className="mb-2">
-                    <div className="flex justify-between text-sm">
-                      <span>{fileName}</span>
-                      <span>{percent}%</span>
-                    </div>
-                    <div className="w-full bg-gray-200 rounded-full h-2">
-                      <div 
-                        className="bg-accent-1 h-2 rounded-full transition-all duration-300"
-                        style={{ width: `${percent}%` }}
-                      ></div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
-
-            {/* Upload Results */}
-            {uploadResults.length > 0 && (
-              <div id="upload-results-container" className="mt-4">
-                <h4 className="font-semibold mb-2">Upload Results:</h4>
-                <ul className="text-sm">
-                  {uploadResults.map((result, index) => (
-                    <li key={index} className="text-green-600">
-                      ✓ {result.title || result.slug}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-          </div>
-        )}
-
-        {/* Filters */}
-        <div id="articles-explorer-filters" className="mb-4 flex flex-col gap-4">
-          {/* Tag Filter Row */}
-          {tags.length > 0 && (
-            <div className="w-full flex flex-col">
-              <label className="block text-sm font-medium mb-2">Filter by Tag:</label>
-              <div className="flex flex-wrap gap-2">
-                {tags.map(tag => (
-                  <button
-                    key={tag}
-                    id={`tag-filter-${tag}`}
-                    onClick={() => handleTagFilter(tag)}
-                    className={`px-3 py-1 text-sm rounded ${
-                      selectedTag === tag
-                        ? 'bg-accent-1 text-white'
-                        : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-                    }`}
-                  >
-                    {tag}
-                  </button>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* Category Filter Row - Always on separate row */}
-          {categories.length > 0 && (
-            <div className="w-full flex flex-col">
-              <label className="block text-sm font-medium mb-2">Filter by Category:</label>
-              <select
-                id="category-filter-select"
-                value={selectedCategory}
-                onChange={(e) => handleCategoryFilter(e.target.value)}
-                className="px-3 py-2 border rounded bg-card text-foreground max-w-xs"
-              >
-                <option value="">All Categories</option>
-                {categories.map(category => (
-                  <option key={category} value={category}>
-                    {category}
-                  </option>
-                ))}
-              </select>
-            </div>
-          )}
-
-          {/* Clear Filters Row */}
-          {(searchTerm || selectedTag || selectedCategory) && (
-            <div className="w-full flex flex-col">
-              <button
-                id="clear-filters-button"
-                onClick={handleClearFilters}
-                className="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 max-w-xs"
-              >
-                Clear Filters
-              </button>
-            </div>
-          )}
-        </div>
-
-        {/* Bulk Selection Controls */}
-        {bulkMode && (
-          <div id="bulk-selection-controls" className="mb-4 p-3 border rounded bg-gray-50">
-            <div className="flex items-center gap-4">
-              <button
-                id="select-all-button"
-                onClick={handleSelectAll}
-                className="text-sm text-accent-1 hover:text-accent-2"
-              >
-                {selectedArticles.size === articles.length ? 'Deselect All' : 'Select All'}
-              </button>
-              <span className="text-sm text-gray-600">
-                {selectedArticles.size} of {articles.length} selected
-              </span>
-            </div>
-          </div>
-        )}
-      </div>
-
-      {/* Articles Grid */}
-      <div id="articles-explorer-grid" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {articles.map(article => (
-          <ArticleCard
-            key={article.slug}
-            article={article}
-            adminEnabled={isAdmin}
-            allowZipDownload={true}
-            onDelete={async () => {
-              const success = await deleteArticle(article.slug);
-              if (success) {
-                await refresh();
-              }
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="w-full px-4 py-3 rounded-lg border transition-colors"
+            style={{
+              backgroundColor: 'var(--card)',
+              borderColor: 'var(--card-border)',
+              color: 'var(--foreground)',
             }}
-            selectable={bulkMode}
-            selected={selectedArticles.has(article.slug)}
-            onSelectionChange={(slug, selected) => handleArticleSelect(slug, selected)}
           />
-        ))}
-      </div>
+        </div>
 
-      {/* No Results Message */}
-      {articles.length === 0 && (
-        <div id="no-articles-message" className="text-center py-12 text-gray-500">
-          <p className="text-lg">
-            {searchTerm || selectedTag || selectedCategory
-              ? 'No articles found matching your filters.'
-              : 'No articles available.'}
-          </p>
+        {/* Filter Controls */}
+        <div className="flex flex-wrap gap-4 justify-center">
+          {/* Category Filter */}
+          <select
+            value={selectedCategory}
+            onChange={(e) => setSelectedCategory(e.target.value)}
+            className="px-4 py-2 rounded-lg border"
+            style={{
+              backgroundColor: 'var(--card)',
+              borderColor: 'var(--card-border)',
+              color: 'var(--foreground)',
+            }}
+          >
+            <option value="">All Categories</option>
+            {allCategories.map(category => (
+              <option key={category} value={category}>
+                {category}
+              </option>
+            ))}
+          </select>
+
+          {/* Tag Filter */}
+          <select
+            value={selectedTag}
+            onChange={(e) => setSelectedTag(e.target.value)}
+            className="px-4 py-2 rounded-lg border"
+            style={{
+              backgroundColor: 'var(--card)',
+              borderColor: 'var(--card-border)',
+              color: 'var(--foreground)',
+            }}
+          >
+            <option value="">All Tags</option>
+            {allTags.map(tag => (
+              <option key={tag} value={tag}>
+                {tag}
+              </option>
+            ))}
+          </select>
+
+          {/* Clear Filters */}
           {(searchTerm || selectedTag || selectedCategory) && (
             <button
-              id="clear-filters-from-empty"
-              onClick={handleClearFilters}
-              className="mt-4 text-accent-1 hover:text-accent-2 underline"
+              onClick={() => {
+                setSearchTerm('');
+                setSelectedTag('');
+                setSelectedCategory('');
+              }}
+              className="px-4 py-2 rounded-lg font-medium transition-colors"
+              style={{
+                backgroundColor: 'var(--accent-1)',
+                color: 'var(--card-contrast)',
+              }}
             >
-              Clear all filters
+              Clear Filters
             </button>
           )}
         </div>
-      )}
-      
-      {/* Admin Help Panel */}
-      {showHelpPanel && (
-        <AdminHelpPanel 
-          config={config}
-          onClose={() => setShowHelpPanel(false)}
-        />
+      </div>
+
+      {/* Results Summary */}
+      <div className="mb-6 text-center">
+        <p style={{ color: 'var(--foreground-muted)' }}>
+          {filteredArticles.length === articles.length 
+            ? `${articles.length} article${articles.length !== 1 ? 's' : ''}`
+            : `${filteredArticles.length} of ${articles.length} articles`
+          }
+        </p>
+      </div>
+
+      {/* Articles Grid */}
+      {filteredArticles.length > 0 ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filteredArticles.map((article) => (
+            <ArticleCard
+              key={article.slug}
+              article={article}
+            />
+          ))}
+        </div>
+      ) : (
+        <div className="text-center py-12">
+          <p className="text-xl mb-4" style={{ color: 'var(--foreground)' }}>
+            No articles found
+          </p>
+          <p style={{ color: 'var(--foreground-muted)' }}>
+            Try adjusting your search criteria or filters.
+          </p>
+        </div>
       )}
     </div>
   );

@@ -6,7 +6,6 @@ import { getArticleBySlug, getAllArticles } from '@/utils/articles';
 import MarkdownRenderer from '@/components/ui/MarkdownRenderer';
 import ReadingTheme from '@/components/ui/ReadingTheme';
 import ArticleAnalyticsTracker from '@/components/ui/ArticleAnalyticsTracker';
-import ArticleAdminActions from '@/components/articles/ArticleAdminActions';
 
 interface ArticlePageProps {
   params: Promise<{
@@ -225,12 +224,6 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             </footer>
           </div>
         </article>
-
-        {/* Admin Actions for Edit/Delete */}
-        <ArticleAdminActions article={article} />
-
-        {/* Floating Back Button (consistent with other pages) */}
-
       </div>
     </ReadingTheme>
   );

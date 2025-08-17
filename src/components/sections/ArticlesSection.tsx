@@ -167,7 +167,7 @@ export default function ArticlesSection() {
               </h3>
             </div>
             <div id="featured-article-container" className="max-w-4xl mx-auto">
-              <ArticleCard article={featuredArticle} featured />
+              <ArticleCard article={featuredArticle} />
             </div>
           </div>
         )}
