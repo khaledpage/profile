@@ -1,79 +1,90 @@
 {
   "experience": [
     {
-      "role": "Senior Full-Stack Developer",
-      "company": "Tech Innovation GmbH",
-      "location": "Munich, Germany",
-      "type": "Full-time",
-      "startDate": "2021-03",
+      "role": "Senior Software Engineer",
+      "company": "Tech Solutions GmbH",
+      "location": "München, Deutschland",
+      "type": "Vollzeit",
+      "startDate": "2022-01",
       "endDate": null,
       "current": true,
       "description": {
-        "en": "Lead development of modern web applications using React, Next.js, and TypeScript. Architect scalable solutions and mentor junior developers.",
-        "de": "Leitung der Entwicklung moderner Webanwendungen mit React, Next.js und TypeScript. Architektur skalierbarer Lösungen und Mentoring von Junior-Entwicklern."
+        "en": "Lead development of enterprise web applications using React, Next.js, and TypeScript. Design and implement scalable microservices architecture and mentor development teams.",
+        "de": "Leitung der Entwicklung von Unternehmens-Webanwendungen mit React, Next.js und TypeScript. Entwurf und Implementierung skalierbarer Microservices-Architekturen und Mentoring von Entwicklungsteams."
       },
-      "technologies": ["React", "Next.js", "TypeScript", "Node.js", "PostgreSQL", "AWS"],
+      "technologies": ["React", "Next.js", "TypeScript", "Node.js", "PostgreSQL", "AWS", "Docker", "Kubernetes"],
       "achievements": [
-        "Led team of 5 developers on major client project",
-        "Improved application performance by 40%",
-        "Implemented CI/CD pipeline reducing deployment time by 60%"
+        "Architected microservices infrastructure serving 100k+ users",
+        "Improved application performance by 45% through optimization",
+        "Led migration from monolith to microservices architecture",
+        "Mentored 6 junior developers and established coding standards"
+      ]
+    },
+    {
+      "role": "Full-Stack Entwickler",
+      "company": "Digital Innovation AG",
+      "location": "Berlin, Deutschland",
+      "type": "Vollzeit",
+      "startDate": "2020-03",
+      "endDate": "2021-12",
+      "current": false,
+      "description": {
+        "en": "Developed and maintained web applications using modern JavaScript frameworks. Collaborated with cross-functional teams to deliver client solutions on time and within budget.",
+        "de": "Entwicklung und Wartung von Webanwendungen mit modernen JavaScript-Frameworks. Zusammenarbeit mit interdisziplinären Teams zur termingerechten und budgetkonformen Lieferung von Kundenlösungen."
+      },
+      "technologies": ["React", "Vue.js", "Node.js", "Express", "MongoDB", "Azure", "Git"],
+      "achievements": [
+        "Delivered 20+ client projects with 98% satisfaction rate",
+        "Reduced deployment time by 60% through CI/CD implementation",
+        "Optimized database queries improving response time by 35%",
+        "Implemented automated testing reducing bugs by 40%"
       ]
     },
     {
       "role": "Frontend Developer",
-      "company": "Digital Solutions AG",
-      "location": "Berlin, Germany",
-      "type": "Full-time",
-      "startDate": "2019-06",
-      "endDate": "2021-02",
-      "current": false,
-      "description": {
-        "en": "Developed responsive user interfaces and optimized application performance. Collaborated with UX designers and backend developers.",
-        "de": "Entwicklung responsiver Benutzeroberflächen und Optimierung der Anwendungsleistung. Zusammenarbeit mit UX-Designern und Backend-Entwicklern."
-      },
-      "technologies": ["React", "JavaScript", "SASS", "REST APIs", "Git"],
-      "achievements": [
-        "Delivered 15+ client projects on time",
-        "Reduced page load times by 35%",
-        "Mentored 2 intern developers"
-      ]
-    },
-    {
-      "role": "Junior Web Developer",
-      "company": "StartupLab",
-      "location": "Hamburg, Germany",
-      "type": "Full-time",
+      "company": "StartupHub Deutschland",
+      "location": "Hamburg, Deutschland",
+      "type": "Vollzeit",
       "startDate": "2018-09",
-      "endDate": "2019-05",
+      "endDate": "2020-02",
       "current": false,
       "description": {
-        "en": "Built web applications for startup clients using modern JavaScript frameworks. Gained experience in agile development methodologies.",
-        "de": "Entwicklung von Webanwendungen für Startup-Kunden mit modernen JavaScript-Frameworks. Erfahrung in agilen Entwicklungsmethoden gesammelt."
+        "en": "Built responsive user interfaces for startup clients using modern web technologies. Gained experience in agile development methodologies and rapid prototyping.",
+        "de": "Entwicklung responsiver Benutzeroberflächen für Startup-Kunden mit modernen Webtechnologien. Erfahrung in agilen Entwicklungsmethoden und Rapid Prototyping gesammelt."
       },
-      "technologies": ["Vue.js", "JavaScript", "PHP", "MySQL", "Bootstrap"],
+      "technologies": ["Vue.js", "JavaScript", "SASS", "PHP", "MySQL", "Bootstrap"],
       "achievements": [
-        "Contributed to 8 successful product launches",
-        "Implemented responsive design for mobile-first approach",
-        "Participated in code reviews and sprint planning"
+        "Contributed to 12 successful product launches",
+        "Implemented mobile-first responsive design approach",
+        "Collaborated in agile teams using Scrum methodology",
+        "Maintained 99% uptime for production applications"
       ]
     }
   ],
   "freelance": [
     {
-      "client": "E-Commerce Solutions",
-      "project": "Online Shop Platform",
-      "duration": "3 months",
+      "client": "E-Commerce Lösungen GmbH",
+      "project": "Online Shop Plattform",
+      "duration": "4 Monate",
       "year": "2023",
-      "technologies": ["Next.js", "Stripe", "Prisma", "PostgreSQL"],
-      "description": "Built a complete e-commerce platform with payment integration and admin dashboard."
+      "technologies": ["Next.js", "Stripe", "Prisma", "PostgreSQL", "Tailwind CSS"],
+      "description": "Entwicklung einer vollständigen E-Commerce-Plattform mit Zahlungsintegration, Warenverwaltung und Admin-Dashboard."
     },
     {
-      "client": "Local Restaurant Chain",
+      "client": "Restaurant Chain Deutschland",
       "project": "Food Ordering App",
-      "duration": "2 months", 
+      "duration": "3 Monate", 
       "year": "2022",
-      "technologies": ["React Native", "Firebase", "Node.js"],
-      "description": "Developed mobile app for food ordering with real-time order tracking."
+      "technologies": ["React Native", "Firebase", "Node.js", "Express"],
+      "description": "Entwicklung einer mobilen App für Essensbestellungen mit Echtzeit-Bestellverfolgung und Kundenbewertungssystem."
+    },
+    {
+      "client": "Immobilien Management",
+      "project": "Property Management System",
+      "duration": "2 Monate",
+      "year": "2021",
+      "technologies": ["React", "Django", "PostgreSQL", "AWS"],
+      "description": "Webbasiertes System zur Immobilienverwaltung mit Mieterportal und automatisierter Abrechnungsfunktion."
     }
   ]
 }

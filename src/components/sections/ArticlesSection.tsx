@@ -13,26 +13,16 @@ export default function ArticlesSection() {
   useEffect(() => {
     async function fetchArticles() {
       try {
-        // Prefer API in runtime; fallback to static JSON if needed (e.g., GitHub Pages)
-        let list: Article[] = [] as unknown as Article[];
-        try {
-          const apiRes = await fetch('/api/articles', { cache: 'no-store' });
-          if (apiRes.ok) {
-            const items: { slug: string; metadata: Article['metadata'] }[] = await apiRes.json();
-            list = items.map((a) => ({ slug: a.slug, metadata: a.metadata, content: '', assets: [] } as Article));
-          }
-        } catch {}
-
-        if (!list || list.length === 0) {
-          const base = process.env.NEXT_PUBLIC_BASE_PATH || '';
-          const response = await fetch(`${base}/data/articles.json`, { cache: 'force-cache' });
-          if (response.ok) {
-            const data = await response.json();
-            list = Array.isArray(data) ? data : [];
-          }
+        // Load from static JSON file for static site
+        const base = process.env.NEXT_PUBLIC_BASE_PATH || '';
+        const response = await fetch(`${base}/data/articles.json`, { cache: 'force-cache' });
+        if (response.ok) {
+          const data = await response.json();
+          const list = Array.isArray(data) ? data : [];
+          setArticles(list.slice(0, 9)); // Show up to 9 articles on homepage
+        } else {
+          throw new Error('Failed to load articles');
         }
-
-        setArticles(list.slice(0, 9)); // Show up to 9 articles on homepage
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Failed to load articles');
         console.error('Error fetching articles:', err);

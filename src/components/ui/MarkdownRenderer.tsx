@@ -24,13 +24,13 @@ export default function MarkdownRenderer({ content, className = '', articleSlug 
         // Process relative image paths if articleSlug is provided
         let processedContent = content;
         if (articleSlug) {
-          // Replace relative image paths with API paths
+          // Replace relative image paths with static asset paths
           processedContent = content.replace(
             /!\[([^\]]*)\]\(\.\/assets\/([^)]+)\)/g,
-            `![$1](/api/articles/${articleSlug}/assets/$2)`
+            `![$1](/articles/${articleSlug}/assets/$2)`
           ).replace(
             /!\[([^\]]*)\]\(assets\/([^)]+)\)/g,
-            `![$1](/api/articles/${articleSlug}/assets/$2)`
+            `![$1](/articles/${articleSlug}/assets/$2)`
           );
         }
 

@@ -1,8 +1,0 @@
-User-Agent: *
-Allow: /
-Disallow: /api/
-Disallow: /_next/
-Disallow: /admin/
-Disallow: *.json
-
-Sitemap: https://khaledpage.github.io/profile/sitemap.xml

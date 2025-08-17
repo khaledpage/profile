@@ -129,7 +129,19 @@ export default async function RootLayout({
             interactiveEffects={config?.interactiveEffects}
           />
           <SettingsPanel
-            config={config ?? { colorProfile: '', palettes: {} }}
+            config={config ?? { 
+              colorProfile: '', 
+              palettes: {},
+              settings: {
+                enabled: true,
+                showIcon: true,
+                allowThemeChange: true,
+                allowAnimationToggle: true,
+                allowLanguageChange: true,
+                cookieConsent: true,
+                adminOnly: false
+              }
+            }}
           />
           <CookieConsent />
           {children}

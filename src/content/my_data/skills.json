@@ -1,53 +1,71 @@
 {
   "technical": {
     "frontend": [
-      { "name": "React", "level": 90, "years": 4 },
-      { "name": "Next.js", "level": 85, "years": 3 },
-      { "name": "TypeScript", "level": 88, "years": 3 },
-      { "name": "JavaScript", "level": 92, "years": 5 },
-      { "name": "HTML5", "level": 95, "years": 6 },
-      { "name": "CSS3/SCSS", "level": 90, "years": 5 },
-      { "name": "Tailwind CSS", "level": 85, "years": 2 },
-      { "name": "Vue.js", "level": 75, "years": 2 }
+      { "name": "React", "level": 95, "years": 5 },
+      { "name": "Next.js", "level": 90, "years": 4 },
+      { "name": "TypeScript", "level": 92, "years": 4 },
+      { "name": "JavaScript", "level": 95, "years": 6 },
+      { "name": "HTML5", "level": 98, "years": 7 },
+      { "name": "CSS3/SCSS", "level": 92, "years": 6 },
+      { "name": "Tailwind CSS", "level": 88, "years": 3 },
+      { "name": "Vue.js", "level": 80, "years": 3 },
+      { "name": "React Native", "level": 75, "years": 2 }
     ],
     "backend": [
-      { "name": "Node.js", "level": 85, "years": 4 },
-      { "name": "Express.js", "level": 80, "years": 3 },
-      { "name": "NestJS", "level": 75, "years": 2 },
-      { "name": "PHP", "level": 70, "years": 3 },
-      { "name": "Python", "level": 65, "years": 2 }
+      { "name": "Node.js", "level": 90, "years": 5 },
+      { "name": "Express.js", "level": 85, "years": 4 },
+      { "name": "NestJS", "level": 80, "years": 3 },
+      { "name": "Python", "level": 75, "years": 3 },
+      { "name": "Django", "level": 70, "years": 2 },
+      { "name": "PHP", "level": 75, "years": 4 },
+      { "name": "GraphQL", "level": 80, "years": 2 }
     ],
     "database": [
-      { "name": "PostgreSQL", "level": 80, "years": 3 },
-      { "name": "MySQL", "level": 75, "years": 4 },
-      { "name": "MongoDB", "level": 70, "years": 2 },
-      { "name": "Redis", "level": 65, "years": 2 }
+      { "name": "PostgreSQL", "level": 85, "years": 4 },
+      { "name": "MySQL", "level": 80, "years": 5 },
+      { "name": "MongoDB", "level": 75, "years": 3 },
+      { "name": "Redis", "level": 70, "years": 2 },
+      { "name": "Prisma", "level": 85, "years": 2 }
+    ],
+    "cloud": [
+      { "name": "AWS", "level": 80, "years": 3 },
+      { "name": "Azure", "level": 75, "years": 2 },
+      { "name": "Google Cloud", "level": 65, "years": 1 },
+      { "name": "Vercel", "level": 90, "years": 3 },
+      { "name": "Netlify", "level": 85, "years": 3 }
     ],
     "tools": [
-      { "name": "Git", "level": 90, "years": 5 },
-      { "name": "Docker", "level": 75, "years": 2 },
-      { "name": "AWS", "level": 70, "years": 2 },
-      { "name": "Vercel", "level": 85, "years": 3 },
-      { "name": "Figma", "level": 80, "years": 3 }
+      { "name": "Git", "level": 95, "years": 6 },
+      { "name": "Docker", "level": 80, "years": 3 },
+      { "name": "Kubernetes", "level": 70, "years": 2 },
+      { "name": "Jenkins", "level": 75, "years": 2 },
+      { "name": "GitHub Actions", "level": 85, "years": 3 },
+      { "name": "Figma", "level": 80, "years": 3 },
+      { "name": "Jira", "level": 85, "years": 4 }
     ]
   },
   "soft": [
     "Team Leadership",
-    "Project Management", 
-    "Client Communication",
-    "Problem Solving",
-    "Agile Methodologies",
+    "Projektmanagement", 
+    "Kundenkommunikation",
+    "Problemlösung",
+    "Agile Methoden (Scrum)",
     "Code Review",
     "Mentoring",
-    "Technical Documentation"
+    "Technische Dokumentation",
+    "Requirements Analysis",
+    "Präsentationsfähigkeiten"
   ],
   "interests": [
     "Open Source Contributions",
-    "Tech Blogging",
+    "Technische Blogs schreiben",
     "UI/UX Design",
     "Performance Optimization",
     "Web Accessibility",
+    "Cloud Architecture",
+    "DevOps Practices",
     "Machine Learning",
-    "DevOps Practices"
+    "Microservices Architecture",
+    "Continuous Integration/Deployment"
   ]
 }

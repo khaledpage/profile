@@ -38,32 +38,14 @@ export default function Hero({
   });
 
   useEffect(() => {
-    // Load language-specific content
-    const loadContent = async () => {
-      try {
-        const response = await fetch('/api/hero-content?lang=' + currentLanguage);
-        if (response.ok) {
-          const langContent = await response.json();
-          setContent(langContent);
-        }
-      } catch {
-        // Fallback to default content if API fails
-        console.warn('Failed to load language content, using defaults');
-      }
-    };
-
-    if (currentLanguage !== 'de') {
-      loadContent();
-    } else {
-      // Reset to default German content
-      setContent({
-        title,
-        subtitle,
-        description,
-        primaryButton,
-        secondaryButton,
-      });
-    }
+    // Use static content only - no API calls for static site
+    setContent({
+      title,
+      subtitle,
+      description,
+      primaryButton,
+      secondaryButton,
+    });
   }, [currentLanguage, title, subtitle, description, primaryButton, secondaryButton]);
   return (
   <section id="hero-section" className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">

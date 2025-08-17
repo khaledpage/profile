@@ -25,34 +25,9 @@ export default function ReadingTheme({ children }: ReadingThemeProps) {
     };
   }, []);
 
-  const handleDownloadPDF = async () => {
-    if (process.env.NEXT_PUBLIC_STATIC_EXPORT === 'true') {
-      alert('PDF generation is unavailable on static export. Clone the repo and run locally to generate PDFs.');
-      return;
-    }
-    try {
-      setIsDownloading(true);
-      const response = await fetch(`/api/articles/${slug}/pdf`);
-      
-      if (!response.ok) {
-        throw new Error('Failed to generate PDF');
-      }
-
-      const blob = await response.blob();
-      const url = window.URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = `${slug}.pdf`;
-      document.body.appendChild(a);
-      a.click();
-      window.URL.revokeObjectURL(url);
-      document.body.removeChild(a);
-  } catch (error) {
-      console.error('Error downloading PDF:', error);
-      alert('Failed to download PDF. Please try again.');
-    } finally {
-      setIsDownloading(false);
-    }
+    const handleDownloadPDF = () => {
+    // PDF generation disabled for static site
+    alert('PDF generation is not available in the static version of this portfolio.');
   };
 
   const handleShare = async () => {

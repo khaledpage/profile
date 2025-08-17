@@ -1,50 +1,56 @@
 {
   "education": [
     {
-      "degree": "Master of Computer Science",
-      "institution": "Technical University",
-      "location": "Germany",
-      "year": "2019",
-      "grade": "1.5",
-      "thesis": "Modern Web Application Architecture with Microservices"
+      "degree": "Master of Science - Informatik",
+      "institution": "Technische Universität",
+      "location": "Deutschland",
+      "year": "2020",
+      "grade": "1.8",
+      "thesis": "Moderne Webanwendungsarchitektur mit Cloud-Native Technologien"
     },
     {
-      "degree": "Bachelor of Computer Science",
-      "institution": "University of Applied Sciences",
-      "location": "Germany", 
-      "year": "2017",
-      "grade": "1.8",
-      "focus": "Software Engineering and Web Technologies"
+      "degree": "Bachelor of Science - Informatik",
+      "institution": "Fachhochschule",
+      "location": "Deutschland", 
+      "year": "2018",
+      "grade": "2.1",
+      "focus": "Software Engineering und Webtechnologien"
     }
   ],
   "certifications": [
     {
-      "name": "AWS Certified Solutions Architect",
+      "name": "AWS Certified Solutions Architect - Associate",
       "issuer": "Amazon Web Services",
       "year": "2023",
       "validUntil": "2026"
     },
     {
-      "name": "Google Cloud Professional Developer",
-      "issuer": "Google Cloud",
+      "name": "Microsoft Azure Developer Associate",
+      "issuer": "Microsoft",
       "year": "2022",
       "validUntil": "2025"
+    },
+    {
+      "name": "Professional Scrum Master I",
+      "issuer": "Scrum.org",
+      "year": "2021",
+      "validUntil": "Lifetime"
     }
   ],
   "languages": [
     {
-      "language": "German",
-      "level": "Native",
+      "language": "Deutsch",
+      "level": "Muttersprache",
       "code": "de"
     },
     {
       "language": "English",
-      "level": "Fluent (C1)",
+      "level": "Fließend (C1)",
       "code": "en"
     },
     {
-      "language": "Arabic",
-      "level": "Native",
+      "language": "العربية",
+      "level": "Muttersprache",
       "code": "ar"
     }
   ]
