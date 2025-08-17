@@ -14,12 +14,34 @@ import AnimatedBackground from '@/components/AnimatedBackground';
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
+  
+  // Initialize with default language to prevent hydration mismatch
   const [currentLanguage, setCurrentLanguage] = useState(config.ui.language);
   const theme = getTheme(config.ui.theme.active);
   const content = getContent(currentLanguage);
 
+  // Auto-detect browser language
+  const detectBrowserLanguage = () => {
+    if (typeof window !== 'undefined') {
+      const browserLang = navigator.language.toLowerCase();
+      // Check if browser language is German
+      if (browserLang.startsWith('de')) {
+        return 'de';
+      }
+      // Default to English for all other languages
+      return 'en';
+    }
+    return config.ui.language;
+  };
+
   useEffect(() => {
     setMounted(true);
+    
+    // Set language based on browser detection after mounting
+    const detectedLanguage = detectBrowserLanguage();
+    if (detectedLanguage !== currentLanguage) {
+      setCurrentLanguage(detectedLanguage);
+    }
 
     // Apply theme CSS variables
     const root = document.documentElement;
@@ -35,7 +57,7 @@ export default function Home() {
     const primaryColor = theme.colors.primary;
     root.style.setProperty('--primary-shadow', `${primaryColor}40`); // 40 = 25% opacity
     root.style.setProperty('--primary-shadow-strong', `${primaryColor}CC`); // CC = 80% opacity
-  }, [theme, currentLanguage]);
+  }, [theme]);
 
   const toggleLanguage = () => {
     setCurrentLanguage(currentLanguage === 'en' ? 'de' : 'en');
@@ -44,32 +66,26 @@ export default function Home() {
   if (!mounted) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="text-2xl font-bold gradient-text">{content.common.loading}</div>
+        <div className="text-2xl font-bold gradient-text">Loading...</div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen relative">
+    <div id="app-container" className="min-h-screen relative">
       {/* Animated Background */}
       <AnimatedBackground />
 
-      {/* Language Switcher */}
-      <div className="fixed top-4 right-4 z-50">
-        <button
-          onClick={toggleLanguage}
-          className="glass px-4 py-2 rounded-lg border border-white/10 hover:border-primary/30 transition-all duration-300 text-sm font-medium"
-        >
-          {currentLanguage === 'en' ? '🇩🇪 Deutsch' : '🇺🇸 English'}
-        </button>
-      </div>
-
       {/* Navigation */}
       {config.ui.layout.showNavigation && (
-        <Nav content={content} currentLanguage={currentLanguage} />
+        <Nav 
+          content={content} 
+          currentLanguage={currentLanguage} 
+          onLanguageToggle={toggleLanguage}
+        />
       )}
 
-      <main>
+      <main id="main-content">
         {/* Hero Section */}
         {config.ui.sections.hero.enabled && (
           <Hero content={content.hero} config={config} />
@@ -103,9 +119,9 @@ export default function Home() {
 
       {/* Footer */}
       {config.ui.layout.showFooter && (
-        <footer className="text-center py-8 mt-20 border-t border-white/10">
+        <footer id="main-footer" className="text-center py-8 mt-20 border-t border-white/10">
           <p className="text-gray-400">
-            © 2024 {config.personal.name}. Built with passion and precision.
+            © 2025 {config.personal.name}. Built with passion and precision.
           </p>
         </footer>
       )}

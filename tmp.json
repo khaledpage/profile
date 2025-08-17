@@ -1,11 +1,11 @@
 {
   "site": {
-    "title": "Khaled Alabsi - Senior Software Engineer & Full-Stack Developer",
-    "description": "Khaled Alabsi - Professional Developer & Digital Innovator with 8+ years of experience in full-stack development, Java, Spring, React, Cloud Computing, and Enterprise Software Solutions in Germany.",
+    "title": "Jone Doe - Senior Software Engineer & Full-Stack Developer",
+    "description": "Jone Doe - Professional Developer & Digital Innovator with 8+ years of experience in full-stack development, Java, Spring, React, Cloud Computing, and Enterprise Software Solutions in Germany.",
     "url": "https://www.alabsi.space",
-    "author": "Khaled Alabsi",
+    "author": "Jone Doe",
     "keywords": [
-      "Khaled Alabsi",
+      "Jone Doe",
       "senior software engineer",
       "full-stack developer",
       "Java developer",
@@ -42,7 +42,7 @@
     "favicon": "/favicon.ico"
   },
   "personal": {
-    "name": "Khaled Alabsi",
+    "name": "Jone Doe",
     "role": "Senior Software Engineer",
     "tagline": "Transforming ideas into exceptional digital solutions",
     "email": "khaled.alabsi@example.com",
@@ -72,7 +72,7 @@
     "en": {
       "hero": {
         "greeting": "Hello, I'm",
-        "name": "Khaled Alabsi",
+        "name": "Jone Doe",
         "roles": [
           "Full-Stack Developer",
           "Digital Innovator",
@@ -120,13 +120,7 @@
           },
           {
             "name": "Frontend Development",
-            "technologies": [
-              "React",
-              "TypeScript",
-              "Next.js",
-              "HTML5",
-              "CSS3"
-            ]
+            "technologies": ["React", "TypeScript", "Next.js", "HTML5", "CSS3"]
           },
           {
             "name": "Cloud & DevOps",
@@ -178,7 +172,7 @@
             "image": "",
             "demo": "",
             "github": "",
-            "featured": false
+            "featured": true
           },
           {
             "title": "Data Analytics Platform",
@@ -194,7 +188,7 @@
             "image": "",
             "demo": "",
             "github": "",
-            "featured": false
+            "featured": true
           },
           {
             "title": "Cloud Infrastructure Optimization",
@@ -210,7 +204,7 @@
             "image": "",
             "demo": "",
             "github": "",
-            "featured": false
+            "featured": true
           },
           {
             "title": "Mobile Application Development",
@@ -393,7 +387,7 @@
     "de": {
       "hero": {
         "greeting": "Hallo, ich bin",
-        "name": "Khaled Alabsi",
+        "name": "Jone Doe",
         "roles": [
           "Full-Stack Entwickler",
           "Digitaler Innovator",
@@ -441,13 +435,7 @@
           },
           {
             "name": "Frontend-Entwicklung",
-            "technologies": [
-              "React",
-              "TypeScript",
-              "Next.js",
-              "HTML5",
-              "CSS3"
-            ]
+            "technologies": ["React", "TypeScript", "Next.js", "HTML5", "CSS3"]
           },
           {
             "name": "Cloud & DevOps",
@@ -499,7 +487,7 @@
             "image": "",
             "demo": "",
             "github": "",
-            "featured": false
+            "featured": true
           },
           {
             "title": "Datenanalyse Plattform",
@@ -515,7 +503,7 @@
             "image": "",
             "demo": "",
             "github": "",
-            "featured": false
+            "featured": true
           },
           {
             "title": "Cloud-Infrastruktur Optimierung",
@@ -531,7 +519,7 @@
             "image": "",
             "demo": "",
             "github": "",
-            "featured": false
+            "featured": true
           },
           {
             "title": "Mobile Anwendungsentwicklung",

@@ -5,9 +5,10 @@ import React, { useState, useEffect } from 'react';
 interface NavProps {
   content: any;
   currentLanguage: string;
+  onLanguageToggle: () => void;
 }
 
-const Nav = ({ content, currentLanguage }: NavProps) => {
+const Nav = ({ content, currentLanguage, onLanguageToggle }: NavProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -39,6 +40,7 @@ const Nav = ({ content, currentLanguage }: NavProps) => {
   return (
     <>
       <nav
+        id="main-navigation"
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
             ? 'glass backdrop-blur-xl border-b border-white/10'
@@ -49,7 +51,7 @@ const Nav = ({ content, currentLanguage }: NavProps) => {
           <div className="flex justify-between items-center h-16 lg:h-20">
             {/* Logo */}
             <div className="flex-shrink-0">
-              <span className="text-xl lg:text-2xl font-bold gradient-text">
+              <span id="logo" className="text-xl lg:text-2xl font-bold gradient-text">
                 KA
               </span>
             </div>
@@ -57,9 +59,10 @@ const Nav = ({ content, currentLanguage }: NavProps) => {
             {/* Desktop Menu */}
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-8">
-                {navItems.map((item) => (
+                {navItems.map((item, index) => (
                   <button
                     key={item.name}
+                    id={`nav-item-${index}`}
                     onClick={() => handleNavClick(item.href)}
                     className="text-theme-secondary hover:text-primary px-3 py-2 text-sm font-medium transition-colors relative group"
                   >
@@ -68,8 +71,18 @@ const Nav = ({ content, currentLanguage }: NavProps) => {
                   </button>
                 ))}
                 
+                {/* Language Switcher */}
+                <button
+                  id="language-switcher-desktop"
+                  onClick={onLanguageToggle}
+                  className="px-3 py-2 text-sm font-medium text-theme-secondary hover:text-primary transition-colors border border-white/10 rounded-lg hover:border-primary/30"
+                >
+                  {currentLanguage === 'en' ? '🇩🇪 DE' : '🇺🇸 EN'}
+                </button>
+                
                 {/* Contact Button */}
                 <button
+                  id="contact-btn-desktop"
                   onClick={() => handleNavClick('#contact')}
                   className="btn-primary flex items-center space-x-2"
                 >
@@ -85,6 +98,7 @@ const Nav = ({ content, currentLanguage }: NavProps) => {
             {/* Mobile menu button */}
             <div className="md:hidden">
               <button
+                id="mobile-menu-toggle"
                 onClick={() => setIsOpen(!isOpen)}
                 className="glass p-2 rounded-lg"
               >
@@ -108,13 +122,14 @@ const Nav = ({ content, currentLanguage }: NavProps) => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="fixed inset-0 z-40 md:hidden">
+        <div id="mobile-menu-overlay" className="fixed inset-0 z-40 md:hidden">
           <div className="absolute inset-0 backdrop-blur-xl" style={{ backgroundColor: 'var(--surface)' }} />
-          <div className="relative glass h-full w-80 ml-auto p-6 pt-20">
+          <div id="mobile-menu-panel" className="relative glass h-full w-80 ml-auto p-6 pt-20">
             <div className="space-y-6">
-              {navItems.map((item) => (
+              {navItems.map((item, index) => (
                 <button
                   key={item.name}
+                  id={`mobile-nav-item-${index}`}
                   onClick={() => handleNavClick(item.href)}
                   className="block w-full text-left text-lg font-medium hover:text-primary transition-colors py-3 border-b"
                   style={{ 
@@ -126,7 +141,24 @@ const Nav = ({ content, currentLanguage }: NavProps) => {
                 </button>
               ))}
               
+              {/* Language Switcher Mobile */}
               <button
+                id="language-switcher-mobile"
+                onClick={() => {
+                  onLanguageToggle();
+                  setIsOpen(false);
+                }}
+                className="block w-full text-left text-lg font-medium hover:text-primary transition-colors py-3 border-b border-primary/20"
+                style={{ 
+                  color: 'var(--text)',
+                  borderBottomColor: 'var(--border)'
+                }}
+              >
+                {currentLanguage === 'en' ? '🇩🇪 Deutsch' : '🇺🇸 English'}
+              </button>
+              
+              <button
+                id="contact-btn-mobile"
                 onClick={() => handleNavClick('#contact')}
                 className="btn-primary flex items-center justify-center space-x-2 w-full mt-8"
               >
