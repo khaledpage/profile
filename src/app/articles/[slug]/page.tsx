@@ -93,7 +93,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             {/* Floating Back Button */}
             <Link 
               href="/articles" 
-              className="fab-nav glass"
+              className="fab-nav glass back-btn"
               style={{
                 left: '1rem',
                 right: 'auto',

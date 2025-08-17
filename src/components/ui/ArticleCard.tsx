@@ -133,7 +133,10 @@ export default function ArticleCard({
           'Content-Type': 'application/json',
           'x-admin-key': adminKey,
         },
-        body: JSON.stringify(updatedArticle),
+        body: JSON.stringify({
+          slug: updatedArticle.slug,
+          article: updatedArticle
+        }),
       });
 
       if (response.ok) {

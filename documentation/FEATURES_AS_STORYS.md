@@ -435,9 +435,54 @@ As an admin, I want to create reusable article templates (tutorial, review, case
 
 ---
 
-### feature: if the admin log in the login save to the cookie in the browser or session. if it in cookie the user should be ask to accept cookie again if he didnt accpet it befor. 
+### FEAT-022: Cookie-Based Admin Login with Consent Integration
 
+- **ID**: FEAT-022
+- **Status**: ✅ DONE
+- **Implementation Date**: August 17, 2025
+- **Description**: if the admin log in the login save to the cookie in the browser or session. if it in cookie the user should be ask to accept cookie again if he didnt accpet it befor.
+- **Implementation Details**:
+  - Modified `LoginForm.tsx` to check for cookie consent before storing admin credentials
+  - Added cookie consent modal that appears during login if consent not already given
+  - Integrated with existing `shouldShowCookieBanner()` and `canSavePreferences()` utilities
+  - Only stores admin password in localStorage when preferences consent is granted
+  - Added i18n translations for cookie consent modal (English and German)
+  - Provides graceful fallback when consent is denied (cancels login)
+  - Seamless experience when consent is already granted (direct login)
 
-## feature: the User Education - How to Edit Articles in Real Time, should have dont show again option, and it only displayed once per user session, and only in admin role
+---
+
+### FEAT-023: User Education "Don't Show Again" Option
+
+- **ID**: FEAT-023  
+- **Status**: ✅ DONE
+- **Implementation Date**: August 17, 2025
+- **Description**: the User Education - How to Edit Articles in Real Time, should have dont show again option, and it only displayed once per user session, and only in admin role
+- **Implementation Details**:
+  - Enhanced `AdminHelpPanel.tsx` with "Don't show again" checkbox option
+  - Added session-based dismissal using `sessionStorage` (default behavior)
+  - Added permanent dismissal using `localStorage` when checkbox is checked
+  - Updated `ArticlesExplorer.tsx` to respect both session and permanent dismissal
+  - Added "Skip Tutorial" button for immediate dismissal
+  - Dynamic explanation text that updates based on checkbox state
+  - Session dismissal: Hidden for current browser session only
+  - Permanent dismissal: Hidden across all future sessions
+  - Only displayed to users in admin role as specified
+  - Manual triggering still available via help button even after dismissal
+
+---
 
 ## feature: the article editing button and deletion confirmation should also seen when open the article like in http://localhost:3001/articles/nextjs-vs-react
+
+
+## feature : the editing mode should look nice, now it look very primitive
+
+## feature : add log in and log out navigation and functionality in homepage, which can be configured to be displayed or not from config.json
+
+## feature : create tests for the editing mode
+
+## feature : improve the styling and layout of the editing mode for better user experience
+
+## feature: the setting pannel for not admin user, dont show advance option setting tab and not "Admin" checkbox
+
+## feature : in the "Customize the order and visibility of home page sections" in setting pannel, dosent look nice, it should be look more like element that can be dragged and reordered easily.

@@ -62,8 +62,33 @@ export default async function ArticlesPage() {
         </div>
       </section>
 
-  {/* Floating Back Button (consistent with project pages) */}
-  <Link href="/" className="fab-nav btn-secondary">← Home</Link>
+  {/* Floating Back Button (consistent with other pages) */}
+  <Link 
+    href="/" 
+    className="fab-nav glass back-btn"
+    style={{
+      left: '1rem',
+      right: 'auto',
+      backgroundColor: 'color-mix(in srgb, var(--card), transparent 20%)',
+      border: '1px solid color-mix(in srgb, var(--foreground), transparent 90%)',
+      color: 'var(--foreground)',
+      padding: '0.75rem 1rem',
+      borderRadius: '1rem',
+      textDecoration: 'none',
+      display: 'flex',
+      alignItems: 'center',
+      gap: '0.5rem',
+      fontSize: '0.875rem',
+      fontWeight: '500',
+      transition: 'all 0.2s ease',
+      backdropFilter: 'blur(12px)',
+      position: 'fixed',
+      bottom: '5.5rem',
+      zIndex: 40
+    }}
+  >
+    ← Home
+  </Link>
     </div>
   );
 }

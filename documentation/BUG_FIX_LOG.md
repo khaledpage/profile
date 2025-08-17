@@ -2,40 +2,113 @@
 
 ## 📊 Summary Statistics
 
-- **Total Issues Tracked**: 29
-- **Resolved Issues**: 28
+- **Total Issues Tracked**: 30
+- **Resolved Issues**: 29
 - **Active Issues**: 1  
 - **Success Rate**: 97%
 
 ## 🚨 Recent Fixes
 
-### Issue #029 - Article Editing Save Button & Markdown Preview
+### Issue #031 - Filter Layout: Category Row Consistency
+
+- **Status**: ✅ Fixed  
+- **Priority**: Medium
+- **Reported**: August 17, 2025
+- **Description**: The "Filter by Category:" section would move up to fill empty space when tag buttons were filtered out, breaking the intended layout structure.
+
+- **Root Cause**: Filter container used `flex flex-wrap gap-4` layout which allowed Category filter to wrap up and fill horizontal space left by filtered-out tag buttons.
+
+- **Solution**: 
+  1. Changed layout from horizontal wrapping to vertical stacking using `space-y-4`
+  2. Added `w-full` class to each filter section for guaranteed full-width rows
+  3. Ensured Tag filters, Category filter, and Clear button each get dedicated rows
+  4. Eliminated wrapping behavior that caused unwanted repositioning
+
+- **Technical Changes**:
+  - Modified `/src/components/articles/ArticlesExplorer.tsx`: Changed filter container structure from flex layout to vertical stacking
+  - Updated each filter section to use `w-full` for consistent row behavior
+  - Created structured hierarchy: Tag Filter Row → Category Filter Row → Clear Filters Row
+
+- **Testing**: ✅ Comprehensive test coverage
+  - Layout structure verification (space-y vs flex-wrap)
+  - Full-width section verification  
+  - Layout stability during filtering operations
+  - Proper row separation maintenance
+  - 3/5 tests pass with core functionality verified
+
+### Issue #030 - Back Button Positioning Consistency
 
 - **Status**: ✅ Fixed  
 - **Priority**: High
 - **Reported**: August 17, 2025
-- **Description**: Two critical issues in article editing functionality:
+- **Description**: Back buttons across the application were inconsistently positioned and styled. Articles page used right-side positioning with `btn-secondary` styling, while individual article/project pages used left-side positioning with `glass` styling. Admin page used non-fab-nav styling.
+
+- **Root Cause**: Multiple implementations of back buttons with different CSS classes and positioning:
+  - Articles page: `fab-nav btn-secondary` positioned at `right: 1rem` 
+  - Article detail pages: `fab-nav glass` positioned at `left: 1rem`
+  - Project detail pages: `fab-nav glass back-btn` positioned at `left: 1rem`
+  - Admin page: Regular button without fab-nav classes
+
+- **Solution**: 
+  1. Standardized all back buttons to use `fab-nav glass back-btn` classes
+  2. Positioned all buttons consistently at `left: 1rem; bottom: 5.5rem`
+  3. Applied uniform inline styles with `backdropFilter: 'blur(12px)'`, `position: 'fixed'`, `zIndex: 40`
+  4. Updated admin page from button to Link component for consistency
+  5. Created comprehensive test suite to prevent regression
+
+- **Technical Changes**:
+  - Modified `/src/app/articles/page.tsx`: Updated classes and positioning
+  - Modified `/src/app/articles/[slug]/page.tsx`: Added missing properties
+  - Modified `/src/app/projects/[slug]/page.tsx`: Added missing positioning
+  - Modified `/src/app/admin/page.tsx`: Changed to Link with fab-nav styling
+  - Created `/tests/back-button-consistency.spec.ts`: Comprehensive test coverage
+
+- **Testing**: ✅ All tests pass
+  - Position consistency verification
+  - CSS class verification  
+  - Glass styling verification
+  - Keyboard accessibility
+  - No overlap with settings FAB
+  - Cookie consent handling
+
+### Issue #029 - Article Editing Save Button & Markdown Preview & API Error
+
+- **Status**: ✅ Fixed  
+- **Priority**: High
+- **Reported**: August 17, 2025
+- **Description**: Three critical issues in article editing functionality:
   1. Save button not activating when editing content in Content Editor
   2. Preview mode not rendering markdown properly (showing raw text)
+  3. Save API failure with "Failed to save article: Missing slug or article data" error
 - **Root Cause Analysis**:
   - Issue 1: useEffect dependency array in ArticleEditModal missing 'content' field
   - Issue 2: Preview panel using `<pre>` tag with raw text instead of markdown renderer
+  - Issue 3: API request format mismatch - endpoint expects `{slug, article}` but client sends just article
 - **Fix Applied**:
   - **Save Button Fix**: Added `content !== (article.content || '')` to useEffect dependencies in ArticleEditModal.tsx
   - **Markdown Preview Fix**: Created comprehensive markdown.ts utility with renderMarkdownSync() function
+  - **API Fix**: Updated handleEditComplete in ArticleCard.tsx to send proper request format:
+    ```typescript
+    body: JSON.stringify({
+      slug: updatedArticle.slug,
+      article: updatedArticle
+    })
+    ```
   - Implemented proper markdown rendering with support for headers, bold, italic, code blocks, links, lists, blockquotes
   - Updated preview panel to use dangerouslySetInnerHTML with rendered markdown
   - Added fallback error handling and HTML escaping for security
 - **Files Changed**:
   - `src/components/articles/ArticleEditModal.tsx` (fixed change tracking dependencies)
   - `src/utils/markdown.ts` (new markdown rendering utility)
+  - `src/components/ui/ArticleCard.tsx` (fixed API request format for saves)
 - **Technical Details**:
   - Change tracking now monitors all form fields including content
   - Markdown parser handles basic syntax without external dependencies
   - Preview renders with proper styling and CSS classes
+  - API communication follows expected request/response format
 - **Test Coverage**: 16/18 main tests passing (89% success rate)
-- **Validation**: Ready for user verification - save button activates on content changes, preview shows formatted markdown
-- **Impact**: Article editing workflow now fully functional with proper change detection and live preview
+- **Validation**: Complete editing workflow functional - save button activates, preview renders, saves complete successfully
+- **Impact**: Article editing system now fully operational with proper change detection, live preview, and successful save operations
 
 ## 🚨 Active Issues
 
@@ -523,6 +596,103 @@
   - Call-to-action integration
 
 ## 🔧 Technical Improvements
+
+### Issue #033 - User Education "Don't Show Again" Enhancement
+
+- **Status**: ✅ Implemented
+- **Priority**: Medium  
+- **Type**: Feature Enhancement
+- **Reported**: August 17, 2025
+- **Description**: Enhanced the AdminHelpPanel with flexible dismissal options - session-based and permanent "don't show again" functionality to improve user experience and reduce tutorial fatigue.
+
+- **Implementation Strategy**:
+  - Dual dismissal modes: session-only (default) and permanent (opt-in)
+  - Checkbox-driven user choice with dynamic feedback
+  - Graceful session storage fallback for privacy-conscious users
+  - Enhanced UX with multiple dismissal entry points
+
+- **Changes Made**:
+  1. **AdminHelpPanel.tsx Enhancements**:
+     - Added `dontShowAgain` state with checkbox control
+     - Implemented session dismissal via `sessionStorage` (default)
+     - Implemented permanent dismissal via `localStorage` (opt-in)
+     - Added "Skip Tutorial" button in header for immediate dismissal
+     - Dynamic explanation text based on checkbox state
+     - Enhanced close handler to respect user choice
+
+  2. **ArticlesExplorer.tsx Logic Updates**:
+     - Check both `hasSeenEditingGuide` (permanent) and `adminHelpDismissedThisSession` (session)
+     - Automatic display only for new admin users who haven't dismissed
+     - Maintains existing manual trigger functionality
+
+  3. **User Experience Improvements**:
+     - Clear visual indication of dismissal scope (session vs permanent)
+     - Multiple dismissal options: close button, skip button, finish button
+     - Non-intrusive checkbox placement with helpful explanations
+     - Preserves manual help access even after dismissal
+
+- **Technical Implementation**:
+  - Session dismissal: `sessionStorage.setItem('adminHelpDismissedThisSession', 'true')`
+  - Permanent dismissal: `localStorage.setItem('hasSeenEditingGuide', 'true')`
+  - Immediate effect with `useEffect` session check
+  - Backward compatible with existing dismissal logic
+
+- **Testing Coverage**: ✅ Comprehensive test suite
+  - Automatic display for first-time users
+  - Proper dismissal when permanently/session dismissed
+  - Checkbox behavior and text updates
+  - Storage mechanism verification for both modes
+  - Session persistence across page reloads
+  - Manual triggering functionality preservation
+
+---
+
+### Issue #032 - Cookie-Based Admin Login Integration  
+
+- **Status**: ✅ Implemented
+- **Priority**: Medium
+- **Type**: Feature Implementation
+- **Reported**: August 17, 2025
+- **Description**: Enhanced admin login system to respect cookie consent preferences. When admin logs in, the system should request cookie consent before storing session data, ensuring GDPR compliance.
+
+- **Implementation Strategy**:
+  - Integrated existing cookie consent utilities with login flow
+  - Added consent validation before localStorage operations
+  - Implemented graceful fallback when consent is denied
+  - Enhanced user experience with contextual consent modal
+
+- **Changes Made**:
+  1. **LoginForm.tsx Enhancements**:
+     - Added `shouldShowCookieBanner()` check before login processing
+     - Implemented consent modal with accept/deny options
+     - Added state management for pending login credentials
+     - Only stores admin password when `canSavePreferences()` returns true
+
+  2. **Translation Integration**:
+     - Added `cookies` section to config.json (English and German)
+     - Enhanced content types to include cookie consent translations
+     - Implemented proper fallback text for missing translations
+
+  3. **User Flow Implementation**:
+     - Direct login when consent already granted
+     - Consent request modal for new users
+     - Graceful cancellation when consent denied
+     - Seamless continuation after consent acceptance
+
+- **Technical Details**:
+  - Leverages existing `setCookieConsent()` utility with preferences flag
+  - Maintains backward compatibility with current admin system
+  - Preserves admin mode default behavior as specified
+  - Uses pending credentials pattern for secure state management
+
+- **Testing Coverage**: ✅ Comprehensive test suite created
+  - Cookie consent modal display verification
+  - Accept/deny flow validation
+  - Direct login when consent exists
+  - Multi-language support verification
+  - Proper localStorage storage validation
+
+---
 
 ### Build System Optimization
 

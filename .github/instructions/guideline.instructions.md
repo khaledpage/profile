@@ -9,7 +9,8 @@ Hints
 - Never stop or close the server on port 3000 — it must remain running for e2e tests.
 - Implement article code as a reusable, self-contained module (usable in backend and UI).
 - UI tests must handle a cookie consent banner — tests may fail if not accepted.
-- Running Playwright tests can sometimes hang while serving the HTML report (http://localhost:9323). Be aware and close the report to continue.
+- Running Playwright tests can sometimes hang while serving the HTML report (http://localhost:9323). Be aware and close the report to continue. so dont ever use the flagg --head  as this : npm run test:e2e -- tests/back-button-consistency.spec.ts --headed
+- the styles should be always in own file, that are shared for all the project and good organized, so never hard code the styles in the components.
 
 ---
 

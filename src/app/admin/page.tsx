@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import { useLanguage } from '@/utils/i18n';
 import { isAdminEnabled } from '@/utils/admin';
 import { useArticles } from '@/hooks/useArticles';
@@ -98,18 +99,33 @@ export default function AdminDashboard() {
                 Manage your content and settings
               </p>
             </div>
-            <button
+            <Link
+              href="/"
               id="back-to-site-button"
-              onClick={() => router.push('/')}
-              className="px-4 py-2 rounded border"
+              className="fab-nav glass back-btn"
               style={{
-                borderColor: 'var(--accent-1)',
-                color: 'var(--accent-1)',
-                backgroundColor: 'transparent'
+                left: '1rem',
+                right: 'auto',
+                backgroundColor: 'color-mix(in srgb, var(--card), transparent 20%)',
+                border: '1px solid color-mix(in srgb, var(--foreground), transparent 90%)',
+                color: 'var(--foreground)',
+                padding: '0.75rem 1rem',
+                borderRadius: '1rem',
+                textDecoration: 'none',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.5rem',
+                fontSize: '0.875rem',
+                fontWeight: '500',
+                transition: 'all 0.2s ease',
+                backdropFilter: 'blur(12px)',
+                position: 'fixed',
+                bottom: '5.5rem',
+                zIndex: 40
               }}
             >
               ← Back to Site
-            </button>
+            </Link>
           </div>
         </div>
       </header>

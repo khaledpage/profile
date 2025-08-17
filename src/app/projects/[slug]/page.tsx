@@ -88,7 +88,10 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
       fontSize: '0.875rem',
       fontWeight: '500',
       transition: 'all 0.2s ease',
-      backdropFilter: 'blur(12px)'
+      backdropFilter: 'blur(12px)',
+      position: 'fixed',
+      bottom: '5.5rem',
+      zIndex: 40
     }}
   >
     ← {tCommon.back}

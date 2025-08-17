@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useLanguage } from '@/utils/i18n';
 import type { SiteConfig } from '@/types/content';
 
@@ -12,6 +12,16 @@ type Props = {
 export default function AdminHelpPanel({ config, onClose }: Props) {
   const { translations } = useLanguage(config);
   const [currentStep, setCurrentStep] = useState(0);
+  const [dontShowAgain, setDontShowAgain] = useState(false);
+
+  // Check if this is the first session or if user already dismissed for session
+  useEffect(() => {
+    const sessionDismissed = sessionStorage.getItem('adminHelpDismissedThisSession');
+    if (sessionDismissed) {
+      // Close immediately if already dismissed in this session
+      onClose();
+    }
+  }, [onClose]);
 
   const steps = [
     {
@@ -69,8 +79,13 @@ export default function AdminHelpPanel({ config, onClose }: Props) {
   };
 
   const handleClose = () => {
-    // Mark that user has seen the guide
-    localStorage.setItem('hasSeenEditingGuide', 'true');
+    if (dontShowAgain) {
+      // Permanently don't show again
+      localStorage.setItem('hasSeenEditingGuide', 'true');
+    } else {
+      // Just don't show again this session
+      sessionStorage.setItem('adminHelpDismissedThisSession', 'true');
+    }
     onClose();
   };
 
@@ -104,17 +119,30 @@ export default function AdminHelpPanel({ config, onClose }: Props) {
               </p>
             </div>
           </div>
-          <button
-            id="help-close-button"
-            onClick={handleClose}
-            className="p-2 rounded-lg hover:bg-opacity-80"
-            style={{ 
-              backgroundColor: 'color-mix(in srgb, var(--muted), transparent 70%)',
-              color: 'var(--foreground)'
-            }}
-          >
-            ✕
-          </button>
+          <div className="flex gap-2">
+            <button
+              id="help-skip-button"
+              onClick={handleClose}
+              className="px-3 py-1 text-sm rounded-lg hover:bg-opacity-80"
+              style={{ 
+                backgroundColor: 'color-mix(in srgb, var(--muted), transparent 80%)',
+                color: 'var(--foreground)'
+              }}
+            >
+              Skip Tutorial
+            </button>
+            <button
+              id="help-close-button"
+              onClick={handleClose}
+              className="p-2 rounded-lg hover:bg-opacity-80"
+              style={{ 
+                backgroundColor: 'color-mix(in srgb, var(--muted), transparent 70%)',
+                color: 'var(--foreground)'
+              }}
+            >
+              ✕
+            </button>
+          </div>
         </div>
 
         {/* Progress Bar */}
@@ -156,6 +184,31 @@ export default function AdminHelpPanel({ config, onClose }: Props) {
               </p>
             </div>
           )}
+        </div>
+
+        {/* Don't Show Again Option */}
+        <div id="help-dont-show-again" className="mb-4 border-t pt-4" style={{ borderColor: 'var(--muted)' }}>
+          <label className="flex items-center gap-3 cursor-pointer">
+            <input
+              type="checkbox"
+              checked={dontShowAgain}
+              onChange={(e) => setDontShowAgain(e.target.checked)}
+              className="w-4 h-4 rounded border accent-1"
+              style={{ 
+                accentColor: 'var(--accent-1)',
+                borderColor: 'var(--muted)'
+              }}
+            />
+            <span className="text-sm" style={{ color: 'var(--foreground)' }}>
+              Don't show this guide again
+            </span>
+          </label>
+          <p className="text-xs mt-1 ml-7" style={{ color: 'var(--muted)' }}>
+            {dontShowAgain 
+              ? "This guide will be permanently hidden for all sessions" 
+              : "This guide will be hidden for this session only"
+            }
+          </p>
         </div>
 
         {/* Navigation */}

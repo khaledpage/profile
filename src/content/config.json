@@ -449,6 +449,12 @@
           "logging_in": "Anmeldung läuft...",
           "back_to_home": "Zurück zur Startseite"
         },
+        "cookies": {
+          "consent_required": "Cookie-Zustimmung erforderlich",
+          "admin_login_message": "Um Ihre Admin-Sitzung zu speichern, müssen wir notwendige Cookies speichern. Dies erfordert Ihre Zustimmung, um fortzufahren.",
+          "deny": "Ablehnen",
+          "accept": "Akzeptieren & Fortfahren"
+        },
         "analytics": {
           "title": "Analytics Dashboard",
           "subtitle": "Verfolgen Sie die Leistung und das Engagement Ihrer Inhalte",
@@ -592,6 +598,12 @@
           "login": "Login",
           "logging_in": "Logging in...",
           "back_to_home": "Back to Home"
+        },
+        "cookies": {
+          "consent_required": "Cookie Consent Required",
+          "admin_login_message": "To save your admin session, we need to store necessary cookies. This requires your consent to continue.",
+          "deny": "Deny",
+          "accept": "Accept & Continue"
         },
         "analytics": {
           "title": "Analytics Dashboard",

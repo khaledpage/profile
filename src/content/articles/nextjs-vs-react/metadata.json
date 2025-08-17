@@ -1,10 +1,16 @@
 {
-  "title": "Next.js vs React: A Developer's Guide to Making the Right Choice",
+  "title": "Next.js vs React: Aa Developer's Guide to Making the Right Choice",
   "summary": "Understand the key differences between Next.js and React, when to use each, and how Next.js enhances React development with SSR, routing, and built-in optimizations.",
   "author": "Khaled Alabsi",
   "publishDate": "2025-01-16",
   "lastModified": "2025-01-16",
-  "tags": ["Next.js", "React", "Web Development", "SSR", "Framework Comparison"],
+  "tags": [
+    "Next.js",
+    "React",
+    "Web Development",
+    "SSR",
+    "Framework Comparison"
+  ],
   "category": "Web Development",
   "coverImage": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=400&fit=crop&crop=entropy&auto=format",
   "readingTime": 12,
@@ -12,6 +18,12 @@
   "published": true,
   "seo": {
     "metaDescription": "Complete comparison between Next.js and React - learn the differences, benefits, and when to choose each for your web development projects.",
-    "keywords": ["Next.js vs React", "React framework", "SSR", "Full-stack React", "Web development"]
+    "keywords": [
+      "Next.js vs React",
+      "React framework",
+      "SSR",
+      "Full-stack React",
+      "Web development"
+    ]
   }
 }

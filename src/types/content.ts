@@ -168,6 +168,12 @@ export interface SiteConfig {
         logging_in: string;
         back_to_home: string;
       };
+      cookies?: {
+        consent_required: string;
+        admin_login_message: string;
+        deny: string;
+        accept: string;
+      };
       analytics?: {
         title: string;
         subtitle: string;

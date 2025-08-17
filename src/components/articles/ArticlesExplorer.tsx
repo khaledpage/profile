@@ -55,10 +55,12 @@ export default function ArticlesExplorer({ config }: ArticlesExplorerProps) {
   useEffect(() => {
     setIsAdmin(isAdminEnabled());
     
-    // Check if user has seen the editing guide
-    const hasSeenGuide = localStorage.getItem('hasSeenEditingGuide');
-    if (isAdminEnabled() && !hasSeenGuide) {
-      // Show help automatically for first-time admin users
+    // Check if user has permanently dismissed or dismissed for this session
+    const hasPermanentlyDismissed = localStorage.getItem('hasSeenEditingGuide');
+    const hasSessionDismissed = sessionStorage.getItem('adminHelpDismissedThisSession');
+    
+    if (isAdminEnabled() && !hasPermanentlyDismissed && !hasSessionDismissed) {
+      // Show help automatically for first-time admin users who haven't dismissed it
       setTimeout(() => setShowHelpPanel(true), 1000);
     }
   }, []);
@@ -289,10 +291,10 @@ export default function ArticlesExplorer({ config }: ArticlesExplorerProps) {
         )}
 
         {/* Filters */}
-        <div id="articles-explorer-filters" className="flex flex-wrap gap-4 mb-4">
-          {/* Tag Filter */}
+        <div id="articles-explorer-filters" className="mb-4 space-y-4">
+          {/* Tag Filter Row */}
           {tags.length > 0 && (
-            <div>
+            <div className="w-full">
               <label className="block text-sm font-medium mb-2">Filter by Tag:</label>
               <div className="flex flex-wrap gap-2">
                 {tags.map(tag => (
@@ -313,9 +315,9 @@ export default function ArticlesExplorer({ config }: ArticlesExplorerProps) {
             </div>
           )}
 
-          {/* Category Filter */}
+          {/* Category Filter Row - Always on separate row */}
           {categories.length > 0 && (
-            <div>
+            <div className="w-full">
               <label className="block text-sm font-medium mb-2">Filter by Category:</label>
               <select
                 id="category-filter-select"
@@ -333,15 +335,17 @@ export default function ArticlesExplorer({ config }: ArticlesExplorerProps) {
             </div>
           )}
 
-          {/* Clear Filters */}
+          {/* Clear Filters Row */}
           {(searchTerm || selectedTag || selectedCategory) && (
-            <button
-              id="clear-filters-button"
-              onClick={handleClearFilters}
-              className="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600"
-            >
-              Clear Filters
-            </button>
+            <div className="w-full">
+              <button
+                id="clear-filters-button"
+                onClick={handleClearFilters}
+                className="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600"
+              >
+                Clear Filters
+              </button>
+            </div>
           )}
         </div>
 
