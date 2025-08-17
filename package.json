@@ -9,7 +9,9 @@
     "lint": "next lint",
     "export": "next build && mkdir -p docs && cp -r out/* docs/ && echo '' > docs/.nojekyll",
     "test-local": "rm -rf .next out test-local && cp next.config.local.js next.config.js && next build && mkdir -p test-local && cp -r out/* test-local/ && git checkout next.config.js && echo 'Local test build created in test-local/ folder'",
-    "serve-local": "python3 -m http.server 8000 -d test-local"
+    "serve-local": "python3 -m http.server 8000 -d test-local",
+    "deploy": "./scripts/deploy-to-github-pages.sh",
+    "deploy-help": "./scripts/deploy-to-github-pages.sh --help"
   },
   "dependencies": {
     "next": "14.0.4",
