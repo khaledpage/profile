@@ -1,9 +1,22 @@
+# Requirements Tabelle
+
+| ID | Requirement | Rationale | Priority | Status | Owner | Acceptance Criteria | Files/Modules |
+|----|------------|-----------|----------|--------|-------|-------------------|---------------|
+| REQ-001 | PhD Research Integration | Website should highlight doctoral research topic and academic credentials for professional credibility | High | Done | @khaled | PhD title, research topic, and academic achievements prominently displayed | content.config.json |
+| REQ-002 | Freelance SEO Optimization | Website must be optimized for search engines to attract freelance clients | High | Done | @khaled | Keywords include "freelance", "remote", "available for projects", enhanced meta tags | content.config.json |
+| REQ-003 | Professional Branding Update | Rebrand from employee to freelance consultant/researcher positioning | High | Done | @khaled | Updated titles, descriptions, and call-to-action buttons focus on hiring/consulting | content.config.json |
+| REQ-004 | Multilingual PhD Content | German translations for all PhD and freelance-related content | High | Done | @khaled | Complete German translations for research topic and freelance positioning | content.config.json |
+| REQ-005 | Project Portfolio Enhancement | Showcase mix of research projects and practical implementations | Medium | Done | @khaled | Featured projects include PhD research, industrial applications, and freelance work | content.config.json |
+
 # Portfolio Configuration Summary
 
 ## Implementation Status
 
 | Feature Category | Status | Details |
 |------------------|--------|---------|
+| **Professional Positioning** | ✅ Complete | Updated to PhD researcher and freelance consultant branding |
+| **Research Integration** | ✅ Complete | PhD topic in statistical process control and AI prominently featured |
+| **Freelance Optimization** | ✅ Complete | SEO keywords, CTA buttons, and content optimized for client acquisition |
 | **Configuration System** | ✅ Complete | Split UI/content architecture with multilingual support |
 | **Theme System** | ✅ Complete | 14 themes across 4 categories (dark, light, monochrome, retro) |
 | **Sections** | ✅ Complete | Hero, About, Experience, Motivation, Process, Contact |
@@ -15,7 +28,7 @@
 | **Image Display** | 🔧 Fixed | Fixed double path issue in About section profile image |
 | **Contact Integration** | 🔧 Updated | Replaced resume download button with Contact Me button |
 | **Color Contrast** | 🔧 Fixed | Improved text readability and theme-aware styling for all elements |
-| **SEO Optimization** | ✅ Complete | Comprehensive Google search optimization for "Khaled Alabsi" with sitemap, structured data, and enhanced metadata |
+| **SEO Optimization** | ✅ Complete | Comprehensive Google search optimization for "Dr. Khaled Alabsi" with freelance keywords |
 | **Navigation Language Switcher** | ✅ Complete | Language switcher integrated into navigation menu for better UX |
 | **Browser Language Detection** | ✅ Complete | Automatic browser language detection with English fallback |
 | **Mobile Scroll Optimization** | ✅ Complete | Fixed mobile scroll glitches with touch-action CSS and conditional hover effects |

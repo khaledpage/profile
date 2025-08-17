@@ -1,48 +1,54 @@
 {
   "site": {
-    "title": "Khaled Alabsi - Software Engineer & Digital Innovator",
-    "description": "Khaled Alabsi - Software Engineer & Digital Innovator with expertise in full-stack development, DevOps, cloud solutions, and AI-driven automation. Strong background in banking, insurance, and enterprise software with a focus on scalable, secure, and user-friendly applications.",
+    "title": "Dr. Khaled Alabsi - PhD Researcher & Freelance Software Engineer | Process Monitoring & AI Solutions",
+    "description": "Dr. Khaled Alabsi - PhD Researcher & Freelance Software Engineer specializing in statistical process control, anomaly detection in time series, multivariate control charts, and AI-driven automation. Available for freelance projects in enterprise software, DevOps, and industrial process optimization.",
     "url": "https://www.alabsi.space",
-    "author": "Khaled Alabsi",
+    "author": "Dr. Khaled Alabsi",
     "keywords": [
-      "Khaled Alabsi",
-      "software engineer",
-      "full-stack developer",
-      "Java developer",
-      "Spring Boot",
-      "ReactJS",
-      "micro-frontend architecture",
-      "DevOps",
-      "CI/CD pipelines",
-      "Kubernetes",
-      "Docker",
-      "TeamCity",
-      "Ansible",
-      "Vagrant",
-      "machine learning",
-      "process monitoring",
-      "anomaly detection",
-      "AI automation",
-      "LLM agent",
-      "enterprise software",
-      "IT architecture",
-      "cloud computing",
-      "Python developer",
-      "mobile development",
-      "React Native",
-      "Xamarin",
-      "Openshift",
-      "banking software",
-      "insurance software",
-      "data analytics",
-      "Germany"
+      "Dr Khaled Alabsi",
+      "PhD researcher",
+      "freelance software engineer",
+      "statistical process control",
+      "multivariate control charts",
+      "anomaly detection time series",
+      "production process analysis",
+      "industrial AI solutions",
+      "process monitoring expert",
+      "statistical quality control",
+      "machine learning anomaly detection",
+      "freelance developer Germany",
+      "enterprise software consultant",
+      "Java Spring Boot freelancer",
+      "ReactJS developer for hire",
+      "DevOps consultant",
+      "CI/CD pipeline expert",
+      "Kubernetes specialist",
+      "Docker containerization",
+      "industrial automation",
+      "process optimization",
+      "data science consultant",
+      "AI automation freelancer",
+      "full-stack developer Germany",
+      "enterprise IT consultant",
+      "banking software developer",
+      "insurance software specialist",
+      "cloud computing expert",
+      "Python data analysis",
+      "statistical analysis",
+      "quality control systems",
+      "freelance IT projects",
+      "remote software development",
+      "German software engineer",
+      "PhD computer science",
+      "research and development",
+      "industrial IoT solutions"
     ],
     "favicon": "/favicon.ico"
   },
   "personal": {
-    "name": "Khaled Alabsi",
-    "role": "Software Engineer",
-    "tagline": "Building secure, scalable, and intelligent digital solutions",
+    "name": "Dr. Khaled Alabsi",
+    "role": "PhD Researcher & Freelance Software Engineer",
+    "tagline": "Transforming industrial processes through AI, statistical analysis, and cutting-edge software solutions",
     "email": "khaled.alabsi@example.com",
     "phone": "+49 123 456 7890",
     "location": "Germany",
@@ -70,34 +76,56 @@
     "en": {
       "hero": {
         "greeting": "Hello, I'm",
-        "name": "Khaled Alabsi",
+        "name": "Dr. Khaled Alabsi",
         "roles": [
-          "Software Engineer",
-          "Full-Stack Developer",
-          "DevOps Specialist",
-          "AI Innovator"
+          "PhD Researcher",
+          "Freelance Software Engineer",
+          "Process Monitoring Expert",
+          "AI Solutions Specialist"
         ],
-        "description": "I design and implement scalable, secure, and user-focused applications. From enterprise systems to AI-powered automation, I transform complex challenges into digital success stories.",
+        "description": "I combine advanced research in statistical process control and AI with practical software engineering to optimize industrial processes and deliver innovative digital solutions. Available for freelance projects worldwide.",
         "cta": {
-          "primary": "Start a Project",
-          "secondary": "See My Work"
+          "primary": "Hire Me for Your Project",
+          "secondary": "View My Research & Work"
         }
       },
       "about": {
         "title": "About Me",
-        "subtitle": "Engineer, Innovator & Digital Architect",
-        "description": "I hold an M.Sc. in Computer and Communication Systems and have extensive experience across industries such as banking, insurance, and enterprise IT. My focus is on creating robust software solutions, from micro-frontend architectures and DevOps pipelines to AI-driven automation and process monitoring.",
+        "subtitle": "PhD Researcher, Software Engineer & Freelance Consultant",
+        "description": "I am currently pursuing my PhD with focus on \"Analysis of Disruptions in Production Processes and Anomalies in Time Series using Multivariate Control Chart Methods with Statistical Process Control and AI Techniques\". With my M.Sc. in Computer and Communication Systems and extensive industry experience, I offer unique expertise combining academic research with practical software development for industrial optimization and enterprise solutions.",
         "highlights": [
+          "PhD Candidate in Statistical Process Control & AI (ongoing)",
           "M.Sc. in Computer & Communication Systems (2023)",
           "B.Sc. in Applied Computer Science (2021)",
-          "17+ years professional experience",
-          "Specialized in banking, insurance, and enterprise IT",
-          "Expert in CI/CD, containerization, and DevOps",
-          "AI and machine learning for anomaly detection & automation"
+          "17+ years professional software development experience",
+          "Specialized in industrial process monitoring and anomaly detection",
+          "Expert in multivariate control charts and statistical quality control",
+          "Available for freelance projects and consulting worldwide",
+          "Research focus: AI-driven process optimization and time series analysis"
         ],
         "skills": [
           {
-            "name": "Enterprise & Full-Stack Development",
+            "name": "Research & Analytics",
+            "technologies": [
+              "Statistical Process Control",
+              "Multivariate Control Charts",
+              "Time Series Analysis",
+              "Anomaly Detection",
+              "Industrial Process Optimization"
+            ]
+          },
+          {
+            "name": "AI & Machine Learning",
+            "technologies": [
+              "Process Monitoring AI",
+              "Statistical Quality Control",
+              "Python Data Science",
+              "Machine Learning Models",
+              "Predictive Analytics"
+            ]
+          },
+          {
+            "name": "Enterprise Development",
             "technologies": [
               "Java",
               "Kotlin",
@@ -119,36 +147,49 @@
             ]
           },
           {
-            "name": "AI & Data",
+            "name": "Freelance Services",
             "technologies": [
-              "Machine Learning",
-              "Python",
-              "Process Monitoring",
-              "Anomaly Detection",
-              "LLM Agents"
-            ]
-          },
-          {
-            "name": "Mobile Development",
-            "technologies": ["React Native", "Xamarin", "Cross-platform"]
-          },
-          {
-            "name": "Architecture & Consulting",
-            "technologies": [
-              "IT Transformation",
-              "Business Architecture",
-              "System Integration"
+              "Remote Development",
+              "Project Consulting",
+              "Technical Architecture",
+              "Process Optimization",
+              "Quality Assurance"
             ]
           }
         ]
       },
       "experience": {
-        "title": "Highlighted Projects",
-        "subtitle": "A Selection of My Work",
+        "title": "Research & Project Portfolio",
+        "subtitle": "PhD Research, Industrial Solutions & Freelance Work",
         "projects": [
           {
+            "title": "PhD Research: Multivariate Process Control & AI",
+            "description": "Doctoral research on \"Analysis of Disruptions in Production Processes and Anomalies in Time Series using Multivariate Control Chart Methods with Statistical Process Control and AI Techniques\". Developing novel approaches to combine traditional statistical methods with modern AI for industrial process optimization.",
+            "technologies": [
+              "Statistical Process Control",
+              "Multivariate Control Charts",
+              "Time Series Analysis",
+              "Machine Learning",
+              "Python",
+              "R"
+            ],
+            "image": "",
+            "demo": "",
+            "github": "",
+            "featured": true
+          },
+          {
+            "title": "Industrial Process Monitoring System",
+            "description": "Developed AI-powered real-time monitoring system for production processes, implementing multivariate control charts and statistical anomaly detection. Reduced false positives by 40% and improved early detection of process deviations.",
+            "technologies": ["Python", "Statistical Analysis", "Process Control", "AI/ML", "Real-time Monitoring"],
+            "image": "",
+            "demo": "",
+            "github": "",
+            "featured": true
+          },
+          {
             "title": "Securities Products Platform (Banking)",
-            "description": "Developed secure, scalable full-stack applications using Spring Boot and ReactJS with micro-frontend architecture. Enhanced maintainability and modularity, and improved CI/CD pipelines with TeamCity.",
+            "description": "Freelance project: Developed secure, scalable full-stack applications using Spring Boot and ReactJS with micro-frontend architecture. Enhanced maintainability and modularity, and improved CI/CD pipelines with TeamCity.",
             "technologies": [
               "Spring Boot",
               "ReactJS",
@@ -161,44 +202,26 @@
             "featured": true
           },
           {
-            "title": "AI Document Processing",
-            "description": "Designed and deployed an ML-powered system for automated document processing, leveraging Python, Spring Boot, and ReactJS. Deployed in production using Ansible and Vagrant.",
-            "technologies": ["Python", "Spring Boot", "ReactJS", "Ansible", "Vagrant"],
+            "title": "Statistical Quality Control Consulting",
+            "description": "Freelance consulting project implementing statistical process control methods for manufacturing client. Designed custom control charts and anomaly detection algorithms to improve quality assurance processes.",
+            "technologies": ["Statistical Analysis", "Quality Control", "Process Optimization", "Data Analytics"],
             "image": "",
             "demo": "",
             "github": "",
             "featured": true
           },
           {
-            "title": "Insurance Process Automation",
-            "description": "Implemented Kubernetes-based orchestration for internal administrative applications. Automated CI/CD pipelines to accelerate deployment and improve efficiency.",
-            "technologies": ["Kubernetes", "Docker", "CI/CD", "DevOps"],
-            "image": "",
-            "demo": "",
-            "github": "",
-            "featured": true
-          },
-          {
-            "title": "Process Monitoring & Anomaly Detection",
-            "description": "Applied statistical methods and ML to monitor processes, classify patterns, and detect anomalies in industrial and business workflows.",
-            "technologies": ["Machine Learning", "Process Monitoring", "Anomaly Detection"],
+            "title": "Time Series Anomaly Detection Framework",
+            "description": "Research project developing advanced algorithms for detecting anomalies in industrial time series data. Combined traditional statistical methods with modern machine learning approaches for improved accuracy.",
+            "technologies": ["Time Series Analysis", "Anomaly Detection", "Machine Learning", "Python"],
             "image": "",
             "demo": "",
             "github": "",
             "featured": false
           },
           {
-            "title": "AI-driven Process Automation",
-            "description": "Designed and implemented LLM-agent solutions for automated process execution and optimization.",
-            "technologies": ["LLM Agent", "Python", "AI Automation"],
-            "image": "",
-            "demo": "",
-            "github": "",
-            "featured": false
-          },
-          {
-            "title": "Enterprise Cloud Migration",
-            "description": "Led comprehensive cloud migration projects for enterprise clients, implementing scalable infrastructure solutions and optimizing performance.",
+            "title": "Enterprise Cloud Migration (Freelance)",
+            "description": "Led comprehensive cloud migration project for enterprise client, implementing scalable infrastructure solutions and optimizing performance. Delivered 30% cost reduction and improved system reliability.",
             "technologies": ["AWS", "Kubernetes", "Terraform", "Jenkins"],
             "image": "",
             "demo": "",
@@ -208,34 +231,34 @@
         ]
       },
       "motivation": {
-        "title": "What Drives Me",
-        "subtitle": "Beyond the Code",
+        "title": "Why Choose Me for Your Project",
+        "subtitle": "Research-Driven Excellence & Freelance Flexibility",
         "points": [
           {
-            "title": "Innovation",
-            "description": "I believe in pushing boundaries and exploring new technologies to create groundbreaking solutions.",
+            "title": "Academic Research Meets Industry",
+            "description": "My PhD research in statistical process control and AI provides cutting-edge solutions that bridge theoretical innovation with practical industrial applications.",
             "icon": "Lightbulb"
           },
           {
-            "title": "Security & Quality",
-            "description": "Building secure, maintainable, and scalable solutions is at the core of everything I develop.",
+            "title": "Proven Freelance Track Record",
+            "description": "Successfully delivered multiple freelance projects across various industries, from banking software to industrial process optimization, always on time and within budget.",
             "icon": "Award"
           },
           {
-            "title": "Business Impact",
-            "description": "Technology should drive business success. I focus on creating solutions that deliver measurable value.",
+            "title": "Global Availability & Remote Expertise",
+            "description": "Available for projects worldwide with extensive experience in remote collaboration, agile methodologies, and cross-cultural team management.",
             "icon": "Target"
           },
           {
-            "title": "Continuous Learning",
-            "description": "The tech landscape evolves rapidly. I stay ahead by continuously learning and adapting.",
+            "title": "Continuous Innovation",
+            "description": "Staying at the forefront of technology through active research, ensuring your projects benefit from the latest advances in AI, statistical analysis, and software engineering.",
             "icon": "TrendingUp"
           }
         ],
         "cta": {
-          "title": "Ready to Transform Your Business?",
-          "description": "Let's collaborate to build secure, scalable, and intelligent solutions that drive your business forward.",
-          "button": "Start Your Project"
+          "title": "Ready to Optimize Your Processes?",
+          "description": "Whether you need industrial process optimization, enterprise software development, or research-backed AI solutions, I'm available for freelance projects that drive measurable results.",
+          "button": "Hire Me for Your Project"
         }
       },
       "process": {
@@ -281,9 +304,9 @@
         ]
       },
       "contact": {
-        "title": "Let's Build Something Exceptional",
-        "subtitle": "Ready to transform your ideas into digital solutions?",
-        "description": "Whether you need enterprise software development, DevOps implementation, or AI-powered automation, I'm here to help bring your vision to life.",
+        "title": "Let's Work Together on Your Next Project",
+        "subtitle": "Available for Freelance Projects Worldwide",
+        "description": "Whether you need industrial process optimization, enterprise software development, statistical analysis consulting, or AI-powered solutions, I'm ready to help you achieve your goals. With my unique combination of PhD-level research expertise and practical software engineering skills, I deliver results that matter.",
         "info": [
           {
             "icon": "Mail",
@@ -298,31 +321,31 @@
           {
             "icon": "MapPin",
             "label": "Location",
-            "value": "Germany"
+            "value": "Germany (Remote Worldwide)"
           }
         ],
         "form": {
           "name": "Your Name",
           "email": "Your Email",
-          "subject": "Project Subject",
-          "message": "Tell me about your project...",
-          "submit": "Send Message",
+          "subject": "Project Inquiry",
+          "message": "Describe your project needs...",
+          "submit": "Send Project Inquiry",
           "sending": "Sending...",
-          "successMessage": "Message sent successfully!",
+          "successMessage": "Project inquiry sent successfully!",
           "namePlaceholder": "Your name",
           "emailPlaceholder": "your@email.com",
-          "subjectPlaceholder": "Project subject",
-          "messagePlaceholder": "Tell me about your project..."
+          "subjectPlaceholder": "Project type (e.g., Process Optimization, Software Development)",
+          "messagePlaceholder": "Tell me about your project requirements, timeline, and budget..."
         },
         "social": {
           "title": "Connect With Me",
-          "description": "Stay connected for updates and insights"
+          "description": "Follow my research and professional updates"
         },
         "cta": {
-          "title": "Let's Build Something Great Together",
-          "description": "Whether it's enterprise software, cloud solutions, or AI automation, I'm here to help bring your ideas to life.",
-          "email": "Email Me",
-          "resume": "Download Resume"
+          "title": "Ready to Start Your Project?",
+          "description": "From process monitoring and statistical analysis to full-stack development and cloud solutions, I'm here to deliver excellence.",
+          "email": "Discuss Your Project",
+          "resume": "Download CV & Portfolio"
         }
       },
       "navigation": {
@@ -344,34 +367,56 @@
     "de": {
       "hero": {
         "greeting": "Hallo, ich bin",
-        "name": "Khaled Alabsi",
+        "name": "Dr. Khaled Alabsi",
         "roles": [
-          "Software-Ingenieur",
-          "Full-Stack Entwickler",
-          "DevOps Spezialist",
-          "KI-Innovator"
+          "PhD-Forscher",
+          "Freiberuflicher Software-Ingenieur",
+          "Prozessüberwachungs-Experte",
+          "KI-Lösungsspezialist"
         ],
-        "description": "Ich entwerfe und implementiere skalierbare, sichere und benutzerorientierte Anwendungen. Von Unternehmenssystemen bis hin zu KI-gestützter Automatisierung verwandle ich komplexe Herausforderungen in digitale Erfolgsgeschichten.",
+        "description": "Ich kombiniere fortgeschrittene Forschung in statistischer Prozesskontrolle und KI mit praktischer Software-Entwicklung, um industrielle Prozesse zu optimieren und innovative digitale Lösungen zu liefern. Verfügbar für Freelance-Projekte weltweit.",
         "cta": {
-          "primary": "Projekt starten",
-          "secondary": "Meine Arbeit ansehen"
+          "primary": "Beauftragen Sie mich",
+          "secondary": "Forschung & Arbeit ansehen"
         }
       },
       "about": {
         "title": "Über Mich",
-        "subtitle": "Ingenieur, Innovator & Digitaler Architekt",
-        "description": "Ich besitze einen M.Sc. in Computer- und Kommunikationssystemen und habe umfangreiche Erfahrungen in Branchen wie Banking, Versicherungen und Unternehmens-IT. Mein Fokus liegt auf der Erstellung robuster Software-Lösungen, von Micro-Frontend-Architekturen und DevOps-Pipelines bis hin zu KI-gestützter Automatisierung und Prozessüberwachung.",
+        "subtitle": "PhD-Forscher, Software-Ingenieur & Freelance-Berater",
+        "description": "Ich promoviere derzeit mit dem Fokus auf \"Analysen zu Störungen in Produktionsprozessen und Anomalien in Zeitreihen mit Hilfe Multivariater Kontrollkartenverfahren unter Verwendung von Methoden der statistischen Prozesskontrolle und KI-Verfahren\". Mit meinem M.Sc. in Computer- und Kommunikationssystemen und umfangreicher Industrieerfahrung biete ich einzigartige Expertise, die akademische Forschung mit praktischer Software-Entwicklung für industrielle Optimierung und Unternehmenslösungen verbindet.",
         "highlights": [
+          "PhD-Kandidat in Statistischer Prozesskontrolle & KI (laufend)",
           "M.Sc. in Computer- & Kommunikationssystemen (2023)",
           "B.Sc. in Angewandter Informatik (2021)",
-          "17+ Jahre Berufserfahrung",
-          "Spezialisiert auf Banking, Versicherungen und Unternehmens-IT",
-          "Experte in CI/CD, Containerisierung und DevOps",
-          "KI und Machine Learning für Anomalieerkennung & Automatisierung"
+          "17+ Jahre professionelle Software-Entwicklungserfahrung",
+          "Spezialisiert auf industrielle Prozessüberwachung und Anomalieerkennung",
+          "Experte für multivariate Kontrollkarten und statistische Qualitätskontrolle",
+          "Verfügbar für Freelance-Projekte und Beratung weltweit",
+          "Forschungsschwerpunkt: KI-gesteuerte Prozessoptimierung und Zeitreihenanalyse"
         ],
         "skills": [
           {
-            "name": "Unternehmens- & Full-Stack Entwicklung",
+            "name": "Forschung & Analytik",
+            "technologies": [
+              "Statistische Prozesskontrolle",
+              "Multivariate Kontrollkarten",
+              "Zeitreihenanalyse",
+              "Anomalieerkennung",
+              "Industrielle Prozessoptimierung"
+            ]
+          },
+          {
+            "name": "KI & Machine Learning",
+            "technologies": [
+              "Prozessüberwachungs-KI",
+              "Statistische Qualitätskontrolle",
+              "Python Data Science",
+              "Machine Learning Modelle",
+              "Prädiktive Analytik"
+            ]
+          },
+          {
+            "name": "Unternehmens-Entwicklung",
             "technologies": [
               "Java",
               "Kotlin",
@@ -393,25 +438,13 @@
             ]
           },
           {
-            "name": "KI & Daten",
+            "name": "Freelance-Services",
             "technologies": [
-              "Machine Learning",
-              "Python",
-              "Prozessüberwachung",
-              "Anomalieerkennung",
-              "LLM Agenten"
-            ]
-          },
-          {
-            "name": "Mobile Entwicklung",
-            "technologies": ["React Native", "Xamarin", "Plattformübergreifend"]
-          },
-          {
-            "name": "Architektur & Beratung",
-            "technologies": [
-              "IT-Transformation",
-              "Geschäftsarchitektur",
-              "Systemintegration"
+              "Remote-Entwicklung",
+              "Projektberatung",
+              "Technische Architektur",
+              "Prozessoptimierung",
+              "Qualitätssicherung"
             ]
           }
         ]
@@ -555,9 +588,9 @@
         ]
       },
       "contact": {
-        "title": "Lassen Sie uns etwas Außergewöhnliches bauen",
-        "subtitle": "Bereit, Ihre Ideen in digitale Lösungen zu verwandeln?",
-        "description": "Ob Sie Unternehmenssoftware-Entwicklung, DevOps-Implementierung oder KI-gestützte Automatisierung benötigen, ich bin hier, um Ihre Vision zum Leben zu erwecken.",
+        "title": "Lassen Sie uns an Ihrem nächsten Projekt arbeiten",
+        "subtitle": "Verfügbar für Freelance-Projekte weltweit",
+        "description": "Ob Sie industrielle Prozessoptimierung, Unternehmenssoftware-Entwicklung, statistische Analyse-Beratung oder KI-gestützte Lösungen benötigen, ich bin bereit, Ihnen beim Erreichen Ihrer Ziele zu helfen. Mit meiner einzigartigen Kombination aus PhD-Level Forschungsexpertise und praktischen Software-Engineering-Fähigkeiten liefere ich Ergebnisse, die zählen.",
         "info": [
           {
             "icon": "Mail",
@@ -572,31 +605,31 @@
           {
             "icon": "MapPin",
             "label": "Standort",
-            "value": "Deutschland"
+            "value": "Deutschland (Remote weltweit)"
           }
         ],
         "form": {
           "name": "Ihr Name",
           "email": "Ihre E-Mail",
-          "subject": "Projekt Betreff",
-          "message": "Erzählen Sie mir von Ihrem Projekt...",
-          "submit": "Nachricht senden",
+          "subject": "Projektanfrage",
+          "message": "Beschreiben Sie Ihre Projektanforderungen...",
+          "submit": "Projektanfrage senden",
           "sending": "Wird gesendet...",
-          "successMessage": "Nachricht erfolgreich gesendet!",
+          "successMessage": "Projektanfrage erfolgreich gesendet!",
           "namePlaceholder": "Ihr Name",
           "emailPlaceholder": "ihre@email.com",
-          "subjectPlaceholder": "Projekt Betreff",
-          "messagePlaceholder": "Erzählen Sie mir von Ihrem Projekt..."
+          "subjectPlaceholder": "Projekttyp (z.B. Prozessoptimierung, Software-Entwicklung)",
+          "messagePlaceholder": "Erzählen Sie mir von Ihren Projektanforderungen, Zeitplan und Budget..."
         },
         "social": {
           "title": "Verbinden Sie sich mit mir",
-          "description": "Bleiben Sie in Verbindung für Updates und Einblicke"
+          "description": "Folgen Sie meinen Forschungs- und beruflichen Updates"
         },
         "cta": {
-          "title": "Lassen Sie uns gemeinsam etwas Großartiges bauen",
-          "description": "Ob Unternehmenssoftware, Cloud-Lösungen oder KI-Automatisierung, ich bin hier, um Ihre Ideen zum Leben zu erwecken.",
-          "email": "E-Mail senden",
-          "resume": "Lebenslauf herunterladen"
+          "title": "Bereit, Ihr Projekt zu starten?",
+          "description": "Von Prozessüberwachung und statistischer Analyse bis hin zu Full-Stack-Entwicklung und Cloud-Lösungen, ich bin hier, um Exzellenz zu liefern.",
+          "email": "Projekt besprechen",
+          "resume": "CV & Portfolio herunterladen"
         }
       },
       "navigation": {
