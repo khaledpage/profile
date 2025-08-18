@@ -6,7 +6,20 @@
 
 /* Custom CSS Variables for Themes - These are set dynamically by JavaScript */
 :root {
-  /* Theme variables will be set dynamically by the theme system */
+  /* Default theme variables - will be overridden by the theme system */
+  --primary: #6366f1;
+  --secondary: #8b5cf6;
+  --accent: #06b6d4;
+  --background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+  --surface: rgba(255, 255, 255, 0.05);
+  --text: #ffffff;
+  --text-secondary: #94a3b8;
+  --border: rgba(255, 255, 255, 0.1);
+  --gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #06b6d4 100%);
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --glass-bg: backdrop-filter: blur(10px); background: rgba(255, 255, 255, 0.05);
+  --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  --blur: blur(10px);
 }
 
 * {

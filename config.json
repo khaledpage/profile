@@ -3,7 +3,8 @@
     "language": "en",
     "theme": {
       "active": "monochrome-light",
-      "layout": "modern"
+      "layout": "modern",
+      "showSwitcher": true
     },
     "sections": {
       "hero": {

@@ -63,8 +63,8 @@ const Nav = ({ content, currentLanguage, onLanguageChange }: NavProps) => {
 
             {/* Desktop Menu */}
             <div className="hidden md:block">
-              <div className="ml-10 flex items-center space-x-3 lg:space-x-4 xl:space-x-6">
-                <div className="flex items-center space-x-4 lg:space-x-6">
+              <div className="ml-10 flex items-center space-x-4 lg:space-x-6 xl:space-x-8">
+                <div className="flex items-center space-x-6">
                   {navItems.map((item, index) => (
                     <button
                       key={item.name}
@@ -78,7 +78,7 @@ const Nav = ({ content, currentLanguage, onLanguageChange }: NavProps) => {
                   ))}
                 </div>
                 
-                <div className="flex items-center space-x-2 lg:space-x-3">
+                <div className="flex items-center space-x-3 lg:space-x-4">
                   {/* Language Switcher */}
                   <LanguageSwitcher
                     currentLanguage={currentLanguage}
@@ -92,7 +92,7 @@ const Nav = ({ content, currentLanguage, onLanguageChange }: NavProps) => {
                   <button
                     id="contact-btn-desktop"
                     onClick={() => handleNavClick('#contact')}
-                    className="btn-primary flex items-center space-x-2 whitespace-nowrap ml-1 lg:ml-2"
+                    className="btn-primary flex items-center space-x-2 whitespace-nowrap ml-2 lg:ml-4"
                   >
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
