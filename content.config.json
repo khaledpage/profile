@@ -231,6 +231,36 @@
             "demo": "",
             "github": "",
             "featured": false
+          },
+          {
+            "title": "Securities Products Platform (Banking)",
+            "description": "Freelance project: Developed secure, scalable full-stack applications using Spring Boot and ReactJS with micro-frontend architecture. Enhanced maintainability and modularity, and improved CI/CD pipelines with TeamCity.",
+            "technologies": [
+              "Spring Boot",
+              "ReactJS",
+              "TeamCity",
+              "Micro-frontend Architecture",
+              "Banking Systems"
+            ],
+            "image": "",
+            "demo": "",
+            "github": "",
+            "featured": false
+          },
+          {
+            "title": "Industrial Process Monitoring System",
+            "description": "Developed AI-powered real-time monitoring system for production processes, implementing multivariate control charts and statistical anomaly detection. Reduced false positives and improved early detection of process deviations.",
+            "technologies": [
+              "Python",
+              "Statistical Analysis",
+              "Process Control",
+              "AI/ML",
+              "Real-time Monitoring"
+            ],
+            "image": "",
+            "demo": "",
+            "github": "",
+            "featured": false
           }
         ]
       },
@@ -522,6 +552,36 @@
             "title": "Unternehmens-Cloud-Migration & DevOps",
             "description": "Leitete umfassende Cloud-Migration für Unternehmen beim Übergang von On-Premise Legacy-Systemen zu moderner Cloud-Infrastruktur. Implementierte CI/CD-Pipelines, Containerisierung und automatisierte Deployment-Strategien.",
             "technologies": ["AWS", "Kubernetes", "Terraform", "Jenkins"],
+            "image": "",
+            "demo": "",
+            "github": "",
+            "featured": false
+          },
+          {
+            "title": "Wertpapier-Produktplattform (Banking)",
+            "description": "Freelance-Projekt: Entwickelte sichere, skalierbare Full-Stack-Anwendungen mit Spring Boot und ReactJS mit Micro-Frontend-Architektur. Verbesserte Wartbarkeit und Modularität sowie optimierte CI/CD-Pipelines mit TeamCity.",
+            "technologies": [
+              "Spring Boot",
+              "ReactJS",
+              "TeamCity",
+              "Micro-Frontend-Architektur",
+              "Banking-Systeme"
+            ],
+            "image": "",
+            "demo": "",
+            "github": "",
+            "featured": false
+          },
+          {
+            "title": "Industrielles Prozessüberwachungssystem",
+            "description": "Entwickelte KI-gestütztes Echtzeit-Überwachungssystem für Produktionsprozesse, implementierte multivariate Kontrollkarten und statistische Anomalieerkennung. Reduzierte Fehlalarme und verbesserte frühzeitige Erkennung von Prozessabweichungen.",
+            "technologies": [
+              "Python",
+              "Statistische Analyse",
+              "Prozesskontrolle",
+              "KI/ML",
+              "Echtzeit-Überwachung"
+            ],
             "image": "",
             "demo": "",
             "github": "",

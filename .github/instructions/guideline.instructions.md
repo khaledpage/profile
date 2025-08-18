@@ -24,9 +24,6 @@ Primary workflow
     - Reflect any new or modified requirements in Requirements_tabelle.md: add IDs, descriptions, rationale, priority, acceptance criteria, status, owner, and related files/modules.
     - Ensure the table is sufficient for another team to reproduce and build the application from scratch.
 
-5. Finalize
-    - Push the branch, open a PR referencing the change log and requirement IDs, and include QA/testing notes.
-    - Add reviewers and resolve feedback before merging.
 
 Templates
 
@@ -50,12 +47,7 @@ Conventions
 - Commit message template: <type>(<scope>): <short summary> — include issue/REQ-ID if applicable.
 - Change_log entries must reference commits or PRs when available.
 
-Checklist before submitting a PR
-- [ ] Requirements_tabelle.md updated for any requirement changes.
-- [ ] Change_log.md entry added.
-- [ ] Tests added/updated and passing.
-- [ ] Linter/formatter run.
-- [ ] PR description includes summary, related REQ IDs, and testing steps.
+
 
 Notes
 - Keep entries concise and actionable; the goal is reproducibility and traceability.
