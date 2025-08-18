@@ -4,7 +4,21 @@
     "theme": {
       "active": "monochrome-light",
       "layout": "modern",
-      "showSwitcher": true
+      "showSwitcher": true,
+      "randomOnRefresh": true,
+      "randomThemeList": [
+        "midnight-gradient",
+        "cyberpunk-neon",
+        "ocean-depths",
+        "sunset-blaze",
+        "aurora-lights",
+        "forest-emerald",
+        "arctic-frost",
+        "rose-garden",
+        "golden-hour",
+        "monochrome-dark",
+        "monochrome-light"
+      ]
     },
     "sections": {
       "hero": {

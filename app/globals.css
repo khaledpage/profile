@@ -527,7 +527,7 @@ body {
   border: none;
   border-radius: 50px;
   padding: 12px 32px;
-  color: white;
+  color: var(--text);
   font-weight: 600;
   cursor: pointer;
   position: relative;
@@ -535,4 +535,123 @@ body {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   /* Ensure text is always readable on primary background */
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Special Contact navigation styling with slow random animations */
+.contact-nav-special {
+  position: relative;
+  overflow: visible;
+}
+
+.contact-nav-special::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, var(--primary), var(--secondary), var(--accent), var(--primary));
+  background-size: 300% 300%;
+  border-radius: 8px;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  animation: contact-gradient-shift 8s ease-in-out infinite;
+}
+
+.contact-nav-special:hover::before {
+  opacity: 0.3;
+}
+
+.contact-nav-special::after {
+  content: '✨';
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  font-size: 12px;
+  opacity: 0;
+  animation: contact-sparkle 12s ease-in-out infinite;
+  z-index: 1;
+}
+
+.contact-nav-special-mobile {
+  position: relative;
+  overflow: visible;
+}
+
+.contact-nav-special-mobile::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -4px;
+  right: -4px;
+  bottom: 0;
+  background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent), var(--primary));
+  background-size: 300% 100%;
+  border-radius: 6px;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  animation: contact-gradient-shift-mobile 10s ease-in-out infinite;
+}
+
+.contact-nav-special-mobile:hover::before {
+  opacity: 0.2;
+}
+
+@keyframes contact-gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+    transform: scale(1);
+  }
+  25% {
+    background-position: 100% 50%;
+    transform: scale(1.02);
+  }
+  50% {
+    background-position: 50% 100%;
+    transform: scale(1);
+  }
+  75% {
+    background-position: 0% 0%;
+    transform: scale(1.01);
+  }
+}
+
+@keyframes contact-gradient-shift-mobile {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes contact-sparkle {
+  0%, 90%, 100% {
+    opacity: 0;
+    transform: translateY(0) rotate(0deg);
+  }
+  5%, 15% {
+    opacity: 1;
+    transform: translateY(-3px) rotate(180deg);
+  }
+  10% {
+    opacity: 0.8;
+    transform: translateY(-2px) rotate(90deg);
+  }
+}
+
+/* Slow spin animation for theme switcher */
+.animate-spin-slow {
+  animation: spin-slow 3s linear infinite;
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

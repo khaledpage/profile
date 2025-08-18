@@ -70,7 +70,9 @@ const Nav = ({ content, currentLanguage, onLanguageChange }: NavProps) => {
                       key={item.name}
                       id={`nav-item-${index}`}
                       onClick={() => handleNavClick(item.href)}
-                      className="text-theme-secondary hover:text-primary px-3 py-2 text-sm font-medium transition-colors relative group whitespace-nowrap"
+                      className={`text-theme-secondary hover:text-primary px-3 py-2 text-sm font-medium transition-colors relative group whitespace-nowrap ${
+                        item.href === '#contact' ? 'contact-nav-special' : ''
+                      }`}
                     >
                       {item.name}
                       <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-accent transition-all duration-300 group-hover:w-full" />
@@ -87,19 +89,6 @@ const Nav = ({ content, currentLanguage, onLanguageChange }: NavProps) => {
                   
                   {/* Theme Switcher - Conditionally rendered */}
                   {themeMenuEnabled && <ThemeSwitcher />}
-                  
-                  {/* Contact Button */}
-                  <button
-                    id="contact-btn-desktop"
-                    onClick={() => handleNavClick('#contact')}
-                    className="btn-primary flex items-center space-x-2 whitespace-nowrap ml-1 lg:ml-2"
-                  >
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                      <polyline points="22,6 12,13 2,6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                    <span>Contact Me</span>
-                  </button>
                 </div>
               </div>
             </div>
@@ -140,7 +129,9 @@ const Nav = ({ content, currentLanguage, onLanguageChange }: NavProps) => {
                   key={item.name}
                   id={`mobile-nav-item-${index}`}
                   onClick={() => handleNavClick(item.href)}
-                  className="block w-full text-left text-lg font-medium hover:text-primary transition-colors py-3 border-b"
+                  className={`block w-full text-left text-lg font-medium hover:text-primary transition-colors py-3 border-b ${
+                    item.href === '#contact' ? 'contact-nav-special-mobile' : ''
+                  }`}
                   style={{ 
                     color: 'var(--text)',
                     borderBottomColor: 'var(--border)'
@@ -168,18 +159,6 @@ const Nav = ({ content, currentLanguage, onLanguageChange }: NavProps) => {
                   <ThemeSwitcher />
                 </div>
               )}
-              
-              <button
-                id="contact-btn-mobile"
-                onClick={() => handleNavClick('#contact')}
-                className="btn-primary flex items-center justify-center space-x-2 w-full mt-8"
-              >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <polyline points="22,6 12,13 2,6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-                <span>Contact Me</span>
-              </button>
             </div>
           </div>
         </div>

@@ -17,7 +17,6 @@ interface ThemeContextType {
   setTheme: (themeName: string) => void;
   availableThemes: string[];
   themeMenuEnabled: boolean;
-  randomOnRefresh: boolean;
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
@@ -38,24 +37,16 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
   // Get configuration from config.json
   const defaultTheme = config.ui?.theme?.active || 'midnight-gradient';
   const randomOnRefresh = config.ui?.theme?.randomOnRefresh || false;
-  const randomThemeList = config.ui?.theme?.randomThemeList || Object.keys(themes);
   const [currentTheme, setCurrentTheme] = useState<string>(defaultTheme);
   
   const availableThemes = Object.keys(themes);
   const theme = themes[currentTheme];
   const themeMenuEnabled = config.ui?.theme?.showSwitcher !== false; // Default to true if not specified
 
-  // Function to get a random theme from the configured list
+  // Function to get a random theme
   const getRandomTheme = () => {
-    // Use configured theme list or fall back to all available themes
-    const themePool = randomThemeList.filter(themeName => themes[themeName]); // Only valid themes
-    if (themePool.length === 0) {
-      // Fallback to all themes if config list is invalid
-      const randomIndex = Math.floor(Math.random() * availableThemes.length);
-      return availableThemes[randomIndex];
-    }
-    const randomIndex = Math.floor(Math.random() * themePool.length);
-    return themePool[randomIndex];
+    const randomIndex = Math.floor(Math.random() * availableThemes.length);
+    return availableThemes[randomIndex];
   };
 
   // Load theme on mount with random or saved/default logic
@@ -76,6 +67,10 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
       }
     }
   }, [defaultTheme, randomOnRefresh]);
+      // If no saved theme, use the one from config
+      setCurrentTheme(defaultTheme);
+    }
+  }, [defaultTheme]);
 
   // Apply theme CSS variables when theme changes
   useEffect(() => {
@@ -119,10 +114,7 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
   const setTheme = (themeName: string) => {
     if (themes[themeName]) {
       setCurrentTheme(themeName);
-      // Only save to localStorage if random mode is disabled
-      if (!randomOnRefresh) {
-        localStorage.setItem('portfolio-theme', themeName);
-      }
+      localStorage.setItem('portfolio-theme', themeName);
     }
   };
 
@@ -132,8 +124,7 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
       theme,
       setTheme,
       availableThemes,
-      themeMenuEnabled,
-      randomOnRefresh
+      themeMenuEnabled
     }}>
       {children}
     </ThemeContext.Provider>

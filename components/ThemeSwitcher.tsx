@@ -25,7 +25,7 @@ const themeOptions: ThemeOption[] = Object.entries(themes).map(([key, theme]) =>
 }));
 
 export default function ThemeSwitcher() {
-  const { currentTheme, setTheme } = useTheme();
+  const { currentTheme, setTheme, randomOnRefresh } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -82,9 +82,21 @@ export default function ThemeSwitcher() {
         </div>
         
         {/* Theme Name - Hidden on mobile and small screens, shown on larger screens */}
-        <span className="hidden lg:inline text-theme-primary text-xs xl:text-sm truncate max-w-24 xl:max-w-none">
-          {currentThemeData.name}
-        </span>
+        <div className="hidden lg:flex items-center gap-1">
+          <span className="text-theme-primary text-xs xl:text-sm truncate max-w-24 xl:max-w-none">
+            {currentThemeData.name}
+          </span>
+          {randomOnRefresh && (
+            <svg 
+              className="w-3 h-3 text-theme-secondary animate-spin-slow" 
+              fill="none" 
+              stroke="currentColor" 
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+            </svg>
+          )}
+        </div>
         
         {/* Dropdown Arrow */}
         <svg
@@ -110,6 +122,18 @@ export default function ThemeSwitcher() {
           }}
         >
           <div className="p-2">
+            {/* Random Mode Indicator */}
+            {randomOnRefresh && (
+              <div className="mb-2 px-3 py-2 rounded-lg bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-500/30">
+                <div className="flex items-center gap-2 text-xs text-theme-primary">
+                  <svg className="w-3 h-3 animate-spin-slow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                  </svg>
+                  <span>Random theme on refresh</span>
+                </div>
+              </div>
+            )}
+            
             {themeOptions.map((option) => (
               <button
                 key={option.key}
