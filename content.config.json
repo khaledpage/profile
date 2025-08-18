@@ -1,21 +1,22 @@
 {
   "site": {
-    "title": "Dr. Khaled Alabsi - PhD Researcher & Freelance Software Engineer | Process Monitoring & AI Solutions",
-    "description": "Dr. Khaled Alabsi - PhD Researcher & Freelance Software Engineer specializing in statistical process control, anomaly detection in time series, multivariate control charts, and AI-driven automation. Available for freelance projects in enterprise software, DevOps, and industrial process optimization.",
+    "title": "M.Sc. Khaled Alabsi - Digital Transformation Consultant & Software Engineer | Legacy System Modernization",
+    "description": "M.Sc. Khaled Alabsi - Digital Transformation Consultant & Freelance Software Engineer specializing in helping companies transition from manual processes to digital solutions, legacy system modernization, and enterprise software development. Available for freelance projects worldwide.",
     "url": "https://www.alabsi.space",
-    "author": "Dr. Khaled Alabsi",
+    "author": "M.Sc. Khaled Alabsi",
     "keywords": [
-      "Dr Khaled Alabsi",
-      "PhD researcher",
+      "M.Sc. Khaled Alabsi",
+      "digital transformation consultant",
+      "legacy system modernization",
       "freelance software engineer",
-      "statistical process control",
-      "multivariate control charts",
-      "anomaly detection time series",
-      "production process analysis",
-      "industrial AI solutions",
-      "process monitoring expert",
-      "statistical quality control",
-      "machine learning anomaly detection",
+      "manual to digital conversion",
+      "business process automation",
+      "enterprise software development",
+      "legacy code migration",
+      "system integration specialist",
+      "digital modernization expert",
+      "process digitization",
+      "workflow automation",
       "freelance developer Germany",
       "enterprise software consultant",
       "Java Spring Boot freelancer",
@@ -34,21 +35,20 @@
       "insurance software specialist",
       "cloud computing expert",
       "Python data analysis",
-      "statistical analysis",
-      "quality control systems",
+      "business transformation",
+      "software modernization",
       "freelance IT projects",
       "remote software development",
       "German software engineer",
-      "PhD computer science",
-      "research and development",
-      "industrial IoT solutions"
+      "digital innovation",
+      "technology consulting"
     ],
     "favicon": "/favicon.ico"
   },
   "personal": {
-    "name": "Dr. Khaled Alabsi",
-    "role": "PhD Researcher & Freelance Software Engineer",
-    "tagline": "Transforming industrial processes through AI, statistical analysis, and cutting-edge software solutions",
+    "name": "M.Sc. Khaled Alabsi",
+    "role": "Digital Transformation Consultant & Software Engineer",
+    "tagline": "Transforming manual processes into intelligent digital solutions and modernizing legacy systems",
     "email": "khaled.alabsi@example.com",
     "phone": "+49 123 456 7890",
     "location": "Germany",
@@ -76,52 +76,42 @@
     "en": {
       "hero": {
         "greeting": "Hello, I'm",
-        "name": "Dr. Khaled Alabsi",
+        "name": "M.Sc. Khaled Alabsi",
         "roles": [
-          "PhD Researcher",
+          "Digital Transformation Consultant",
           "Freelance Software Engineer",
-          "Process Monitoring Expert",
-          "AI Solutions Specialist"
+          "Legacy System Modernization Expert",
+          "Process Automation Specialist"
         ],
-        "description": "I combine advanced research in statistical process control and AI with practical software engineering to optimize industrial processes and deliver innovative digital solutions. Available for freelance projects worldwide.",
+        "description": "I help companies transition from manual processes to intelligent digital solutions, modernize legacy systems, and build scalable enterprise applications. Combining development expertise with continuous research to deliver cutting-edge solutions.",
         "cta": {
-          "primary": "Hire Me for Your Project",
-          "secondary": "View My Research & Work"
+          "primary": "Transform Your Business",
+          "secondary": "View My Solutions"
         }
       },
       "about": {
         "title": "About Me",
-        "subtitle": "PhD Researcher, Software Engineer & Freelance Consultant",
-        "description": "I am currently pursuing my PhD with focus on \"Analysis of Disruptions in Production Processes and Anomalies in Time Series using Multivariate Control Chart Methods with Statistical Process Control and AI Techniques\". With my M.Sc. in Computer and Communication Systems and extensive industry experience, I offer unique expertise combining academic research with practical software development for industrial optimization and enterprise solutions.",
+        "subtitle": "Digital Transformation Expert, Software Engineer & Continuous Researcher",
+        "description": "I specialize in helping companies transition from manual processes to digital solutions, modernizing legacy systems, and building robust enterprise applications. With my M.Sc. in Computer and Communication Systems and extensive industry experience, I combine practical software development with continuous research to deliver innovative solutions that drive business transformation.",
         "highlights": [
-          "PhD Candidate in Statistical Process Control & AI (ongoing)",
           "M.Sc. in Computer & Communication Systems (2023)",
           "B.Sc. in Applied Computer Science (2021)",
-          "17+ years professional software development experience",
-          "Specialized in industrial process monitoring and anomaly detection",
-          "Expert in multivariate control charts and statistical quality control",
+          "10+ years professional software development experience",
+          "Specialized in digital transformation and legacy system modernization",
+          "Expert in enterprise software development and DevOps practices",
+          "Continuous research in emerging technologies and automation",
           "Available for freelance projects and consulting worldwide",
-          "Research focus: AI-driven process optimization and time series analysis"
+          "Focus: Manual-to-digital conversion and business process automation"
         ],
         "skills": [
           {
-            "name": "Research & Analytics",
+            "name": "Digital Transformation",
             "technologies": [
-              "Statistical Process Control",
-              "Multivariate Control Charts",
-              "Time Series Analysis",
-              "Anomaly Detection",
-              "Industrial Process Optimization"
-            ]
-          },
-          {
-            "name": "AI & Machine Learning",
-            "technologies": [
-              "Process Monitoring AI",
-              "Statistical Quality Control",
-              "Python Data Science",
-              "Machine Learning Models",
-              "Predictive Analytics"
+              "Legacy System Modernization",
+              "Business Process Automation",
+              "Manual to Digital Conversion",
+              "Workflow Optimization",
+              "System Integration"
             ]
           },
           {
@@ -147,31 +137,40 @@
             ]
           },
           {
-            "name": "Freelance Services",
+            "name": "Data & Automation",
             "technologies": [
-              "Remote Development",
+              "Process Automation",
+              "Python",
+              "Database Modernization",
+              "API Development",
+              "Integration Solutions"
+            ]
+          },
+          {
+            "name": "Consulting Services",
+            "technologies": [
+              "Technology Assessment",
+              "Migration Planning",
+              "System Architecture",
               "Project Consulting",
-              "Technical Architecture",
-              "Process Optimization",
-              "Quality Assurance"
+              "Technical Leadership"
             ]
           }
         ]
       },
       "experience": {
-        "title": "Research & Project Portfolio",
-        "subtitle": "PhD Research, Industrial Solutions & Freelance Work",
+        "title": "Digital Solutions & Project Portfolio",
+        "subtitle": "Transforming Manual Processes & Modernizing Legacy Systems",
         "projects": [
           {
-            "title": "PhD Research: Multivariate Process Control & AI",
-            "description": "Doctoral research on \"Analysis of Disruptions in Production Processes and Anomalies in Time Series using Multivariate Control Chart Methods with Statistical Process Control and AI Techniques\". Developing novel approaches to combine traditional statistical methods with modern AI for industrial process optimization.",
+            "title": "Enterprise Digital Transformation",
+            "description": "Helped companies transition from manual paper-based processes to comprehensive digital workflows. Implemented automated document processing, digital approval systems, and real-time reporting dashboards, reducing processing time by 80% and eliminating human errors.",
             "technologies": [
-              "Statistical Process Control",
-              "Multivariate Control Charts",
-              "Time Series Analysis",
-              "Machine Learning",
-              "Python",
-              "R"
+              "Spring Boot",
+              "ReactJS",
+              "Process Automation",
+              "Digital Workflows",
+              "API Integration"
             ],
             "image": "",
             "demo": "",
@@ -179,22 +178,36 @@
             "featured": true
           },
           {
-            "title": "Industrial Process Monitoring System",
-            "description": "Developed AI-powered real-time monitoring system for production processes, implementing multivariate control charts and statistical anomaly detection. Reduced false positives by 40% and improved early detection of process deviations.",
-            "technologies": ["Python", "Statistical Analysis", "Process Control", "AI/ML", "Real-time Monitoring"],
+            "title": "Legacy System Modernization & Migration",
+            "description": "Successfully migrated legacy COBOL and mainframe applications to modern Java-based microservices architecture. Preserved business logic while improving performance, maintainability, and scalability for enterprise clients in banking and insurance sectors.",
+            "technologies": ["Java", "Spring Boot", "Microservices", "Legacy Migration", "System Integration"],
             "image": "",
             "demo": "",
             "github": "",
             "featured": true
           },
           {
-            "title": "Securities Products Platform (Banking)",
-            "description": "Freelance project: Developed secure, scalable full-stack applications using Spring Boot and ReactJS with micro-frontend architecture. Enhanced maintainability and modularity, and improved CI/CD pipelines with TeamCity.",
+            "title": "Manufacturing Process Digitization",
+            "description": "Transformed manual quality control and inventory tracking processes into automated digital systems. Implemented IoT sensors, real-time monitoring dashboards, and predictive maintenance solutions, improving efficiency by 60%.",
+            "technologies": [
+              "Python",
+              "IoT Integration",
+              "Real-time Monitoring",
+              "Process Automation"
+            ],
+            "image": "",
+            "demo": "",
+            "github": "",
+            "featured": true
+          },
+          {
+            "title": "Banking Digital Workflow Automation",
+            "description": "Freelance project: Developed secure, scalable applications for securities products with automated approval workflows, replacing manual review processes. Enhanced compliance tracking and reduced processing time from days to hours.",
             "technologies": [
               "Spring Boot",
               "ReactJS",
               "TeamCity",
-              "Micro-frontend Architecture"
+              "Workflow Automation"
             ],
             "image": "",
             "demo": "",
@@ -202,26 +215,17 @@
             "featured": true
           },
           {
-            "title": "Statistical Quality Control Consulting",
-            "description": "Freelance consulting project implementing statistical process control methods for manufacturing client. Designed custom control charts and anomaly detection algorithms to improve quality assurance processes.",
-            "technologies": ["Statistical Analysis", "Quality Control", "Process Optimization", "Data Analytics"],
-            "image": "",
-            "demo": "",
-            "github": "",
-            "featured": true
-          },
-          {
-            "title": "Time Series Anomaly Detection Framework",
-            "description": "Research project developing advanced algorithms for detecting anomalies in industrial time series data. Combined traditional statistical methods with modern machine learning approaches for improved accuracy.",
-            "technologies": ["Time Series Analysis", "Anomaly Detection", "Machine Learning", "Python"],
+            "title": "Insurance Claims Processing Modernization",
+            "description": "Modernized legacy insurance claims processing system, automating manual data entry and approval workflows. Implemented machine learning for fraud detection and automated claim routing based on complexity and risk factors.",
+            "technologies": ["Kubernetes", "Docker", "AI/ML", "Process Automation"],
             "image": "",
             "demo": "",
             "github": "",
             "featured": false
           },
           {
-            "title": "Enterprise Cloud Migration (Freelance)",
-            "description": "Led comprehensive cloud migration project for enterprise client, implementing scalable infrastructure solutions and optimizing performance. Delivered 30% cost reduction and improved system reliability.",
+            "title": "Enterprise Cloud Migration & DevOps",
+            "description": "Led comprehensive cloud migration for enterprises moving from on-premise legacy systems to modern cloud infrastructure. Implemented CI/CD pipelines, containerization, and automated deployment strategies.",
             "technologies": ["AWS", "Kubernetes", "Terraform", "Jenkins"],
             "image": "",
             "demo": "",
@@ -231,34 +235,34 @@
         ]
       },
       "motivation": {
-        "title": "Why Choose Me for Your Project",
-        "subtitle": "Research-Driven Excellence & Freelance Flexibility",
+        "title": "Why Choose Me for Your Digital Transformation",
+        "subtitle": "Development Excellence & Continuous Innovation",
         "points": [
           {
-            "title": "Academic Research Meets Industry",
-            "description": "My PhD research in statistical process control and AI provides cutting-edge solutions that bridge theoretical innovation with practical industrial applications.",
+            "title": "Manual to Digital Expertise",
+            "description": "Specialized experience in converting manual, paper-based processes into efficient digital workflows, helping businesses reduce costs and improve accuracy.",
             "icon": "Lightbulb"
           },
           {
-            "title": "Proven Freelance Track Record",
-            "description": "Successfully delivered multiple freelance projects across various industries, from banking software to industrial process optimization, always on time and within budget.",
+            "title": "Legacy System Modernization",
+            "description": "Proven track record in modernizing legacy applications and migrating outdated systems to modern, scalable architectures without disrupting business operations.",
             "icon": "Award"
           },
           {
-            "title": "Global Availability & Remote Expertise",
+            "title": "Global Remote Collaboration",
             "description": "Available for projects worldwide with extensive experience in remote collaboration, agile methodologies, and cross-cultural team management.",
             "icon": "Target"
           },
           {
-            "title": "Continuous Innovation",
-            "description": "Staying at the forefront of technology through active research, ensuring your projects benefit from the latest advances in AI, statistical analysis, and software engineering.",
+            "title": "Continuous Research & Innovation",
+            "description": "Staying at the forefront of technology through continuous research and development, ensuring your projects benefit from the latest advances in software engineering and automation.",
             "icon": "TrendingUp"
           }
         ],
         "cta": {
-          "title": "Ready to Optimize Your Processes?",
-          "description": "Whether you need industrial process optimization, enterprise software development, or research-backed AI solutions, I'm available for freelance projects that drive measurable results.",
-          "button": "Hire Me for Your Project"
+          "title": "Ready to Modernize Your Business Processes?",
+          "description": "Whether you need to digitize manual workflows, modernize legacy systems, or build new enterprise solutions, I'm available for freelance projects that drive digital transformation.",
+          "button": "Start Your Transformation"
         }
       },
       "process": {
@@ -367,52 +371,42 @@
     "de": {
       "hero": {
         "greeting": "Hallo, ich bin",
-        "name": "Dr. Khaled Alabsi",
+        "name": "M.Sc. Khaled Alabsi",
         "roles": [
-          "PhD-Forscher",
+          "Digitalisierungs-Berater",
           "Freiberuflicher Software-Ingenieur",
-          "Prozessüberwachungs-Experte",
-          "KI-Lösungsspezialist"
+          "Legacy-System Modernisierung",
+          "Prozessautomatisierungs-Spezialist"
         ],
-        "description": "Ich kombiniere fortgeschrittene Forschung in statistischer Prozesskontrolle und KI mit praktischer Software-Entwicklung, um industrielle Prozesse zu optimieren und innovative digitale Lösungen zu liefern. Verfügbar für Freelance-Projekte weltweit.",
+        "description": "Ich helfe Unternehmen beim Übergang von manuellen Prozessen zu intelligenten digitalen Lösungen, modernisiere Legacy-Systeme und entwickle skalierbare Unternehmensanwendungen. Verbinde Entwicklungsexpertise mit kontinuierlicher Forschung für zukunftsweisende Lösungen.",
         "cta": {
-          "primary": "Beauftragen Sie mich",
-          "secondary": "Forschung & Arbeit ansehen"
+          "primary": "Ihr Business transformieren",
+          "secondary": "Meine Lösungen ansehen"
         }
       },
       "about": {
         "title": "Über Mich",
-        "subtitle": "PhD-Forscher, Software-Ingenieur & Freelance-Berater",
-        "description": "Ich promoviere derzeit mit dem Fokus auf \"Analysen zu Störungen in Produktionsprozessen und Anomalien in Zeitreihen mit Hilfe Multivariater Kontrollkartenverfahren unter Verwendung von Methoden der statistischen Prozesskontrolle und KI-Verfahren\". Mit meinem M.Sc. in Computer- und Kommunikationssystemen und umfangreicher Industrieerfahrung biete ich einzigartige Expertise, die akademische Forschung mit praktischer Software-Entwicklung für industrielle Optimierung und Unternehmenslösungen verbindet.",
+        "subtitle": "Digitalisierungs-Experte, Software-Ingenieur & Kontinuierlicher Forscher",
+        "description": "Ich spezialisiere mich darauf, Unternehmen beim Übergang von manuellen Prozessen zu digitalen Lösungen zu helfen, Legacy-Systeme zu modernisieren und robuste Unternehmensanwendungen zu entwickeln. Mit meinem M.Sc. in Computer- und Kommunikationssystemen und umfangreicher Industrieerfahrung verbinde ich praktische Software-Entwicklung mit kontinuierlicher Forschung, um innovative Lösungen zu liefern, die Geschäftstransformation vorantreiben.",
         "highlights": [
-          "PhD-Kandidat in Statistischer Prozesskontrolle & KI (laufend)",
           "M.Sc. in Computer- & Kommunikationssystemen (2023)",
           "B.Sc. in Angewandter Informatik (2021)",
-          "17+ Jahre professionelle Software-Entwicklungserfahrung",
-          "Spezialisiert auf industrielle Prozessüberwachung und Anomalieerkennung",
-          "Experte für multivariate Kontrollkarten und statistische Qualitätskontrolle",
+          "10+ Jahre professionelle Software-Entwicklungserfahrung",
+          "Spezialisiert auf Digitalisierung und Legacy-System-Modernisierung",
+          "Experte für Unternehmenssoftware-Entwicklung und DevOps-Praktiken",
+          "Kontinuierliche Forschung in aufkommenden Technologien und Automatisierung",
           "Verfügbar für Freelance-Projekte und Beratung weltweit",
-          "Forschungsschwerpunkt: KI-gesteuerte Prozessoptimierung und Zeitreihenanalyse"
+          "Fokus: Manuell-zu-digital Konversion und Geschäftsprozess-Automatisierung"
         ],
         "skills": [
           {
-            "name": "Forschung & Analytik",
+            "name": "Digitale Transformation",
             "technologies": [
-              "Statistische Prozesskontrolle",
-              "Multivariate Kontrollkarten",
-              "Zeitreihenanalyse",
-              "Anomalieerkennung",
-              "Industrielle Prozessoptimierung"
-            ]
-          },
-          {
-            "name": "KI & Machine Learning",
-            "technologies": [
-              "Prozessüberwachungs-KI",
-              "Statistische Qualitätskontrolle",
-              "Python Data Science",
-              "Machine Learning Modelle",
-              "Prädiktive Analytik"
+              "Legacy-System Modernisierung",
+              "Geschäftsprozess-Automatisierung",
+              "Manuell-zu-digital Konversion",
+              "Workflow-Optimierung",
+              "Systemintegration"
             ]
           },
           {
@@ -438,29 +432,40 @@
             ]
           },
           {
-            "name": "Freelance-Services",
+            "name": "Daten & Automatisierung",
             "technologies": [
-              "Remote-Entwicklung",
+              "Prozessautomatisierung",
+              "Python",
+              "Datenbank-Modernisierung",
+              "API-Entwicklung",
+              "Integrationslösungen"
+            ]
+          },
+          {
+            "name": "Beratungsservices",
+            "technologies": [
+              "Technologiebewertung",
+              "Migrationsplanung",
+              "Systemarchitektur",
               "Projektberatung",
-              "Technische Architektur",
-              "Prozessoptimierung",
-              "Qualitätssicherung"
+              "Technische Führung"
             ]
           }
         ]
       },
       "experience": {
-        "title": "Ausgewählte Projekte",
-        "subtitle": "Eine Auswahl meiner Arbeit",
+        "title": "Digitale Lösungen & Projekt-Portfolio",
+        "subtitle": "Transformation manueller Prozesse & Modernisierung von Legacy-Systemen",
         "projects": [
           {
-            "title": "Wertpapier-Produktplattform (Banking)",
-            "description": "Entwicklung sicherer, skalierbarer Full-Stack-Anwendungen mit Spring Boot und ReactJS mit Micro-Frontend-Architektur. Verbesserte Wartbarkeit und Modularität sowie optimierte CI/CD-Pipelines mit TeamCity.",
+            "title": "Unternehmens-Digitalisierung",
+            "description": "Unterstützte Unternehmen beim Übergang von manuellen, papiergestützten Prozessen zu umfassenden digitalen Workflows. Implementierte automatisierte Dokumentenverarbeitung, digitale Genehmigungssysteme und Echtzeit-Reporting-Dashboards, wodurch die Bearbeitungszeit um 80% reduziert und menschliche Fehler eliminiert wurden.",
             "technologies": [
               "Spring Boot",
               "ReactJS",
-              "TeamCity",
-              "Micro-Frontend-Architektur"
+              "Prozessautomatisierung",
+              "Digitale Workflows",
+              "API-Integration"
             ],
             "image": "",
             "demo": "",
@@ -468,44 +473,54 @@
             "featured": true
           },
           {
-            "title": "KI-Dokumentenverarbeitung",
-            "description": "Entwurf und Bereitstellung eines ML-gestützten Systems für automatisierte Dokumentenverarbeitung unter Verwendung von Python, Spring Boot und ReactJS. Produktionsbereitstellung mit Ansible und Vagrant.",
-            "technologies": ["Python", "Spring Boot", "ReactJS", "Ansible", "Vagrant"],
+            "title": "Legacy-System Modernisierung & Migration",
+            "description": "Erfolgreich Legacy-COBOL und Mainframe-Anwendungen zu moderner Java-basierter Microservices-Architektur migriert. Geschäftslogik bewahrt während Verbesserung von Performance, Wartbarkeit und Skalierbarkeit für Unternehmenskunden im Banking- und Versicherungssektor.",
+            "technologies": ["Java", "Spring Boot", "Microservices", "Legacy-Migration", "Systemintegration"],
             "image": "",
             "demo": "",
             "github": "",
             "featured": true
           },
           {
-            "title": "Versicherungs-Prozessautomatisierung",
-            "description": "Implementierung Kubernetes-basierter Orchestrierung für interne administrative Anwendungen. Automatisierte CI/CD-Pipelines zur Beschleunigung der Bereitstellung und Effizienzsteigerung.",
-            "technologies": ["Kubernetes", "Docker", "CI/CD", "DevOps"],
+            "title": "Fertigungsprozess-Digitalisierung",
+            "description": "Transformierte manuelle Qualitätskontroll- und Bestandsverfolgungsprozesse in automatisierte digitale Systeme. Implementierte IoT-Sensoren, Echtzeit-Überwachungs-Dashboards und vorausschauende Wartungslösungen, wodurch die Effizienz um 60% verbessert wurde.",
+            "technologies": [
+              "Python",
+              "IoT-Integration",
+              "Echtzeit-Überwachung",
+              "Prozessautomatisierung"
+            ],
             "image": "",
             "demo": "",
             "github": "",
             "featured": true
           },
           {
-            "title": "Prozessüberwachung & Anomalieerkennung",
-            "description": "Anwendung statistischer Methoden und ML zur Überwachung von Prozessen, Klassifizierung von Mustern und Erkennung von Anomalien in industriellen und geschäftlichen Arbeitsabläufen.",
-            "technologies": ["Machine Learning", "Prozessüberwachung", "Anomalieerkennung"],
+            "title": "Banking Digital Workflow-Automatisierung",
+            "description": "Freelance-Projekt: Entwickelte sichere, skalierbare Anwendungen für Wertpapierprodukte mit automatisierten Genehmigungsworkflows, ersetzte manuelle Überprüfungsprozesse. Verbesserte Compliance-Verfolgung und reduzierte Bearbeitungszeit von Tagen auf Stunden.",
+            "technologies": [
+              "Spring Boot",
+              "ReactJS",
+              "TeamCity",
+              "Workflow-Automatisierung"
+            ],
+            "image": "",
+            "demo": "",
+            "github": "",
+            "featured": true
+          },
+          {
+            "title": "Versicherungs-Schadenbearbeitung Modernisierung",
+            "description": "Modernisierte Legacy-Versicherungs-Schadenbearbeitungssystem, automatisierte manuelle Dateneingabe und Genehmigungsworkflows. Implementierte Machine Learning für Betrugserkennung und automatisierte Schadensweiterleitung basierend auf Komplexität und Risikofaktoren.",
+            "technologies": ["Kubernetes", "Docker", "KI/ML", "Prozessautomatisierung"],
             "image": "",
             "demo": "",
             "github": "",
             "featured": false
           },
           {
-            "title": "KI-gesteuerte Prozessautomatisierung",
-            "description": "Entwurf und Implementierung von LLM-Agent-Lösungen für automatisierte Prozessausführung und -optimierung.",
-            "technologies": ["LLM Agent", "Python", "KI-Automatisierung"],
-            "image": "",
-            "demo": "",
-            "github": "",
-            "featured": false
-          },
-          {
-            "title": "Unternehmens-Cloud-Migration",
-            "description": "Leitung umfassender Cloud-Migrationsprojekte für Unternehmenskunden, Implementierung skalierbarer Infrastrukturlösungen und Leistungsoptimierung.",
+            "title": "Unternehmens-Cloud-Migration & DevOps",
+            "description": "Leitete umfassende Cloud-Migration für Unternehmen beim Übergang von On-Premise Legacy-Systemen zu moderner Cloud-Infrastruktur. Implementierte CI/CD-Pipelines, Containerisierung und automatisierte Deployment-Strategien.",
             "technologies": ["AWS", "Kubernetes", "Terraform", "Jenkins"],
             "image": "",
             "demo": "",
@@ -515,34 +530,34 @@
         ]
       },
       "motivation": {
-        "title": "Was mich antreibt",
-        "subtitle": "Jenseits des Codes",
+        "title": "Warum mich für Ihre Digitale Transformation wählen",
+        "subtitle": "Entwicklungsexzellenz & Kontinuierliche Innovation",
         "points": [
           {
-            "title": "Innovation",
-            "description": "Ich glaube daran, Grenzen zu überschreiten und neue Technologien zu erkunden, um bahnbrechende Lösungen zu schaffen.",
+            "title": "Manuell-zu-digital Expertise",
+            "description": "Spezialisierte Erfahrung in der Konversion manueller, papiergestützter Prozesse zu effizienten digitalen Workflows, hilft Unternehmen Kosten zu reduzieren und Genauigkeit zu verbessern.",
             "icon": "Lightbulb"
           },
           {
-            "title": "Sicherheit & Qualität",
-            "description": "Die Entwicklung sicherer, wartbarer und skalierbarer Lösungen steht im Mittelpunkt all meiner Entwicklungen.",
+            "title": "Legacy-System Modernisierung",
+            "description": "Bewährte Erfolgsbilanz in der Modernisierung von Legacy-Anwendungen und Migration veralteter Systeme zu modernen, skalierbaren Architekturen ohne Störung des Geschäftsbetriebs.",
             "icon": "Award"
           },
           {
-            "title": "Geschäftsauswirkungen",
-            "description": "Technologie sollte den Geschäftserfolg vorantreiben. Ich konzentriere mich auf die Erstellung von Lösungen, die messbaren Wert liefern.",
+            "title": "Globale Remote-Zusammenarbeit",
+            "description": "Verfügbar für Projekte weltweit mit umfangreicher Erfahrung in Remote-Zusammenarbeit, agilen Methodologien und interkulturellem Teammanagement.",
             "icon": "Target"
           },
           {
-            "title": "Kontinuierliches Lernen",
-            "description": "Die Technologielandschaft entwickelt sich schnell. Ich bleibe vorne, indem ich kontinuierlich lerne und mich anpasse.",
+            "title": "Kontinuierliche Forschung & Innovation",
+            "description": "An der Spitze der Technologie durch kontinuierliche Forschung und Entwicklung, um sicherzustellen, dass Ihre Projekte von den neuesten Fortschritten in Software-Engineering und Automatisierung profitieren.",
             "icon": "TrendingUp"
           }
         ],
         "cta": {
-          "title": "Bereit, Ihr Unternehmen zu transformieren?",
-          "description": "Lassen Sie uns zusammenarbeiten, um sichere, skalierbare und intelligente Lösungen zu entwickeln, die Ihr Unternehmen voranbringen.",
-          "button": "Projekt starten"
+          "title": "Bereit, Ihre Geschäftsprozesse zu modernisieren?",
+          "description": "Ob Sie manuelle Workflows digitalisieren, Legacy-Systeme modernisieren oder neue Unternehmenslösungen entwickeln müssen, ich bin für Freelance-Projekte verfügbar, die digitale Transformation vorantreiben.",
+          "button": "Ihre Transformation starten"
         }
       },
       "process": {
