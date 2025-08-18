@@ -98,7 +98,7 @@
     "name": "Khaled Alabsi",
     "role": "Senior Software Engineer",
     "tagline": "Transforming ideas into exceptional digital solutions",
-    "email": "khaled.alabsi@example.com",
+    "email": "khaled.alabsi@outlook.de",
     "phone": "+49 123 456 7890",
     "location": "Germany",
     "image": "./assets/csm_Khaled_Alabsi_Portraet_6d491f1c81.jpg",
@@ -396,7 +396,7 @@
           {
             "icon": "Mail",
             "label": "Email",
-            "value": "khaled.alabsi@example.com"
+            "value": "khaled.alabsi@outlook.de"
           },
           {
             "icon": "Phone",
@@ -717,7 +717,7 @@
           {
             "icon": "Mail",
             "label": "E-Mail",
-            "value": "khaled.alabsi@example.com"
+            "value": "khaled.alabsi@outlook.de"
           },
           {
             "icon": "Phone",
