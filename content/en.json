@@ -1,0 +1,320 @@
+{
+  "hero": {
+    "greeting": "Hello, I'm",
+    "name": "M.Sc. Khaled Alabsi",
+    "roles": [
+      "Digital Transformation Consultant",
+      "Freelance Software Engineer",
+      "Legacy System Modernization Expert",
+      "Process Automation Specialist"
+    ],
+    "description": "I help companies transition from manual processes to intelligent digital solutions, modernize legacy systems, and build scalable enterprise applications. Combining development expertise with continuous research to deliver cutting-edge solutions.",
+    "cta": {
+      "primary": "Transform Your Business",
+      "secondary": "View My Solutions"
+    }
+  },
+  "about": {
+    "title": "About Me",
+    "subtitle": "Digital Transformation Expert, Software Engineer & Continuous Researcher",
+    "description": "I specialize in helping companies transition from manual processes to digital solutions, modernizing legacy systems, and building robust enterprise applications. With my M.Sc. in Computer and Communication Systems and extensive industry experience, I combine practical software development with continuous research to deliver innovative solutions that drive business transformation.",
+    "highlights": [
+      "M.Sc. in Computer & Communication Systems (2023)",
+      "B.Sc. in Applied Computer Science (2021)",
+      "10+ years professional software development experience",
+      "Specialized in digital transformation and legacy system modernization",
+      "Expert in enterprise software development and DevOps practices",
+      "Continuous research in emerging technologies and automation",
+      "Available for freelance projects and consulting worldwide",
+      "Focus: Manual-to-digital conversion and business process automation"
+    ],
+    "skills": [
+      {
+        "name": "Digital Transformation",
+        "technologies": [
+          "Legacy System Modernization",
+          "Business Process Automation",
+          "Manual to Digital Conversion",
+          "Workflow Optimization",
+          "System Integration"
+        ]
+      },
+      {
+        "name": "Enterprise Development",
+        "technologies": [
+          "Java",
+          "Kotlin",
+          "Spring Boot",
+          "ReactJS",
+          "TypeScript"
+        ]
+      },
+      {
+        "name": "DevOps & Cloud",
+        "technologies": [
+          "Docker",
+          "Kubernetes",
+          "Openshift",
+          "TeamCity",
+          "Jenkins",
+          "Ansible",
+          "Vagrant"
+        ]
+      },
+      {
+        "name": "Data & Automation",
+        "technologies": [
+          "Process Automation",
+          "Python",
+          "Database Modernization",
+          "API Development",
+          "Integration Solutions"
+        ]
+      },
+      {
+        "name": "Consulting Services",
+        "technologies": [
+          "Technology Assessment",
+          "Migration Planning",
+          "System Architecture",
+          "Project Consulting",
+          "Technical Leadership"
+        ]
+      }
+    ]
+  },
+  "experience": {
+    "title": "Digital Solutions & Project Portfolio",
+    "subtitle": "Transforming Manual Processes & Modernizing Legacy Systems",
+    "projects": [
+      {
+        "title": "Enterprise Digital Transformation",
+        "description": "Helped companies transition from manual paper-based processes to comprehensive digital workflows. Implemented automated document processing, digital approval systems, and real-time reporting dashboards, significantly reducing processing time and eliminating human errors.",
+        "technologies": [
+          "Spring Boot",
+          "ReactJS",
+          "Process Automation",
+          "Digital Workflows",
+          "API Integration"
+        ],
+        "image": "",
+        "demo": "",
+        "github": "",
+        "featured": true
+      },
+      {
+        "title": "Legacy System Modernization & Migration",
+        "description": "Successfully migrated legacy COBOL and mainframe applications to modern Java-based microservices architecture. Preserved business logic while improving performance, maintainability, and scalability for enterprise clients in banking and insurance sectors.",
+        "technologies": ["Java", "Spring Boot", "Microservices", "Legacy Migration", "System Integration"],
+        "image": "",
+        "demo": "",
+        "github": "",
+        "featured": true
+      },
+      {
+        "title": "Manufacturing Process Digitization",
+        "description": "Transformed manual quality control and inventory tracking processes into automated digital systems. Implemented IoT sensors, real-time monitoring dashboards, and predictive maintenance solutions, significantly improving operational efficiency.",
+        "technologies": [
+          "Python",
+          "IoT Integration",
+          "Real-time Monitoring",
+          "Process Automation"
+        ],
+        "image": "",
+        "demo": "",
+        "github": "",
+        "featured": true
+      },
+      {
+        "title": "Banking Digital Workflow Automation",
+        "description": "Freelance project: Developed secure, scalable applications for securities products with automated approval workflows, replacing manual review processes. Enhanced compliance tracking and significantly reduced processing time.",
+        "technologies": [
+          "Spring Boot",
+          "ReactJS",
+          "TeamCity",
+          "Workflow Automation"
+        ],
+        "image": "",
+        "demo": "",
+        "github": "",
+        "featured": true
+      },
+      {
+        "title": "Insurance Claims Processing Modernization",
+        "description": "Modernized legacy insurance claims processing system, automating manual data entry and approval workflows. Implemented machine learning for fraud detection and automated claim routing based on complexity and risk factors.",
+        "technologies": ["Kubernetes", "Docker", "AI/ML", "Process Automation"],
+        "image": "",
+        "demo": "",
+        "github": "",
+        "featured": false
+      },
+      {
+        "title": "Enterprise Cloud Migration & DevOps",
+        "description": "Led comprehensive cloud migration for enterprises moving from on-premise legacy systems to modern cloud infrastructure. Implemented CI/CD pipelines, containerization, and automated deployment strategies.",
+        "technologies": ["AWS", "Kubernetes", "Terraform", "Jenkins"],
+        "image": "",
+        "demo": "",
+        "github": "",
+        "featured": false
+      },
+      {
+        "title": "Securities Products Platform (Banking)",
+        "description": "Freelance project: Developed secure, scalable full-stack applications using Spring Boot and ReactJS with micro-frontend architecture. Enhanced maintainability and modularity, and improved CI/CD pipelines with TeamCity.",
+        "technologies": [
+          "Spring Boot",
+          "ReactJS",
+          "TeamCity",
+          "Micro-frontend Architecture",
+          "Banking Systems"
+        ],
+        "image": "",
+        "demo": "",
+        "github": "",
+        "featured": false
+      },
+      {
+        "title": "Industrial Process Monitoring System",
+        "description": "Developed AI-powered real-time monitoring system for production processes, implementing multivariate control charts and statistical anomaly detection. Reduced false positives and improved early detection of process deviations.",
+        "technologies": [
+          "Python",
+          "Statistical Analysis",
+          "Process Control",
+          "AI/ML",
+          "Real-time Monitoring"
+        ],
+        "image": "",
+        "demo": "",
+        "github": "",
+        "featured": false
+      }
+    ]
+  },
+  "motivation": {
+    "title": "Why Choose Me for Your Digital Transformation",
+    "subtitle": "Development Excellence & Continuous Innovation",
+    "points": [
+      {
+        "title": "Manual to Digital Expertise",
+        "description": "Specialized experience in converting manual, paper-based processes into efficient digital workflows, helping businesses reduce costs and improve accuracy.",
+        "icon": "Lightbulb"
+      },
+      {
+        "title": "Legacy System Modernization",
+        "description": "Proven track record in modernizing legacy applications and migrating outdated systems to modern, scalable architectures without disrupting business operations.",
+        "icon": "Award"
+      },
+      {
+        "title": "Global Remote Collaboration",
+        "description": "Available for projects worldwide with extensive experience in remote collaboration, agile methodologies, and cross-cultural team management.",
+        "icon": "Target"
+      },
+      {
+        "title": "Continuous Research & Innovation",
+        "description": "Staying at the forefront of technology through continuous research and development, ensuring your projects benefit from the latest advances in software engineering and automation.",
+        "icon": "TrendingUp"
+      }
+    ],
+    "cta": {
+      "title": "Ready to Modernize Your Business Processes?",
+      "description": "Whether you need to digitize manual workflows, modernize legacy systems, or build new enterprise solutions, I'm available for freelance projects that drive digital transformation.",
+      "button": "Start Your Transformation"
+    }
+  },
+  "process": {
+    "title": "My Development Process",
+    "subtitle": "From Concept to Production",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Discovery & Analysis",
+        "description": "Understanding business requirements, technical constraints, and security considerations",
+        "icon": "Lightbulb"
+      },
+      {
+        "number": "02",
+        "title": "Architecture & Planning",
+        "description": "Designing scalable, secure architecture with clear implementation roadmap",
+        "icon": "Search"
+      },
+      {
+        "number": "03",
+        "title": "Development & Testing",
+        "description": "Agile development with continuous integration, automated testing, and code quality assurance",
+        "icon": "Code"
+      },
+      {
+        "number": "04",
+        "title": "DevOps & Deployment",
+        "description": "Containerized deployment with CI/CD pipelines, monitoring, and infrastructure as code",
+        "icon": "Rocket"
+      },
+      {
+        "number": "05",
+        "title": "Monitoring & Optimization",
+        "description": "Performance monitoring, security audits, and continuous optimization",
+        "icon": "TrendingUp"
+      },
+      {
+        "number": "06",
+        "title": "Support & Evolution",
+        "description": "Ongoing maintenance, feature enhancements, and technology updates",
+        "icon": "Wrench"
+      }
+    ]
+  },
+  "contact": {
+    "title": "Let's Work Together on Your Next Project",
+    "subtitle": "Available for Freelance Projects Worldwide",
+    "description": "Whether you need digital transformation consulting, enterprise software development, legacy system modernization, or process automation solutions, I'm ready to help you achieve your goals. With my expertise in both development and continuous research, I deliver results that matter.",
+    "info": [
+      {
+        "icon": "Mail",
+        "label": "Email",
+        "value": "khaled.alabsi@outlook.de"
+      },
+      {
+        "icon": "MapPin",
+        "label": "Location",
+        "value": "Germany (Remote Worldwide)"
+      }
+    ],
+    "form": {
+      "name": "Your Name",
+      "email": "Your Email",
+      "subject": "Project Inquiry",
+      "message": "Describe your project needs...",
+      "submit": "Send Project Inquiry",
+      "sending": "Sending...",
+      "successMessage": "Project inquiry sent successfully!",
+      "namePlaceholder": "Your name",
+      "emailPlaceholder": "your@email.com",
+      "subjectPlaceholder": "Project type (e.g., Digital Transformation, Legacy Modernization)",
+      "messagePlaceholder": "Tell me about your project requirements, timeline, and budget..."
+    },
+    "social": {
+      "title": "Connect With Me",
+      "description": "Follow my professional updates and insights"
+    },
+    "cta": {
+      "title": "Ready to Start Your Project?",
+      "description": "From digital transformation and legacy modernization to full-stack development and cloud solutions, I'm here to deliver excellence.",
+      "email": "Discuss Your Project",
+      "resume": "Download CV & Portfolio"
+    }
+  },
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "experience": "Experience",
+    "motivation": "Motivation",
+    "process": "Process",
+    "contact": "Contact"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Something went wrong",
+    "retry": "Try Again",
+    "close": "Close",
+    "menu": "Menu"
+  }
+}

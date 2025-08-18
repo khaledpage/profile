@@ -1,0 +1,30 @@
+{
+  "languages": {
+    "en": {
+      "enabled": true,
+      "note": "English is the default language and should always remain enabled"
+    },
+    "de": {
+      "enabled": true,
+      "note": "German language support"
+    },
+    "ar": {
+      "enabled": false,
+      "note": "Arabic language support with RTL layout - disabled by default"
+    },
+    "tr": {
+      "enabled": true,
+      "note": "Turkish language support"
+    }
+  },
+  "settings": {
+    "defaultLanguage": "en",
+    "autoDetectBrowserLanguage": true,
+    "fallbackToDefaultOnDisabled": true
+  },
+  "instructions": {
+    "howToDisableLanguage": "Set 'enabled': false for any language you want to disable",
+    "howToEnableLanguage": "Set 'enabled': true for any language you want to enable",
+    "important": "English should always remain enabled as it serves as the fallback language"
+  }
+}

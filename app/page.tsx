@@ -1,8 +1,16 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import config, { getContent } from '@/lib/config';
+import config from '@/lib/config';
 import { getTheme } from '@/lib/themes';
+import { loadContent, ContentData } from '@/lib/contentLoader';
+import { 
+  SupportedLanguage, 
+  determineLanguage, 
+  setStoredLanguage, 
+  applyLanguageDirection,
+  isLanguageEnabled 
+} from '@/lib/languages';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
 import Experience from '@/components/Experience';
@@ -14,56 +22,59 @@ import AnimatedBackground from '@/components/AnimatedBackground';
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
+  const [content, setContent] = useState<ContentData | null>(null);
   
   // Initialize with default language to prevent hydration mismatch
-  const [currentLanguage, setCurrentLanguage] = useState(config.ui.language);
+  const [currentLanguage, setCurrentLanguage] = useState<SupportedLanguage>('en');
   const theme = getTheme(config.ui.theme.active);
-  const content = getContent(currentLanguage);
 
-  // Auto-detect browser language
-  const detectBrowserLanguage = () => {
-    if (typeof window !== 'undefined') {
-      const browserLang = navigator.language.toLowerCase();
-      // Check if browser language is German
-      if (browserLang.startsWith('de')) {
-        return 'de';
-      }
-      // Default to English for all other languages
-      return 'en';
-    }
-    return config.ui.language;
-  };
-
+  // Auto-detect and load language
   useEffect(() => {
+    const detectedLanguage = determineLanguage();
+    setCurrentLanguage(detectedLanguage);
+    setContent(loadContent(detectedLanguage));
+    applyLanguageDirection(detectedLanguage);
     setMounted(true);
-    
-    // Set language based on browser detection after mounting
-    const detectedLanguage = detectBrowserLanguage();
-    if (detectedLanguage !== currentLanguage) {
-      setCurrentLanguage(detectedLanguage);
+  }, []);
+
+  // Update content when language changes
+  useEffect(() => {
+    if (mounted) {
+      setContent(loadContent(currentLanguage));
+      applyLanguageDirection(currentLanguage);
+      setStoredLanguage(currentLanguage);
     }
+  }, [currentLanguage, mounted]);
 
-    // Apply theme CSS variables
-    const root = document.documentElement;
-    Object.entries(theme.colors).forEach(([key, value]) => {
-      root.style.setProperty(`--${key.replace(/([A-Z])/g, '-$1').toLowerCase()}`, value);
-    });
+  // Apply theme CSS variables
+  useEffect(() => {
+    if (mounted) {
+      const root = document.documentElement;
+      Object.entries(theme.colors).forEach(([key, value]) => {
+        root.style.setProperty(`--${key.replace(/([A-Z])/g, '-$1').toLowerCase()}`, value);
+      });
 
-    // Apply font variables
-    root.style.setProperty('--font-heading', theme.fonts.heading);
-    root.style.setProperty('--font-body', theme.fonts.body);
+      // Apply font variables
+      root.style.setProperty('--font-heading', theme.fonts.heading);
+      root.style.setProperty('--font-body', theme.fonts.body);
 
-    // Apply shadow variables for animations
-    const primaryColor = theme.colors.primary;
-    root.style.setProperty('--primary-shadow', `${primaryColor}40`); // 40 = 25% opacity
-    root.style.setProperty('--primary-shadow-strong', `${primaryColor}CC`); // CC = 80% opacity
-  }, [theme]);
+      // Apply shadow variables for animations
+      const primaryColor = theme.colors.primary;
+      root.style.setProperty('--primary-shadow', `${primaryColor}40`); // 40 = 25% opacity
+      root.style.setProperty('--primary-shadow-strong', `${primaryColor}CC`); // CC = 80% opacity
+    }
+  }, [theme, mounted]);
 
-  const toggleLanguage = () => {
-    setCurrentLanguage(currentLanguage === 'en' ? 'de' : 'en');
+  const handleLanguageChange = (language: SupportedLanguage) => {
+    // Check if the language is enabled before changing
+    if (isLanguageEnabled(language)) {
+      setCurrentLanguage(language);
+    } else {
+      console.warn(`Attempted to switch to disabled language: ${language}`);
+    }
   };
 
-  if (!mounted) {
+  if (!mounted || !content) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-2xl font-bold gradient-text">Loading...</div>
@@ -81,7 +92,7 @@ export default function Home() {
         <Nav 
           content={content} 
           currentLanguage={currentLanguage} 
-          onLanguageToggle={toggleLanguage}
+          onLanguageChange={handleLanguageChange}
         />
       )}
 

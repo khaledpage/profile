@@ -1,14 +1,16 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import LanguageSwitcher from './LanguageSwitcher';
+import { SupportedLanguage } from '@/lib/languages';
 
 interface NavProps {
   content: any;
-  currentLanguage: string;
-  onLanguageToggle: () => void;
+  currentLanguage: SupportedLanguage;
+  onLanguageChange: (language: SupportedLanguage) => void;
 }
 
-const Nav = ({ content, currentLanguage, onLanguageToggle }: NavProps) => {
+const Nav = ({ content, currentLanguage, onLanguageChange }: NavProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -72,13 +74,10 @@ const Nav = ({ content, currentLanguage, onLanguageToggle }: NavProps) => {
                 ))}
                 
                 {/* Language Switcher */}
-                <button
-                  id="language-switcher-desktop"
-                  onClick={onLanguageToggle}
-                  className="px-3 py-2 text-sm font-medium text-theme-secondary hover:text-primary transition-colors border border-white/10 rounded-lg hover:border-primary/30"
-                >
-                  {currentLanguage === 'en' ? '🇩🇪 DE' : '🇺🇸 EN'}
-                </button>
+                <LanguageSwitcher
+                  currentLanguage={currentLanguage}
+                  onLanguageChange={onLanguageChange}
+                />
                 
                 {/* Contact Button */}
                 <button
@@ -142,20 +141,16 @@ const Nav = ({ content, currentLanguage, onLanguageToggle }: NavProps) => {
               ))}
               
               {/* Language Switcher Mobile */}
-              <button
-                id="language-switcher-mobile"
-                onClick={() => {
-                  onLanguageToggle();
-                  setIsOpen(false);
-                }}
-                className="block w-full text-left text-lg font-medium hover:text-primary transition-colors py-3 border-b border-primary/20"
-                style={{ 
-                  color: 'var(--text)',
-                  borderBottomColor: 'var(--border)'
-                }}
-              >
-                {currentLanguage === 'en' ? '🇩🇪 Deutsch' : '🇺🇸 English'}
-              </button>
+              <div className="py-3 border-b border-primary/20">
+                <LanguageSwitcher
+                  currentLanguage={currentLanguage}
+                  onLanguageChange={(lang) => {
+                    onLanguageChange(lang);
+                    setIsOpen(false);
+                  }}
+                  className="w-full"
+                />
+              </div>
               
               <button
                 id="contact-btn-mobile"

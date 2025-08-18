@@ -73,6 +73,16 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
+        {/* Preconnect to Google Fonts for performance */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        
+        {/* Arabic and Turkish font support */}
+        <link
+          href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+          rel="stylesheet"
+        />
+        
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

@@ -1,12 +1,14 @@
 # Requirements Tabelle
 
 | ID | Requirement | Rationale | Priority | Status | Owner | Acceptance Criteria | Files/Modules |
-|----|------------|-----------|----------|--------|-------|-------------------|---------------|
-| REQ-001 | PhD Research Integration | Website should highlight doctoral research topic and academic credentials for professional credibility | High | Done | @khaled | PhD title, research topic, and academic achievements prominently displayed | content.config.json |
-| REQ-002 | Freelance SEO Optimization | Website must be optimized for search engines to attract freelance clients | High | Done | @khaled | Keywords include "freelance", "remote", "available for projects", enhanced meta tags | content.config.json |
-| REQ-003 | Professional Branding Update | Rebrand from employee to freelance consultant/researcher positioning | High | Done | @khaled | Updated titles, descriptions, and call-to-action buttons focus on hiring/consulting | content.config.json |
-| REQ-004 | Multilingual PhD Content | German translations for all PhD and freelance-related content | High | Done | @khaled | Complete German translations for research topic and freelance positioning | content.config.json |
-| REQ-005 | Project Portfolio Enhancement | Showcase mix of research projects and practical implementations | Medium | Done | @khaled | Featured projects include PhD research, industrial applications, and freelance work | content.config.json |
+|----|-------------|-----------|----------|--------|-------|-------------------|---------------|
+| REQ-001 | Digital Transformation Rebrand | Website should position as digital transformation expert instead of PhD researcher | High | Done | @khaled | Updated from PhD focus to digital transformation, legacy modernization, and process automation | content/*.json, components/* |
+| REQ-002 | Multilingual Content Architecture | Split monolithic content into separate language files for better maintainability | High | Done | @khaled | Content stored in separate en.json, de.json, ar.json, tr.json files | content/*.json, lib/contentLoader.ts |
+| REQ-003 | Advanced Language Switcher | Implement comprehensive language switching with auto-detection and RTL support | High | Done | @khaled | Language switcher supports 4 languages with browser auto-detection and RTL for Arabic | components/LanguageSwitcher.tsx, lib/languages.ts |
+| REQ-004 | Arabic and Turkish Support | Add Arabic and Turkish translations with proper RTL support for Arabic | Medium | Done | @khaled | Complete translations for Arabic and Turkish, RTL CSS support for Arabic | content/ar.json, content/tr.json, app/globals.css |
+| REQ-005 | Phone Contact Removal | Remove phone contact option from all language versions | Medium | Done | @khaled | Only email and location contact info displayed, no phone number in any language | content/*.json |
+| REQ-006 | Browser Language Auto-Detection | Automatically detect and set user's preferred language | Medium | Done | @khaled | Detects browser language, stores preference in localStorage, fallback to English | lib/languages.ts, app/page.tsx |
+| REQ-007 | Language Activation System | Enable/disable specific languages through configuration | Medium | Done | @khaled | Easy JSON-based language activation, automatic fallback for disabled languages | language.config.json, lib/languages.ts, docs/LANGUAGE_CONFIGURATION.md |
 
 # Portfolio Configuration Summary
 
