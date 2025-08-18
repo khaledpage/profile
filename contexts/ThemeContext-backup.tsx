@@ -67,10 +67,6 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
       }
     }
   }, [defaultTheme, randomOnRefresh]);
-      // If no saved theme, use the one from config
-      setCurrentTheme(defaultTheme);
-    }
-  }, [defaultTheme]);
 
   // Apply theme CSS variables when theme changes
   useEffect(() => {
