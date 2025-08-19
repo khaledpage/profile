@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-import { loadFeaturedArticles, FeaturedArticle, FeaturedArticlesData } from '../lib/staticFeaturedArticles';
+import { loadFeaturedArticles, FeaturedArticle, FeaturedArticlesData } from '../lib/generatedFeaturedArticles';
 import { loadContent } from '../lib/contentLoader';
 import { SupportedLanguage } from '../lib/languages';
 import ArticleOverlay from './ArticleOverlay';
@@ -75,7 +75,7 @@ export default function Inspiration({ locale }: InspirationProps) {
 
   if (isLoading) {
     return (
-      <section id="inspiration" className="py-20 bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800">
+      <section id="inspiration" className="py-20 inspiration-section">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
@@ -84,7 +84,7 @@ export default function Inspiration({ locale }: InspirationProps) {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[1, 2, 3, 4, 5, 6].map((i) => (
-              <div key={i} className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg animate-pulse">
+              <div key={i} className="inspiration-card animate-pulse">
                 <div className="h-4 bg-gray-300 dark:bg-gray-600 rounded mb-3"></div>
                 <div className="h-3 bg-gray-300 dark:bg-gray-600 rounded mb-2"></div>
                 <div className="h-3 bg-gray-300 dark:bg-gray-600 rounded w-3/4"></div>
@@ -98,7 +98,7 @@ export default function Inspiration({ locale }: InspirationProps) {
 
   return (
     <>
-      <section id="inspiration" className="py-20 bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800">
+      <section id="inspiration" className="py-20 inspiration-section">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
@@ -117,18 +117,18 @@ export default function Inspiration({ locale }: InspirationProps) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 group cursor-pointer"
+                className="inspiration-card"
                 onClick={() => handleArticleClick(article)}
               >
                 <div className="flex justify-between items-start mb-4">
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                  <h3 className="inspiration-card-title">
                     {article.title}
                   </h3>
-                  <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors transform group-hover:translate-x-1" />
+                  <ArrowRight className="inspiration-card-arrow" />
                 </div>
                 
                 {article.shortDescription && (
-                  <p className="text-sm font-medium text-blue-600 dark:text-blue-400 mb-2">
+                  <p className="inspiration-card-subtitle">
                     {article.shortDescription}
                   </p>
                 )}
@@ -142,7 +142,7 @@ export default function Inspiration({ locale }: InspirationProps) {
                     {article.tags.map((tag, tagIndex) => (
                       <span
                         key={tagIndex}
-                        className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs rounded-full"
+                        className="inspiration-tag"
                       >
                         {tag}
                       </span>

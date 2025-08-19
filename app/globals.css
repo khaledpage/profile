@@ -712,3 +712,76 @@ body {
 .article-content .benefit-item p {
   @apply text-gray-600 dark:text-gray-300 mb-0;
 }
+
+/* Theme-aware inspiration section styles */
+.inspiration-section {
+  background-color: var(--surface);
+}
+
+.inspiration-card {
+  background-color: white;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.dark .inspiration-card {
+  background-color: rgb(31 41 55);
+}
+
+.inspiration-card:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.dark .inspiration-card:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+}
+
+.inspiration-card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: rgb(17 24 39);
+  transition: color 0.3s ease;
+}
+
+.dark .inspiration-card-title {
+  color: white;
+}
+
+.inspiration-card:hover .inspiration-card-title {
+  color: var(--primary);
+}
+
+.inspiration-card-subtitle {
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: var(--primary);
+}
+
+.inspiration-card-arrow {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: rgb(156 163 175);
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.inspiration-card:hover .inspiration-card-arrow {
+  color: var(--primary);
+  transform: translateX(0.25rem);
+}
+
+.inspiration-tag {
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  border-radius: 9999px;
+  background-color: color-mix(in srgb, var(--primary) 15%, transparent);
+  color: var(--primary);
+}
+
+.dark .inspiration-tag {
+  background-color: color-mix(in srgb, var(--primary) 25%, transparent);
+  color: color-mix(in srgb, var(--primary) 90%, white);
+}

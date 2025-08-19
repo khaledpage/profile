@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm run generate-articles && next build",
     "start": "next start",
     "lint": "next lint",
+    "generate-articles": "node scripts/generate-articles.js",
     "export": "next build && mkdir -p docs && cp -r out/* docs/ && echo '' > docs/.nojekyll",
     "test-local": "rm -rf .next out test-local && cp next.config.local.js next.config.js && next build && mkdir -p test-local && cp -r out/* test-local/ && git checkout next.config.js && echo 'Local test build created in test-local/ folder'",
     "serve-local": "python3 -m http.server 8000 -d test-local",
