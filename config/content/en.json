@@ -193,50 +193,6 @@
     "title": "Turn Your Ideas Into Reality",
     "subtitle": "Digital transformation starts with a single step",
     "description": "Every successful digital transformation begins with recognizing the potential for improvement. Here are common scenarios where technology can revolutionize your business operations.",
-    "featuredArticles": [
-      {
-        "title": "Still Managing Inventory on Paper?",
-        "description": "Imagine tracking every item in real-time, getting automatic reorder alerts, and having complete visibility into your supply chain with just a few clicks.",
-        "benefits": ["Real-time tracking", "Automated alerts", "Cost reduction", "Error elimination"],
-        "icon": "📋",
-        "actionText": "Digitize Your Inventory"
-      },
-      {
-        "title": "Manual Data Entry Eating Your Time?",
-        "description": "Picture automating repetitive data entry tasks, eliminating human errors, and freeing your team to focus on strategic work that grows your business.",
-        "benefits": ["Save 80% time", "Zero errors", "Focus on growth", "Happy employees"],
-        "icon": "⚡",
-        "actionText": "Automate Your Processes"
-      },
-      {
-        "title": "Lost in Email Chains and Excel Files?",
-        "description": "Envision a centralized system where all stakeholders can collaborate, track progress, and make decisions based on real-time data and insights.",
-        "benefits": ["Centralized data", "Real-time collaboration", "Better decisions", "Clear workflows"],
-        "icon": "🎯",
-        "actionText": "Streamline Your Operations"
-      },
-      {
-        "title": "Customer Service Taking Too Long?",
-        "description": "Transform customer interactions with automated support, instant responses, and personalized experiences that turn customers into loyal advocates.",
-        "benefits": ["Instant responses", "24/7 availability", "Personalized service", "Higher satisfaction"],
-        "icon": "🚀",
-        "actionText": "Enhance Customer Experience"
-      },
-      {
-        "title": "Struggling with Legacy Systems?",
-        "description": "Modernize your outdated systems without disrupting business operations, improving performance, security, and maintainability for the future.",
-        "benefits": ["Modern technology", "Better performance", "Enhanced security", "Future-ready"],
-        "icon": "🔄",
-        "actionText": "Modernize Your Systems"
-      },
-      {
-        "title": "Manual Reporting Taking Days?",
-        "description": "Generate comprehensive reports instantly, visualize data with interactive dashboards, and make data-driven decisions in real-time.",
-        "benefits": ["Instant reports", "Visual dashboards", "Data insights", "Smart decisions"],
-        "icon": "📊",
-        "actionText": "Automate Your Reporting"
-      }
-    ],
     "cta": {
       "title": "Ready to Start Your Digital Journey?",
       "description": "Don't let manual processes hold your business back. Let's discuss how we can transform your operations and unlock your potential.",

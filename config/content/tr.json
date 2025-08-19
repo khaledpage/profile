@@ -193,22 +193,6 @@
     "title": "Fikirlerinizi Gerçeğe Dönüştürün",
     "subtitle": "Dijital dönüşüm tek bir adımla başlar",
     "description": "Her başarılı dijital dönüşüm, iyileştirme potansiyelini fark etmekle başlar. İşte teknolojinin iş operasyonlarınızı devrimleştirebileceği yaygın senaryolar.",
-    "featuredArticles": [
-      {
-        "title": "Hala kağıtta envanter mi yönetiyorsunuz?",
-        "description": "Her öğeyi gerçek zamanlı olarak takip etmeyi, otomatik yeniden sipariş uyarıları almayı ve tedarik zincirinizde sadece birkaç tıklamayla tam görünürlüğe sahip olmayı hayal edin.",
-        "benefits": ["Gerçek zamanlı takip", "Otomatik uyarılar", "Maliyet azaltma", "Hata eliminasyonu"],
-        "icon": "📋",
-        "actionText": "Envanterinizi dijitalleştirin"
-      },
-      {
-        "title": "Manuel veri girişi zamanınızı mı yiyor?",
-        "description": "Tekrarlayan veri girişi görevlerini otomatikleştirmeyi, insan hatalarını ortadan kaldırmayı ve ekibinizi işinizi büyüten stratejik çalışmalara odaklanması için serbest bırakmayı hayal edin.",
-        "benefits": ["%80 zaman tasarrufu", "Sıfır hata", "Büyümeye odaklanma", "Mutlu çalışanlar"],
-        "icon": "⚡",
-        "actionText": "Süreçlerinizi otomatikleştirin"
-      }
-    ],
     "cta": {
       "title": "Dijital yolculuğunuza başlamaya hazır mısınız?",
       "description": "Manuel süreçlerin işinizi geri tutmasına izin vermeyin. Operasyonlarınızı nasıl dönüştürebileceğimizi ve potansiyelinizi nasıl açığa çıkarabileceğimizi konuşalım.",

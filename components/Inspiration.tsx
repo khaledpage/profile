@@ -29,39 +29,15 @@ export default function Inspiration({ locale }: InspirationProps) {
         setFeaturedArticles(articlesData.featuredArticles);
       } catch (error) {
         console.error('Error loading featured articles:', error);
-        // Fallback to legacy scenarios if available
-        if (text.inspiration?.scenarios) {
-          const legacyScenarios = text.inspiration.scenarios.map((scenario: any, index: number) => ({
-            id: `legacy-${index}`,
-            title: scenario.title,
-            description: scenario.description,
-            shortDescription: scenario.description,
-            benefits: [],
-            icon: '',
-            actionText: 'Read More',
-            category: 'Legacy',
-            tags: scenario.tags || [],
-            readTime: '5 min',
-            difficulty: 'Intermediate',
-            impact: 'Medium',
-            publishDate: new Date().toISOString(),
-            author: 'Khaled Alabsi',
-            featured: true,
-            order: index,
-            htmlContent: `<div class="article-content">
-              <h1>${scenario.title}</h1>
-              <p>${scenario.description}</p>
-            </div>`
-          }));
-          setFeaturedArticles(legacyScenarios);
-        }
+        // No fallback - articles should always come from the inspiration folders
+        setFeaturedArticles([]);
       } finally {
         setIsLoading(false);
       }
     };
 
     loadArticles();
-  }, [text]);
+  }, []);
 
   const handleArticleClick = (article: FeaturedArticle) => {
     setSelectedArticle(article);

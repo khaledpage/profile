@@ -193,50 +193,6 @@
     "title": "Verwandeln Sie Ihre Ideen in Realität",
     "subtitle": "Digitale Transformation beginnt mit einem einzigen Schritt",
     "description": "Jede erfolgreiche digitale Transformation beginnt mit der Erkenntnis des Verbesserungspotentials. Hier sind häufige Szenarien, in denen Technologie Ihre Geschäftsabläufe revolutionieren kann.",
-    "featuredArticles": [
-      {
-        "title": "Verwalten Sie Inventar noch auf Papier?",
-        "description": "Stellen Sie sich vor, jeden Artikel in Echtzeit zu verfolgen, automatische Nachbestellungsalarme zu erhalten und komplette Transparenz in Ihre Lieferkette mit nur wenigen Klicks zu haben.",
-        "benefits": ["Echtzeit-Verfolgung", "Automatische Alarme", "Kostenreduzierung", "Fehlereliminierung"],
-        "icon": "📋",
-        "actionText": "Digitalisieren Sie Ihr Inventar"
-      },
-      {
-        "title": "Manuelle Dateneingabe frisst Ihre Zeit?",
-        "description": "Stellen Sie sich vor, repetitive Dateneingabeaufgaben zu automatisieren, menschliche Fehler zu eliminieren und Ihr Team zu befreien, sich auf strategische Arbeit zu konzentrieren, die Ihr Geschäft wachsen lässt.",
-        "benefits": ["80% Zeit sparen", "Null Fehler", "Fokus auf Wachstum", "Zufriedene Mitarbeiter"],
-        "icon": "⚡",
-        "actionText": "Automatisieren Sie Ihre Prozesse"
-      },
-      {
-        "title": "Verloren in E-Mail-Ketten und Excel-Dateien?",
-        "description": "Stellen Sie sich ein zentralisiertes System vor, in dem alle Beteiligten zusammenarbeiten, Fortschritte verfolgen und Entscheidungen basierend auf Echtzeitdaten und Erkenntnissen treffen können.",
-        "benefits": ["Zentralisierte Daten", "Echtzeit-Zusammenarbeit", "Bessere Entscheidungen", "Klare Workflows"],
-        "icon": "🎯",
-        "actionText": "Optimieren Sie Ihre Abläufe"
-      },
-      {
-        "title": "Kundenservice dauert zu lange?",
-        "description": "Transformieren Sie Kundeninteraktionen mit automatisiertem Support, sofortigen Antworten und personalisierten Erfahrungen, die Kunden zu treuen Befürwortern machen.",
-        "benefits": ["Sofortige Antworten", "24/7 Verfügbarkeit", "Personalisierter Service", "Höhere Zufriedenheit"],
-        "icon": "🚀",
-        "actionText": "Verbessern Sie Kundenerfahrung"
-      },
-      {
-        "title": "Kämpfen mit Legacy-Systemen?",
-        "description": "Modernisieren Sie Ihre veralteten Systeme ohne Unterbrechung des Geschäftsbetriebs, verbessern Sie Performance, Sicherheit und Wartbarkeit für die Zukunft.",
-        "benefits": ["Moderne Technologie", "Bessere Performance", "Erhöhte Sicherheit", "Zukunftssicher"],
-        "icon": "🔄",
-        "actionText": "Modernisieren Sie Ihre Systeme"
-      },
-      {
-        "title": "Manuelle Berichterstattung dauert Tage?",
-        "description": "Generieren Sie umfassende Berichte sofort, visualisieren Sie Daten mit interaktiven Dashboards und treffen Sie datengesteuerte Entscheidungen in Echtzeit.",
-        "benefits": ["Sofortige Berichte", "Visuelle Dashboards", "Datenerkenntnisse", "Intelligente Entscheidungen"],
-        "icon": "📊",
-        "actionText": "Automatisieren Sie Ihre Berichterstattung"
-      }
-    ],
     "cta": {
       "title": "Bereit, Ihre digitale Reise zu beginnen?",
       "description": "Lassen Sie nicht zu, dass manuelle Prozesse Ihr Geschäft zurückhalten. Lassen Sie uns besprechen, wie wir Ihre Abläufe transformieren und Ihr Potenzial freisetzen können.",
