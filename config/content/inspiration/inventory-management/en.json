@@ -1,0 +1,18 @@
+{
+  "id": "inventory-management",
+  "title": "Still Managing Inventory on Paper?",
+  "description": "Imagine tracking every item in real-time, getting automatic reorder alerts, and having complete visibility into your supply chain with just a few clicks.",
+  "shortDescription": "Transform your inventory management from paper-based tracking to real-time digital solutions.",
+  "benefits": ["Real-time tracking", "Automated alerts", "Cost reduction", "Error elimination"],
+  "icon": "📋",
+  "actionText": "Digitize Your Inventory",
+  "category": "Inventory Management",
+  "tags": ["inventory", "automation", "real-time", "supply-chain"],
+  "readTime": "5 min read",
+  "difficulty": "Beginner",
+  "impact": "High",
+  "publishDate": "2025-08-19",
+  "author": "Khaled Alabsi",
+  "featured": true,
+  "order": 1
+}

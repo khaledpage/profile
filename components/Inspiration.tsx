@@ -25,7 +25,7 @@ export default function Inspiration({ locale }: InspirationProps) {
     const loadArticles = async () => {
       try {
         setIsLoading(true);
-        const articlesData = await loadFeaturedArticles();
+        const articlesData = await loadFeaturedArticles(locale);
         setFeaturedArticles(articlesData.featuredArticles);
       } catch (error) {
         console.error('Error loading featured articles:', error);
@@ -37,7 +37,7 @@ export default function Inspiration({ locale }: InspirationProps) {
     };
 
     loadArticles();
-  }, []);
+  }, [locale]);
 
   const handleArticleClick = (article: FeaturedArticle) => {
     setSelectedArticle(article);

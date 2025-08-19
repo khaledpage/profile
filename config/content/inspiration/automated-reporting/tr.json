@@ -1,0 +1,18 @@
+{
+  "id": "automated-reporting",
+  "title": "Manuel Raporlama Günler Alıyor?",
+  "description": "Kapsamlı raporları anında oluşturun, verileri etkileşimli panolarla görselleştirin ve gerçek zamanlı olarak veri odaklı kararlar alın.",
+  "shortDescription": "Raporlamayı otomatikleştirin ve anlık veri öngörüleri oluşturun.",
+  "benefits": ["Anlık raporlar", "Görsel panolar", "Veri öngörüleri", "Akıllı kararlar"],
+  "icon": "📊",
+  "actionText": "Raporlamanızı Otomatikleştirin",
+  "category": "İş Zekası",
+  "tags": ["raporlama", "otomasyon", "analitik", "panolar"],
+  "readTime": "4 dakika okuma",
+  "difficulty": "Orta",
+  "impact": "Orta",
+  "publishDate": "2025-08-19",
+  "author": "Khaled Alabsi",
+  "featured": true,
+  "order": 6
+}

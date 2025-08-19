@@ -1,0 +1,18 @@
+{
+  "id": "automated-reporting",
+  "title": "Manuelle Berichterstattung dauert Tage?",
+  "description": "Generieren Sie umfassende Berichte sofort, visualisieren Sie Daten mit interaktiven Dashboards und treffen Sie datengesteuerte Entscheidungen in Echtzeit.",
+  "shortDescription": "Automatisieren Sie Berichte und erstellen Sie sofortige Datenerkenntnisse.",
+  "benefits": ["Sofortige Berichte", "Visuelle Dashboards", "Datenerkenntnisse", "Intelligente Entscheidungen"],
+  "icon": "📊",
+  "actionText": "Automatisieren Sie Ihre Berichterstattung",
+  "category": "Business Intelligence",
+  "tags": ["berichterstattung", "automatisierung", "analytik", "dashboards"],
+  "readTime": "4 Min Lesezeit",
+  "difficulty": "Fortgeschritten",
+  "impact": "Mittel",
+  "publishDate": "2025-08-19",
+  "author": "Khaled Alabsi",
+  "featured": true,
+  "order": 6
+}

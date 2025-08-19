@@ -1,0 +1,18 @@
+{
+  "id": "inventory-management",
+  "title": "Verwalten Sie Inventar noch auf Papier?",
+  "description": "Stellen Sie sich vor, jeden Artikel in Echtzeit zu verfolgen, automatische Nachbestellungsalarme zu erhalten und komplette Transparenz in Ihre Lieferkette mit nur wenigen Klicks zu haben.",
+  "shortDescription": "Verwandeln Sie Ihr Inventarmanagement von papierbasierter Verfolgung zu digitalen Echtzeitlösungen.",
+  "benefits": ["Echtzeit-Verfolgung", "Automatische Alarme", "Kostenreduzierung", "Fehlereliminierung"],
+  "icon": "📋",
+  "actionText": "Digitalisieren Sie Ihr Inventar",
+  "category": "Inventarmanagement",
+  "tags": ["inventar", "automatisierung", "echtzeit", "lieferkette"],
+  "readTime": "5 Min Lesezeit",
+  "difficulty": "Anfänger",
+  "impact": "Hoch",
+  "publishDate": "2025-08-19",
+  "author": "Khaled Alabsi",
+  "featured": true,
+  "order": 1
+}
