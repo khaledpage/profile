@@ -78,6 +78,43 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         
+        {/* Structured Data for SEO */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Person",
+              "name": "Khaled Alabsi",
+              "alternateName": "M.Sc. Khaled Alabsi",
+              "description": "Digital Transformation Consultant & Software Engineer",
+              "url": config.site.url,
+              "image": `${config.site.url}/assets/csm_Khaled_Alabsi_Portraet_6d491f1c81.jpg`,
+              "sameAs": [
+                "",
+                "https://alabsi.space"
+              ],
+              "jobTitle": "Digital Transformation Consultant",
+              "worksFor": {
+                "@type": "Organization",
+                "name": "Freelance"
+              },
+              "address": {
+                "@type": "PostalAddress",
+                "addressCountry": "Germany"
+              },
+              "email": "khaled.alabsi@outlook.de",
+              "knowsAbout": [
+                "Digital Transformation",
+                "Software Engineering",
+                "Legacy System Modernization",
+                "Business Process Automation",
+                "Khaled Alabsi"
+              ]
+            })
+          }}
+        />
+        
         {/* Arabic and Turkish font support */}
         <link
           href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"

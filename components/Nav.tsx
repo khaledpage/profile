@@ -30,6 +30,7 @@ const Nav = ({ content, currentLanguage, onLanguageChange }: NavProps) => {
     { name: content.navigation.home, href: '#home' },
     { name: content.navigation.about, href: '#about' },
     { name: content.navigation.experience, href: '#experience' },
+    { name: content.navigation.inspiration, href: '#inspiration' },
     { name: content.navigation.process, href: '#process' },
     { name: content.navigation.contact, href: '#contact' },
   ];

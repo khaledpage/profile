@@ -41,6 +41,31 @@ export interface ContentData {
       featured: boolean;
     }>;
   };
+  inspiration: {
+    title: string;
+    subtitle: string;
+    description: string;
+    scenarios: Array<{
+      title: string;
+      description: string;
+      benefits: string[];
+      icon: string;
+      actionText: string;
+    }>;
+    cta: {
+      title: string;
+      description: string;
+      primaryButton: string;
+      secondaryButton: string;
+    };
+    stats: {
+      title: string;
+      items: Array<{
+        number: string;
+        description: string;
+      }>;
+    };
+  };
   motivation: {
     title: string;
     subtitle: string;

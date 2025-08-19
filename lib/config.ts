@@ -1,11 +1,13 @@
-import uiConfigData from '../ui.config.json';
-import contentConfigData from '../content.config.json';
+import uiConfigData from '../config/config.json';
 
 export interface UIConfig {
   language: string;
   theme: {
     active: string;
     layout: string;
+    showSwitcher: boolean;
+    randomOnRefresh: boolean;
+    randomThemeList: string[];
   };
   sections: {
     hero: {
@@ -192,20 +194,20 @@ export interface Config {
   content: ContentConfig['content'];
 }
 
-export const uiConfig: UIConfig = uiConfigData as UIConfig;
-export const contentConfig: ContentConfig = contentConfigData as ContentConfig;
+export const uiConfig: UIConfig = uiConfigData.ui as UIConfig;
 
-// Combined config for backward compatibility
-export const config: Config = {
+// Combined config for backward compatibility - using uiConfigData which contains both ui and site info
+export const config = {
   ui: uiConfig,
-  site: contentConfig.site,
-  personal: contentConfig.personal,
-  content: contentConfig.content,
+  site: uiConfigData.site,
+  personal: uiConfigData.personal,
 };
 
-// Helper function to get content for current language
-export const getContent = (language: string = 'en') => {
-  return contentConfig.content[language] || contentConfig.content.en;
-};
-
+// Default export for backward compatibility
 export default config;
+
+// Helper function to get content for current language (now handled by contentLoader.ts)
+export const getContent = (language: string = 'en') => {
+  // This function is deprecated - use loadContent from contentLoader.ts instead
+  return null;
+};

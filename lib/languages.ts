@@ -1,5 +1,5 @@
 // Language management utilities
-import languageConfig from '../language.config.json';
+import languageConfig from '../config/language.config.json';
 
 export type SupportedLanguage = 'en' | 'de' | 'ar' | 'tr';
 

@@ -6,9 +6,9 @@ import { themes, Theme } from '@/lib/themes';
 // Import config with dynamic import to avoid issues
 let config: any = {};
 try {
-  config = require('@/config.json');
+  config = require('@/config/config.json');
 } catch (error) {
-  console.warn('Could not load config.json, using defaults');
+  console.warn('Could not load config/config.json, using defaults');
 }
 
 interface ThemeContextType {
@@ -35,7 +35,7 @@ interface ThemeProviderProps {
 }
 
 export function ThemeProvider({ children }: ThemeProviderProps) {
-  // Get configuration from config.json
+  // Get configuration from config/config.json
   const defaultTheme = config.ui?.theme?.active || 'midnight-gradient';
   const randomOnRefresh = config.ui?.theme?.randomOnRefresh || false;
   const randomThemeList = config.ui?.theme?.randomThemeList || Object.keys(themes);

@@ -14,6 +14,7 @@ import {
 import Hero from '@/components/Hero';
 import About from '@/components/About';
 import Experience from '@/components/Experience';
+import Inspiration from '@/components/Inspiration';
 import Motivation from '@/components/Motivation';
 import Process from '@/components/Process';
 import Contact from '@/components/Contact';
@@ -110,6 +111,11 @@ export default function Home() {
         {/* Experience Section */}
         {config.ui.sections.experience.enabled && (
           <Experience content={content.experience} config={config} />
+        )}
+
+        {/* Inspiration Section */}
+        {content?.inspiration && (
+          <Inspiration content={content.inspiration} />
         )}
 
         {/* Motivation Section */}

@@ -1,48 +1,105 @@
 {
+  "ui": {
+    "language": "en",
+    "theme": {
+      "active": "monochrome-light",
+      "layout": "modern",
+      "showSwitcher": true,
+      "randomOnRefresh": true,
+      "randomThemeList": [
+        "midnight-gradient",
+        "cyberpunk-neon",
+        "ocean-depths",
+        "sunset-blaze",
+        "aurora-lights",
+        "forest-emerald",
+        "arctic-frost",
+        "rose-garden",
+        "golden-hour",
+        "monochrome-dark",
+        "monochrome-light"
+      ]
+    },
+    "sections": {
+      "hero": {
+        "enabled": true,
+        "showSocialLinks": true,
+        "showScrollIndicator": true,
+        "showCTAButtons": true
+      },
+      "about": {
+        "enabled": true,
+        "showSkills": true,
+        "showHighlights": true
+      },
+      "experience": {
+        "enabled": true,
+        "showProjects": true,
+        "showTechnologies": true
+      },
+      "inspiration": {
+        "enabled": true,
+        "showStats": true,
+        "showScenarios": true
+      },
+      "motivation": {
+        "enabled": true,
+        "showCTA": true
+      },
+      "process": {
+        "enabled": true,
+        "showTimeline": true
+      },
+      "contact": {
+        "enabled": true,
+        "showForm": false,
+        "showContactInfo": true,
+        "showSocialLinks": false,
+        "showDownloadCV": false
+      }
+    },
+    "animations": {
+      "enabled": true,
+      "backgroundParticles": true,
+      "textAnimations": true,
+      "hoverEffects": true,
+      "scrollAnimations": true
+    },
+    "layout": {
+      "showNavigation": true,
+      "stickyNav": true,
+      "showFooter": true,
+      "containerMaxWidth": "7xl"
+    }
+  },
   "site": {
-    "title": "Jone Doe - Senior Software Engineer & Full-Stack Developer",
-    "description": "Jone Doe - Professional Developer & Digital Innovator with 8+ years of experience in full-stack development, Java, Spring, React, Cloud Computing, and Enterprise Software Solutions in Germany.",
+    "title": "Khaled Alabsi - Digital Transformation Consultant & Software Engineer | M.Sc. Computer Science",
+    "description": "Khaled Alabsi - M.Sc. Computer Science graduate, Digital Transformation Consultant & Freelance Software Engineer specializing in legacy system modernization, business process automation, and enterprise software development. Based in Germany, available worldwide for digital transformation projects.",
     "url": "https://www.alabsi.space",
-    "author": "Jone Doe",
+    "author": "Khaled Alabsi",
     "keywords": [
-      "Jone Doe",
-      "senior software engineer",
-      "full-stack developer",
-      "Java developer",
-      "Spring Framework",
-      "React developer",
-      "Node.js",
-      "Python developer",
-      "machine learning",
-      "process monitoring",
-      "cloud computing",
-      "AWS",
-      "devops",
-      "data analytics",
-      "enterprise software",
-      "microservices",
-      "software engineer Germany",
-      "developer Germany",
-      "JavaScript",
-      "TypeScript",
-      "PostgreSQL",
-      "MongoDB",
-      "Docker",
-      "Kubernetes",
-      "Terraform",
-      "Jenkins",
-      "Apache Spark",
-      "Elasticsearch",
-      "mobile development",
-      "React Native",
-      "API development",
-      "system architecture",
-      "software consultant"
+      "Khaled Alabsi",
+      "Khaled Alabsi digital transformation",
+      "Khaled Alabsi software engineer",
+      "Khaled Alabsi Germany",
+      "Khaled Alabsi portfolio",
+      "Khaled Alabsi freelance developer",
+      "M.Sc. Khaled Alabsi",
+      "digital transformation consultant",
+      "legacy system modernization",
+      "freelance software engineer Germany",
+      "business process automation expert",
+      "enterprise software development",
+      "Java Spring Boot developer",
+      "ReactJS developer Germany",
+      "software consultant Germany",
+      "digital transformation specialist",
+      "process automation consultant"
     ],
     "favicon": "/favicon.ico"
   },
   "personal": {
-    "name": "Jone Doe",
+    "name": "Khaled Alabsi",
     "role": "Senior Software Engineer",
     "tagline": "Transforming ideas into exceptional digital solutions",
     "email": "khaled.alabsi@outlook.de",
@@ -54,17 +111,17 @@
       {
         "platform": "Github",
         "icon": "Github",
-        "url": "https://www.alabsi.space"
+        "url": "https://github.com/khaled-alabsi"
       },
       {
         "platform": "LinkedIn",
         "icon": "Linkedin",
-        "url": ""
+        "url": "https://linkedin.com/in/khaled-alabsi"
       },
       {
         "platform": "Twitter",
         "icon": "Twitter",
-        "url": ""
+        "url": "https://twitter.com/khaled_alabsi"
       }
     ]
   },
@@ -72,7 +129,7 @@
     "en": {
       "hero": {
         "greeting": "Hello, I'm",
-        "name": "Jone Doe",
+        "name": "Khaled Alabsi",
         "roles": [
           "Full-Stack Developer",
           "Digital Innovator",
@@ -119,8 +176,14 @@
             ]
           },
           {
-            "name": "Frontend Development",
-            "technologies": ["React", "TypeScript", "Next.js", "HTML5", "CSS3"]
+            "name": "Frontend Development", 
+            "technologies": [
+              "React",
+              "TypeScript",
+              "Next.js",
+              "HTML5",
+              "CSS3"
+            ]
           },
           {
             "name": "Cloud & DevOps",
@@ -387,7 +450,7 @@
     "de": {
       "hero": {
         "greeting": "Hallo, ich bin",
-        "name": "Jone Doe",
+        "name": "Khaled Alabsi",
         "roles": [
           "Full-Stack Entwickler",
           "Digitaler Innovator",
@@ -435,7 +498,13 @@
           },
           {
             "name": "Frontend-Entwicklung",
-            "technologies": ["React", "TypeScript", "Next.js", "HTML5", "CSS3"]
+            "technologies": [
+              "React",
+              "TypeScript",
+              "Next.js",
+              "HTML5",
+              "CSS3"
+            ]
           },
           {
             "name": "Cloud & DevOps",
@@ -484,7 +553,7 @@
               "Docker",
               "Kubernetes"
             ],
-            "image": "",
+            "image": "./assets/project1.jpg",
             "demo": "",
             "github": "",
             "featured": true
@@ -500,7 +569,7 @@
               "PostgreSQL",
               "REST APIs"
             ],
-            "image": "",
+            "image": "./assets/project2.jpg",
             "demo": "",
             "github": "",
             "featured": true
@@ -516,7 +585,7 @@
               "Node.js",
               "MongoDB"
             ],
-            "image": "",
+            "image": "./assets/project3.jpg",
             "demo": "",
             "github": "",
             "featured": true
@@ -532,7 +601,7 @@
               "REST APIs",
               "Push Notifications"
             ],
-            "image": "",
+            "image": "./assets/project4.jpg",
             "demo": "",
             "github": "",
             "featured": false
@@ -548,7 +617,7 @@
               "Elasticsearch",
               "API Gateway"
             ],
-            "image": "",
+            "image": "./assets/project5.jpg",
             "demo": "",
             "github": "",
             "featured": false
@@ -564,7 +633,7 @@
               "Grafana",
               "ELK Stack"
             ],
-            "image": "",
+            "image": "./assets/project6.jpg",
             "demo": "",
             "github": "",
             "featured": false
