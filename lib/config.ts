@@ -1,4 +1,5 @@
-import uiConfigData from '../config/config.json';
+import uiConfigData from '../config/ui.config.json';
+import contentConfigData from '../config/content.config.json';
 
 export interface UIConfig {
   language: string;
@@ -25,6 +26,11 @@ export interface UIConfig {
       enabled: boolean;
       showProjects: boolean;
       showTechnologies: boolean;
+    };
+    inspiration: {
+      enabled: boolean;
+      showStats: boolean;
+      showScenarios: boolean;
     };
     motivation: {
       enabled: boolean;
@@ -81,108 +87,48 @@ export interface ContentConfig {
       url: string;
     }>;
   };
-  content: {
-    [language: string]: {
-      hero: {
-        greeting: string;
+  seo: {
+    structuredData: {
+      person: {
         name: string;
-        roles: string[];
+        alternateName: string;
         description: string;
-        cta: {
-          primary: string;
-          secondary: string;
-        };
-      };
-      about: {
-        title: string;
-        subtitle: string;
-        description: string;
-        highlights: string[];
-        skills: Array<{
+        jobTitle: string;
+        worksFor: {
+          type: string;
           name: string;
-          technologies: string[];
-        }>;
-      };
-      experience: {
-        title: string;
-        subtitle: string;
-        projects: Array<{
-          title: string;
-          description: string;
-          technologies: string[];
-          image: string;
-          demo: string;
-          github: string;
-          featured: boolean;
-        }>;
-      };
-      motivation: {
-        title: string;
-        subtitle: string;
-        points: Array<{
-          title: string;
-          description: string;
-          icon: string;
-        }>;
-        cta: {
-          title: string;
-          description: string;
-          button: string;
         };
+        address: {
+          type: string;
+          addressCountry: string;
+        };
+        knowsAbout: string[];
       };
-      process: {
-        title: string;
-        subtitle: string;
-        steps: Array<{
-          number: string;
-          title: string;
-          description: string;
-          icon: string;
-        }>;
-      };
-      contact: {
-        title: string;
-        subtitle: string;
+      professional: {
+        name: string;
+        jobTitle: string;
         description: string;
-        info: Array<{
-          icon: string;
-          label: string;
-          value: string;
-        }>;
-        form: {
+        worksFor: {
+          type: string;
           name: string;
-          email: string;
-          subject: string;
-          message: string;
-          submit: string;
         };
-        social: {
-          title: string;
-          description: string;
-        };
-        cta: {
-          title: string;
-          description: string;
-          email: string;
-          resume: string;
-        };
-      };
-      navigation: {
-        home: string;
-        about: string;
-        experience: string;
-        motivation: string;
-        process: string;
-        contact: string;
-      };
-      common: {
-        loading: string;
-        error: string;
-        retry: string;
-        close: string;
-        menu: string;
+        knowsAbout: string[];
       };
     };
+    social: {
+      twitter: {
+        handle: string;
+      };
+      github: string;
+      linkedin: string;
+    };
+    verification: {
+      google: string;
+    };
+  };
+  fonts: {
+    preconnect: string[];
+    stylesheets: string[];
   };
 }
 
@@ -191,16 +137,16 @@ export interface Config {
   ui: UIConfig;
   site: ContentConfig['site'];
   personal: ContentConfig['personal'];
-  content: ContentConfig['content'];
 }
 
-export const uiConfig: UIConfig = uiConfigData.ui as UIConfig;
+export const uiConfig: UIConfig = uiConfigData as UIConfig;
+export const contentConfig: ContentConfig = contentConfigData as ContentConfig;
 
-// Combined config for backward compatibility - using uiConfigData which contains both ui and site info
+// Combined config for backward compatibility
 export const config = {
   ui: uiConfig,
-  site: uiConfigData.site,
-  personal: uiConfigData.personal,
+  site: contentConfig.site,
+  personal: contentConfig.personal,
 };
 
 // Default export for backward compatibility

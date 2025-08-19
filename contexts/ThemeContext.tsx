@@ -4,11 +4,11 @@ import React, { createContext, useContext, useEffect, useState, ReactNode } from
 import { themes, Theme } from '@/lib/themes';
 
 // Import config with dynamic import to avoid issues
-let config: any = {};
+let uiConfig: any = {};
 try {
-  config = require('@/config/config.json');
+  uiConfig = require('@/config/ui.config.json');
 } catch (error) {
-  console.warn('Could not load config/config.json, using defaults');
+  console.warn('Could not load config/ui.config.json, using defaults');
 }
 
 interface ThemeContextType {
@@ -35,15 +35,15 @@ interface ThemeProviderProps {
 }
 
 export function ThemeProvider({ children }: ThemeProviderProps) {
-  // Get configuration from config/config.json
-  const defaultTheme = config.ui?.theme?.active || 'midnight-gradient';
-  const randomOnRefresh = config.ui?.theme?.randomOnRefresh || false;
-  const randomThemeList = config.ui?.theme?.randomThemeList || Object.keys(themes);
+  // Get configuration from config/ui.config.json
+  const defaultTheme = uiConfig.theme?.active || 'midnight-gradient';
+  const randomOnRefresh = uiConfig.theme?.randomOnRefresh || false;
+  const randomThemeList = uiConfig.theme?.randomThemeList || Object.keys(themes);
   const [currentTheme, setCurrentTheme] = useState<string>(defaultTheme);
   
   const availableThemes = Object.keys(themes);
   const theme = themes[currentTheme];
-  const themeMenuEnabled = config.ui?.theme?.showSwitcher !== false; // Default to true if not specified
+  const themeMenuEnabled = uiConfig.theme?.showSwitcher !== false; // Default to true if not specified
 
   // Function to get a random theme from the configured list
   const getRandomTheme = () => {

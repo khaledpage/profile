@@ -1,10 +1,10 @@
 import { SupportedLanguage, DEFAULT_LANGUAGE, isLanguageEnabled } from './languages';
 
 // Import all language content files
-import enContent from '../content/en.json';
-import deContent from '../content/de.json';
-import arContent from '../content/ar.json';
-import trContent from '../content/tr.json';
+import enContent from '../config/content/en.json';
+import deContent from '../config/content/de.json';
+import arContent from '../config/content/ar.json';
+import trContent from '../config/content/tr.json';
 
 // Content type definitions
 export interface ContentData {

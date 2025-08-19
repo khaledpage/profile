@@ -1,47 +1,59 @@
 # Configuration Directory
 
-This directory contains all configuration files and assets for the portfolio website, organized for better maintainability.
+This directory contains all configuration files and content for the portfolio website.
 
-## Files
+## Structure
 
-### Configuration Files
-- **`config.json`** - Main configuration file containing:
-  - UI settings (theme, sections, animations)
-  - Site metadata (title, description, SEO keywords)
-  - Personal information (name, contact, social links)
+```
+/config/
+├── ui.config.json              # UI settings (theme, sections, animations, layout)
+├── content.config.json         # Site metadata, personal info, SEO configuration
+├── language.config.json        # Language activation settings
+├── content/                    # Content directory
+│   ├── en.json                 # English content
+│   ├── de.json                 # German content  
+│   ├── ar.json                 # Arabic content
+│   ├── tr.json                 # Turkish content
+│   └── csm_Khaled_Alabsi_Portraet_6d491f1c81.jpg  # Profile image
+└── README.md                   # This documentation
+```
 
-- **`content.config.json`** - Legacy content configuration (can be removed as content is now in `/content/` language files)
+## Configuration Files
 
-- **`language.config.json`** - Language activation settings
-  - Controls which languages are available
-  - Fallback configuration
+### ui.config.json
+Contains all UI-related configuration:
+- Language settings
+- Theme configuration
+- Section visibility settings
+- Animation preferences
+- Layout options
 
-### Assets
-- **`csm_Khaled_Alabsi_Portraet_6d491f1c81.jpg`** - Profile image
-  - Also copied to `/public/assets/` for web serving
-  - Used for SEO meta tags and social media previews
+### content.config.json
+Contains content and metadata configuration:
+- Site metadata (title, description, keywords)
+- Personal information (name, role, contact info)
+- SEO configuration (structured data, social links)
+- Font configuration
 
-## Why This Organization?
+### language.config.json
+Controls which languages are available in the application.
 
-1. **Centralized Configuration**: All settings in one place
-2. **Version Control**: Easy to track configuration changes
-3. **Asset Management**: Profile image stored with configuration
-4. **Clear Separation**: UI/content configuration separate from code
-
-## SEO Benefits
-
-The main config includes enhanced keywords for "Khaled Alabsi" searches:
-- Personal name variations
-- Professional titles
-- Location-based keywords
-- Technology expertise
-- Service offerings
+### content/ directory
+Contains:
+- Language-specific content files (JSON format)
+- Profile image and other content assets
 
 ## Usage
 
-Most components import configuration from `/lib/config.ts` which reads from these files.
+These configurations are automatically loaded by:
+- `lib/config.ts` - Loads UI and content configurations
+- `lib/layoutConfig.ts` - Provides layout-specific configuration
+- `lib/contentLoader.ts` - Loads language-specific content
 
-To modify:
-1. Edit the relevant JSON file
-2. The changes will be reflected after restart/rebuild
-3. No code changes needed for content updates
+## Benefits of This Structure
+
+1. **Separation of Concerns**: UI settings are separate from content
+2. **Content Organization**: All content (text + images) in one place
+3. **Easy Configuration**: Clear distinction between different types of settings
+4. **Maintainability**: Easier to update specific aspects without affecting others
+5. **Type Safety**: Strong TypeScript interfaces for all configurations

@@ -1,0 +1,73 @@
+{
+  "language": "en",
+  "theme": {
+    "active": "monochrome-light",
+    "layout": "modern",
+    "showSwitcher": true,
+    "randomOnRefresh": true,
+    "randomThemeList": [
+      "midnight-gradient",
+      "cyberpunk-neon",
+      "ocean-depths",
+      "sunset-blaze",
+      "aurora-lights",
+      "forest-emerald",
+      "arctic-frost",
+      "rose-garden",
+      "golden-hour",
+      "monochrome-dark",
+      "monochrome-light"
+    ]
+  },
+  "sections": {
+    "hero": {
+      "enabled": true,
+      "showSocialLinks": true,
+      "showScrollIndicator": true,
+      "showCTAButtons": true
+    },
+    "about": {
+      "enabled": true,
+      "showSkills": true,
+      "showHighlights": true
+    },
+    "experience": {
+      "enabled": true,
+      "showProjects": true,
+      "showTechnologies": true
+    },
+    "inspiration": {
+      "enabled": true,
+      "showStats": true,
+      "showScenarios": true
+    },
+    "motivation": {
+      "enabled": true,
+      "showCTA": true
+    },
+    "process": {
+      "enabled": true,
+      "showTimeline": true
+    },
+    "contact": {
+      "enabled": true,
+      "showForm": false,
+      "showContactInfo": true,
+      "showSocialLinks": false,
+      "showDownloadCV": false
+    }
+  },
+  "animations": {
+    "enabled": true,
+    "backgroundParticles": true,
+    "textAnimations": true,
+    "hoverEffects": true,
+    "scrollAnimations": true
+  },
+  "layout": {
+    "showNavigation": true,
+    "stickyNav": true,
+    "showFooter": true,
+    "containerMaxWidth": "7xl"
+  }
+}

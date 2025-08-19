@@ -1,0 +1,124 @@
+{
+  "site": {
+    "title": "Khaled Alabsi - Digital Transformation Consultant & Software Engineer | M.Sc. Computer Science",
+    "description": "Khaled Alabsi - M.Sc. Computer Science graduate, Digital Transformation Consultant & Freelance Software Engineer specializing in legacy system modernization, business process automation, and enterprise software development. Based in Germany, available worldwide for digital transformation projects.",
+    "url": "https://www.alabsi.space",
+    "author": "Khaled Alabsi",
+    "keywords": [
+      "Khaled Alabsi",
+      "Khaled Alabsi digital transformation",
+      "Khaled Alabsi software engineer",
+      "Khaled Alabsi Germany",
+      "Khaled Alabsi portfolio",
+      "Khaled Alabsi freelance developer",
+      "M.Sc. Khaled Alabsi",
+      "digital transformation consultant",
+      "legacy system modernization",
+      "freelance software engineer Germany",
+      "business process automation expert",
+      "enterprise software development",
+      "Java Spring Boot developer",
+      "ReactJS developer Germany",
+      "software consultant Germany",
+      "digital transformation specialist",
+      "process automation consultant"
+    ],
+    "favicon": "/favicon.ico"
+  },
+  "personal": {
+    "name": "Khaled Alabsi",
+    "role": "Senior Software Engineer",
+    "tagline": "Transforming ideas into exceptional digital solutions",
+    "email": "khaled.alabsi@outlook.de",
+    "phone": "+49 123 456 7890",
+    "location": "Germany",
+    "image": "/config/content/csm_Khaled_Alabsi_Portraet_6d491f1c81.jpg",
+    "resume": "./assets/Alabsi_Khaled DE_250310.pdf",
+    "social": [
+      {
+        "platform": "Github",
+        "icon": "Github",
+        "url": "https://github.com/khaled-alabsi"
+      },
+      {
+        "platform": "LinkedIn",
+        "icon": "Linkedin",
+        "url": "https://linkedin.com/in/khaled-alabsi"
+      },
+      {
+        "platform": "Twitter",
+        "icon": "Twitter",
+        "url": "https://twitter.com/khaled_alabsi"
+      }
+    ]
+  },
+  "seo": {
+    "structuredData": {
+      "person": {
+        "name": "Khaled Alabsi",
+        "alternateName": "M.Sc. Khaled Alabsi",
+        "description": "Digital Transformation Consultant & Software Engineer",
+        "jobTitle": "Digital Transformation Consultant",
+        "worksFor": {
+          "type": "Organization",
+          "name": "Freelance"
+        },
+        "address": {
+          "type": "PostalAddress",
+          "addressCountry": "Germany"
+        },
+        "knowsAbout": [
+          "Digital Transformation",
+          "Software Engineering",
+          "Legacy System Modernization",
+          "Business Process Automation",
+          "Khaled Alabsi"
+        ]
+      },
+      "professional": {
+        "name": "Khaled Alabsi",
+        "jobTitle": "Senior Software Engineer",
+        "description": "Professional Developer & Digital Innovator with over 8 years of experience in full-stack development, specializing in scalable applications and innovative digital solutions.",
+        "worksFor": {
+          "type": "Organization",
+          "name": "Independent Developer"
+        },
+        "knowsAbout": [
+          "Full-Stack Development",
+          "Java",
+          "Spring Framework",
+          "React",
+          "Node.js",
+          "Python",
+          "Cloud Computing",
+          "AWS",
+          "DevOps",
+          "Data Analytics",
+          "Machine Learning",
+          "Mobile Development",
+          "Enterprise Software",
+          "Microservices"
+        ]
+      }
+    },
+    "social": {
+      "twitter": {
+        "handle": "@khaled_alabsi"
+      },
+      "github": "https://github.com/khaled-alabsi",
+      "linkedin": "https://linkedin.com/in/khaled-alabsi"
+    },
+    "verification": {
+      "google": "your-google-verification-code"
+    }
+  },
+  "fonts": {
+    "preconnect": [
+      "https://fonts.googleapis.com",
+      "https://fonts.gstatic.com"
+    ],
+    "stylesheets": [
+      "https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    ]
+  }
+}
