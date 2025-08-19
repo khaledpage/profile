@@ -1,0 +1,18 @@
+{
+  "id": "legacy-modernization",
+  "title": "Struggling with Legacy Systems?",
+  "description": "Modernize your outdated systems without disrupting business operations, improving performance, security, and maintainability for the future.",
+  "shortDescription": "Modernize legacy systems without business disruption.",
+  "benefits": ["Modern technology", "Better performance", "Enhanced security", "Future-ready"],
+  "icon": "🔄",
+  "actionText": "Modernize Your Systems",
+  "category": "System Modernization",
+  "tags": ["legacy", "modernization", "security", "performance"],
+  "readTime": "7 min read",
+  "difficulty": "Advanced",
+  "impact": "Very High",
+  "publishDate": "2025-08-19",
+  "author": "Khaled Alabsi",
+  "featured": true,
+  "order": 5
+}

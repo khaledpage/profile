@@ -115,7 +115,7 @@ export default function Home() {
 
         {/* Inspiration Section */}
         {content?.inspiration && (
-          <Inspiration content={content.inspiration} />
+          <Inspiration locale={currentLanguage} />
         )}
 
         {/* Motivation Section */}

@@ -9,6 +9,9 @@
 | REQ-005 | Phone Contact Removal | Remove phone contact option from all language versions | Medium | Done | @khaled | Only email and location contact info displayed, no phone number in any language | content/*.json |
 | REQ-006 | Browser Language Auto-Detection | Automatically detect and set user's preferred language | Medium | Done | @khaled | Detects browser language, stores preference in localStorage, fallback to English | lib/languages.ts, app/page.tsx |
 | REQ-007 | Language Activation System | Enable/disable specific languages through configuration | Medium | Done | @khaled | Easy JSON-based language activation, automatic fallback for disabled languages | language.config.json, lib/languages.ts, docs/LANGUAGE_CONFIGURATION.md |
+| REQ-008 | Dynamic Featured Articles System | Create a content management system for featured articles with static build support | High | Done | @khaled | 6 featured articles with metadata, full-screen overlay display, HTML content rendering, custom CSS styling | lib/staticFeaturedArticles.ts, components/Inspiration.tsx, components/ArticleOverlay.tsx |
+| REQ-009 | Article Overlay Display | Implement full-screen overlay for reading article content | High | Done | @khaled | Overlay opens on article click, displays HTML content with theme preservation, escape key to close, backdrop click to close | components/ArticleOverlay.tsx, app/globals.css |
+| REQ-010 | Article Content Styling | Apply custom CSS styling to make article content readable and attractive | Medium | Done | @khaled | Custom typography styles, benefit grids, metadata display, responsive design | app/globals.css |
 
 # Portfolio Configuration Summary
 

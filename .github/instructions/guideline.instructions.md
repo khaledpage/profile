@@ -5,6 +5,8 @@ applyTo: '**'
 Purpose
 - Provide a concise, repeatable process for handling requests that change the codebase, ensuring requirements and change history are always up-to-date and reproducible.
 
+very important: i want the app to be able to build to static files, that means to you, dont use any server-side code or APIs in your components.
+
 Primary workflow
 1. Locate context files
     - Open Requirements_tabelle.md and Change_log.md. Check both repository root and .github/instructions/.

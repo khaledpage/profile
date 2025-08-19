@@ -1,0 +1,18 @@
+{
+  "id": "workflow-optimization",
+  "title": "Lost in Email Chains and Excel Files?",
+  "description": "Envision a centralized system where all stakeholders can collaborate, track progress, and make decisions based on real-time data and insights.",
+  "shortDescription": "Streamline workflows and eliminate communication chaos with centralized collaboration.",
+  "benefits": ["Centralized data", "Real-time collaboration", "Better decisions", "Clear workflows"],
+  "icon": "🎯",
+  "actionText": "Streamline Your Operations",
+  "category": "Workflow Management",
+  "tags": ["collaboration", "workflow", "productivity", "communication"],
+  "readTime": "6 min read",
+  "difficulty": "Intermediate",
+  "impact": "High",
+  "publishDate": "2025-08-19",
+  "author": "Khaled Alabsi",
+  "featured": true,
+  "order": 3
+}

@@ -1,0 +1,18 @@
+{
+  "id": "data-automation",
+  "title": "Manual Data Entry Eating Your Time?",
+  "description": "Picture automating repetitive data entry tasks, eliminating human errors, and freeing your team to focus on strategic work that grows your business.",
+  "shortDescription": "Automate data entry processes and eliminate repetitive manual work.",
+  "benefits": ["Save 80% time", "Zero errors", "Focus on growth", "Happy employees"],
+  "icon": "⚡",
+  "actionText": "Automate Your Processes",
+  "category": "Process Automation",
+  "tags": ["automation", "data-entry", "productivity", "efficiency"],
+  "readTime": "4 min read",
+  "difficulty": "Intermediate",
+  "impact": "High",
+  "publishDate": "2025-08-19",
+  "author": "Khaled Alabsi",
+  "featured": true,
+  "order": 2
+}

@@ -1,141 +1,167 @@
 'use client';
 
-import React from 'react';
+import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
+import { loadFeaturedArticles, FeaturedArticle, FeaturedArticlesData } from '../lib/staticFeaturedArticles';
+import { loadContent } from '../lib/contentLoader';
+import { SupportedLanguage } from '../lib/languages';
+import ArticleOverlay from './ArticleOverlay';
 
 interface InspirationProps {
-  content: any;
+  locale: string;
 }
 
-const Inspiration = ({ content }: InspirationProps) => {
-  if (!content) {
-    return null;
-  }
+export default function Inspiration({ locale }: InspirationProps) {
+  const [isLoading, setIsLoading] = useState(true);
+  const [featuredArticles, setFeaturedArticles] = useState<FeaturedArticle[]>([]);
+  const [selectedArticle, setSelectedArticle] = useState<FeaturedArticle | null>(null);
+  const [isOverlayOpen, setIsOverlayOpen] = useState(false);
+  
+  // Get text based on locale
+  const text = loadContent(locale as SupportedLanguage);
 
-  const handleActionClick = (actionText: string) => {
-    // Scroll to contact section
-    const contactSection = document.querySelector('#contact');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
-    }
+  useEffect(() => {
+    const loadArticles = async () => {
+      try {
+        setIsLoading(true);
+        const articlesData = await loadFeaturedArticles();
+        setFeaturedArticles(articlesData.featuredArticles);
+      } catch (error) {
+        console.error('Error loading featured articles:', error);
+        // Fallback to legacy scenarios if available
+        if (text.inspiration?.scenarios) {
+          const legacyScenarios = text.inspiration.scenarios.map((scenario: any, index: number) => ({
+            id: `legacy-${index}`,
+            title: scenario.title,
+            description: scenario.description,
+            shortDescription: scenario.description,
+            benefits: [],
+            icon: '',
+            actionText: 'Read More',
+            category: 'Legacy',
+            tags: scenario.tags || [],
+            readTime: '5 min',
+            difficulty: 'Intermediate',
+            impact: 'Medium',
+            publishDate: new Date().toISOString(),
+            author: 'Khaled Alabsi',
+            featured: true,
+            order: index,
+            htmlContent: `<div class="article-content">
+              <h1>${scenario.title}</h1>
+              <p>${scenario.description}</p>
+            </div>`
+          }));
+          setFeaturedArticles(legacyScenarios);
+        }
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    loadArticles();
+  }, [text]);
+
+  const handleArticleClick = (article: FeaturedArticle) => {
+    setSelectedArticle(article);
+    setIsOverlayOpen(true);
   };
 
+  const closeOverlay = () => {
+    setSelectedArticle(null);
+    setIsOverlayOpen(false);
+  };
+
+  if (isLoading) {
+    return (
+      <section id="inspiration" className="py-20 bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+              {text.inspiration?.title || 'Loading...'}
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[1, 2, 3, 4, 5, 6].map((i) => (
+              <div key={i} className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg animate-pulse">
+                <div className="h-4 bg-gray-300 dark:bg-gray-600 rounded mb-3"></div>
+                <div className="h-3 bg-gray-300 dark:bg-gray-600 rounded mb-2"></div>
+                <div className="h-3 bg-gray-300 dark:bg-gray-600 rounded w-3/4"></div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
-    <section id="inspiration" className="py-20" style={{ background: 'var(--background)' }}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h2 id="inspiration-title" className="text-4xl font-bold mb-4 gradient-text">
-            {content.title}
-          </h2>
-          <p id="inspiration-subtitle" className="text-xl text-theme-secondary mb-4">
-            {content.subtitle}
-          </p>
-          <p id="inspiration-description" className="text-lg text-theme-secondary max-w-3xl mx-auto leading-relaxed">
-            {content.description}
-          </p>
-        </div>
+    <>
+      <section id="inspiration" className="py-20 bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+              {text.inspiration?.title || 'Featured Articles'}
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+              {text.inspiration?.subtitle || 'Discover insights and solutions that drive innovation.'}
+            </p>
+          </div>
 
-        {/* Scenarios Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {content.scenarios.map((scenario: any, index: number) => (
-            <div
-              key={index}
-              id={`inspiration-scenario-${index}`}
-              className="glass p-6 rounded-2xl hover:scale-[1.02] transition-all duration-300 group"
-            >
-              {/* Icon */}
-              <div className="text-4xl mb-4 group-hover:animate-bounce">
-                {scenario.icon}
-              </div>
-
-              {/* Title */}
-              <h3 className="text-xl font-bold mb-3" style={{ color: 'var(--text)' }}>
-                {scenario.title}
-              </h3>
-
-              {/* Description */}
-              <p className="text-theme-secondary mb-4 leading-relaxed">
-                {scenario.description}
-              </p>
-
-              {/* Benefits */}
-              <div className="mb-6">
-                <ul className="space-y-2">
-                  {scenario.benefits.map((benefit: string, benefitIndex: number) => (
-                    <li key={benefitIndex} className="flex items-center text-sm">
-                      <div 
-                        className="w-2 h-2 rounded-full mr-3 flex-shrink-0"
-                        style={{ backgroundColor: 'var(--accent)' }}
-                      />
-                      <span className="text-theme-secondary">{benefit}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Action Button */}
-              <button
-                onClick={() => handleActionClick(scenario.actionText)}
-                className="w-full btn-primary text-sm py-3 rounded-xl transition-all duration-300 hover:shadow-lg"
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {featuredArticles.map((article, index) => (
+              <motion.div
+                key={article.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 group cursor-pointer"
+                onClick={() => handleArticleClick(article)}
               >
-                {scenario.actionText}
-              </button>
-            </div>
-          ))}
-        </div>
-
-        {/* Stats Section */}
-        {content.stats && (
-          <div className="glass p-8 rounded-2xl mb-12">
-            <h3 id="inspiration-stats-title" className="text-2xl font-bold text-center mb-8" style={{ color: 'var(--text)' }}>
-              {content.stats.title}
-            </h3>
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-              {content.stats.items.map((stat: any, index: number) => (
-                <div key={index} className="text-center">
-                  <div className="text-3xl lg:text-4xl font-bold mb-2 gradient-text">
-                    {stat.number}
-                  </div>
-                  <div className="text-sm text-theme-secondary leading-tight">
-                    {stat.description}
-                  </div>
+                <div className="flex justify-between items-start mb-4">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                    {article.title}
+                  </h3>
+                  <ArrowRight className="w-5 h-5 text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors transform group-hover:translate-x-1" />
                 </div>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* CTA Section */}
-        <div className="text-center glass p-8 rounded-2xl">
-          <h3 id="inspiration-cta-title" className="text-2xl font-bold mb-4" style={{ color: 'var(--text)' }}>
-            {content.cta.title}
-          </h3>
-          <p id="inspiration-cta-description" className="text-theme-secondary mb-6 max-w-2xl mx-auto leading-relaxed">
-            {content.cta.description}
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button
-              onClick={() => handleActionClick(content.cta.primaryButton)}
-              className="btn-primary px-8 py-4 text-lg rounded-xl inline-block text-center touch-manipulation"
-            >
-              {content.cta.primaryButton}
-            </button>
-            <button
-              onClick={() => handleActionClick(content.cta.secondaryButton)}
-              className="px-8 py-4 text-lg rounded-xl border-2 transition-all duration-300 hover:scale-105 touch-manipulation"
-              style={{ 
-                borderColor: 'var(--primary)', 
-                color: 'var(--primary)',
-                background: 'transparent'
-              }}
-            >
-              {content.cta.secondaryButton}
-            </button>
+                
+                {article.shortDescription && (
+                  <p className="text-sm font-medium text-blue-600 dark:text-blue-400 mb-2">
+                    {article.shortDescription}
+                  </p>
+                )}
+                
+                <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+                  {article.description}
+                </p>
+                
+                {article.tags && article.tags.length > 0 && (
+                  <div className="flex flex-wrap gap-2">
+                    {article.tags.map((tag, tagIndex) => (
+                      <span
+                        key={tagIndex}
+                        className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs rounded-full"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </motion.div>
+            ))}
           </div>
         </div>
-      </div>
-    </section>
-  );
-};
+      </section>
 
-export default Inspiration;
+      {selectedArticle && (
+        <ArticleOverlay
+          article={selectedArticle}
+          isOpen={isOverlayOpen}
+          onClose={closeOverlay}
+        />
+      )}
+    </>
+  );
+}

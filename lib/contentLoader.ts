@@ -45,7 +45,14 @@ export interface ContentData {
     title: string;
     subtitle: string;
     description: string;
-    scenarios: Array<{
+    scenarios?: Array<{
+      title: string;
+      description: string;
+      benefits: string[];
+      icon: string;
+      actionText: string;
+    }>;
+    featuredArticles?: Array<{
       title: string;
       description: string;
       benefits: string[];
